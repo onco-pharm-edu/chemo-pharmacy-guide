@@ -24,20 +24,8 @@ a.back{color:var(--teal-dark); text-decoration:none; font-weight:700; font-size:
 .tag{font-family:'Shippori Mincho',serif; font-weight:700; color:var(--teal-dark); background:var(--teal-tint); display:inline-block; padding:4px 12px; border-radius:6px; font-size:13px; margin:0 0 10px;}
 h1{font-family:'Shippori Mincho',serif; font-size:24px; font-weight:700; margin:0 0 6px; color:var(--ink);}
 .sub{font-size:14px; color:var(--ink-soft); margin:0;}
-.player{
-  position:relative; width:100%; aspect-ratio:16/9; margin:18px 0; border-radius:10px; overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,.18); background:linear-gradient(165deg, var(--teal-dark) 0%, var(--teal) 100%);
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; text-decoration:none; color:#fff;
-}
-.player:hover .playcircle{transform:scale(1.06);}
-.playcircle{
-  width:76px; height:76px; border-radius:50%; background:rgba(255,255,255,.16); border:1.5px solid rgba(255,255,255,.5);
-  display:flex; align-items:center; justify-content:center; transition:transform .15s ease;
-}
-.playcircle svg{width:28px; height:28px; fill:#fff; margin-left:3px;}
-.player .cta{font-size:15px; font-weight:700;}
-.player .hint{font-size:12.5px; color:rgba(255,255,255,.75);}
-.note{font-size:12.5px; color:var(--ink-faint); line-height:1.7;}
+.player-wrap{width:100%; margin:18px 0; border-radius:10px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.18); background:#000;}
+video{display:block; width:100%; height:auto; max-height:80vh;}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
@@ -48,8 +36,10 @@ h1{font-family:'Shippori Mincho',serif; font-size:24px; font-weight:700; margin:
     <h1>症例検討・総括編</h1>
     <p class="sub">3つの症例で全6回の学びを統合</p>
   </div>
-  <a class="player" href="https://drive.google.com/file/d/1BFYAiPnO-DF5uncx7QLYHTGe_cfY1ATG/preview" target="_blank" rel="noopener">
-    <div class="playcircle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-    <div class="cta">動画を再生する</div>
-  </a>
+  <div class="player-wrap">
+    <video controls playsinline preload="metadata">
+      <source src="round7.mp4" type="video/mp4">
+      お使いのブラウザは動画の再生に対応していません。
+    </video>
+  </div>
 </div>
