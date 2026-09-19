@@ -165,6 +165,16 @@ table.recordtable.rose th{background:var(--rose-tint); color:var(--rose);}
 }
 .flow-arrow svg{width:4mm; height:4mm;}
 
+.pdf-dl-btn{
+  position:fixed; top:14px; right:14px; z-index:50;
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--teal-dark); color:#fff; font-family:'Zen Kaku Gothic New',sans-serif; font-weight:700; font-size:12.5px;
+  text-decoration:none; border-radius:999px; padding:9px 16px 9px 14px; box-shadow:0 4px 14px rgba(0,0,0,.2);
+}
+.pdf-dl-btn svg{width:15px; height:15px;}
+.pdf-dl-btn:hover{background:var(--teal);}
+@media print{ .pdf-dl-btn{display:none;} }
+
 .cover{
   background:radial-gradient(circle at 50% 38%, #0F5F5F 0%, var(--teal-dark) 62%);
   margin:-14mm -14mm 0; padding:0; height:297mm; display:flex; flex-direction:column;
@@ -195,7 +205,10 @@ table.recordtable.rose th{background:var(--rose-tint); color:var(--rose);}
 .small-note{font-size:8.6pt; color:var(--ink-faint); margin:1.5mm 0 0; line-height:1.4;}
 </style>
 </head><body>
-<div class="page">
+<a class="pdf-dl-btn" href="patient_booklet.pdf" download title="PDFをダウンロード">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-4-4l4 4 4-4"/><path d="M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
+    PDFをダウンロード
+  </a><div class="page">
   <div class="cover">
     <div class="cring"><svg class="cicon" viewBox="0 0 24 24" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C12 21 4 14.4 4 9.4C4 6.4 6.4 4 9.4 4C10.9 4 12 4.9 12 6.5C12 4.9 13.1 4 14.6 4C17.6 4 20 6.4 20 9.4C20 14.4 12 21 12 21Z"/></svg></div>
     <h1>心血管ケアノート</h1>

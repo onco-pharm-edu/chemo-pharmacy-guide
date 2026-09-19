@@ -164,9 +164,22 @@ table.recordtable.rose th{background:var(--rose-tint); color:var(--rose);}
   color:var(--ink-faint);
 }
 .flow-arrow svg{width:4mm; height:4mm;}
+
+.pdf-dl-btn{
+  position:fixed; top:14px; right:14px; z-index:50;
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--teal-dark); color:#fff; font-family:'Zen Kaku Gothic New',sans-serif; font-weight:700; font-size:12.5px;
+  text-decoration:none; border-radius:999px; padding:9px 16px 9px 14px; box-shadow:0 4px 14px rgba(0,0,0,.2);
+}
+.pdf-dl-btn svg{width:15px; height:15px;}
+.pdf-dl-btn:hover{background:var(--teal);}
+@media print{ .pdf-dl-btn{display:none;} }
 </style>
 </head><body>
-<div class="page">
+<a class="pdf-dl-btn" href="phase1_pre_treatment.pdf" download title="PDFをダウンロード">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-4-4l4 4 4-4"/><path d="M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
+    PDFをダウンロード
+  </a><div class="page">
   <div class="header">
     <div class="badge">1</div>
     <div class="htext">
@@ -178,7 +191,7 @@ table.recordtable.rose th{background:var(--rose-tint); color:var(--rose);}
 
   <div class="section">
     <div class="sec-title"><div class="num">1</div><h2>確認すべきリスク因子</h2></div>
-    <div class="icon-row"><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="M8 13h2M14 13h2M8 17h2M14 17h2"/></svg><p>年齢(65〜79歳は中等度、80歳以上は高リスクの一因)</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-10-9.1C.5 8.3 2.3 5 5.7 5c2 0 3.4 1.1 4.3 2.4C10.9 6.1 12.3 5 14.3 5c3.4 0 5.2 3.3 3.7 6.9C19.5 16.4 12 21 12 21z"/></svg><p>既存の心疾患(心不全・虚血性心疾患・弁膜症など)</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18a8 8 0 0 1 16 0"/><path d="M12 18l4-5"/><circle cx="12" cy="18" r="1.2" fill="currentColor" stroke="none"/></svg><p>高血圧・糖尿病(コントロール状況を含めて)</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 4a8 8 0 0 1 6.9 4"/><path d="M18.9 16a8 8 0 0 1-6.9 4"/><path d="M5.1 16a8 8 0 0 1 0-8"/></svg><p>放射線治療歴(特に心臓を含む胸部への照射)</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="3"/><path d="M12 9v6"/></svg><p>心毒性のある治療歴(アントラサイクリン・トラスツズマブ等)</p></div></div>
+    <div class="icon-row"><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="M8 13h2M14 13h2M8 17h2M14 17h2"/></svg><p>年齢(65〜79歳は中等度、80歳以上は高リスクの一因)</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C12 21 4 14.4 4 9.4C4 6.4 6.4 4 9.4 4C10.9 4 12 4.9 12 6.5C12 4.9 13.1 4 14.6 4C17.6 4 20 6.4 20 9.4C20 14.4 12 21 12 21Z"/></svg><p>既存の心疾患(心不全・虚血性心疾患・弁膜症など)</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18a8 8 0 0 1 16 0"/><path d="M12 18l4-5"/><circle cx="12" cy="18" r="1.2" fill="currentColor" stroke="none"/></svg><p>高血圧・糖尿病(コントロール状況を含めて)</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 4a8 8 0 0 1 6.9 4"/><path d="M18.9 16a8 8 0 0 1-6.9 4"/><path d="M5.1 16a8 8 0 0 1 0-8"/></svg><p>放射線治療歴(特に心臓を含む胸部への照射)</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="3"/><path d="M12 9v6"/></svg><p>心毒性のある治療歴(アントラサイクリン・トラスツズマブ等)</p></div></div>
   </div>
 
   <div class="section">

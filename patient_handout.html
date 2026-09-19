@@ -10,6 +10,7 @@
   --ink:#17262B; --ink-soft:#4B5D61; --ink-faint:#8A9A9C;
   --teal-dark:#084F4F; --teal:#0B6E6E; --teal-tint:#E3F1EF; --teal-tint-line:#BFE3E0;
   --terracotta:#C1543A; --terracotta-tint:#F5E3DD; --terracotta-mid:#E9B99E;
+  --rose:#B5567A; --rose-tint:#F6E4EC; --rose-line:#E9B9CC;
   --line:#DCE3E1;
 }
 *{box-sizing:border-box;}
@@ -91,6 +92,7 @@ table.risktable td.desc{background:var(--surface); border:0.75pt solid var(--lin
   font-weight:700; color:var(--terracotta); line-height:1.42;
 }
 .callout.dark{background:var(--teal-dark); color:#fff;}
+.callout.hero{padding:6mm 6.5mm;}
 
 .gauge{width:100%; margin:2.5mm 0 1.25mm;}
 .gauge-seg{height:9.5mm; display:flex; border-radius:1.75mm; overflow:hidden;}
@@ -112,6 +114,67 @@ table.risktable td.desc{background:var(--surface); border:0.75pt solid var(--lin
   padding-top:2.25mm; font-size:7.8pt; color:var(--ink-faint);
 }
 
+.card{
+  background:var(--surface); border-radius:2.5mm; padding:4mm 4.5mm;
+  box-shadow:0 1.5pt 5pt rgba(23,38,43,0.07); border:0.75pt solid var(--line);
+}
+
+.fillbadge{
+  display:inline-flex; align-items:center; gap:1.5mm; font-size:8pt; font-weight:700;
+  padding:1mm 2.6mm; border-radius:999px; margin-left:2.5mm; white-space:nowrap;
+}
+.fillbadge::before{content:""; width:2mm; height:2mm; border-radius:50%; background:currentColor; display:inline-block;}
+.fillbadge.staff{background:var(--teal-tint); color:var(--teal-dark);}
+.fillbadge.patient{background:var(--rose-tint); color:var(--rose);}
+.fillkey{display:flex; gap:5mm; font-size:8.6pt; color:var(--ink-soft); margin:0 0 5mm;}
+.fillkey span{display:inline-flex; align-items:center; gap:1.8mm;}
+.fillkey .dot{width:2.6mm; height:2.6mm; border-radius:50%; display:inline-block;}
+
+table.profiletable{width:100%; border-collapse:collapse; font-size:10.5pt; margin:2mm 0;}
+table.profiletable td{border-bottom:0.75pt solid var(--line); padding:3.2mm 2mm;}
+table.profiletable td.plabel{width:32mm; color:var(--ink-soft); font-weight:700; white-space:nowrap;}
+table.profiletable td.pfill{border-bottom:0.75pt solid var(--ink-faint);}
+table.profiletable.rose td.pfill{border-bottom:0.75pt solid var(--rose-line);}
+
+table.recordtable{width:100%; border-collapse:collapse; font-size:9.3pt; margin:2mm 0;}
+table.recordtable th{background:var(--teal-tint); color:var(--teal-dark); font-weight:700; padding:2.2mm 2mm; border:0.75pt solid var(--line);}
+table.recordtable td{border:0.75pt solid var(--line); height:8mm; padding:1.5mm 2mm;}
+table.recordtable.rose th{background:var(--rose-tint); color:var(--rose);}
+
+.yn-row{display:flex; align-items:center; gap:4mm; padding:2.2mm 0; border-bottom:0.5pt solid var(--line); font-size:10.3pt;}
+.yn-label{flex:1; color:var(--ink);}
+.yn-note{display:block; font-size:8.3pt; color:var(--ink-faint); font-weight:400;}
+.yn-box{display:flex; align-items:center; gap:1.3mm; flex:none; color:var(--ink-soft); font-size:9.5pt;}
+.yn-check{width:3.4mm; height:3.4mm; border:1.5pt solid var(--ink-faint); border-radius:0.7mm; display:inline-block;}
+
+.flow{display:flex; gap:3.5mm; align-items:stretch;}
+.flow-step{
+  flex:1; color:#fff; border-radius:2.5mm; padding:4mm 4mm; position:relative;
+  box-shadow:0 1.5pt 5pt rgba(23,38,43,0.12);
+}
+.flow-step .fnum{
+  display:inline-flex; align-items:center; justify-content:center; width:6mm; height:6mm;
+  border-radius:50%; background:rgba(255,255,255,.22); font-family:'Shippori Mincho',serif;
+  font-weight:700; font-size:9.5pt; margin-bottom:2mm;
+}
+.flow-step h4{margin:0 0 1.5mm; font-size:11.3pt; font-weight:700; color:#fff;}
+.flow-step p{margin:0; font-size:9pt; color:rgba(255,255,255,.92); line-height:1.42;}
+.flow-arrow{
+  flex:none; width:4mm; align-self:center; display:flex; align-items:center; justify-content:center;
+  color:var(--ink-faint);
+}
+.flow-arrow svg{width:4mm; height:4mm;}
+
+.pdf-dl-btn{
+  position:fixed; top:14px; right:14px; z-index:50;
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--teal-dark); color:#fff; font-family:'Zen Kaku Gothic New',sans-serif; font-weight:700; font-size:12.5px;
+  text-decoration:none; border-radius:999px; padding:9px 16px 9px 14px; box-shadow:0 4px 14px rgba(0,0,0,.2);
+}
+.pdf-dl-btn svg{width:15px; height:15px;}
+.pdf-dl-btn:hover{background:var(--teal);}
+@media print{ .pdf-dl-btn{display:none;} }
+
 .p-intro{font-size:11pt; color:var(--ink-soft); line-height:1.6; margin:0 0 6mm;}
 .p-band{border-radius:3mm; padding:5mm 6mm; margin:0 0 5mm;}
 .p-band .phead{display:flex; align-items:center; gap:3.5mm; margin:0 0 3mm;}
@@ -124,7 +187,10 @@ table.risktable td.desc{background:var(--surface); border:0.75pt solid var(--lin
 .p-band li.arrow::before{content:none;}
 </style>
 </head><body>
-<div class="page">
+<a class="pdf-dl-btn" href="patient_handout.pdf" download title="PDFをダウンロード">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-4-4l4 4 4-4"/><path d="M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
+    PDFをダウンロード
+  </a><div class="page">
   <div class="header" style="margin-bottom:6mm;">
     <div class="htext">
       <h1 style="font-size:22pt;">がん治療と心臓の健康について</h1>
