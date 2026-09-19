@@ -1,0 +1,45 @@
+<title>第3回 動画</title>
+<style>
+:root{
+  --paper:#F5F7F6; --surface:#FFFFFF;
+  --ink:#17262B; --ink-soft:#4B5D61; --ink-faint:#8A9A9C;
+  --teal-dark:#084F4F; --teal:#0B6E6E; --teal-tint:#E3F1EF; --teal-line:#BFE3E0;
+  --line:#DCE3E1;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0D1917; --surface:#153230; --ink:#EAF3F1; --ink-soft:#A9C4C0; --ink-faint:#6F908B;
+    --teal-dark:#BFEAE4; --teal:#4FC3B8; --teal-tint:#1B3E3A; --teal-line:#2E5951; --line:#274541;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0D1917; --surface:#153230; --ink:#EAF3F1; --ink-soft:#A9C4C0; --ink-faint:#6F908B;
+  --teal-dark:#BFEAE4; --teal:#4FC3B8; --teal-tint:#1B3E3A; --teal-line:#2E5951; --line:#274541;
+}
+*{box-sizing:border-box;}
+body{margin:0; background:var(--paper); color:var(--ink); font-family:'Zen Kaku Gothic New','Hiragino Sans',sans-serif;}
+.wrap{max-width:900px; margin:0 auto; padding:24px 20px 60px;}
+a.back{color:var(--teal-dark); text-decoration:none; font-weight:700; font-size:13.5px; display:inline-flex; align-items:center; gap:4px;}
+.head{margin:22px 0 16px;}
+.tag{font-family:'Shippori Mincho',serif; font-weight:700; color:var(--teal-dark); background:var(--teal-tint); display:inline-block; padding:4px 12px; border-radius:6px; font-size:13px; margin:0 0 10px;}
+h1{font-family:'Shippori Mincho',serif; font-size:24px; font-weight:700; margin:0 0 6px; color:var(--ink);}
+.sub{font-size:14px; color:var(--ink-soft); margin:0;}
+.player-wrap{width:100%; margin:18px 0; border-radius:10px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.18); background:#000;}
+video{display:block; width:100%; height:auto; max-height:80vh;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<div class="wrap">
+  <a class="back" href="index.html">← 一覧に戻る</a>
+  <div class="head">
+    <div class="tag">第3回</div>
+    <h1>心毒性各論② 分子標的薬・免疫療法</h1>
+    <p class="sub">抗HER2療法・血管新生阻害薬・ICI</p>
+  </div>
+  <div class="player-wrap">
+    <video controls playsinline preload="metadata">
+      <source src="round3.mp4" type="video/mp4">
+      お使いのブラウザは動画の再生に対応していません。
+    </video>
+  </div>
+</div>
