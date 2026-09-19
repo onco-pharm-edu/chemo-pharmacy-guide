@@ -1,0 +1,377 @@
+<title>オンコカーディオロジー研修シリーズ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#F4F7FB; --surface:#FFFFFF; --surface-2:#EAF0F8;
+  --ink:#132238; --ink-soft:#4C5C74; --ink-faint:#8B96A8;
+  --navy-dark:#0F2A4A; --navy:#2C5B8C; --navy-tint:#E4ECF6; --navy-line:#C7D6E8;
+  --amber:#B8862E; --amber-tint:#FBF0DE; --amber-line:#E8C88A;
+  --line:#D7E1EC;
+  --hero-a:#0B2038; --hero-b:#26517E; --amber-solid:#B8862E;
+  --shadow: 0 1px 2px rgba(15,42,74,.05), 0 6px 20px rgba(15,42,74,.07);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0A1526; --surface:#122236; --surface-2:#172B44;
+    --ink:#EDF1F8; --ink-soft:#A8B6CC; --ink-faint:#6C7B93;
+    --navy-dark:#AFCBEC; --navy:#6FA0D6; --navy-tint:#17293F; --navy-line:#2C4A6D;
+    --amber:#E0B15C; --amber-tint:#332811; --amber-line:#5C4726;
+    --line:#22344C;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 28px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0A1526; --surface:#122236; --surface-2:#172B44;
+  --ink:#EDF1F8; --ink-soft:#A8B6CC; --ink-faint:#6C7B93;
+  --navy-dark:#AFCBEC; --navy:#6FA0D6; --navy-tint:#17293F; --navy-line:#2C4A6D;
+  --amber:#E0B15C; --amber-tint:#332811; --amber-line:#5C4726;
+  --line:#22344C;
+  --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 28px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:'Zen Kaku Gothic New','Hiragino Sans',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:920px; margin:0 auto; padding:0 20px 64px;}
+a{color:inherit;}
+h1,h2,h3{font-family:'Shippori Mincho',serif; text-wrap:balance; margin:0;}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative; overflow:hidden;
+  background:linear-gradient(165deg, var(--hero-a) 0%, var(--hero-b) 100%);
+  color:#fff; margin:0 0 40px; padding:48px 20px 40px;
+}
+.hero::before, .hero::after{
+  content:""; position:absolute; border-radius:50%; border:1px solid rgba(255,255,255,.12); pointer-events:none;
+}
+.hero::before{width:420px; height:420px; right:-160px; top:-180px;}
+.hero::after{width:280px; height:280px; right:-40px; top:60px; border-color:rgba(184,134,46,.28);}
+.hero-inner{position:relative; max-width:920px; margin:0 auto; padding:0 20px;}
+.eyebrow{
+  font-size:12.5px; letter-spacing:.14em; font-weight:700; text-transform:uppercase;
+  opacity:.85; margin:0 0 14px;
+}
+.hero h1{font-size:clamp(26px,4.4vw,38px); line-height:1.35; font-weight:700; margin:0 0 14px;}
+.hero p{font-size:15.5px; line-height:1.8; max-width:62ch; opacity:.94; margin:0 0 26px;}
+.stat-row{display:flex; flex-wrap:wrap; gap:10px;}
+.stat-chip{
+  background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.28);
+  border-radius:999px; padding:7px 16px; font-size:13.5px; font-weight:500;
+}
+.stat-chip b{font-family:'Shippori Mincho',serif; font-weight:700; margin-right:2px;}
+
+/* ---------- section headers ---------- */
+.section-head{margin:0 0 20px;}
+.section-head h2{font-size:21px; color:var(--navy-dark); font-weight:700; margin:0 0 6px;}
+.section-head p{font-size:13.5px; color:var(--ink-soft); margin:0; line-height:1.7;}
+section{margin:0 0 48px;}
+
+/* ---------- round list ---------- */
+.round-list{display:flex; flex-direction:column; gap:14px;}
+.round-card{
+  display:grid; grid-template-columns:78px 1fr auto; gap:20px; align-items:start;
+  background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--navy-line); border-radius:14px;
+  padding:22px 24px; box-shadow:var(--shadow); transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.round-card:hover{transform:translateY(-2px); box-shadow:0 4px 10px rgba(15,42,74,.08), 0 14px 32px rgba(15,42,74,.12); border-left-color:var(--amber);}
+.round-num{
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
+  background:var(--navy-tint); border-radius:12px; padding:12px 4px; text-align:center;
+}
+.round-num .icon{width:26px; height:26px; color:var(--navy-dark);}
+.round-num .icon svg{width:100%; height:100%;}
+.round-num .no{font-family:'Shippori Mincho',serif; font-weight:700; font-size:13.5px; color:var(--navy-dark); line-height:1.1;}
+.round-body h3{font-size:17px; color:var(--ink); font-weight:700; margin:0 0 2px;}
+.round-body .sub{font-size:13px; color:var(--ink-soft); margin:0 0 12px;}
+.round-points{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px;}
+.round-points li{
+  position:relative; padding-left:14px; font-size:13px; line-height:1.6; color:var(--ink-soft);
+}
+.round-points li::before{content:""; position:absolute; left:0; top:.6em; width:5px; height:5px; border-radius:50%; background:var(--amber);}
+.round-links{display:flex; flex-direction:column; gap:8px; align-self:center;}
+.round-link{
+  white-space:nowrap; font-size:13.5px; font-weight:700; color:var(--navy-dark);
+  text-decoration:none; border:1.5px solid var(--navy-line); border-radius:999px; padding:9px 18px;
+  display:inline-flex; align-items:center; gap:6px; transition:background .15s ease;
+}
+.round-link:hover{background:var(--navy-tint);}
+.round-link svg{width:14px; height:14px; flex:none;}
+.round-link.video{color:var(--amber); border-color:var(--amber-line); background:var(--amber-tint);}
+.round-link.video:hover{background:var(--amber-tint); opacity:.85;}
+
+/* ---------- phase flow ---------- */
+.phase-flow{display:flex; align-items:stretch; gap:0;}
+.phase-card{
+  flex:1; min-width:0; background:var(--surface); border:1px solid var(--line); border-radius:16px;
+  padding:26px 20px 22px; text-align:center; text-decoration:none; color:var(--ink);
+  display:flex; flex-direction:column; align-items:center;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.phase-card:hover{transform:translateY(-3px); box-shadow:var(--shadow);}
+.phase-icon{
+  width:52px; height:52px; border-radius:50%; background:var(--navy-tint); color:var(--navy-dark);
+  border:1px solid var(--navy-line); display:flex; align-items:center; justify-content:center; margin:0 0 14px; flex:none;
+}
+.phase-icon svg{width:24px; height:24px;}
+.phase-tag{font-size:11px; color:var(--amber); font-weight:700; letter-spacing:.08em; margin:0 0 6px; text-transform:uppercase;}
+.phase-card h3{font-size:16px; color:var(--navy-dark); margin:0 0 8px;}
+.phase-card .desc{font-size:12.5px; color:var(--ink-soft); line-height:1.65; margin:0 0 16px;}
+.phase-card .go{font-size:12px; font-weight:700; color:var(--navy-dark); margin-top:auto;}
+.phase-arrow{flex:none; width:32px; align-self:center; display:flex; align-items:center; justify-content:center; color:var(--navy-line);}
+.phase-arrow svg{width:20px; height:20px;}
+
+/* ---------- patient card ---------- */
+.patient-card{
+  display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:20px;
+  background:var(--amber-tint); border:1px solid var(--amber-line); border-radius:14px;
+  padding:26px 26px;
+}
+.patient-card .picon{width:34px; height:34px; color:var(--amber); flex:none;}
+.patient-card .picon svg{width:100%; height:100%;}
+.patient-card h3{font-size:18px; color:var(--amber); margin:0 0 8px;}
+.patient-card p{font-size:13.5px; color:var(--ink-soft); line-height:1.7; margin:0; max-width:56ch;}
+.patient-link{
+  white-space:nowrap; font-size:13.5px; font-weight:700; color:#fff; background:var(--amber-solid);
+  text-decoration:none; border-radius:999px; padding:11px 22px; display:inline-flex; align-items:center; gap:6px;
+}
+.patient-link svg{width:14px; height:14px;}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color:var(--ink-faint); line-height:1.8;}
+
+@media (max-width:720px){
+  .round-card{grid-template-columns:60px 1fr; }
+  .round-links{grid-column:1 / -1; flex-direction:row; flex-wrap:wrap; justify-self:start; margin-top:4px;}
+  .round-num{padding:10px 2px;}
+  .round-num .icon{width:22px; height:22px;}
+  .phase-flow{flex-direction:column; gap:14px;}
+  .phase-arrow{display:none;}
+  .patient-card{grid-template-columns:1fr; text-align:left;}
+  .patient-card .picon{display:none;}
+  .patient-link{justify-self:start;}
+}
+</style>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">地域医療連携・オンライン研修</p>
+    <h1>腫瘍循環器学(オンコカーディオロジー)<br>研修シリーズ</h1>
+    <p>がん治療に伴う心臓・血管への影響について、他医療機関の医師・薬剤師など医療従事者向けにお届けする研修プログラムです。各回の要点資料と、調剤の現場で使える実践ガイドをこのページにまとめています。</p>
+    <div class="stat-row">
+      <span class="stat-chip"><b>全7回</b>シリーズ</span>
+      <span class="stat-chip"><b>約10分</b> / 回</span>
+      <span class="stat-chip">開催形式:<b>オンライン</b></span>
+      <span class="stat-chip">ESC 2022 <b>Cardio-Oncology</b>ガイドライン準拠</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <div class="section-head">
+      <h2>各回の要点まとめ</h2>
+      <p>総論から症例検討まで、全7回の構成です。タイトルをクリックすると、その回の要点をまとめた資料(A4・印刷対応)を開きます。</p>
+    </div>
+    <div class="round-list">
+
+      <div class="round-card">
+        <div class="round-num">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.8 9.2l-2.1 5.6-5.6 2.1 2.1-5.6z"/></svg></span>
+          <span class="no">第1回</span>
+        </div>
+        <div class="round-body">
+          <h3>総論・導入編</h3>
+          <p class="sub">Onco-cardiologyとは何か</p>
+          <ul class="round-points">
+            <li>オンコカーディオロジー = 腫瘍学 × 循環器学の学際領域</li>
+            <li>CTR-CVT(心血管毒性全般)と CTRCD(心機能障害の限定用語)の違い</li>
+            <li>原因治療は4分類:細胞障害性抗がん薬・分子標的薬・免疫療法・放射線療法</li>
+            <li>国内外ガイドライン:ESC(2022)・ASCO(2017)・IC-OS・日本合同GL(2023)</li>
+          </ul>
+        </div>
+        <div class="round-links">
+          <a class="round-link" href="round1_summary.html">要点まとめを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="round-link video" href="round1_video.html">▶ 動画を見る</a>
+        </div>
+      </div>
+
+      <div class="round-card">
+        <div class="round-num">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.6" y="9.6" width="14.8" height="6.4" rx="3.2" transform="rotate(-45 12 12)"/><line x1="9.5" y1="9.5" x2="14.5" y2="14.5"/></svg></span>
+          <span class="no">第2回</span>
+        </div>
+        <div class="round-body">
+          <h3>心毒性各論① 細胞障害性抗がん薬</h3>
+          <p class="sub">アントラサイクリン系を中心に</p>
+          <ul class="round-points">
+            <li>心毒性の分類:急性・慢性(1年以内)・遅発性(1年以降)</li>
+            <li>アントラサイクリン系 = 不可逆性の高いType I心毒性</li>
+            <li>用量依存性:ドキソルビシン換算250mg/m²で中リスク、400mg/m²で高リスク</li>
+            <li>換算(ESC2022):エピルビシン×0.8 / ミトキサントロン×10.5 / イダルビシン×5</li>
+          </ul>
+        </div>
+        <div class="round-links">
+          <a class="round-link" href="round2_summary.html">要点まとめを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="round-link video" href="round2_video.html">▶ 動画を見る</a>
+        </div>
+      </div>
+
+      <div class="round-card">
+        <div class="round-num">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2l6.5 2.6v5.6c0 4.6-3.1 7.4-6.5 8.4-3.4-1-6.5-3.8-6.5-8.4V5.8z"/><path d="M9 12l2 2 4-4.2"/></svg></span>
+          <span class="no">第3回</span>
+        </div>
+        <div class="round-body">
+          <h3>心毒性各論② 分子標的薬・免疫療法</h3>
+          <p class="sub">抗HER2療法・血管新生阻害薬・ICI</p>
+          <ul class="round-points">
+            <li>抗HER2療法(トラスツズマブ等)= 可逆性の高いType II心毒性</li>
+            <li>血管新生阻害薬・TKI = 高血圧・血栓症・QT延長</li>
+            <li>ICI(ニボルマブ等)= irAEとしての心筋炎、頻度1%未満だが致死率が高い</li>
+            <li>診断:トロポニン上昇+基準。劇症型/非劇症型で重症度を評価</li>
+          </ul>
+        </div>
+        <div class="round-links">
+          <a class="round-link" href="round3_summary.html">要点まとめを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+      <div class="round-card">
+        <div class="round-num">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 7 4-14 2 7h6"/></svg></span>
+          <span class="no">第4回</span>
+        </div>
+        <div class="round-body">
+          <h3>リスク評価とモニタリング</h3>
+          <p class="sub">治療前から治療中までを時系列で</p>
+          <ul class="round-points">
+            <li>HFA-ICOSリスク評価(ESC2022):低・中(2〜4点)・高(5点以上)・非常に高の4段階</li>
+            <li>心エコー:LVEFに加えGLSでより早期の低下を検出</li>
+            <li>バイオマーカー基準値:トロポニン(hs-cTnT&gt;14ng/L等)、NT-proBNP≥125pg/mL、BNP≥35pg/mL</li>
+          </ul>
+        </div>
+        <div class="round-links">
+          <a class="round-link" href="round4_summary.html">要点まとめを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="round-link video" href="round4_video.html">▶ 動画を見る</a>
+        </div>
+      </div>
+
+      <div class="round-card">
+        <div class="round-num">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14a7 7 0 0014 0"/><path d="M3.6 14h16.8"/><path d="M12 3v6.2"/><circle cx="12" cy="3" r="1.3" fill="currentColor" stroke="none"/></svg></span>
+          <span class="no">第5回</span>
+        </div>
+        <div class="round-body">
+          <h3>薬剤師の実践的関わり方</h3>
+          <p class="sub">処方時から施設間連携まで</p>
+          <ul class="round-points">
+            <li>4つの場面:処方時・調剤時・服薬指導・フォローアップ</li>
+            <li>処方監査:累積投与量、QT延長併用薬、腎機能に応じた補正</li>
+            <li>疑義照会は「確認・提案」の姿勢:累積投与量の上限接近、予防的薬剤の未使用 等</li>
+          </ul>
+        </div>
+        <div class="round-links">
+          <a class="round-link" href="round5_summary.html">要点まとめを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="round-link video" href="round5_video.html">▶ 動画を見る</a>
+        </div>
+      </div>
+
+      <div class="round-card">
+        <div class="round-num">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17"/><path d="M8 3v4M16 3v4"/><path d="M12 16.8l-2.1-2a1.45 1.45 0 112.1-1.9 1.45 1.45 0 112.1 1.9z"/></svg></span>
+          <span class="no">第6回</span>
+        </div>
+        <div class="round-body">
+          <h3>治療後がんサバイバーシップ</h3>
+          <p class="sub">長期心血管フォローアップ</p>
+          <ul class="round-points">
+            <li>治療終了時評価(最終投与から12ヶ月以内)の高リスク条件を確認</li>
+            <li>長期フォロー:全サバイバー年1回評価、高リスクはTTEを1・3・5年後、以降5年ごと</li>
+            <li>見逃さない合併症:冠動脈疾患・末梢動脈疾患・脳卒中・不整脈</li>
+          </ul>
+        </div>
+        <div class="round-links">
+          <a class="round-link" href="round6_summary.html">要点まとめを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="round-link video" href="round6_video.html">▶ 動画を見る</a>
+        </div>
+      </div>
+
+      <div class="round-card">
+        <div class="round-num">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="4.5" width="13" height="16.5" rx="2"/><path d="M9 3.5h6v3H9z"/><path d="M8.5 11h7M8.5 14.2h7M8.5 17.4h4.5"/></svg></span>
+          <span class="no">第7回</span>
+        </div>
+        <div class="round-body">
+          <h3>症例検討・総括編</h3>
+          <p class="sub">3つの症例で全6回の学びを統合</p>
+          <ul class="round-points">
+            <li>症例①:アントラサイクリン+抗HER2併用 ― リスク重複とモニタリング計画</li>
+            <li>症例②:ICI投与後の心筋炎疑い ― 早期発見と迅速な連携</li>
+            <li>症例③:治療終了5年後のサバイバー ― 地域薬局での定期フォロー実践例</li>
+          </ul>
+        </div>
+        <div class="round-links">
+          <a class="round-link" href="round7_summary.html">要点まとめを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="round-link video" href="round7_video.html">▶ 動画を見る</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>実践ガイド(調剤薬局向け)</h2>
+      <p>治療前・治療中・治療後の3つの局面で、薬局の現場で確認したいポイントを1枚にまとめています。</p>
+    </div>
+    <div class="phase-flow">
+      <a class="phase-card" href="phase1_pre_treatment.html">
+        <span class="phase-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 3.2h9M7.5 20.8h9"/><path d="M8.5 3.2c0 4.3 3.5 5.3 3.5 8.8s-3.5 4.5-3.5 8.8M15.5 3.2c0 4.3-3.5 5.3-3.5 8.8s3.5 4.5 3.5 8.8"/></svg></span>
+        <p class="phase-tag">Phase 1 ・ 治療前</p>
+        <h3>治療前のポイント</h3>
+        <p class="desc">ベースラインリスクの確認と、検査基準値の押さえどころ。</p>
+        <span class="go">ガイドを見る →</span>
+      </a>
+      <span class="phase-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <a class="phase-card" href="phase2_during_treatment.html">
+        <span class="phase-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12.5h3.2l1.6 4.8L12 6l2.2 9.5h1.4l1.1-2.6 1.1 2.6h2.7"/></svg></span>
+        <p class="phase-tag">Phase 2 ・ 治療中</p>
+        <h3>治療中のポイント</h3>
+        <p class="desc">累積投与量のチェックとセルフモニタリング指導。</p>
+        <span class="go">ガイドを見る →</span>
+      </a>
+      <span class="phase-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <a class="phase-card" href="phase3_post_treatment.html">
+        <span class="phase-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17"/><path d="M8 3v4M16 3v4"/><path d="M9 14.5l2 2 4-4.3"/></svg></span>
+        <p class="phase-tag">Phase 3 ・ 治療後</p>
+        <h3>治療後のポイント</h3>
+        <p class="desc">治療終了時評価から長期フォローアップまで。</p>
+        <span class="go">ガイドを見る →</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>患者様向け配布資料</h2>
+    </div>
+    <div class="patient-card">
+      <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.2s-7.6-4.8-9.6-9.3A5.6 5.6 0 0112 5.6a5.6 5.6 0 019.6 5.3c-2 4.5-9.6 9.3-9.6 9.3z"/></svg></span>
+      <div>
+        <h3>心血管ケアノート</h3>
+        <p>治療の記録・検査結果・お薬の状況をご自身で記入いただける、患者さんお渡し用のノートです(全9ページ・A4印刷対応)。</p>
+      </div>
+      <a class="patient-link" href="patient_booklet.html">ノートを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>各回のスライド原本(PowerPoint)およびトーク原稿は、院内共有の形で別途提供しています。本ページは要点資料・実践ガイド・患者様向け配布資料のみを掲載しています。</p>
+  </footer>
+
+</div>

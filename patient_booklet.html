@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<title>心血管ケアノート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#F5F7F6; --surface:#FFFFFF; --surface-2:#EEF3F2;
+  --ink:#17262B; --ink-soft:#4B5D61; --ink-faint:#8A9A9C;
+  --teal-dark:#084F4F; --teal:#0B6E6E; --teal-tint:#E3F1EF; --teal-tint-line:#BFE3E0;
+  --terracotta:#C1543A; --terracotta-tint:#F5E3DD; --terracotta-mid:#E9B99E;
+  --rose:#B5567A; --rose-tint:#F6E4EC; --rose-line:#E9B9CC;
+  --line:#DCE3E1;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:#7d8b8a; font-family:'Zen Kaku Gothic New','Hiragino Sans',sans-serif;
+  color:var(--ink); -webkit-font-smoothing:antialiased;
+}
+.page{
+  width:210mm; min-height:297mm; margin:6mm auto; background:var(--paper);
+  box-shadow:0 4px 24px rgba(0,0,0,0.25); position:relative; overflow:hidden;
+  padding:0 14mm 14mm; page-break-after:always;
+}
+@media print{
+  body{background:#fff;}
+  .page{width:auto;min-height:auto;margin:0;box-shadow:none;padding:0 0 8mm;}
+  @page{size:A4;margin:12mm;}
+}
+.header{
+  background:var(--teal-dark); margin:0 -14mm 7mm; padding:10mm 14mm 8mm;
+  color:#fff; display:flex; align-items:center; gap:5.5mm;
+}
+.header .badge{
+  flex:none; width:14.5mm; height:14.5mm; border-radius:3mm; background:var(--terracotta);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Shippori Mincho',serif; font-weight:700; font-size:17.5pt; color:#fff;
+}
+.header .htext{flex:1;}
+.header .tag{
+  font-size:9pt; font-weight:700; letter-spacing:.06em; color:var(--teal-tint-line);
+  text-transform:uppercase; margin:0 0 1.75mm;
+}
+.header h1{
+  font-family:'Shippori Mincho',serif; font-size:21pt; font-weight:700; margin:0 0 1.25mm; color:#fff;
+}
+.header .sub{font-size:11.5pt; color:#F0BBA6; font-weight:700; margin:0;}
+
+.section{margin:0 0 6mm;}
+.sec-title{
+  display:flex; align-items:center; gap:2.75mm; margin:0 0 3mm;
+}
+.sec-title .num{
+  flex:none; width:7mm; height:7mm; border-radius:1.75mm; background:var(--teal-tint);
+  color:var(--teal-dark); font-family:'Shippori Mincho',serif; font-weight:700; font-size:11pt;
+  display:flex; align-items:center; justify-content:center;
+}
+.sec-title.accent .num{background:var(--terracotta-tint); color:var(--terracotta);}
+.sec-title h2{font-size:13.5pt; font-weight:700; margin:0; color:var(--ink);}
+
+ul.check{list-style:none; margin:0; padding:0;}
+ul.check li{
+  position:relative; padding-left:6mm; margin-bottom:2.5mm; font-size:10.3pt; line-height:1.48;
+}
+ul.check li::before{
+  content:""; position:absolute; left:0; top:1.4mm; width:3.4mm; height:3.4mm;
+  border:1.6pt solid var(--teal); border-radius:0.9mm;
+}
+ul.check.accent li::before{border-color:var(--terracotta);}
+
+.icon-row{display:flex; gap:3.5mm; flex-wrap:wrap;}
+.icon-item{
+  display:flex; align-items:flex-start; gap:3mm; background:var(--surface);
+  border:0.75pt solid var(--line); border-radius:2mm; padding:3mm 3.5mm;
+  flex:1 1 42mm; min-width:42mm;
+}
+.icon-item .ic{flex:none; width:9mm; height:9mm; color:var(--teal);}
+.icon-item.accent .ic{color:var(--terracotta);}
+.icon-item p{margin:0; font-size:9.7pt; line-height:1.4; color:var(--ink);}
+
+table.risktable{width:100%; border-collapse:collapse; font-size:9.9pt;}
+table.risktable td{padding:2.75mm 3.5mm; border-bottom:2.5mm solid var(--paper); vertical-align:middle;}
+table.risktable td.lbl{
+  width:24mm; text-align:center; font-weight:700; border-radius:1.75mm 0 0 1.75mm; color:#fff;
+}
+table.risktable td.desc{background:var(--surface); border:0.75pt solid var(--line); border-left:none; border-radius:0 1.75mm 1.75mm 0; color:var(--ink);}
+
+.callout{
+  background:var(--terracotta-tint); border-radius:2mm; padding:3.75mm 4.5mm; font-size:10.3pt;
+  font-weight:700; color:var(--terracotta); line-height:1.42;
+}
+.callout.dark{background:var(--teal-dark); color:#fff;}
+.callout.hero{padding:6mm 6.5mm;}
+
+.gauge{width:100%; margin:2.5mm 0 1.25mm;}
+.gauge-seg{height:9.5mm; display:flex; border-radius:1.75mm; overflow:hidden;}
+.gauge-seg > div{flex:1; display:flex; align-items:center; justify-content:center; font-size:9.2pt; font-weight:700; color:#fff;}
+.gauge-labels{display:flex; margin-top:1.25mm;}
+.gauge-labels > div{flex:1; font-size:8.2pt; color:var(--ink-faint); text-align:center;}
+
+.timeline{position:relative; margin:4.5mm 0 2.5mm; padding:0 2.5mm;}
+.timeline .line{position:absolute; left:9mm; right:9mm; top:5.75mm; height:1.25pt; background:var(--line);}
+.timeline .nodes{display:flex; justify-content:space-between; position:relative;}
+.timeline .node{flex:1; text-align:center; position:relative;}
+.timeline .dot{width:4.75mm; height:4.75mm; border-radius:50%; background:var(--teal); margin:0 auto 2.5mm; border:1.75pt solid #fff; box-shadow:0 0 0 1.15pt var(--teal);}
+.timeline .node.now .dot{background:var(--terracotta); box-shadow:0 0 0 1.15pt var(--terracotta);}
+.timeline .node .lbl{font-size:9.7pt; font-weight:700; color:var(--ink);}
+.timeline .node .desc{font-size:8.3pt; color:var(--ink-soft); margin-top:1mm; line-height:1.32;}
+
+.footer{
+  position:absolute; left:14mm; right:14mm; bottom:8.5mm; border-top:0.75pt solid var(--line);
+  padding-top:2.25mm; font-size:7.8pt; color:var(--ink-faint);
+}
+
+.card{
+  background:var(--surface); border-radius:2.5mm; padding:4mm 4.5mm;
+  box-shadow:0 1.5pt 5pt rgba(23,38,43,0.07); border:0.75pt solid var(--line);
+}
+
+.fillbadge{
+  display:inline-flex; align-items:center; gap:1.5mm; font-size:8pt; font-weight:700;
+  padding:1mm 2.6mm; border-radius:999px; margin-left:2.5mm; white-space:nowrap;
+}
+.fillbadge::before{content:""; width:2mm; height:2mm; border-radius:50%; background:currentColor; display:inline-block;}
+.fillbadge.staff{background:var(--teal-tint); color:var(--teal-dark);}
+.fillbadge.patient{background:var(--rose-tint); color:var(--rose);}
+.fillkey{display:flex; gap:5mm; font-size:8.6pt; color:var(--ink-soft); margin:0 0 5mm;}
+.fillkey span{display:inline-flex; align-items:center; gap:1.8mm;}
+.fillkey .dot{width:2.6mm; height:2.6mm; border-radius:50%; display:inline-block;}
+
+table.profiletable{width:100%; border-collapse:collapse; font-size:10.5pt; margin:2mm 0;}
+table.profiletable td{border-bottom:0.75pt solid var(--line); padding:3.2mm 2mm;}
+table.profiletable td.plabel{width:32mm; color:var(--ink-soft); font-weight:700; white-space:nowrap;}
+table.profiletable td.pfill{border-bottom:0.75pt solid var(--ink-faint);}
+table.profiletable.rose td.pfill{border-bottom:0.75pt solid var(--rose-line);}
+
+table.recordtable{width:100%; border-collapse:collapse; font-size:9.3pt; margin:2mm 0;}
+table.recordtable th{background:var(--teal-tint); color:var(--teal-dark); font-weight:700; padding:2.2mm 2mm; border:0.75pt solid var(--line);}
+table.recordtable td{border:0.75pt solid var(--line); height:8mm; padding:1.5mm 2mm;}
+table.recordtable.rose th{background:var(--rose-tint); color:var(--rose);}
+
+.yn-row{display:flex; align-items:center; gap:4mm; padding:2.2mm 0; border-bottom:0.5pt solid var(--line); font-size:10.3pt;}
+.yn-label{flex:1; color:var(--ink);}
+.yn-note{display:block; font-size:8.3pt; color:var(--ink-faint); font-weight:400;}
+.yn-box{display:flex; align-items:center; gap:1.3mm; flex:none; color:var(--ink-soft); font-size:9.5pt;}
+.yn-check{width:3.4mm; height:3.4mm; border:1.5pt solid var(--ink-faint); border-radius:0.7mm; display:inline-block;}
+
+.flow{display:flex; gap:3.5mm; align-items:stretch;}
+.flow-step{
+  flex:1; color:#fff; border-radius:2.5mm; padding:4mm 4mm; position:relative;
+  box-shadow:0 1.5pt 5pt rgba(23,38,43,0.12);
+}
+.flow-step .fnum{
+  display:inline-flex; align-items:center; justify-content:center; width:6mm; height:6mm;
+  border-radius:50%; background:rgba(255,255,255,.22); font-family:'Shippori Mincho',serif;
+  font-weight:700; font-size:9.5pt; margin-bottom:2mm;
+}
+.flow-step h4{margin:0 0 1.5mm; font-size:11.3pt; font-weight:700; color:#fff;}
+.flow-step p{margin:0; font-size:9pt; color:rgba(255,255,255,.92); line-height:1.42;}
+.flow-arrow{
+  flex:none; width:4mm; align-self:center; display:flex; align-items:center; justify-content:center;
+  color:var(--ink-faint);
+}
+.flow-arrow svg{width:4mm; height:4mm;}
+
+.cover{
+  background:radial-gradient(circle at 50% 38%, #0F5F5F 0%, var(--teal-dark) 62%);
+  margin:-14mm -14mm 0; padding:0; height:297mm; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; color:#fff; text-align:center; position:relative; overflow:hidden;
+}
+.cover::before, .cover::after{
+  content:""; position:absolute; border-radius:50%; border:1pt solid rgba(255,255,255,.12);
+}
+.cover::before{width:150mm; height:150mm; top:-40mm; left:-45mm;}
+.cover::after{width:110mm; height:110mm; bottom:-30mm; right:-35mm;}
+.cover .cring{
+  width:46mm; height:46mm; border-radius:50%; background:rgba(255,255,255,.08);
+  border:1pt solid rgba(240,187,166,.5); display:flex; align-items:center; justify-content:center; margin-bottom:9mm;
+}
+.cover .cicon{width:20mm; height:20mm; color:#F0BBA6;}
+.cover h1{font-family:'Shippori Mincho',serif; font-size:29pt; font-weight:700; margin:0 0 4mm; letter-spacing:.02em;}
+.cover .csub{font-size:12.5pt; color:var(--teal-tint-line); font-weight:700; margin:0 0 34mm;}
+.cover .cname{border-top:1pt solid rgba(255,255,255,.3); padding-top:6mm; width:110mm; font-size:11pt; color:var(--teal-tint-line); position:relative; z-index:1;}
+.cover .cname div{margin-bottom:4mm;}
+.toc{background:var(--surface-2); border-radius:2.5mm; padding:4mm 5mm; margin:0 0 6mm;}
+.toc div{font-size:10pt; color:var(--ink-soft); padding:1.3mm 0;}
+.toc b{color:var(--teal-dark); margin-right:2mm; font-family:'Shippori Mincho',serif;}
+.intro-p{font-size:10.5pt; color:var(--ink-soft); line-height:1.65; margin:0 0 5mm;}
+.howto{display:flex; gap:3mm; margin:0 0 6mm;}
+.howto .hstep{flex:1; background:var(--surface); border:0.75pt solid var(--line); border-radius:2mm; padding:3mm; text-align:center;}
+.howto .hstep .hnum{width:6mm;height:6mm;border-radius:50%;background:var(--teal-tint);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;font-family:'Shippori Mincho',serif;font-weight:700;font-size:9.5pt;margin:0 auto 1.5mm;}
+.howto .hstep p{margin:0; font-size:8.6pt; color:var(--ink-soft); line-height:1.35;}
+.small-note{font-size:8.6pt; color:var(--ink-faint); margin:1.5mm 0 0; line-height:1.4;}
+</style>
+</head><body>
+<div class="page">
+  <div class="cover">
+    <div class="cring"><svg class="cicon" viewBox="0 0 24 24" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-10-9.1C.5 8.3 2.3 5 5.7 5c2 0 3.4 1.1 4.3 2.4C10.9 6.1 12.3 5 14.3 5c3.4 0 5.2 3.3 3.7 6.9C19.5 16.4 12 21 12 21z"/></svg></div>
+    <h1>心血管ケアノート</h1>
+    <p class="csub">がん治療とともに、心臓の健康を守るために</p>
+    <div class="cname">
+      <div>お名前:</div>
+      <div>お渡し日:　　　年　　　月　　　日</div>
+    </div>
+  </div>
+</div>
+<div class="page">
+  <div class="header">
+    <div class="badge">1</div>
+    <div class="htext">
+      <p class="tag">心血管ケアノート</p>
+      <h1>このノートについて</h1>
+      <p class="sub">お薬手帳と一緒にお持ちください</p>
+    </div>
+  </div>
+
+  <p class="intro-p">このノートは、がんの治療を受けている方が、治療と心臓の健康の両方と上手につきあっていくためのものです。心臓の状態やお薬の記録、気をつけたい症状などをまとめています。通院の際は、お薬手帳と一緒にご持参いただき、医療者にご提示ください。医学用語も一部含まれますが、わからない項目は遠慮なく医療スタッフにお尋ねください。</p>
+
+  <div class="fillkey">
+    <span><span class="dot" style="background:var(--teal);"></span>医療者にご記入いただく項目</span>
+    <span><span class="dot" style="background:var(--rose);"></span>ご本人でご記入ください</span>
+  </div>
+
+  <div class="howto">
+    <div class="hstep"><div class="hnum">1</div><p>このノートを受け取ったら、まず2ページのプロフィールをご記入ください</p></div>
+    <div class="hstep"><div class="hnum">2</div><p>ご自身でわかる範囲で、既往歴やアレルギーをご記入ください</p></div>
+    <div class="hstep"><div class="hnum">3</div><p>通院のたびに、お薬手帳と一緒にご持参ください</p></div>
+  </div>
+
+  <div class="toc">
+    <div><b>1</b>このノートについて</div>
+    <div><b>2</b>あなたのプロフィール</div>
+    <div><b>3</b>治療の流れ</div>
+    <div><b>4</b>がん治療の記録・気をつけたい治療薬</div>
+    <div><b>5</b>こんな症状に注意・検査の記録(心エコー)</div>
+    <div><b>6</b>検査の記録(血液検査)・体内医療機器</div>
+    <div><b>7</b>これまでの病気・お薬の状況</div>
+    <div><b>8</b>アレルギーの記録</div>
+  </div>
+
+  <div class="footer">記入がむずかしい項目は、薬剤師・医療スタッフにお気軽にお尋ねください。</div>
+</div>
+<div class="page">
+  <div class="header">
+    <div class="badge">2</div>
+    <div class="htext">
+      <p class="tag">心血管ケアノート</p>
+      <h1>あなたのプロフィール</h1>
+      <p class="sub">ご自身でご記入ください</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-title"><div class="num">●</div><h2>基本情報</h2><span class="fillbadge patient">ご本人が記入</span></div>
+    <table class="profiletable"><tr><td class="plabel">氏名</td><td class="pfill"></td></tr><tr><td class="plabel">生年月日</td><td class="pfill"></td></tr><tr><td class="plabel">住所</td><td class="pfill"></td></tr><tr><td class="plabel">緊急連絡先</td><td class="pfill"></td></tr></table>
+  </div>
+
+  <div class="section">
+    <div class="sec-title"><div class="num">●</div><h2>かかりつけ医療機関</h2><span class="fillbadge patient">ご本人が記入</span></div>
+    <table class="recordtable"><thead><tr><th>受診科</th><th>医療機関名</th><th>先生のお名前</th></tr></thead>
+    <tbody><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table>
+    <p class="small-note">循環器内科(かかりつけ医)・歯科・その他、通院中の科があればご記入ください。</p>
+  </div>
+
+  <div class="footer">記入がむずかしい項目は、薬剤師・医療スタッフにお気軽にお尋ねください。</div>
+</div>
+<div class="page">
+  <div class="header">
+    <div class="badge">3</div>
+    <div class="htext">
+      <p class="tag">心血管ケアノート</p>
+      <h1>治療の流れ</h1>
+      <p class="sub">それぞれの段階で、心臓の状態を確認します</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="flow"><div class="flow-step" style="background:#3E9490"><span class="fnum">1</span><h4>治療を始める前に</h4><p>心臓の検査(心電図・心エコー・血液検査)を行うことがあります。高血圧・糖尿病・心臓の病気をお持ちの方は事前にお伝えください。</p></div><div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div class="flow-step" style="background:#0B6E6E"><span class="fnum">2</span><h4>治療を受けている間</h4><p>定期的な検査に加え、息切れ・むくみ・体重増加などの変化に気をつけます。気になる症状はすぐにご相談ください。</p></div><div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div class="flow-step" style="background:#084F4F"><span class="fnum">3</span><h4>治療が終わったあとも</h4><p>年に1回程度は心臓の検査を受けることをおすすめします。血圧・コレステロール・血糖値の管理も続けましょう。</p></div></div>
+  </div>
+
+  <div class="section">
+    <div class="callout">がんの治療は、まれに心臓や血管に影響することがあります。不安な点は、いつでも遠慮なくご相談ください。</div>
+  </div>
+
+  <div class="footer">次のページでは、心臓に影響することがある治療薬の記録をまとめます。</div>
+</div>
+<div class="page">
+  <div class="header">
+    <div class="badge">4</div>
+    <div class="htext">
+      <p class="tag">心血管ケアノート</p>
+      <h1>がん治療の記録</h1>
+      <p class="sub">気をつけたい治療薬もあわせてご紹介します</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-title"><div class="num">●</div><h2>これまでのがん治療</h2><span class="fillbadge staff">医療者が記入</span></div>
+    <table class="recordtable"><thead><tr><th>時期</th><th>病名</th><th>治療内容</th><th>医療機関</th></tr></thead>
+    <tbody><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table>
+  </div>
+
+  <div class="section">
+    <div class="sec-title"><div class="num">●</div><h2>気をつけたい治療薬</h2></div>
+    <table class="risktable"><tr><td class="lbl" style="background:#0B6E6E">細胞障害性<br>抗がん薬</td><td class="desc">ドキソルビシン・エピルビシン 等</td></tr><tr><td class="lbl" style="background:#0B6E6E">分子標的薬</td><td class="desc">トラスツズマブ 等</td></tr><tr><td class="lbl" style="background:#D98A6E">免疫チェック<br>ポイント阻害薬</td><td class="desc">ニボルマブ 等</td></tr><tr><td class="lbl" style="background:#D98A6E">放射線治療</td><td class="desc">心臓を含む部位への照射</td></tr></table>
+    <div style="margin-top:3mm;">
+      <table class="profiletable"><tr><td class="plabel">累積投与量(わかれば)</td><td class="pfill"></td></tr></table>
+    </div>
+    <p class="small-note">アントラサイクリン系の薬剤は、使用量の合計(累積投与量)を知っておくことが大切です。わかる範囲でご記入ください。</p>
+  </div>
+
+  <div class="footer">使用しているお薬については、お薬手帳もあわせてご確認ください。</div>
+</div>
+<div class="page">
+  <div class="header">
+    <div class="badge">5</div>
+    <div class="htext">
+      <p class="tag">心血管ケアノート</p>
+      <h1>こんな症状に注意</h1>
+      <p class="sub">気づいたら、次の受診を待たずにご連絡ください</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="icon-row"><div class="icon-item accent"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v9"/><path d="M12 12c-1 3-2 4-4 4-2.5 0-3-2-3-4 0-3 1-6 3-7 1.4-.7 2.5 0 4 1"/><path d="M12 12c1 3 2 4 4 4 2.5 0 3-2 3-4 0-3-1-6-3-7-1.4-.7-2.5 0-4 1"/></svg><p>階段や坂道で、いつもより息切れがする</p></div><div class="icon-item accent"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c0-4 2-6 4-9 1.2-1.7 1-3.5 0-5" stroke-linecap="round"/><ellipse cx="9" cy="19" rx="5" ry="2"/></svg><p>足や靴下がきつく感じる、むくみが出てきた</p></div><div class="icon-item accent"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="12" r="5"/><path d="M12 12l2.5-2.5"/></svg><p>体重が数日で1〜2kgほど急に増えた</p></div><div class="icon-item accent"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-7 4 14 3-9 2 4h5"/></svg><p>動悸がする、脈が乱れる感じ、強いだるさが続く</p></div></div>
+  </div>
+
+  <div class="section">
+    <div class="callout dark hero">→ 気づいたら、次の受診を待たずにご連絡ください</div>
+  </div>
+
+  <div class="section">
+    <div class="sec-title"><div class="num">●</div><h2>検査の記録(心エコー)</h2><span class="fillbadge staff">医療者が記入</span></div>
+    <table class="recordtable"><thead><tr><th>日付</th><th>LVEF (%)</th><th>GLS (%)</th><th>所見</th></tr></thead>
+    <tbody><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table>
+  </div>
+
+  <div class="footer">次のページでは、血液検査の記録と体内の医療機器についてまとめます。</div>
+</div>
+<div class="page">
+  <div class="header">
+    <div class="badge">6</div>
+    <div class="htext">
+      <p class="tag">心血管ケアノート</p>
+      <h1>検査の記録・体内医療機器</h1>
+      <p class="sub">通院のたびにご記入ください</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-title"><div class="num">●</div><h2>検査の記録(血液検査)</h2><span class="fillbadge staff">医療者が記入</span></div>
+    <table class="recordtable"><thead><tr><th>日付</th><th>BNP</th><th>トロポニン</th></tr></thead>
+    <tbody><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table>
+  </div>
+
+  <div class="section">
+    <div class="sec-title"><div class="num">●</div><h2>体内の医療機器</h2><span class="fillbadge staff">医療者が記入</span></div>
+    <div class="yn-row"><span class="yn-label">CVポート<span class="yn-note">留置中は定期的なフラッシュが必要</span></span>
+    <span class="yn-box"><span class="yn-check"></span>あり</span>
+    <span class="yn-box"><span class="yn-check"></span>なし</span></div>
+    <div class="yn-row"><span class="yn-label">ペースメーカー<span class="yn-note">MRI検査の可否は医療機関にご確認ください</span></span>
+    <span class="yn-box"><span class="yn-check"></span>あり</span>
+    <span class="yn-box"><span class="yn-check"></span>なし</span></div>
+    <div class="yn-row"><span class="yn-label">人工弁・人工血管</span>
+    <span class="yn-box"><span class="yn-check"></span>あり</span>
+    <span class="yn-box"><span class="yn-check"></span>なし</span></div>
+    <div class="yn-row"><span class="yn-label">冠動脈ステント</span>
+    <span class="yn-box"><span class="yn-check"></span>あり</span>
+    <span class="yn-box"><span class="yn-check"></span>なし</span></div>
+  </div>
+
+  <div class="footer">記入がむずかしい項目は、薬剤師・医療スタッフにお気軽にお尋ねください。</div>
+</div>
+<div class="page">
+  <div class="header">
+    <div class="badge">7</div>
+    <div class="htext">
+      <p class="tag">心血管ケアノート</p>
+      <h1>これまでの病気・お薬の状況</h1>
+      <p class="sub">ご自身でご記入ください</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-title"><div class="num">●</div><h2>がん以外でこれまでに診断された病気</h2><span class="fillbadge patient">ご本人が記入</span></div>
+    <ul class="check"><li>心不全・弁膜症</li><li>高血圧</li><li>狭心症・心筋梗塞</li><li>不整脈</li><li>脂質異常症(コレステロール・中性脂肪が高い)</li><li>糖尿病</li><li>腎臓病</li><li>深部静脈血栓症・肺動脈血栓塞栓症</li><li>その他</li></ul>
+  </div>
+
+  <div class="section">
+    <div class="sec-title"><div class="num">●</div><h2>お薬の状況</h2><span class="fillbadge patient">ご本人が記入</span></div>
+    <div class="yn-row"><span class="yn-label">抗血小板薬・抗凝固薬(血液をサラサラにする薬)を飲んでいる<span class="yn-note">薬剤名がわかればご記入ください</span></span>
+    <span class="yn-box"><span class="yn-check"></span>あり</span>
+    <span class="yn-box"><span class="yn-check"></span>なし</span></div>
+    <table class="profiletable"><tr><td class="plabel">薬剤名</td><td class="pfill"></td></tr></table>
+  </div>
+
+  <div class="footer">次のページでは、アレルギーの記録についてまとめます。</div>
+</div>
+<div class="page">
+  <div class="header">
+    <div class="badge">8</div>
+    <div class="htext">
+      <p class="tag">心血管ケアノート</p>
+      <h1>アレルギーの記録</h1>
+      <p class="sub">ご自身でご記入ください</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-title"><div class="num">●</div><h2>お薬・造影剤のアレルギー</h2><span class="fillbadge patient">ご本人が記入</span></div>
+    <table class="recordtable"><thead><tr><th>薬品名・造影剤</th><th>症状</th></tr></thead>
+    <tbody><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table>
+  </div>
+
+  <div class="section">
+    <div class="yn-row"><span class="yn-label">気管支喘息</span>
+    <span class="yn-box"><span class="yn-check"></span>あり</span>
+    <span class="yn-box"><span class="yn-check"></span>なし</span></div>
+    <div class="yn-row"><span class="yn-label">アルコールのアレルギー</span>
+    <span class="yn-box"><span class="yn-check"></span>あり</span>
+    <span class="yn-box"><span class="yn-check"></span>なし</span></div>
+  </div>
+
+  <div class="section">
+    <table class="profiletable"><tr><td class="plabel">採血禁止の腕(あれば)</td><td class="pfill"></td></tr><tr><td class="plabel">血圧測定禁止の腕(あれば)</td><td class="pfill"></td></tr></table>
+  </div>
+
+  <div class="section">
+    <div class="callout dark hero">何か気になることがあれば、どんな小さなことでも、いつでもお気軽にかかりつけの薬局・医療機関へご相談ください。</div>
+  </div>
+
+  <div class="footer">心血管ケアノート ― お薬手帳と一緒に、通院のたびにお持ちください。</div>
+</div>
+</body></html>
