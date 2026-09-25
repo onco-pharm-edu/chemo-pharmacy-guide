@@ -7,6 +7,8 @@
   --ink:#132238; --ink-soft:#4C5C74; --ink-faint:#8B96A8;
   --navy-dark:#0F2A4A; --navy:#2C5B8C; --navy-tint:#E4ECF6; --navy-line:#C7D6E8;
   --amber:#B8862E; --amber-tint:#FBF0DE; --amber-line:#E8C88A;
+  --rust-dark:#8C3D1E; --rust:#B8562E; --rust-tint:#FBE4DE; --rust-line:#E8B49C;
+  --slate-dark:#3E4A5C; --slate:#5B6B82; --slate-tint:#EAEEF3; --slate-line:#C7D0DC;
   --line:#D7E1EC;
   --hero-a:#0B2038; --hero-b:#26517E; --amber-solid:#B8862E;
   --shadow: 0 1px 2px rgba(15,42,74,.05), 0 6px 20px rgba(15,42,74,.07);
@@ -17,6 +19,8 @@
     --ink:#EDF1F8; --ink-soft:#A8B6CC; --ink-faint:#6C7B93;
     --navy-dark:#AFCBEC; --navy:#6FA0D6; --navy-tint:#17293F; --navy-line:#2C4A6D;
     --amber:#E0B15C; --amber-tint:#332811; --amber-line:#5C4726;
+    --rust-dark:#E8A183; --rust:#D97A52; --rust-tint:#3A2015; --rust-line:#5C3624;
+    --slate-dark:#B8C4D4; --slate:#8A9AB0; --slate-tint:#212B38; --slate-line:#3A4658;
     --line:#22344C;
     --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 28px rgba(0,0,0,.4);
   }
@@ -26,6 +30,8 @@
   --ink:#EDF1F8; --ink-soft:#A8B6CC; --ink-faint:#6C7B93;
   --navy-dark:#AFCBEC; --navy:#6FA0D6; --navy-tint:#17293F; --navy-line:#2C4A6D;
   --amber:#E0B15C; --amber-tint:#332811; --amber-line:#5C4726;
+  --rust-dark:#E8A183; --rust:#D97A52; --rust-tint:#3A2015; --rust-line:#5C3624;
+  --slate-dark:#B8C4D4; --slate:#8A9AB0; --slate-tint:#212B38; --slate-line:#3A4658;
   --line:#22344C;
   --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 28px rgba(0,0,0,.4);
 }
@@ -69,6 +75,41 @@ h1,h2,h3{font-family:'Shippori Mincho',serif; text-wrap:balance; margin:0;}
 .section-head h2{font-size:21px; color:var(--navy-dark); font-weight:700; margin:0 0 6px;}
 .section-head p{font-size:13.5px; color:var(--ink-soft); margin:0; line-height:1.7;}
 section{margin:0 0 48px;}
+
+/* ---------- tabs ---------- */
+.tab-nav{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 36px;}
+.tab-btn{
+  font-family:'Zen Kaku Gothic New',sans-serif; font-size:14px; font-weight:700; color:var(--ink-soft);
+  background:var(--surface); border:1.5px solid var(--line); border-radius:999px; padding:10px 20px;
+  cursor:pointer; transition:background .15s ease, border-color .15s ease, color .15s ease;
+}
+.tab-btn:hover{border-color:var(--navy-line); color:var(--navy-dark);}
+.tab-btn.active{background:var(--navy-dark); border-color:var(--navy-dark); color:#fff;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+
+/* ---------- cancer placeholder ---------- */
+.cancer-soon{
+  background:var(--slate-tint); border:1px dashed var(--slate-line); border-radius:16px;
+  padding:32px 28px; text-align:center;
+}
+.cancer-soon p.lead{font-family:'Shippori Mincho',serif; font-size:17px; font-weight:700; color:var(--slate-dark); margin:0 0 10px;}
+.cancer-soon p.desc{font-size:13px; color:var(--ink-soft); margin:0 0 18px; line-height:1.7;}
+.cancer-chip-row{display:flex; flex-wrap:wrap; gap:8px; justify-content:center;}
+.cancer-chip{
+  font-size:13px; font-weight:700; color:var(--slate-dark); background:var(--surface);
+  border:1px solid var(--slate-line); border-radius:999px; padding:7px 16px;
+}
+
+/* accent overrides per tab */
+.accent-rust .round-card{border-left-color:var(--rust-line);}
+.accent-rust .round-card:hover{border-left-color:var(--rust);}
+.accent-rust .round-num{background:var(--rust-tint);}
+.accent-rust .round-num .icon{color:var(--rust-dark);}
+.accent-rust .round-num .no{color:var(--rust-dark);}
+.accent-rust .round-link{color:var(--rust-dark); border-color:var(--rust-line);}
+.accent-rust .round-link:hover{background:var(--rust-tint);}
+.accent-rust .round-points li::before{background:var(--rust);}
 
 /* ---------- round list ---------- */
 .round-list{display:flex; flex-direction:column; gap:14px;}
@@ -172,6 +213,14 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
 
 <div class="wrap">
 
+  <div class="tab-nav">
+    <button type="button" class="tab-btn active" data-tab="basics">基礎知識</button>
+    <button type="button" class="tab-btn" data-tab="sideeffects">副作用別</button>
+    <button type="button" class="tab-btn" data-tab="cardio">心血管</button>
+    <button type="button" class="tab-btn" data-tab="cancer">癌種別</button>
+  </div>
+
+  <div class="tab-panel active" data-tab="basics">
   <section>
     <div class="section-head">
       <h2>基礎知識</h2>
@@ -195,12 +244,15 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
         </div>
         <div class="round-links">
           <a class="round-link" href="classification_basics.html">基礎知識を見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="round-link" href="classification_basics_checkpoints.html">実践ポイントを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
 
     </div>
   </section>
+  </div>
 
+  <div class="tab-panel accent-rust" data-tab="sideeffects">
   <section>
     <div class="section-head">
       <h2>副作用別ガイド</h2>
@@ -224,6 +276,7 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
         </div>
         <div class="round-links">
           <a class="round-link" href="side_effect_gi.html">ガイドを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="round-link" href="side_effect_gi_checkpoints.html">チェックポイント<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
 
@@ -243,6 +296,7 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
         </div>
         <div class="round-links">
           <a class="round-link" href="side_effect_myelosuppression.html">ガイドを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="round-link" href="side_effect_myelosuppression_checkpoints.html">チェックポイント<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
 
@@ -262,6 +316,7 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
         </div>
         <div class="round-links">
           <a class="round-link" href="side_effect_neuropathy.html">ガイドを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="round-link" href="side_effect_neuropathy_checkpoints.html">チェックポイント<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
 
@@ -281,12 +336,15 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
         </div>
         <div class="round-links">
           <a class="round-link" href="side_effect_skin.html">ガイドを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="round-link" href="side_effect_skin_checkpoints.html">チェックポイント<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
 
     </div>
   </section>
+  </div>
 
+  <div class="tab-panel" data-tab="cardio">
   <section>
     <div class="section-head">
       <h2>心血管への影響:オンコカーディオロジー研修シリーズ(全7回)</h2>
@@ -471,6 +529,28 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
       </div>
     </div>
   </section>
+  </div>
+
+  <div class="tab-panel accent-slate" data-tab="cancer">
+  <section>
+    <div class="section-head">
+      <h2>癌種別ガイド</h2>
+      <p>代表的ながん種ごとに、使用する薬剤・特徴的な副作用・モニタリングポイントをまとめる予定です。</p>
+    </div>
+    <div class="cancer-soon">
+      <p class="lead">準備中 ― 近日公開予定</p>
+      <p class="desc">以下のがん種から順次公開していきます。</p>
+      <div class="cancer-chip-row">
+        <span class="cancer-chip">肺癌</span>
+        <span class="cancer-chip">大腸癌</span>
+        <span class="cancer-chip">乳がん</span>
+        <span class="cancer-chip">胃癌</span>
+        <span class="cancer-chip">膵臓癌</span>
+        <span class="cancer-chip">血液がん</span>
+      </div>
+    </div>
+  </section>
+  </div>
 
   <section>
     <div class="section-head">
@@ -493,9 +573,55 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
       </div>
       <a class="patient-link" href="patient_handout.html">資料を見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
+    <div class="patient-card">
+      <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v4c0 2-2 3-3 5-1.5 3 0 7 4 7h4c4 0 5.5-4 4-7-1-2-3-3-3-5V3"/><path d="M9 3h6"/></svg></span>
+      <div>
+        <h3>抗がん剤治療と胃腸の症状について</h3>
+        <p>吐き気・下痢・口内炎とうまく付き合うためのポイントをまとめた患者さん向け説明資料です。</p>
+      </div>
+      <a class="patient-link" href="patient_gi.html">資料を見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="patient-card">
+      <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3 4-6 8-6 11a6 6 0 0012 0c0-3-3-7-6-11z"/></svg></span>
+      <div>
+        <h3>抗がん剤治療と発熱・感染について</h3>
+        <p>熱が出たときの正しい対応を知っていただくための患者さん向け説明資料です。</p>
+      </div>
+      <a class="patient-link" href="patient_myelosuppression.html">資料を見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="patient-card">
+      <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3M6.5 6.5l2 2M15.5 15.5l2 2M6.5 17.5l2-2M15.5 8.5l2-2"/></svg></span>
+      <div>
+        <h3>抗がん剤治療と手足のしびれについて</h3>
+        <p>早めに伝えていただきたいことをまとめた患者さん向け説明資料です。</p>
+      </div>
+      <a class="patient-link" href="patient_neuropathy.html">資料を見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="patient-card">
+      <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="9" cy="9" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="9" r="1" fill="currentColor" stroke="none"/><circle cx="9" cy="15" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="15" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg></span>
+      <div>
+        <h3>抗がん剤治療と皮膚の症状について</h3>
+        <p>手足症候群・肌荒れを防ぐスキンケアをまとめた患者さん向け説明資料です。</p>
+      </div>
+      <a class="patient-link" href="patient_skin.html">資料を見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
     </div>
   </section>
 
   <footer></footer>
 
 </div>
+
+<script>
+(function(){
+  var btns = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.tab-panel');
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var tab = btn.getAttribute('data-tab');
+      btns.forEach(function(b){ b.classList.toggle('active', b === btn); });
+      panels.forEach(function(p){ p.classList.toggle('active', p.getAttribute('data-tab') === tab); });
+    });
+  });
+})();
+</script>
