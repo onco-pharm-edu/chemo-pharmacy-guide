@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<title>免疫チェックポイント阻害薬:薬剤師の実践ポイント</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#F5F7F6; --surface:#FFFFFF; --surface-2:#EEF3F2;
+  --ink:#17262B; --ink-soft:#4B5D61; --ink-faint:#8A9A9C;
+  --teal-dark:#084F4F; --teal:#0B6E6E; --teal-tint:#E3F1EF; --teal-tint-line:#BFE3E0;
+  --terracotta:#C1543A; --terracotta-tint:#F5E3DD; --terracotta-mid:#E9B99E;
+  --rose:#B5567A; --rose-tint:#F6E4EC; --rose-line:#E9B9CC;
+  --line:#DCE3E1;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:#7d8b8a; font-family:'Zen Kaku Gothic New','Hiragino Sans',sans-serif;
+  color:var(--ink); -webkit-font-smoothing:antialiased;
+}
+.page{
+  width:210mm; min-height:297mm; margin:6mm auto; background:var(--paper);
+  box-shadow:0 4px 24px rgba(0,0,0,0.25); position:relative; overflow:hidden;
+  padding:0 14mm 14mm; page-break-after:always;
+}
+@media print{
+  body{background:#fff;}
+  .page{width:auto;min-height:auto;margin:0;box-shadow:none;padding:0 0 8mm;}
+  @page{size:A4;margin:12mm;}
+}
+.header{
+  background:var(--teal-dark); margin:0 -14mm 7mm; padding:10mm 14mm 8mm;
+  color:#fff; display:flex; align-items:center; gap:5.5mm;
+}
+.header .badge{
+  flex:none; width:14.5mm; height:14.5mm; border-radius:3mm; background:var(--terracotta);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Shippori Mincho',serif; font-weight:700; font-size:17.5pt; color:#fff;
+}
+.header .htext{flex:1;}
+.header .tag{
+  font-size:9pt; font-weight:700; letter-spacing:.06em; color:var(--teal-tint-line);
+  text-transform:uppercase; margin:0 0 1.75mm;
+}
+.header h1{
+  font-family:'Shippori Mincho',serif; font-size:21pt; font-weight:700; margin:0 0 1.25mm; color:#fff;
+}
+.header .sub{font-size:11.5pt; color:#F0BBA6; font-weight:700; margin:0;}
+
+.section{margin:0 0 6mm;}
+.sec-title{
+  display:flex; align-items:center; gap:2.75mm; margin:0 0 3mm;
+}
+.sec-title .num{
+  flex:none; width:7mm; height:7mm; border-radius:1.75mm; background:var(--teal-tint);
+  color:var(--teal-dark); font-family:'Shippori Mincho',serif; font-weight:700; font-size:11pt;
+  display:flex; align-items:center; justify-content:center;
+}
+.sec-title.accent .num{background:var(--terracotta-tint); color:var(--terracotta);}
+.sec-title h2{font-size:13.5pt; font-weight:700; margin:0; color:var(--ink);}
+
+ul.check{list-style:none; margin:0; padding:0;}
+ul.check li{
+  position:relative; padding-left:6mm; margin-bottom:2.5mm; font-size:10.3pt; line-height:1.48;
+}
+ul.check li::before{
+  content:""; position:absolute; left:0; top:1.4mm; width:3.4mm; height:3.4mm;
+  border:1.6pt solid var(--teal); border-radius:0.9mm;
+}
+ul.check.accent li::before{border-color:var(--terracotta);}
+
+.icon-row{display:flex; gap:3.5mm; flex-wrap:wrap;}
+.icon-item{
+  display:flex; align-items:flex-start; gap:3mm; background:var(--surface);
+  border:0.75pt solid var(--line); border-radius:2mm; padding:3mm 3.5mm;
+  flex:1 1 42mm; min-width:42mm;
+}
+.icon-item .ic{flex:none; width:9mm; height:9mm; color:var(--teal);}
+.icon-item.accent .ic{color:var(--terracotta);}
+.icon-item p{margin:0; font-size:9.7pt; line-height:1.4; color:var(--ink);}
+
+table.risktable{width:100%; border-collapse:collapse; font-size:9.9pt;}
+table.risktable td{padding:2.75mm 3.5mm; border-bottom:2.5mm solid var(--paper); vertical-align:middle;}
+table.risktable td.lbl{
+  width:24mm; text-align:center; font-weight:700; border-radius:1.75mm 0 0 1.75mm; color:#fff;
+}
+table.risktable td.desc{background:var(--surface); border:0.75pt solid var(--line); border-left:none; border-radius:0 1.75mm 1.75mm 0; color:var(--ink);}
+
+.callout{
+  background:var(--terracotta-tint); border-radius:2mm; padding:3.75mm 4.5mm; font-size:10.3pt;
+  font-weight:700; color:var(--terracotta); line-height:1.42;
+}
+.callout.dark{background:var(--teal-dark); color:#fff;}
+.callout.hero{padding:6mm 6.5mm;}
+
+.gauge{width:100%; margin:2.5mm 0 1.25mm;}
+.gauge-seg{height:9.5mm; display:flex; border-radius:1.75mm; overflow:hidden;}
+.gauge-seg > div{flex:1; display:flex; align-items:center; justify-content:center; font-size:9.2pt; font-weight:700; color:#fff;}
+.gauge-labels{display:flex; margin-top:1.25mm;}
+.gauge-labels > div{flex:1; font-size:8.2pt; color:var(--ink-faint); text-align:center;}
+
+.timeline{position:relative; margin:4.5mm 0 2.5mm; padding:0 2.5mm;}
+.timeline .line{position:absolute; left:9mm; right:9mm; top:5.75mm; height:1.25pt; background:var(--line);}
+.timeline .nodes{display:flex; justify-content:space-between; position:relative;}
+.timeline .node{flex:1; text-align:center; position:relative;}
+.timeline .dot{width:4.75mm; height:4.75mm; border-radius:50%; background:var(--teal); margin:0 auto 2.5mm; border:1.75pt solid #fff; box-shadow:0 0 0 1.15pt var(--teal);}
+.timeline .node.now .dot{background:var(--terracotta); box-shadow:0 0 0 1.15pt var(--terracotta);}
+.timeline .node .lbl{font-size:9.7pt; font-weight:700; color:var(--ink);}
+.timeline .node .desc{font-size:8.3pt; color:var(--ink-soft); margin-top:1mm; line-height:1.32;}
+
+.footer{
+  position:absolute; left:14mm; right:14mm; bottom:8.5mm; border-top:0.75pt solid var(--line);
+  padding-top:2.25mm; font-size:7.8pt; color:var(--ink-faint);
+}
+
+.card{
+  background:var(--surface); border-radius:2.5mm; padding:4mm 4.5mm;
+  box-shadow:0 1.5pt 5pt rgba(23,38,43,0.07); border:0.75pt solid var(--line);
+}
+
+.fillbadge{
+  display:inline-flex; align-items:center; gap:1.5mm; font-size:8pt; font-weight:700;
+  padding:1mm 2.6mm; border-radius:999px; margin-left:2.5mm; white-space:nowrap;
+}
+.fillbadge::before{content:""; width:2mm; height:2mm; border-radius:50%; background:currentColor; display:inline-block;}
+.fillbadge.staff{background:var(--teal-tint); color:var(--teal-dark);}
+.fillbadge.patient{background:var(--rose-tint); color:var(--rose);}
+.fillkey{display:flex; gap:5mm; font-size:8.6pt; color:var(--ink-soft); margin:0 0 5mm;}
+.fillkey span{display:inline-flex; align-items:center; gap:1.8mm;}
+.fillkey .dot{width:2.6mm; height:2.6mm; border-radius:50%; display:inline-block;}
+
+table.profiletable{width:100%; border-collapse:collapse; font-size:10.5pt; margin:2mm 0;}
+table.profiletable td{border-bottom:0.75pt solid var(--line); padding:3.2mm 2mm;}
+table.profiletable td.plabel{width:32mm; color:var(--ink-soft); font-weight:700; white-space:nowrap;}
+table.profiletable td.pfill{border-bottom:0.75pt solid var(--ink-faint);}
+table.profiletable.rose td.pfill{border-bottom:0.75pt solid var(--rose-line);}
+
+table.recordtable{width:100%; border-collapse:collapse; font-size:9.3pt; margin:2mm 0;}
+table.recordtable th{background:var(--teal-tint); color:var(--teal-dark); font-weight:700; padding:2.2mm 2mm; border:0.75pt solid var(--line);}
+table.recordtable td{border:0.75pt solid var(--line); height:8mm; padding:1.5mm 2mm;}
+table.recordtable.rose th{background:var(--rose-tint); color:var(--rose);}
+
+.yn-row{display:flex; align-items:center; gap:4mm; padding:2.2mm 0; border-bottom:0.5pt solid var(--line); font-size:10.3pt;}
+.yn-label{flex:1; color:var(--ink);}
+.yn-note{display:block; font-size:8.3pt; color:var(--ink-faint); font-weight:400;}
+.yn-box{display:flex; align-items:center; gap:1.3mm; flex:none; color:var(--ink-soft); font-size:9.5pt;}
+.yn-check{width:3.4mm; height:3.4mm; border:1.5pt solid var(--ink-faint); border-radius:0.7mm; display:inline-block;}
+
+.flow{display:flex; gap:3.5mm; align-items:stretch;}
+.flow-step{
+  flex:1; color:#fff; border-radius:2.5mm; padding:4mm 4mm; position:relative;
+  box-shadow:0 1.5pt 5pt rgba(23,38,43,0.12);
+}
+.flow-step .fnum{
+  display:inline-flex; align-items:center; justify-content:center; width:6mm; height:6mm;
+  border-radius:50%; background:rgba(255,255,255,.22); font-family:'Shippori Mincho',serif;
+  font-weight:700; font-size:9.5pt; margin-bottom:2mm;
+}
+.flow-step h4{margin:0 0 1.5mm; font-size:11.3pt; font-weight:700; color:#fff;}
+.flow-step p{margin:0; font-size:9pt; color:rgba(255,255,255,.92); line-height:1.42;}
+.flow-arrow{
+  flex:none; width:4mm; align-self:center; display:flex; align-items:center; justify-content:center;
+  color:var(--ink-faint);
+}
+.flow-arrow svg{width:4mm; height:4mm;}
+
+.pdf-dl-btn{
+  position:fixed; top:14px; right:14px; z-index:50;
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--teal-dark); color:#fff; font-family:'Zen Kaku Gothic New',sans-serif; font-weight:700; font-size:12.5px;
+  text-decoration:none; border-radius:999px; padding:9px 16px 9px 14px; box-shadow:0 4px 14px rgba(0,0,0,.2);
+}
+.pdf-dl-btn svg{width:15px; height:15px;}
+.pdf-dl-btn:hover{background:var(--teal);}
+@media print{ .pdf-dl-btn{display:none;} }
+</style>
+</head><body>
+<a class="pdf-dl-btn" href="classification_ici_checkpoints.pdf" download title="PDFをダウンロード">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-4-4l4 4 4-4"/><path d="M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
+    PDFをダウンロード
+  </a><div class="page">
+    <div class="header">
+    <div class="badge">③</div>
+    <div class="htext">
+      <p class="tag">がん薬物療法 研修シリーズ ― 実践ガイド</p>
+      <h1>免疫チェックポイント阻害薬:薬剤師の実践ポイント</h1>
+      <p class="sub">irAEを見逃さないための関わり方</p>
+    </div>
+  </div>
+    
+      <div class="section">
+        <div class="sec-title"><div class="num">1</div><h2>服薬指導で伝えるポイント</h2></div>
+        <div class="icon-row"><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V4"/><path d="M6 4h11l-3 4 3 4H6"/></svg><p>「今までにない症状」はどんな些細なものでも報告するよう伝える(irAEの多様性)</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v4c0 2-2 3-3 5-1.5 3 0 7 4 7h4c4 0 5.5-4 4-7-1-2-3-3-3-5V3"/><path d="M9 3h6"/></svg><p>下痢・皮疹などの初期症状の段階で連絡することの重要性を強調する</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><p>ステロイド治療中は感染予防(手洗い・うがい)の指導も追加する</p></div></div>
+      </div>
+      <div class="section">
+        <div class="sec-title"><div class="num">2</div><h2>処方監査・疑義照会のタイミング</h2></div>
+        <ul class="check"><li>ステロイド治療開始時は、消化性潰瘍予防薬・骨粗鬆症対策等の付随治療が必要か確認する</li><li>免疫抑制薬追加時は、通常の感染対策に加えB型肝炎再活性化リスクも考慮する</li><li>既存の自己免疫疾患・臓器移植歴がないか、事前に薬歴で確認できているか確認する</li></ul>
+      </div>
+      <div class="section">
+        <div class="sec-title"><div class="num">3</div><h2>施設間連携・情報共有のポイント</h2></div>
+        <div class="icon-row"><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5"/><circle cx="17" cy="9" r="2.3"/><path d="M15.5 13.2c2.4.3 4.5 1.7 4.5 4.3"/></svg><p>irAE発症時は関連診療科(内分泌内科、消化器内科等)との早期連携が必要</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l5 5v13H6z"/><path d="M15 3v5h5"/><path d="M9 12h6M9 16h6"/></svg><p>症状の推移・ステロイド減量スケジュールを医療機関間で共有する</p></div></div>
+      </div>
+      <div class="section">
+        <div class="sec-title accent"><div class="num">4</div><h2>実践チェックリスト</h2></div>
+        <ul class="check accent"><li>新規症状の訴えがあれば、まずirAEの可能性を考慮し情報を整理する</li><li>ステロイド治療中の患者には、急な自己中断のリスク(離脱症状)も説明する</li><li>治療終了後も一定期間はirAEのモニタリングを継続する視点を持つ</li></ul>
+      </div>
+      <div class="section">
+        <div class="callout dark">irAEの対応は「早期発見・早期のステロイド介入」が鍵。疑わしきは報告してもらう関係づくりが最大の武器になる。</div>
+      </div>
+      <div class="footer">がん薬物療法 研修シリーズ ― 実践ガイド(基礎知識・免疫チェックポイント阻害薬編) ― NCCNガイドラインに基づく</div>
+    
+  </div>
+</body></html>

@@ -129,6 +129,15 @@ section{margin:0 0 48px;}
 .accent-rust .round-link:hover{background:var(--rust-tint);}
 .accent-rust .round-points li::before{background:var(--rust);}
 
+.accent-slate .round-card{border-left-color:var(--slate-line);}
+.accent-slate .round-card:hover{border-left-color:var(--slate);}
+.accent-slate .round-num{background:var(--slate-tint);}
+.accent-slate .round-num .icon{color:var(--slate-dark);}
+.accent-slate .round-num .no{color:var(--slate-dark);}
+.accent-slate .round-link{color:var(--slate-dark); border-color:var(--slate-line);}
+.accent-slate .round-link:hover{background:var(--slate-tint);}
+.accent-slate .round-points li::before{background:var(--slate);}
+
 /* ---------- round list ---------- */
 .round-list{display:flex; flex-direction:column; gap:14px;}
 .round-card{
@@ -252,11 +261,11 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
 
     <div class="hero-content" data-tab="cancer">
       <h1>がん薬物療法研修シリーズ<br>癌種別ガイド</h1>
-      <p>肺癌・大腸癌・乳がん・胃癌・膵臓癌・血液がんなど、代表的ながん種ごとに使用する薬剤・特徴的な副作用・モニタリングポイントをまとめる予定です。準備が整い次第、順次公開していきます。</p>
+      <p>代表的ながん種ごとに、使用するレジメン・特徴的な副作用・モニタリングポイントをまとめています。肺癌・乳がんから公開を開始し、他のがん種も順次追加していきます。</p>
       <div class="stat-row">
-        <span class="stat-chip">準備中</span>
-        <span class="stat-chip"><b>6つ</b>のがん種を予定</span>
-        <span class="stat-chip">近日<b>公開</b></span>
+        <span class="stat-chip"><b>2つ</b>のがん種を公開中</span>
+        <span class="stat-chip">薬剤師の<b>実践ポイント</b>付き</span>
+        <span class="stat-chip">今後<b>順次追加</b></span>
       </div>
     </div>
 
@@ -297,6 +306,66 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
         <div class="round-links">
           <a class="round-link" href="classification_basics.html">基礎知識を見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="round-link" href="classification_basics_checkpoints.html">実践ポイントを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+      <div class="round-card">
+        <div class="round-num">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="3"/><path d="M12 9v6"/></svg></span>
+          <span class="no">①</span>
+        </div>
+        <div class="round-body">
+          <h3>細胞障害性抗がん薬</h3>
+          <p class="sub">薬剤分類・作用機序・CTCAE Gradeで見る副作用</p>
+          <ul class="round-points">
+            <li>アルキル化薬・代謝拮抗薬・微小管阻害薬・トポイソメラーゼ阻害薬・抗腫瘍性抗生物質</li>
+            <li>骨髄抑制・悪心嘔吐・末梢神経障害・心毒性をCTCAE Gradeで整理</li>
+            <li>アントラサイクリン累積投与量、UGT1A1多型など特有の注意点</li>
+          </ul>
+        </div>
+        <div class="round-links">
+          <a class="round-link" href="classification_cytotoxic.html">要点まとめを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="round-link" href="classification_cytotoxic_checkpoints.html">実践ポイントを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+      <div class="round-card">
+        <div class="round-num">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18a8 8 0 0 1 16 0"/><path d="M12 18l4-5"/><circle cx="12" cy="18" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+          <span class="no">②</span>
+        </div>
+        <div class="round-body">
+          <h3>分子標的治療薬</h3>
+          <p class="sub">標的分子から読み解く薬剤分類と副作用</p>
+          <ul class="round-points">
+            <li>EGFR阻害薬・HER2阻害薬・血管新生阻害薬・BCR-ABL阻害薬・mTOR阻害薬</li>
+            <li>標的分子に応じた特徴的な副作用(高血圧・皮疹・心毒性・間質性肺疾患)</li>
+            <li>CYP3A4相互作用、周術期休薬など処方監査のポイント</li>
+          </ul>
+        </div>
+        <div class="round-links">
+          <a class="round-link" href="classification_targeted.html">要点まとめを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="round-link" href="classification_targeted_checkpoints.html">実践ポイントを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+      <div class="round-card">
+        <div class="round-num">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <span class="no">③</span>
+        </div>
+        <div class="round-body">
+          <h3>免疫チェックポイント阻害薬</h3>
+          <p class="sub">irAEの考え方とCTCAE Gradeに応じた対応</p>
+          <ul class="round-points">
+            <li>抗PD-1抗体・抗PD-L1抗体・抗CTLA-4抗体の作用機序</li>
+            <li>皮膚・消化器・内分泌・心筋炎など、あらゆる臓器に起こりうるirAE</li>
+            <li>Grade2以上でのステロイド治療開始など管理の基本</li>
+          </ul>
+        </div>
+        <div class="round-links">
+          <a class="round-link" href="classification_ici.html">要点まとめを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="round-link" href="classification_ici_checkpoints.html">実践ポイントを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
 
@@ -651,15 +720,57 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
   <section>
     <div class="section-head">
       <h2>癌種別ガイド</h2>
-      <p>代表的ながん種ごとに、使用する薬剤・特徴的な副作用・モニタリングポイントをまとめる予定です。</p>
+      <p>代表的ながん種ごとに、使用する薬剤・特徴的な副作用・モニタリングポイントをまとめています。</p>
     </div>
-    <div class="cancer-soon">
-      <p class="lead">準備中 ― 近日公開予定</p>
-      <p class="desc">以下のがん種から順次公開していきます。</p>
+    <div class="round-list">
+
+      <div class="round-card">
+        <div class="round-num">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v9"/><path d="M12 12c-1 3-2 4-4 4-2.5 0-3-2-3-4 0-3 1-6 3-7 1.4-.7 2.5 0 4 1"/><path d="M12 12c1 3 2 4 4 4 2.5 0 3-2 3-4 0-3-1-6-3-7-1.4-.7-2.5 0-4 1"/></svg></span>
+          <span class="no">1</span>
+        </div>
+        <div class="round-body">
+          <h3>肺癌</h3>
+          <p class="sub">非小細胞肺癌を中心とした薬物療法と副作用対応</p>
+          <ul class="round-points">
+            <li>プラチナ製剤併用療法・ドライバー遺伝子別分子標的薬・免疫チェックポイント阻害薬</li>
+            <li>間質性肺疾患・ICI関連心筋炎など特に注意すべき副作用</li>
+            <li>EGFR・ALK・PD-L1等のバイオマーカー検査と薬剤選択の関係</li>
+          </ul>
+        </div>
+        <div class="round-links">
+          <a class="round-link" href="cancer_lung.html">要点まとめを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="round-link" href="cancer_lung_checkpoints.html">実践ポイントを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+      <div class="round-card">
+        <div class="round-num">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.2s-7.6-4.8-9.6-9.3A5.6 5.6 0 0112 5.6a5.6 5.6 0 019.6 5.3c-2 4.5-9.6 9.3-9.6 9.3z"/></svg></span>
+          <span class="no">2</span>
+        </div>
+        <div class="round-body">
+          <h3>乳がん</h3>
+          <p class="sub">サブタイプ別に見る薬物療法と副作用対応</p>
+          <ul class="round-points">
+            <li>アントラサイクリン+タキサン・抗HER2療法・内分泌療法・CDK4/6阻害薬</li>
+            <li>心毒性・骨髄抑制・更年期様症状など、レジメンごとの副作用パターン</li>
+            <li>ホルモン受容体・HER2発現(サブタイプ)による治療選択の違い</li>
+          </ul>
+        </div>
+        <div class="round-links">
+          <a class="round-link" href="cancer_breast.html">要点まとめを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="round-link" href="cancer_breast_checkpoints.html">実践ポイントを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cancer-soon" style="margin-top:14px;">
+      <p class="lead">その他のがん種 ― 準備中</p>
+      <p class="desc">以下のがん種は今後順次公開していきます。</p>
       <div class="cancer-chip-row">
-        <span class="cancer-chip">肺癌</span>
         <span class="cancer-chip">大腸癌</span>
-        <span class="cancer-chip">乳がん</span>
         <span class="cancer-chip">胃癌</span>
         <span class="cancer-chip">膵臓癌</span>
         <span class="cancer-chip">血液がん</span>
