@@ -174,7 +174,112 @@ table.recordtable.rose th{background:var(--rose-tint); color:var(--rose);}
 .pdf-dl-btn svg{width:15px; height:15px;}
 .pdf-dl-btn:hover{background:var(--teal);}
 @media print{ .pdf-dl-btn{display:none;} }
-</style>
+
+.page{padding:0 12mm 16mm; min-height:297mm;}
+@media print{ @page{size:A4; margin:0;} .page{width:210mm; height:297mm; min-height:0; margin:0; padding:0 12mm 16mm; overflow:hidden;} }
+.header{margin:0 -12mm 4mm; padding:6mm 12mm 5mm;}
+.header .badge{width:12mm; height:12mm; font-size:15pt;}
+.header h1{font-size:18pt; margin:0 0 .6mm;}
+.header .tag{margin:0 0 1mm; font-size:8.3pt;}
+.header .sub{font-size:10pt;}
+.footer{left:12mm; right:12mm; bottom:6mm; font-size:7.2pt;}
+.section{margin:0 0 3.2mm;}
+.sec-title{margin:0 0 1.6mm; gap:2.2mm;}
+.sec-title h2{font-size:11pt;}
+.sec-title .num{width:5.6mm; height:5.6mm; font-size:9pt;}
+.lead{font-size:8.2pt; color:var(--ink-soft); margin:-.4mm 0 1.4mm; line-height:1.4;}
+/* 分類マップ(行形式) */
+.dmap{display:flex; flex-direction:column; gap:1.2mm;}
+.drow{display:grid; grid-template-columns:36mm 1fr; background:var(--surface); border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden;}
+.drow .dh{background:var(--teal-dark); color:#fff; padding:1.2mm 2mm; display:flex; flex-direction:column; justify-content:center;}
+.drow.acc .dh{background:var(--terracotta);}
+.drow .dh b{font-size:8.6pt; line-height:1.25;}
+.drow .dh span{font-size:6.8pt; opacity:.9; margin-top:.3mm; line-height:1.25;}
+.drow .dgs{display:flex; flex-wrap:wrap; align-items:center; gap:1mm 3.2mm; padding:1.2mm 2.2mm;}
+.dg{display:flex; align-items:center; gap:1mm; flex-wrap:wrap;}
+.dg .gl{font-size:7.6pt; font-weight:700; color:var(--teal-dark);}
+.drow.acc .dg .gl{color:var(--terracotta);}
+.chip{font-size:7.6pt; border:0.75pt solid var(--line); border-radius:999px; padding:.15mm 1.7mm; background:#fff; white-space:nowrap;}
+.chip.oral{background:var(--teal-tint); border-color:var(--teal); color:var(--teal-dark); font-weight:700;}
+.legend{display:flex; gap:5mm; font-size:7.2pt; color:var(--ink-soft); margin-top:1mm; align-items:center;}
+.legend i{display:inline-block; width:6mm; height:3mm; border-radius:999px; vertical-align:middle; margin-right:1.2mm; border:0.75pt solid var(--line); background:#fff;}
+.legend i.oral{background:var(--teal-tint); border-color:var(--teal);}
+.legend i.hot{background:var(--terracotta); border:none;}
+.legend i.norm{background:var(--teal); border:none;}
+/* 汎用テーブル */
+table.grid{width:100%; border-collapse:separate; border-spacing:0 .7mm; font-size:7.9pt;}
+table.grid th{background:var(--teal-dark); color:#fff; font-weight:700; padding:1mm 1.8mm; text-align:left; font-size:7.8pt;}
+table.grid th:first-child{border-radius:1.5mm 0 0 1.5mm;} table.grid th:last-child{border-radius:0 1.5mm 1.5mm 0;}
+table.grid td{background:var(--surface); padding:.9mm 1.8mm; vertical-align:middle; line-height:1.3; border-top:0.5pt solid var(--line); border-bottom:0.5pt solid var(--line);}
+table.grid td:first-child{border-left:0.5pt solid var(--line); border-radius:1.5mm 0 0 1.5mm; font-weight:700; color:var(--teal-dark); background:var(--teal-tint);}
+table.grid td:last-child{border-right:0.5pt solid var(--line); border-radius:0 1.5mm 1.5mm 0;}
+/* 発現時期マップ */
+.onset{background:var(--surface); border:0.75pt solid var(--line); border-radius:2mm; padding:1.4mm 2.2mm 1.2mm;}
+.orow{display:grid; grid-template-columns:50mm 1fr; align-items:center; min-height:5.2mm;}
+.orow .ol{font-size:7.7pt; font-weight:700; color:var(--ink);}
+.orow .ol::before{content:"●"; font-size:6pt; margin-right:1.2mm; color:var(--teal);}
+.orow.hot .ol::before{color:var(--terracotta);}
+.otrack{position:relative; height:5.2mm; border-left:0.5pt dashed var(--line);}
+.otrack .tick{position:absolute; top:0; bottom:0; border-left:0.5pt dashed var(--line);}
+.obar{position:absolute; top:.7mm; height:3.8mm; border-radius:999px; background:var(--teal); color:#fff; font-size:7.2pt; font-weight:700; display:flex; align-items:center; justify-content:center; white-space:nowrap; overflow:visible;}
+.orow.hot .obar{background:var(--terracotta);}
+.obar.out{justify-content:flex-start;}
+.obar.out span{position:absolute; left:calc(100% + 1.2mm); color:var(--ink-soft);}
+.orow.hot .obar.out span{color:var(--terracotta);}
+.ohead .otrack{height:5mm; border:none; background:var(--teal-dark); border-radius:1mm;}
+.ohead .otrack .tl{position:absolute; top:.6mm; font-size:7.6pt; font-weight:700; color:#fff; transform:translateX(-50%); white-space:nowrap;}
+.ophase{position:absolute; top:0; bottom:0;}
+/* 役割チェックリスト */
+.roles{display:grid; grid-template-columns:1fr 1fr; gap:3mm;}
+.role{background:var(--surface); border:0.75pt solid var(--line); border-radius:2mm; overflow:hidden;}
+.role .rh{padding:1.1mm 3mm; color:#fff; font-weight:700; font-size:9pt; text-align:center;}
+.role ul.check{padding:1.6mm 2.4mm .2mm;}
+.role ul.check li{font-size:7.9pt; margin-bottom:1.1mm; line-height:1.35; padding-left:4.4mm;}
+.role ul.check li::before{width:2.6mm; height:2.6mm; top:.7mm; border-width:1.2pt;}
+.role.ph .rh{background:var(--terracotta);} .role.ph ul.check li::before{border-color:var(--terracotta);}
+.role.hp .rh{background:var(--teal-dark);}
+/* 相互作用 */
+.lv{display:inline-block; color:#fff; font-weight:700; font-size:7.8pt; border-radius:1mm; padding:.5mm 1.6mm; white-space:nowrap;}
+.pt{display:inline-block; color:#fff; font-weight:700; font-size:6.8pt; border-radius:999px; padding:.2mm 1.4mm; margin:0 .8mm .6mm 0;}
+table.ix td{font-size:7.7pt;}
+table.ix td.eff{background:#FBEAE4; color:#8C2F1C; font-weight:700;}
+table.ix td.act{background:#EAF0F4;}
+/* 声かけ */
+.talks{display:grid; grid-template-columns:repeat(4,1fr); gap:2mm;}
+.talk{background:var(--surface); border:0.75pt solid var(--line); border-radius:2mm; padding:1.4mm 1.8mm; display:flex; flex-direction:column; gap:.8mm;}
+.talk .w{font-size:7.6pt; font-weight:700; color:#fff; background:var(--teal-dark); border-radius:999px; padding:.5mm 2mm; align-self:flex-start;}
+.talk .s{font-size:7.2pt; line-height:1.35; background:var(--teal-tint); border-radius:1.5mm; padding:1.4mm 1.8mm;}
+.talk .c{font-size:7pt; line-height:1.32; color:var(--ink-soft);}
+.talk .c b{color:var(--ink);}
+.talk .a{font-size:7pt; line-height:1.3; color:var(--terracotta); font-weight:700; margin-top:auto;}
+.shareline{display:flex; flex-wrap:wrap; align-items:center; gap:1mm 1.6mm; margin-top:1.6mm; font-size:7.4pt;}
+.shareline b{color:#fff; background:var(--teal-dark); border-radius:999px; padding:.3mm 2mm;}
+.shareline span{background:var(--surface); border:0.75pt solid var(--teal-tint-line); border-radius:999px; padding:.2mm 1.8mm;}
+.share{display:grid; grid-template-columns:repeat(4,1fr); gap:2mm;}
+.share div{background:var(--surface); border:0.75pt solid var(--teal-tint-line); border-radius:1.5mm; font-size:7.4pt; text-align:center; padding:1mm; line-height:1.3;}
+.take{background:var(--teal-dark); color:#fff; border-radius:2mm; padding:2mm 3.5mm;}
+.take ol{margin:0; padding-left:5mm; font-size:8.4pt; line-height:1.45;}
+.take b.t{display:block; font-size:9pt; margin-bottom:.6mm; color:#F0BBA6;}
+/* 患者向け */
+.p-intro{font-size:11.5pt; color:var(--ink-soft); line-height:1.65; margin:1mm 0 5mm;}
+.pband{border-radius:3mm; padding:4mm 5mm; margin:0 0 4.5mm;}
+.pband .ph{display:flex; align-items:center; gap:3mm; margin:0 0 3mm;}
+.pband .pn{flex:none; width:9mm; height:9mm; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-family:'Shippori Mincho',serif; font-weight:700; font-size:11.5pt;}
+.pband h3{font-size:15pt; font-weight:700; margin:0;}
+.pband ul{list-style:none; margin:0; padding:0;}
+.pband li{position:relative; padding-left:5mm; margin-bottom:2mm; font-size:12pt; line-height:1.5;}
+.pband li::before{content:"●"; position:absolute; left:0; top:.45em; font-size:5.5pt; color:var(--ink-faint);}
+.pband.alert{background:#FBEAE4; border:1.2pt solid var(--terracotta);}
+.pband.alert li{font-weight:700;}
+.pband.alert li::before{color:var(--terracotta);}
+.pgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:2.5mm;}
+.pcell{background:#fff; border-radius:2mm; padding:3mm 3.2mm;}
+.pcell .pw{font-size:12pt; font-weight:700; color:var(--teal-dark); margin-bottom:1mm;}
+.pcell p{margin:0 0 1.2mm; font-size:11.5pt; line-height:1.45; padding-left:1em; text-indent:-1em;}
+.fill{display:grid; grid-template-columns:auto 1fr; gap:1.6mm 3mm; font-size:10pt; align-items:end;}
+.fill span{font-weight:700; color:var(--ink-soft);}
+.fill i{border-bottom:0.75pt solid var(--ink-faint); height:5.5mm; display:block;}
+:root{--teal-dark:#084F4F; --teal:#0B6E6E; --teal-tint:#E3F1EF; --teal-tint-line:#BFE3E0;}</style>
 </head><body>
 <a class="pdf-dl-btn" href="classification_cytotoxic_checkpoints.pdf" download title="PDFをダウンロード">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-4-4l4 4 4-4"/><path d="M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
@@ -183,32 +288,60 @@ table.recordtable.rose th{background:var(--rose-tint); color:var(--rose);}
     <div class="header">
     <div class="badge">①</div>
     <div class="htext">
-      <p class="tag">がん薬物療法 研修シリーズ ― 実践ガイド</p>
+      <p class="tag">がん薬物療法 研修シリーズ ― 基礎知識 ― 実践ガイド(調剤薬局向け)</p>
       <h1>細胞障害性抗がん薬:薬剤師の実践ポイント</h1>
-      <p class="sub">累積投与量管理と副作用の早期発見</p>
+      <p class="sub">服薬指導・相互作用・病院との連携のポイント</p>
     </div>
   </div>
-    
-      <div class="section">
-        <div class="sec-title"><div class="num">1</div><h2>服薬指導で伝えるポイント</h2></div>
-        <div class="icon-row"><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="M8 13h2M14 13h2M8 17h2M14 17h2"/></svg><p>骨髄抑制の時期(nadir)を伝え、感染予防行動を具体的に指導する</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v4c0 2-2 3-3 5-1.5 3 0 7 4 7h4c4 0 5.5-4 4-7-1-2-3-3-3-5V3"/><path d="M9 3h6"/></svg><p>制吐薬の予防的服用の重要性を、催吐リスク分類に応じて説明する</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3M6.5 6.5l2 2M15.5 15.5l2 2M6.5 17.5l2-2M15.5 8.5l2-2"/></svg><p>末梢神経障害・脱毛など、外見や感覚に関わる変化は事前に心構えを伝える</p></div></div>
-      </div>
-      <div class="section">
-        <div class="sec-title"><div class="num">2</div><h2>処方監査・疑義照会のタイミング</h2></div>
-        <ul class="check"><li>アントラサイクリン系の累積投与量が上限に近づいていないか確認する</li><li>イリノテカン使用患者でUGT1A1遺伝子多型検査の実施状況を確認する</li><li>腎機能・肝機能に応じた減量基準(シスプラチン、メトトレキサート等)が守られているか確認する</li></ul>
-      </div>
-      <div class="section">
-        <div class="sec-title"><div class="num">3</div><h2>施設間連携・情報共有のポイント</h2></div>
-        <div class="icon-row"><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="17" rx="1.5"/><path d="M12 8v6M9 11h6"/><path d="M8 21v-4h8v4"/></svg><p>累積投与量・投与歴をお薬手帳や診療情報提供書で継続的に共有する</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C12 21 4 14.4 4 9.4C4 6.4 6.4 4 9.4 4C10.9 4 12 4.9 12 6.5C12 4.9 13.1 4 14.6 4C17.6 4 20 6.4 20 9.4C20 14.4 12 21 12 21Z"/></svg><p>心機能検査(心エコー等)のフォロー状況を医療機関間で確認する</p></div></div>
-      </div>
-      <div class="section">
-        <div class="sec-title accent"><div class="num">4</div><h2>実践チェックリスト</h2></div>
-        <ul class="check accent"><li>新規レジメン開始時に、薬剤分類ごとの重点モニタリング項目を薬歴に記録する</li><li>前回投与時の副作用の程度を必ず聴取し、次コースへの申し送りを意識する</li><li>減量・休薬の判断根拠(Grade、検査値)を処方箋・カルテ記載と照合する</li></ul>
-      </div>
-      <div class="section">
-        <div class="callout dark">細胞障害性抗がん薬の管理は「今回の一投与」ではなく「累積」の視点が欠かせない。投与歴を継続的に追う姿勢が、重篤な副作用の予防につながる。</div>
-      </div>
-      <div class="footer">がん薬物療法 研修シリーズ ― 実践ガイド(基礎知識・細胞障害性抗がん薬編) ― NCCNガイドラインに基づく</div>
-    
-  </div>
+    <div class="fitbox">
+    <div class="section"><div class="sec-title"><div class="num">1</div><h2>実践チェックリスト(保険薬局/病院)</h2></div><div class="roles"><div class="role ph"><div class="rh">保険薬局薬剤師</div><ul class="check"><li>経口抗がん薬・支持療法薬の服用日と残薬の管理</li><li>他院処方・市販薬・サプリを含めた併用薬の確認</li><li>服用期間中の電話フォロー(nadir期の発熱・口内炎など)</li><li>副作用をGradeで記録し、トレーシングレポートで病院へ</li><li>家庭での曝露対策(粉砕しない・排泄物の扱い)の説明</li></ul></div><div class="role hp"><div class="rh">病院薬剤師</div><ul class="check"><li>レジメン監査・投与量計算(体表面積・腎機能・累積投与量)</li><li>前投薬・制吐薬・補液など支持療法の確認</li><li>抗がん薬の調製と曝露対策、血管外漏出への対応</li><li>外来化学療法室での副作用説明・セルフケア指導</li><li>お薬手帳へのレジメン情報の記載・薬局への情報提供</li></ul></div></div><div class="shareline"><b>病院と共有する情報</b><span>レジメン名・投与日</span><span>検査値</span><span>副作用のGrade</span><span>服用状況・残薬</span></div></div>
+    <div class="section"><div class="sec-title"><div class="num">2</div><h2>投与量・累積量・臓器機能 ― 病院の確認を薬局でも活かす</h2></div><table class="grid "><colgroup><col style="width:16.5%"><col style="width:28.1%"><col style="width:24.0%"><col style="width:31.4%"></colgroup><tr><th>薬剤</th><th>病院で確認する値・上限</th><th>理由</th><th>保険薬局での活用</th></tr><tr><td>カルボプラチン</td><td>目標AUCと腎機能(カルバート式:AUC×(GFR+25))</td><td>GFRの推定方法で投与量が大きく変わる</td><td>処方箋の検査値でクレアチニンの推移を確認</td></tr><tr><td>シスプラチン</td><td>腎機能(CCr)、補液量、Mg補充</td><td>腎障害の予防</td><td>尿量・むくみ・水分摂取を聴取、NSAIDsの新規処方に注意</td></tr><tr><td>ドキソルビシン</td><td>累積投与量 500mg/m²(他のアントラサイクリン系は換算して通算)</td><td>超えると心不全のリスクが上昇</td><td>治療歴を通算で把握し、息切れ・むくみを聴取</td></tr><tr><td>ブレオマイシン</td><td>総投与量 300mg(力価)</td><td>総量に依存して肺線維症のリスク</td><td>乾性咳嗽・息切れを聴取</td></tr><tr><td>メトトレキサート<br>(大量療法)</td><td>血中濃度、尿pH、ホリナート救援</td><td>排泄遅延で重篤な副作用</td><td>退院後のNSAIDs・PPIの新規処方に注意</td></tr><tr><td>イリノテカン</td><td>UGT1A1*6/*28の遺伝子多型</td><td>ホモ・複合ヘテロで減量を検討</td><td>結果を薬歴に記録し、下痢・発熱の指導を強化</td></tr></table></div>
+    <div class="section"><div class="sec-title accent"><div class="num">3</div><h2>相互作用・併用注意(他院処方・市販薬・サプリを含む)</h2></div><table class="grid ix"><colgroup><col style="width:9%"><col style="width:17%"><col style="width:28%"><col style="width:21%"><col style="width:25%"></colgroup>
+    <tr><th>重要度</th><th>薬剤(機序)</th><th>相手の薬(区分)</th><th>起こること</th><th>薬局での対応</th></tr><tr>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#A8321F">禁忌</span></td>
+    <td style="background:#fff; color:var(--ink);">イリノテカン<div style="font-size:7.2pt; color:#A8321F; font-weight:700; margin-top:.4mm;">UGT1A1阻害</div></td>
+    <td><span class="pt" style="background:#5B6B82">処方薬</span><br>アタザナビル(抗HIV薬)</td>
+    <td class="eff">SN-38↑ → 骨髄抑制・下痢が重篤化</td>
+    <td class="act">併用しない。他院処方をお薬手帳で確認</td></tr><tr>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#A8321F">禁忌</span></td>
+    <td style="background:#fff; color:var(--ink);">S-1<div style="font-size:7.2pt; color:#A8321F; font-weight:700; margin-top:.4mm;">DPD阻害(ギメラシル)</div></td>
+    <td><span class="pt" style="background:#5B6B82">処方薬</span><br>他のフッ化ピリミジン系(カペシタビン・5-FU等)</td>
+    <td class="eff">5-FU濃度↑ → 重篤な骨髄抑制・下痢</td>
+    <td class="act">切り替え時は7日以上空ける</td></tr><tr>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; color:var(--ink);">メトトレキサート<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">腎排泄の遅延</div></td>
+    <td><span class="pt" style="background:#5B6B82">処方薬</span><span class="pt" style="background:#D9822B">市販薬</span><br>NSAIDs・PPI・ST合剤(市販の解熱鎮痛薬も)</td>
+    <td class="eff">MTX濃度↑ → 骨髄抑制・粘膜障害</td>
+    <td class="act">市販の解熱鎮痛薬の使用も聴取</td></tr><tr>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; color:var(--ink);">カペシタビン・S-1<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">CYP2C9の抑制</div></td>
+    <td><span class="pt" style="background:#5B6B82">処方薬</span><br>ワルファリン・フェニトイン</td>
+    <td class="eff">INR↑(出血)・フェニトイン中毒</td>
+    <td class="act">INR測定の頻度を処方医と確認</td></tr><tr>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; color:var(--ink);">イリノテカン<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">CYP3A4誘導</div></td>
+    <td><span class="pt" style="background:#3F8A5C">サプリ・食品</span><br>セイヨウオトギリソウ含有サプリ</td>
+    <td class="eff">SN-38↓ → 効果が減弱</td>
+    <td class="act">サプリ・健康食品の使用を聴取</td></tr><tr>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; color:var(--ink);">シスプラチン<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">毒性の重複</div></td>
+    <td><span class="pt" style="background:#5B6B82">処方薬</span><br>アミノグリコシド系抗菌薬・ループ利尿薬</td>
+    <td class="eff">腎障害・聴覚障害↑</td>
+    <td class="act">他院での抗菌薬・利尿薬の処方を確認</td></tr></table></div>
+    <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導の声かけ例と確認のタイミング</h2></div><div class="talks"><div class="talk"><span class="w">治療開始前</span><div class="s">「髪は2〜3週目から抜け始めることが多いので、ウィッグや帽子を早めに準備しておくと安心です」</div><div class="c"><b>確認:</b>お薬手帳でレジメン・投与日を確認、他院処方・市販薬・サプリの有無</div><div class="a">⚠ 口腔ケア・歯科受診は治療前に済ませておく</div></div><div class="talk"><span class="w">投与当日〜5日</span><div class="s">「吐き気止めは、吐き気がなくても決められた時間に飲んでください。2〜5日目の吐き気にも備えましょう」</div><div class="c"><b>確認:</b>制吐薬の服用状況、水分・食事量(電話フォローで確認)</div><div class="a">⚠ 水分がとれない・尿が少ない時は至急連絡</div></div><div class="talk"><span class="w">投与後1〜2週</span><div class="s">「37.5℃以上の熱が出たら、解熱剤で様子を見ずにすぐ病院へ。手洗い・うがいもこまめに」</div><div class="c"><b>確認:</b>電話フォローでnadir期の発熱・口内炎を確認</div><div class="a">⚠ 発熱・悪寒はFNを疑い夜間休日でも受診</div></div><div class="talk"><span class="w">次回来局時</span><div class="s">「手足のしびれや口内炎、食事の状況はいかがですか。前回と比べて教えてください」</div><div class="c"><b>確認:</b>しびれ・口内炎をGradeで記録し、トレーシングレポートで共有</div><div class="a">⚠ Grade2以上は処方医へ情報提供</div></div></div></div>
+    </div>
+    <div class="footer">がん薬物療法 研修シリーズ 基礎知識(細胞障害性抗がん薬) ― 実践ガイド(調剤薬局向け) ― 各薬剤の添付文書、がん薬物療法の各種ガイドライン、CTCAE v5.0に基づく</div>
+  </div><script>(function(){
+  function fit(){
+    document.querySelectorAll(".page").forEach(function(pg){
+      var box = pg.querySelector(".fitbox"), ft = pg.querySelector(".footer"); if(!box||!ft) return;
+      box.style.zoom = 1;
+      var avail = ft.getBoundingClientRect().top - box.getBoundingClientRect().top - 12;
+      var need = box.getBoundingClientRect().height;
+      if (need > avail) box.style.zoom = Math.max(0.88, avail / need).toFixed(3);
+    });
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); else window.addEventListener("load", fit);
+  window.addEventListener("beforeprint", fit);
+})();</script>
 </body></html>

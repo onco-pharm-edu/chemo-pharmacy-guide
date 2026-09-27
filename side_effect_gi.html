@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja"><head>
 <meta charset="utf-8">
-<title>消化器症状</title>
+<title>消化器症状:要点まとめ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
 <style>
@@ -174,39 +174,165 @@ table.recordtable.rose th{background:var(--rose-tint); color:var(--rose);}
 .pdf-dl-btn svg{width:15px; height:15px;}
 .pdf-dl-btn:hover{background:var(--teal);}
 @media print{ .pdf-dl-btn{display:none;} }
-</style>
+
+.page{padding:0 12mm 16mm; min-height:297mm;}
+@media print{ @page{size:A4; margin:0;} .page{width:210mm; height:297mm; min-height:0; margin:0; padding:0 12mm 16mm; overflow:hidden;} }
+.header{margin:0 -12mm 4mm; padding:6mm 12mm 5mm;}
+.header .badge{width:12mm; height:12mm; font-size:15pt;}
+.header h1{font-size:18pt; margin:0 0 .6mm;}
+.header .tag{margin:0 0 1mm; font-size:8.3pt;}
+.header .sub{font-size:10pt;}
+.footer{left:12mm; right:12mm; bottom:6mm; font-size:7.2pt;}
+.section{margin:0 0 3.2mm;}
+.sec-title{margin:0 0 1.6mm; gap:2.2mm;}
+.sec-title h2{font-size:11pt;}
+.sec-title .num{width:5.6mm; height:5.6mm; font-size:9pt;}
+.lead{font-size:8.2pt; color:var(--ink-soft); margin:-.4mm 0 1.4mm; line-height:1.4;}
+/* 分類マップ(行形式) */
+.dmap{display:flex; flex-direction:column; gap:1.2mm;}
+.drow{display:grid; grid-template-columns:36mm 1fr; background:var(--surface); border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden;}
+.drow .dh{background:var(--teal-dark); color:#fff; padding:1.2mm 2mm; display:flex; flex-direction:column; justify-content:center;}
+.drow.acc .dh{background:var(--terracotta);}
+.drow .dh b{font-size:8.6pt; line-height:1.25;}
+.drow .dh span{font-size:6.8pt; opacity:.9; margin-top:.3mm; line-height:1.25;}
+.drow .dgs{display:flex; flex-wrap:wrap; align-items:center; gap:1mm 3.2mm; padding:1.2mm 2.2mm;}
+.dg{display:flex; align-items:center; gap:1mm; flex-wrap:wrap;}
+.dg .gl{font-size:7.6pt; font-weight:700; color:var(--teal-dark);}
+.drow.acc .dg .gl{color:var(--terracotta);}
+.chip{font-size:7.6pt; border:0.75pt solid var(--line); border-radius:999px; padding:.15mm 1.7mm; background:#fff; white-space:nowrap;}
+.chip.oral{background:var(--teal-tint); border-color:var(--teal); color:var(--teal-dark); font-weight:700;}
+.legend{display:flex; gap:5mm; font-size:7.2pt; color:var(--ink-soft); margin-top:1mm; align-items:center;}
+.legend i{display:inline-block; width:6mm; height:3mm; border-radius:999px; vertical-align:middle; margin-right:1.2mm; border:0.75pt solid var(--line); background:#fff;}
+.legend i.oral{background:var(--teal-tint); border-color:var(--teal);}
+.legend i.hot{background:var(--terracotta); border:none;}
+.legend i.norm{background:var(--teal); border:none;}
+/* 汎用テーブル */
+table.grid{width:100%; border-collapse:separate; border-spacing:0 .7mm; font-size:7.9pt;}
+table.grid th{background:var(--teal-dark); color:#fff; font-weight:700; padding:1mm 1.8mm; text-align:left; font-size:7.8pt;}
+table.grid th:first-child{border-radius:1.5mm 0 0 1.5mm;} table.grid th:last-child{border-radius:0 1.5mm 1.5mm 0;}
+table.grid td{background:var(--surface); padding:.9mm 1.8mm; vertical-align:middle; line-height:1.3; border-top:0.5pt solid var(--line); border-bottom:0.5pt solid var(--line);}
+table.grid td:first-child{border-left:0.5pt solid var(--line); border-radius:1.5mm 0 0 1.5mm; font-weight:700; color:var(--teal-dark); background:var(--teal-tint);}
+table.grid td:last-child{border-right:0.5pt solid var(--line); border-radius:0 1.5mm 1.5mm 0;}
+/* 発現時期マップ */
+.onset{background:var(--surface); border:0.75pt solid var(--line); border-radius:2mm; padding:1.4mm 2.2mm 1.2mm;}
+.orow{display:grid; grid-template-columns:50mm 1fr; align-items:center; min-height:5.2mm;}
+.orow .ol{font-size:7.7pt; font-weight:700; color:var(--ink);}
+.orow .ol::before{content:"●"; font-size:6pt; margin-right:1.2mm; color:var(--teal);}
+.orow.hot .ol::before{color:var(--terracotta);}
+.otrack{position:relative; height:5.2mm; border-left:0.5pt dashed var(--line);}
+.otrack .tick{position:absolute; top:0; bottom:0; border-left:0.5pt dashed var(--line);}
+.obar{position:absolute; top:.7mm; height:3.8mm; border-radius:999px; background:var(--teal); color:#fff; font-size:7.2pt; font-weight:700; display:flex; align-items:center; justify-content:center; white-space:nowrap; overflow:visible;}
+.orow.hot .obar{background:var(--terracotta);}
+.obar.out{justify-content:flex-start;}
+.obar.out span{position:absolute; left:calc(100% + 1.2mm); color:var(--ink-soft);}
+.orow.hot .obar.out span{color:var(--terracotta);}
+.ohead .otrack{height:5mm; border:none; background:var(--teal-dark); border-radius:1mm;}
+.ohead .otrack .tl{position:absolute; top:.6mm; font-size:7.6pt; font-weight:700; color:#fff; transform:translateX(-50%); white-space:nowrap;}
+.ophase{position:absolute; top:0; bottom:0;}
+/* 役割チェックリスト */
+.roles{display:grid; grid-template-columns:1fr 1fr; gap:3mm;}
+.role{background:var(--surface); border:0.75pt solid var(--line); border-radius:2mm; overflow:hidden;}
+.role .rh{padding:1.1mm 3mm; color:#fff; font-weight:700; font-size:9pt; text-align:center;}
+.role ul.check{padding:1.6mm 2.4mm .2mm;}
+.role ul.check li{font-size:7.9pt; margin-bottom:1.1mm; line-height:1.35; padding-left:4.4mm;}
+.role ul.check li::before{width:2.6mm; height:2.6mm; top:.7mm; border-width:1.2pt;}
+.role.ph .rh{background:var(--terracotta);} .role.ph ul.check li::before{border-color:var(--terracotta);}
+.role.hp .rh{background:var(--teal-dark);}
+/* 相互作用 */
+.lv{display:inline-block; color:#fff; font-weight:700; font-size:7.8pt; border-radius:1mm; padding:.5mm 1.6mm; white-space:nowrap;}
+.pt{display:inline-block; color:#fff; font-weight:700; font-size:6.8pt; border-radius:999px; padding:.2mm 1.4mm; margin:0 .8mm .6mm 0;}
+table.ix td{font-size:7.7pt;}
+table.ix td.eff{background:#FBEAE4; color:#8C2F1C; font-weight:700;}
+table.ix td.act{background:#EAF0F4;}
+/* 声かけ */
+.talks{display:grid; grid-template-columns:repeat(4,1fr); gap:2mm;}
+.talk{background:var(--surface); border:0.75pt solid var(--line); border-radius:2mm; padding:1.4mm 1.8mm; display:flex; flex-direction:column; gap:.8mm;}
+.talk .w{font-size:7.6pt; font-weight:700; color:#fff; background:var(--teal-dark); border-radius:999px; padding:.5mm 2mm; align-self:flex-start;}
+.talk .s{font-size:7.2pt; line-height:1.35; background:var(--teal-tint); border-radius:1.5mm; padding:1.4mm 1.8mm;}
+.talk .c{font-size:7pt; line-height:1.32; color:var(--ink-soft);}
+.talk .c b{color:var(--ink);}
+.talk .a{font-size:7pt; line-height:1.3; color:var(--terracotta); font-weight:700; margin-top:auto;}
+.shareline{display:flex; flex-wrap:wrap; align-items:center; gap:1mm 1.6mm; margin-top:1.6mm; font-size:7.4pt;}
+.shareline b{color:#fff; background:var(--teal-dark); border-radius:999px; padding:.3mm 2mm;}
+.shareline span{background:var(--surface); border:0.75pt solid var(--teal-tint-line); border-radius:999px; padding:.2mm 1.8mm;}
+.share{display:grid; grid-template-columns:repeat(4,1fr); gap:2mm;}
+.share div{background:var(--surface); border:0.75pt solid var(--teal-tint-line); border-radius:1.5mm; font-size:7.4pt; text-align:center; padding:1mm; line-height:1.3;}
+.take{background:var(--teal-dark); color:#fff; border-radius:2mm; padding:2mm 3.5mm;}
+.take ol{margin:0; padding-left:5mm; font-size:8.4pt; line-height:1.45;}
+.take b.t{display:block; font-size:9pt; margin-bottom:.6mm; color:#F0BBA6;}
+/* 患者向け */
+.p-intro{font-size:11.5pt; color:var(--ink-soft); line-height:1.65; margin:1mm 0 5mm;}
+.pband{border-radius:3mm; padding:4mm 5mm; margin:0 0 4.5mm;}
+.pband .ph{display:flex; align-items:center; gap:3mm; margin:0 0 3mm;}
+.pband .pn{flex:none; width:9mm; height:9mm; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-family:'Shippori Mincho',serif; font-weight:700; font-size:11.5pt;}
+.pband h3{font-size:15pt; font-weight:700; margin:0;}
+.pband ul{list-style:none; margin:0; padding:0;}
+.pband li{position:relative; padding-left:5mm; margin-bottom:2mm; font-size:12pt; line-height:1.5;}
+.pband li::before{content:"●"; position:absolute; left:0; top:.45em; font-size:5.5pt; color:var(--ink-faint);}
+.pband.alert{background:#FBEAE4; border:1.2pt solid var(--terracotta);}
+.pband.alert li{font-weight:700;}
+.pband.alert li::before{color:var(--terracotta);}
+.pgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:2.5mm;}
+.pcell{background:#fff; border-radius:2mm; padding:3mm 3.2mm;}
+.pcell .pw{font-size:12pt; font-weight:700; color:var(--teal-dark); margin-bottom:1mm;}
+.pcell p{margin:0 0 1.2mm; font-size:11.5pt; line-height:1.45; padding-left:1em; text-indent:-1em;}
+.fill{display:grid; grid-template-columns:auto 1fr; gap:1.6mm 3mm; font-size:10pt; align-items:end;}
+.fill span{font-weight:700; color:var(--ink-soft);}
+.fill i{border-bottom:0.75pt solid var(--ink-faint); height:5.5mm; display:block;}
+:root{--teal-dark:#8C3D1E; --teal:#B8562E; --teal-tint:#FBE4DE; --teal-tint-line:#E8B49C;}</style>
 </head><body>
 <a class="pdf-dl-btn" href="side_effect_gi.pdf" download title="PDFをダウンロード">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-4-4l4 4 4-4"/><path d="M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
     PDFをダウンロード
   </a><div class="page">
     <div class="header">
-    <div class="badge">1</div>
+    <div class="badge">01</div>
     <div class="htext">
-      <p class="tag">がん薬物療法 研修シリーズ ― 副作用ガイド</p>
+      <p class="tag">がん薬物療法 研修シリーズ ― 副作用ガイド ― 要点まとめ</p>
       <h1>消化器症状</h1>
-      <p class="sub">悪心・嘔吐・下痢・口内炎への対応</p>
+      <p class="sub">悪心・嘔吐・下痢・口内炎・便秘を病院と薬局の視点で図解</p>
     </div>
   </div>
-    
-      <div class="section">
-        <div class="sec-title"><div class="num">1</div><h2>起こりやすい薬剤・催吐リスク分類</h2></div>
-        <table class="risktable"><tr><td class="lbl" style="background:#C1543A">高度催吐性<br>(High)</td><td class="desc">シスプラチン等。90%超で悪心嘔吐が発現。予防的に3剤併用(NK1受容体拮抗薬+5-HT3拮抗薬+デキサメタゾン)が推奨される</td></tr><tr><td class="lbl" style="background:#D98A6E">中等度催吐性<br>(Moderate)</td><td class="desc">オキサリプラチン・イリノテカン等。30〜90%で発現。5-HT3拮抗薬+デキサメタゾンの2剤併用が基本</td></tr><tr><td class="lbl" style="background:#0B6E6E">軽度・最小度<br>(Low/Minimal)</td><td class="desc">フルオロウラシル・分子標的薬の多くなど。予防投与は必要最小限、または不要なことも</td></tr></table>
-      </div>
-      <div class="section">
-        <div class="sec-title"><div class="num">2</div><h2>発現時期の目安</h2></div>
-        <div class="timeline"><div class="line"></div><div class="nodes">
-    <div class="node"><div class="dot"></div><div class="lbl">急性</div><div class="desc">投与後24時間以内</div></div><div class="node now"><div class="dot"></div><div class="lbl">遅発性</div><div class="desc">投与2〜5日後</div></div><div class="node"><div class="dot"></div><div class="lbl">予期性</div><div class="desc">次回投与前の不安による</div></div>
+    <div class="fitbox">
+    <div class="section"><div class="sec-title"><div class="num">1</div><h2>薬剤の分類マップ</h2></div><div class="dmap"><div class="drow">
+    <div class="dh"><b>悪心・嘔吐</b><span>催吐性リスクで分類</span></div>
+    <div class="dgs"><div class="dg"><span class="gl">高度催吐性</span><span class="chip">シスプラチン</span><span class="chip">AC/EC療法</span><span class="chip">シクロホスファミド(大量)</span></div><div class="dg"><span class="gl">中等度催吐性</span><span class="chip">カルボプラチン</span><span class="chip">オキサリプラチン</span><span class="chip">イリノテカン</span><span class="chip">ドキソルビシン</span></div><div class="dg"><span class="gl">軽度催吐性</span><span class="chip">タキサン系</span><span class="chip">5-FU</span><span class="chip">ゲムシタビン</span><span class="chip">ペメトレキセド</span></div></div>
+  </div><div class="drow">
+    <div class="dh"><b>下痢</b><span>薬剤ごとに機序が異なる</span></div>
+    <div class="dgs"><div class="dg"><span class="gl">細胞障害性抗がん薬</span><span class="chip">イリノテカン</span><span class="chip">5-FU</span><span class="chip oral">カペシタビン</span><span class="chip oral">S-1</span><span class="chip oral">FTD/TPI</span></div><div class="dg"><span class="gl">分子標的薬</span><span class="chip oral">アファチニブ</span><span class="chip oral">アベマシクリブ</span><span class="chip oral">ラパチニブ</span><span class="chip oral">レゴラフェニブ</span></div><div class="dg"><span class="gl">ICI(大腸炎)</span><span class="chip">ニボルマブ</span><span class="chip">イピリムマブ</span><span class="chip">ペムブロリズマブ</span></div></div>
+  </div><div class="drow">
+    <div class="dh"><b>口内炎</b><span>口腔粘膜の障害</span></div>
+    <div class="dgs"><div class="dg"><span class="gl">代謝拮抗薬</span><span class="chip">5-FU</span><span class="chip oral">S-1</span><span class="chip oral">メトトレキサート</span></div><div class="dg"><span class="gl">アントラサイクリン・タキサン</span><span class="chip">ドキソルビシン</span><span class="chip">ドセタキセル</span></div><div class="dg"><span class="gl">mTOR阻害薬(高頻度)</span><span class="chip oral">エベロリムス</span></div></div>
+  </div><div class="drow acc">
+    <div class="dh"><b>便秘</b><span>腸管運動の低下</span></div>
+    <div class="dgs"><div class="dg"><span class="gl">抗がん薬</span><span class="chip">ビンクリスチン</span><span class="chip">ビノレルビン</span></div><div class="dg"><span class="gl">支持療法の薬剤</span><span class="chip oral">5-HT3受容体拮抗薬</span><span class="chip oral">オピオイド</span></div></div>
   </div></div>
-      </div>
-      <div class="section">
-        <div class="sec-title"><div class="num">3</div><h2>患者さんに伝える観察ポイント</h2></div>
-        <div class="icon-row"><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v4c0 2-2 3-3 5-1.5 3 0 7 4 7h4c4 0 5.5-4 4-7-1-2-3-3-3-5V3"/><path d="M9 3h6"/></svg><p>食事・水分がとれない状態が1日以上続いていないか</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3 4-6 8-6 11a6 6 0 0 0 12 0c0-3-3-7-6-11z"/></svg><p>下痢が1日4回以上、または血便・発熱を伴っていないか</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-7 4 14 3-9 2 4h5"/></svg><p>口内炎で会話や食事が困難なほど痛みが強くないか</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="12" r="5"/><path d="M12 12l2.5-2.5"/></svg><p>体重減少・脱水兆候(尿量減少・めまい)がないか</p></div></div>
-      </div>
-      <div class="section">
-        <div class="callout dark">経口摂取不良・高度の下痢・発熱を伴う症状は、外来対応の限界を超えている可能性がある。様子見にせず、早めの受診勧奨を。</div>
-      </div>
-      <div class="footer">がん薬物療法 研修シリーズ ― 副作用ガイド 1/4(消化器症状) ― MASCC/ESMO制吐薬ガイドライン、CTCAE v5.0に基づく</div>
-    
-  </div>
+  <div class="legend"><span><i class="oral"></i>経口薬(保険薬局で交付されることが多い)</span><span><i></i>注射薬</span></div></div>
+    <div class="section"><div class="sec-title"><div class="num">2</div><h2>催吐性リスク分類と制吐療法の組み合わせ</h2></div><table class="grid "><colgroup><col style="width:14.9%"><col style="width:28.1%"><col style="width:33.1%"><col style="width:24.0%"></colgroup><tr><th>催吐性リスク</th><th>代表的な薬剤</th><th>1日目(急性期)</th><th>2日目以降(遅発期)</th></tr><tr><td>高度<br>(90%超)</td><td>シスプラチン、AC/EC療法、シクロホスファミド(大量)</td><td>NK1受容体拮抗薬+5-HT3受容体拮抗薬+デキサメタゾン+オランザピン</td><td>デキサメタゾン+オランザピン(2〜4日目)</td></tr><tr><td>中等度<br>(30〜90%)</td><td>カルボプラチン、オキサリプラチン、イリノテカン、ドキソルビシン</td><td>5-HT3受容体拮抗薬+デキサメタゾン(カルボプラチンはNK1受容体拮抗薬を追加)</td><td>デキサメタゾン(2〜3日目、省略できる場合あり)</td></tr><tr><td>軽度<br>(10〜30%)</td><td>タキサン系、5-FU、ゲムシタビン、ペメトレキセド</td><td>デキサメタゾン、または5-HT3受容体拮抗薬・メトクロプラミドの単剤</td><td>原則不要</td></tr><tr><td>最小度<br>(10%未満)</td><td>ビンクリスチン、多くの抗体薬(ベバシズマブ等)</td><td>原則不要</td><td>原則不要</td></tr></table><p class="lead" style="margin:1.2mm 0 0;">2日目以降の内服薬は保険薬局で交付されることが多い。具体的な薬剤・用量・日数は制吐薬適正使用ガイドラインと各施設のレジメンで確認する。</p></div>
+    <div class="section"><div class="sec-title"><div class="num">3</div><h2>副作用の特徴と発現時期</h2></div><div class="onset"><div class="orow ohead"><div class="ol" style="visibility:hidden">-</div><div class="otrack"><span class="tl" style="left:4%">投与前</span><span class="tl" style="left:20%">投与日</span><span class="tl" style="left:40%">3日</span><span class="tl" style="left:60%">1週</span><span class="tl" style="left:80%">2週</span><span class="tl" style="left:95%">1か月〜</span></div></div><div class="orow"><div class="ol">予期性の悪心・嘔吐</div><div class="otrack"><div class="ophase" style="left:0%; width:30%; background:#ECEFF3;"></div><div class="ophase" style="left:30%; width:50%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F3F1EE;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
+      <div class="obar out" style="left:0%; width:20%;"><span>過去のつらい経験から</span></div></div></div><div class="orow hot"><div class="ol">急性の悪心・嘔吐</div><div class="otrack"><div class="ophase" style="left:0%; width:30%; background:#ECEFF3;"></div><div class="ophase" style="left:30%; width:50%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F3F1EE;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
+      <div class="obar out" style="left:20%; width:10%;"><span>24時間以内</span></div></div></div><div class="orow"><div class="ol">早発性下痢(イリノテカン)</div><div class="otrack"><div class="ophase" style="left:0%; width:30%; background:#ECEFF3;"></div><div class="ophase" style="left:30%; width:50%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F3F1EE;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
+      <div class="obar out" style="left:20%; width:3.9999999999999996%;"><span>投与中〜24時間</span></div></div></div><div class="orow hot"><div class="ol">遅発性の悪心・嘔吐</div><div class="otrack"><div class="ophase" style="left:0%; width:30%; background:#ECEFF3;"></div><div class="ophase" style="left:30%; width:50%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F3F1EE;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
+      <div class="obar" style="left:30%; width:20%;"><span>2〜5日目</span></div></div></div><div class="orow"><div class="ol">便秘(制吐薬・ビンカ)</div><div class="otrack"><div class="ophase" style="left:0%; width:30%; background:#ECEFF3;"></div><div class="ophase" style="left:30%; width:50%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F3F1EE;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
+      <div class="obar" style="left:30%; width:30%;"><span>投与後数日</span></div></div></div><div class="orow"><div class="ol">遅発性下痢(イリノテカン)</div><div class="otrack"><div class="ophase" style="left:0%; width:30%; background:#ECEFF3;"></div><div class="ophase" style="left:30%; width:50%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F3F1EE;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
+      <div class="obar" style="left:40%; width:27.999999999999996%;"><span>投与後数日〜</span></div></div></div><div class="orow"><div class="ol">口内炎</div><div class="otrack"><div class="ophase" style="left:0%; width:30%; background:#ECEFF3;"></div><div class="ophase" style="left:30%; width:50%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F3F1EE;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
+      <div class="obar" style="left:50%; width:30%;"><span>5日目〜2週頃</span></div></div></div><div class="orow hot"><div class="ol">ICI大腸炎</div><div class="otrack"><div class="ophase" style="left:0%; width:30%; background:#ECEFF3;"></div><div class="ophase" style="left:30%; width:50%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F3F1EE;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
+      <div class="obar" style="left:70%; width:30%;"><span>数週〜数か月</span></div></div></div></div>
+  <div class="legend"><span><i class="hot"></i>重篤・特に注意</span><span><i class="norm"></i>その他</span></div></div>
+    <div class="section"><div class="take"><b class="t">押さえておきたいポイント</b><ol><li>制吐療法は催吐性リスクで決まる。高度リスクはNK1+5-HT3+デキサメタゾン+オランザピンの4剤</li><li>下痢は原因薬剤で対応が異なる。ICI大腸炎はロペラミドや市販の下痢止めで様子を見ない</li><li>症状の多くは帰宅後に起こる。薬局がGradeで記録・共有し、次コースの制吐療法の調整につなげる</li></ol></div></div>
+    </div>
+    <div class="footer">がん薬物療法 研修シリーズ 副作用ガイド(消化器症状) ― 要点まとめ ― 制吐薬適正使用ガイドライン、MASCC/ESMO制吐薬ガイドライン、CTCAE v5.0に基づく</div>
+  </div><script>(function(){
+  function fit(){
+    document.querySelectorAll(".page").forEach(function(pg){
+      var box = pg.querySelector(".fitbox"), ft = pg.querySelector(".footer"); if(!box||!ft) return;
+      box.style.zoom = 1;
+      var avail = ft.getBoundingClientRect().top - box.getBoundingClientRect().top - 12;
+      var need = box.getBoundingClientRect().height;
+      if (need > avail) box.style.zoom = Math.max(0.88, avail / need).toFixed(3);
+    });
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); else window.addEventListener("load", fit);
+  window.addEventListener("beforeprint", fit);
+})();</script>
 </body></html>

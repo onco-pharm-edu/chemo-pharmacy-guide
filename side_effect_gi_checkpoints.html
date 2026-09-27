@@ -174,41 +174,174 @@ table.recordtable.rose th{background:var(--rose-tint); color:var(--rose);}
 .pdf-dl-btn svg{width:15px; height:15px;}
 .pdf-dl-btn:hover{background:var(--teal);}
 @media print{ .pdf-dl-btn{display:none;} }
-</style>
+
+.page{padding:0 12mm 16mm; min-height:297mm;}
+@media print{ @page{size:A4; margin:0;} .page{width:210mm; height:297mm; min-height:0; margin:0; padding:0 12mm 16mm; overflow:hidden;} }
+.header{margin:0 -12mm 4mm; padding:6mm 12mm 5mm;}
+.header .badge{width:12mm; height:12mm; font-size:15pt;}
+.header h1{font-size:18pt; margin:0 0 .6mm;}
+.header .tag{margin:0 0 1mm; font-size:8.3pt;}
+.header .sub{font-size:10pt;}
+.footer{left:12mm; right:12mm; bottom:6mm; font-size:7.2pt;}
+.section{margin:0 0 3.2mm;}
+.sec-title{margin:0 0 1.6mm; gap:2.2mm;}
+.sec-title h2{font-size:11pt;}
+.sec-title .num{width:5.6mm; height:5.6mm; font-size:9pt;}
+.lead{font-size:8.2pt; color:var(--ink-soft); margin:-.4mm 0 1.4mm; line-height:1.4;}
+/* 分類マップ(行形式) */
+.dmap{display:flex; flex-direction:column; gap:1.2mm;}
+.drow{display:grid; grid-template-columns:36mm 1fr; background:var(--surface); border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden;}
+.drow .dh{background:var(--teal-dark); color:#fff; padding:1.2mm 2mm; display:flex; flex-direction:column; justify-content:center;}
+.drow.acc .dh{background:var(--terracotta);}
+.drow .dh b{font-size:8.6pt; line-height:1.25;}
+.drow .dh span{font-size:6.8pt; opacity:.9; margin-top:.3mm; line-height:1.25;}
+.drow .dgs{display:flex; flex-wrap:wrap; align-items:center; gap:1mm 3.2mm; padding:1.2mm 2.2mm;}
+.dg{display:flex; align-items:center; gap:1mm; flex-wrap:wrap;}
+.dg .gl{font-size:7.6pt; font-weight:700; color:var(--teal-dark);}
+.drow.acc .dg .gl{color:var(--terracotta);}
+.chip{font-size:7.6pt; border:0.75pt solid var(--line); border-radius:999px; padding:.15mm 1.7mm; background:#fff; white-space:nowrap;}
+.chip.oral{background:var(--teal-tint); border-color:var(--teal); color:var(--teal-dark); font-weight:700;}
+.legend{display:flex; gap:5mm; font-size:7.2pt; color:var(--ink-soft); margin-top:1mm; align-items:center;}
+.legend i{display:inline-block; width:6mm; height:3mm; border-radius:999px; vertical-align:middle; margin-right:1.2mm; border:0.75pt solid var(--line); background:#fff;}
+.legend i.oral{background:var(--teal-tint); border-color:var(--teal);}
+.legend i.hot{background:var(--terracotta); border:none;}
+.legend i.norm{background:var(--teal); border:none;}
+/* 汎用テーブル */
+table.grid{width:100%; border-collapse:separate; border-spacing:0 .7mm; font-size:7.9pt;}
+table.grid th{background:var(--teal-dark); color:#fff; font-weight:700; padding:1mm 1.8mm; text-align:left; font-size:7.8pt;}
+table.grid th:first-child{border-radius:1.5mm 0 0 1.5mm;} table.grid th:last-child{border-radius:0 1.5mm 1.5mm 0;}
+table.grid td{background:var(--surface); padding:.9mm 1.8mm; vertical-align:middle; line-height:1.3; border-top:0.5pt solid var(--line); border-bottom:0.5pt solid var(--line);}
+table.grid td:first-child{border-left:0.5pt solid var(--line); border-radius:1.5mm 0 0 1.5mm; font-weight:700; color:var(--teal-dark); background:var(--teal-tint);}
+table.grid td:last-child{border-right:0.5pt solid var(--line); border-radius:0 1.5mm 1.5mm 0;}
+/* 発現時期マップ */
+.onset{background:var(--surface); border:0.75pt solid var(--line); border-radius:2mm; padding:1.4mm 2.2mm 1.2mm;}
+.orow{display:grid; grid-template-columns:50mm 1fr; align-items:center; min-height:5.2mm;}
+.orow .ol{font-size:7.7pt; font-weight:700; color:var(--ink);}
+.orow .ol::before{content:"●"; font-size:6pt; margin-right:1.2mm; color:var(--teal);}
+.orow.hot .ol::before{color:var(--terracotta);}
+.otrack{position:relative; height:5.2mm; border-left:0.5pt dashed var(--line);}
+.otrack .tick{position:absolute; top:0; bottom:0; border-left:0.5pt dashed var(--line);}
+.obar{position:absolute; top:.7mm; height:3.8mm; border-radius:999px; background:var(--teal); color:#fff; font-size:7.2pt; font-weight:700; display:flex; align-items:center; justify-content:center; white-space:nowrap; overflow:visible;}
+.orow.hot .obar{background:var(--terracotta);}
+.obar.out{justify-content:flex-start;}
+.obar.out span{position:absolute; left:calc(100% + 1.2mm); color:var(--ink-soft);}
+.orow.hot .obar.out span{color:var(--terracotta);}
+.ohead .otrack{height:5mm; border:none; background:var(--teal-dark); border-radius:1mm;}
+.ohead .otrack .tl{position:absolute; top:.6mm; font-size:7.6pt; font-weight:700; color:#fff; transform:translateX(-50%); white-space:nowrap;}
+.ophase{position:absolute; top:0; bottom:0;}
+/* 役割チェックリスト */
+.roles{display:grid; grid-template-columns:1fr 1fr; gap:3mm;}
+.role{background:var(--surface); border:0.75pt solid var(--line); border-radius:2mm; overflow:hidden;}
+.role .rh{padding:1.1mm 3mm; color:#fff; font-weight:700; font-size:9pt; text-align:center;}
+.role ul.check{padding:1.6mm 2.4mm .2mm;}
+.role ul.check li{font-size:7.9pt; margin-bottom:1.1mm; line-height:1.35; padding-left:4.4mm;}
+.role ul.check li::before{width:2.6mm; height:2.6mm; top:.7mm; border-width:1.2pt;}
+.role.ph .rh{background:var(--terracotta);} .role.ph ul.check li::before{border-color:var(--terracotta);}
+.role.hp .rh{background:var(--teal-dark);}
+/* 相互作用 */
+.lv{display:inline-block; color:#fff; font-weight:700; font-size:7.8pt; border-radius:1mm; padding:.5mm 1.6mm; white-space:nowrap;}
+.pt{display:inline-block; color:#fff; font-weight:700; font-size:6.8pt; border-radius:999px; padding:.2mm 1.4mm; margin:0 .8mm .6mm 0;}
+table.ix td{font-size:7.7pt;}
+table.ix td.eff{background:#FBEAE4; color:#8C2F1C; font-weight:700;}
+table.ix td.act{background:#EAF0F4;}
+/* 声かけ */
+.talks{display:grid; grid-template-columns:repeat(4,1fr); gap:2mm;}
+.talk{background:var(--surface); border:0.75pt solid var(--line); border-radius:2mm; padding:1.4mm 1.8mm; display:flex; flex-direction:column; gap:.8mm;}
+.talk .w{font-size:7.6pt; font-weight:700; color:#fff; background:var(--teal-dark); border-radius:999px; padding:.5mm 2mm; align-self:flex-start;}
+.talk .s{font-size:7.2pt; line-height:1.35; background:var(--teal-tint); border-radius:1.5mm; padding:1.4mm 1.8mm;}
+.talk .c{font-size:7pt; line-height:1.32; color:var(--ink-soft);}
+.talk .c b{color:var(--ink);}
+.talk .a{font-size:7pt; line-height:1.3; color:var(--terracotta); font-weight:700; margin-top:auto;}
+.shareline{display:flex; flex-wrap:wrap; align-items:center; gap:1mm 1.6mm; margin-top:1.6mm; font-size:7.4pt;}
+.shareline b{color:#fff; background:var(--teal-dark); border-radius:999px; padding:.3mm 2mm;}
+.shareline span{background:var(--surface); border:0.75pt solid var(--teal-tint-line); border-radius:999px; padding:.2mm 1.8mm;}
+.share{display:grid; grid-template-columns:repeat(4,1fr); gap:2mm;}
+.share div{background:var(--surface); border:0.75pt solid var(--teal-tint-line); border-radius:1.5mm; font-size:7.4pt; text-align:center; padding:1mm; line-height:1.3;}
+.take{background:var(--teal-dark); color:#fff; border-radius:2mm; padding:2mm 3.5mm;}
+.take ol{margin:0; padding-left:5mm; font-size:8.4pt; line-height:1.45;}
+.take b.t{display:block; font-size:9pt; margin-bottom:.6mm; color:#F0BBA6;}
+/* 患者向け */
+.p-intro{font-size:11.5pt; color:var(--ink-soft); line-height:1.65; margin:1mm 0 5mm;}
+.pband{border-radius:3mm; padding:4mm 5mm; margin:0 0 4.5mm;}
+.pband .ph{display:flex; align-items:center; gap:3mm; margin:0 0 3mm;}
+.pband .pn{flex:none; width:9mm; height:9mm; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-family:'Shippori Mincho',serif; font-weight:700; font-size:11.5pt;}
+.pband h3{font-size:15pt; font-weight:700; margin:0;}
+.pband ul{list-style:none; margin:0; padding:0;}
+.pband li{position:relative; padding-left:5mm; margin-bottom:2mm; font-size:12pt; line-height:1.5;}
+.pband li::before{content:"●"; position:absolute; left:0; top:.45em; font-size:5.5pt; color:var(--ink-faint);}
+.pband.alert{background:#FBEAE4; border:1.2pt solid var(--terracotta);}
+.pband.alert li{font-weight:700;}
+.pband.alert li::before{color:var(--terracotta);}
+.pgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:2.5mm;}
+.pcell{background:#fff; border-radius:2mm; padding:3mm 3.2mm;}
+.pcell .pw{font-size:12pt; font-weight:700; color:var(--teal-dark); margin-bottom:1mm;}
+.pcell p{margin:0 0 1.2mm; font-size:11.5pt; line-height:1.45; padding-left:1em; text-indent:-1em;}
+.fill{display:grid; grid-template-columns:auto 1fr; gap:1.6mm 3mm; font-size:10pt; align-items:end;}
+.fill span{font-weight:700; color:var(--ink-soft);}
+.fill i{border-bottom:0.75pt solid var(--ink-faint); height:5.5mm; display:block;}
+:root{--teal-dark:#8C3D1E; --teal:#B8562E; --teal-tint:#FBE4DE; --teal-tint-line:#E8B49C;}</style>
 </head><body>
 <a class="pdf-dl-btn" href="side_effect_gi_checkpoints.pdf" download title="PDFをダウンロード">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-4-4l4 4 4-4"/><path d="M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
     PDFをダウンロード
   </a><div class="page">
     <div class="header">
-    <div class="badge">1</div>
+    <div class="badge">01</div>
     <div class="htext">
-      <p class="tag">がん薬物療法 研修シリーズ ― 実践ガイド</p>
+      <p class="tag">がん薬物療法 研修シリーズ ― 副作用ガイド ― 実践ガイド(調剤薬局向け)</p>
       <h1>消化器症状:薬剤師の実践ポイント</h1>
-      <p class="sub">制吐薬の処方監査から服薬指導まで</p>
+      <p class="sub">服薬指導・相互作用・病院との連携のポイント</p>
     </div>
   </div>
-    
-      <div class="section">
-        <div class="sec-title"><div class="num">1</div><h2>服薬指導で伝えるポイント</h2></div>
-        <div class="icon-row"><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v4c0 2-2 3-3 5-1.5 3 0 7 4 7h4c4 0 5.5-4 4-7-1-2-3-3-3-5V3"/><path d="M9 3h6"/></svg><p>制吐薬は「吐き気がしてから」ではなく、指示通り予防的に服用することを説明する</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3 4-6 8-6 11a6 6 0 0 0 12 0c0-3-3-7-6-11z"/></svg><p>下痢時の水分・電解質補給の重要性と、市販の下痢止めを自己判断で使わないよう伝える</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-7 4 14 3-9 2 4h5"/></svg><p>口内炎予防のための含嗽(うがい)のタイミングと方法を具体的に伝える</p></div></div>
-      </div>
-      <div class="section">
-        <div class="sec-title"><div class="num">2</div><h2>処方監査・疑義照会のタイミング</h2></div>
-        <ul class="check"><li>レジメンの催吐リスク分類に対して、制吐薬の種類・本数が不足していないか確認する</li><li>NK1受容体拮抗薬使用時はCYP3A4を介した相互作用(デキサメタゾンの用量調整等)に注意する</li><li>高齢者・腎機能低下患者でのロペラミドの使用量・使用期間が適切か確認する</li></ul>
-      </div>
-      <div class="section">
-        <div class="sec-title"><div class="num">3</div><h2>施設間連携・情報共有のポイント</h2></div>
-        <div class="icon-row"><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="17" rx="1.5"/><path d="M12 8v6M9 11h6"/><path d="M8 21v-4h8v4"/></svg><p>制吐薬の効果不十分が続く場合は、次サイクルでのレジメン変更検討を処方医にフィードバックする</p></div><div class="icon-item"><svg class="ic" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l5 5v13H6z"/><path d="M15 3v5h5"/><path d="M9 12h6M9 16h6"/></svg><p>体重減少・経口摂取量を継続的に記録し、栄養指導が必要な場合は早めに連携する</p></div></div>
-      </div>
-      <div class="section">
-        <div class="sec-title accent"><div class="num">4</div><h2>実践チェックリスト</h2></div>
-        <ul class="check accent"><li>初回化学療法前に、制吐薬のスケジュール(いつ・何を服用するか)を患者さんと一緒に確認する</li><li>2サイクル目以降は、前回の症状の程度を必ず聴取し、制吐薬強化の要否を検討する</li><li>経口摂取不良が3日以上続く場合は、受診勧奨を優先する</li></ul>
-      </div>
-      <div class="section">
-        <div class="callout dark">「予防的に飲む」という制吐薬の基本を丁寧に説明できるかどうかが、消化器症状マネジメントの成否を分ける。</div>
-      </div>
-      <div class="footer">がん薬物療法 研修シリーズ ― 実践ガイド 1/4(消化器症状) ― MASCC/ESMO制吐薬ガイドラインに基づく</div>
-    
-  </div>
+    <div class="fitbox">
+    <div class="section"><div class="sec-title"><div class="num">1</div><h2>実践チェックリスト(保険薬局/病院)</h2></div><div class="roles"><div class="role ph"><div class="rh">保険薬局薬剤師</div><ul class="check"><li>持ち帰りの制吐薬(デキサメタゾン等)の服用日を具体的に説明</li><li>止瀉薬・含嗽薬・下剤の使い方と受診の目安を伝える</li><li>電話フォローで遅発性悪心・下痢・口内炎を確認</li><li>症状をGradeで記録し、トレーシングレポートで強化を提案</li><li>市販の下痢止め・胃腸薬の自己判断での使用を確認</li></ul></div><div class="role hp"><div class="rh">病院薬剤師</div><ul class="check"><li>催吐性リスクに応じた制吐薬の設定・レジメン監査</li><li>投与日の制吐薬と、持ち帰りの制吐薬の処方設計</li><li>イリノテカンのUGT1A1確認、早発性下痢への備え</li><li>外来化学療法室での制吐薬・止瀉薬の使い方の説明</li><li>前回の症状を評価し、次コースで制吐薬を強化</li></ul></div></div><div class="shareline"><b>病院と共有する情報</b><span>レジメン名・催吐性リスク</span><span>持ち帰りの制吐薬</span><span>悪心・下痢のGrade</span><span>食事量・体重</span></div></div>
+    <div class="section"><div class="sec-title"><div class="num">2</div><h2>重症度(CTCAE Grade)と保険薬局での対応の目安</h2></div><table class="grid "><colgroup><col style="width:12.4%"><col style="width:28.1%"><col style="width:27.3%"><col style="width:32.2%"></colgroup><tr><th>Grade</th><th>下痢(ふだんとの比較)</th><th>口内炎</th><th>保険薬局での対応の目安</th></tr><tr><td>Grade1</td><td>排便回数が1日4回未満の増加</td><td>症状がない、または軽度</td><td>セルフケアを支援(止瀉薬・含嗽・保湿の使い方)</td></tr><tr><td>Grade2</td><td>1日4〜6回の増加</td><td>中等度の痛み。食事の工夫が必要</td><td>処方医・病院へ連絡し、休薬・減量の判断につなげる</td></tr><tr><td>Grade3</td><td>1日7回以上、失禁、入院が必要</td><td>高度の痛み。経口摂取が困難</td><td>至急の受診を勧める(夜間・休日の連絡先を案内)</td></tr><tr><td>Grade4</td><td>生命を脅かす</td><td>生命を脅かす</td><td>救急受診</td></tr></table></div>
+    <div class="section"><div class="sec-title accent"><div class="num">3</div><h2>相互作用・併用注意(他院処方・市販薬・サプリを含む)</h2></div><table class="grid ix"><colgroup><col style="width:9%"><col style="width:17%"><col style="width:28%"><col style="width:21%"><col style="width:25%"></colgroup>
+    <tr><th>重要度</th><th>薬剤(機序)</th><th>相手の薬(区分)</th><th>起こること</th><th>薬局での対応</th></tr><tr>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#A8321F">禁忌</span></td>
+    <td style="background:#fff; color:var(--ink);">オランザピン<div style="font-size:7.2pt; color:#A8321F; font-weight:700; margin-top:.4mm;">血糖上昇作用</div></td>
+    <td><span class="pt" style="background:#7A5C99">既往・疾患</span><br>糖尿病(他院で治療中の場合も)</td>
+    <td class="eff">高血糖・糖尿病性ケトアシドーシス</td>
+    <td class="act">お薬手帳で糖尿病治療薬の有無を確認</td></tr><tr>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; color:var(--ink);">アプレピタント<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">CYP3A4阻害</div></td>
+    <td><span class="pt" style="background:#5B6B82">処方薬</span><br>デキサメタゾン</td>
+    <td class="eff">デキサメタゾン濃度↑</td>
+    <td class="act">デキサメタゾンは減量して使用(用量を確認)</td></tr><tr>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; color:var(--ink);">アプレピタント<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">CYP2C9・3A4誘導</div></td>
+    <td><span class="pt" style="background:#5B6B82">処方薬</span><br>ワルファリン・経口避妊薬</td>
+    <td class="eff">INR↓・避妊効果↓</td>
+    <td class="act">INRを確認、他の避妊法の併用を説明</td></tr><tr>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; color:var(--ink);">オンダンセトロン等<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">QT延長の重複</div></td>
+    <td><span class="pt" style="background:#5B6B82">処方薬</span><br>抗不整脈薬・マクロライド系等</td>
+    <td class="eff">QT延長・不整脈</td>
+    <td class="act">併用薬と低K・低Mg血症の有無を確認</td></tr><tr>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#6B7A8C">確認</span></td>
+    <td style="background:#fff; color:var(--ink);">止瀉薬(ロペラミド)<div style="font-size:7.2pt; color:#6B7A8C; font-weight:700; margin-top:.4mm;">症状を隠す</div></td>
+    <td><span class="pt" style="background:#D9822B">市販薬</span><br>市販の下痢止め(ICI大腸炎・感染性腸炎が疑われる時)</td>
+    <td class="eff">診断・治療の遅れ</td>
+    <td class="act">自己判断で使わず、まず連絡するよう指導</td></tr><tr>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#6B7A8C">確認</span></td>
+    <td style="background:#fff; color:var(--ink);">5-HT3受容体拮抗薬・オピオイド<div style="font-size:7.2pt; color:#6B7A8C; font-weight:700; margin-top:.4mm;">便秘作用の重複</div></td>
+    <td><span class="pt" style="background:#D9822B">市販薬</span><br>市販の刺激性下剤</td>
+    <td class="eff">便秘の遷延・下剤の過量</td>
+    <td class="act">下剤の処方と市販薬の使用状況を確認</td></tr></table></div>
+    <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導の声かけ例と確認のタイミング</h2></div><div class="talks"><div class="talk"><span class="w">治療開始前</span><div class="s">「吐き気止めは、吐き気がなくても決められた時間に飲みます。いつ何を飲むか、紙に書いてお渡ししますね」</div><div class="c"><b>確認:</b>お薬手帳でレジメンの催吐性リスク、他院での糖尿病治療(オランザピン)</div><div class="a">⚠ 前回つらかった方は予期性悪心の対策を相談</div></div><div class="talk"><span class="w">投与当日〜5日</span><div class="s">「2〜5日目の吐き気にも備えましょう。水分は少しずつ、下痢が続く時は下痢止めを指示どおりに」</div><div class="c"><b>確認:</b>電話フォローで遅発性の悪心・水分量・下痢の回数を確認</div><div class="a">⚠ 水分がとれない・1日7回以上の下痢は至急連絡</div></div><div class="talk"><span class="w">投与後1〜2週</span><div class="s">「やわらかい歯ブラシで口の中を清潔に。うがいは食後と寝る前に、こまめにしましょう」</div><div class="c"><b>確認:</b>口内炎の痛みと食事への影響、含嗽薬・保湿剤の使い方</div><div class="a">⚠ 痛みで食事や水分がとれない時は連絡</div></div><div class="talk"><span class="w">次回来局時</span><div class="s">「前回の吐き気や下痢はどうでしたか。一番つらかった日と、何回くらいだったか教えてください」</div><div class="c"><b>確認:</b>悪心・下痢・口内炎をGradeで記録、体重・便秘の有無</div><div class="a">⚠ Grade2以上はトレーシングレポートで制吐薬等の強化を提案</div></div></div></div>
+    </div>
+    <div class="footer">がん薬物療法 研修シリーズ 副作用ガイド(消化器症状) ― 実践ガイド(調剤薬局向け) ― 制吐薬適正使用ガイドライン、MASCC/ESMO制吐薬ガイドライン、CTCAE v5.0に基づく</div>
+  </div><script>(function(){
+  function fit(){
+    document.querySelectorAll(".page").forEach(function(pg){
+      var box = pg.querySelector(".fitbox"), ft = pg.querySelector(".footer"); if(!box||!ft) return;
+      box.style.zoom = 1;
+      var avail = ft.getBoundingClientRect().top - box.getBoundingClientRect().top - 12;
+      var need = box.getBoundingClientRect().height;
+      if (need > avail) box.style.zoom = Math.max(0.88, avail / need).toFixed(3);
+    });
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); else window.addEventListener("load", fit);
+  window.addEventListener("beforeprint", fit);
+})();</script>
 </body></html>
