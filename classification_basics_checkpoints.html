@@ -242,6 +242,7 @@ table.grid td:last-child{border-right:0.5pt solid var(--line); border-radius:0 1
 .lv{display:inline-block; color:#fff; font-weight:700; font-size:7.8pt; border-radius:1mm; padding:.5mm 1.6mm; white-space:nowrap;}
 .pt{display:inline-block; color:#fff; font-weight:700; font-size:6.8pt; border-radius:999px; padding:.2mm 1.4mm; margin:0 .8mm .6mm 0;}
 table.ix td{font-size:7.7pt;}
+table.ix .basis{font-size:6.2pt; color:var(--ink-faint); line-height:1.2; margin-top:.6mm; font-weight:400;}
 table.ix td.eff{background:#FBEAE4; color:#8C2F1C; font-weight:700;}
 table.ix td.act{background:#EAF0F4;}
 /* 声かけ */
@@ -277,6 +278,35 @@ table.ix td.act{background:#EAF0F4;}
 .pcell .pw{font-size:12pt; font-weight:700; color:var(--teal-dark); margin-bottom:1mm;}
 .pcell p{margin:0 0 1.2mm; font-size:11.5pt; line-height:1.45; padding-left:1em; text-indent:-1em;}
 .fill{display:grid; grid-template-columns:auto 1fr; gap:1.6mm 3mm; font-size:10pt; align-items:end;}
+/* 患者向け 特徴パーツ */
+.flead{font-size:10.5pt; margin:0 0 2.2mm; color:var(--ink-soft); line-height:1.5;}
+.fnote{font-size:9.5pt; margin:2mm 0 0; color:var(--ink-soft); line-height:1.45;}
+.fflow{display:flex; align-items:stretch; gap:1.5mm;}
+.fstep{flex:1; background:#fff; border-radius:2mm; padding:2.6mm 2.8mm; border-top:1.6mm solid var(--teal);}
+.fstep.acc{border-top-color:var(--terracotta);}
+.fstep b{display:block; font-size:11.5pt; color:var(--teal-dark); margin-bottom:1mm; line-height:1.35;}
+.fstep.acc b{color:var(--terracotta);}
+.fstep span{display:block; font-size:10pt; line-height:1.45;}
+.farrow{flex:none; align-self:center; color:var(--teal); font-size:10pt;}
+.fcards{display:grid; gap:2mm;}
+.fcard{background:#fff; border-radius:2mm; padding:2.2mm 2.6mm; border-left:1.4mm solid var(--teal);}
+.fcard b{display:block; font-size:11pt; color:var(--teal-dark); margin-bottom:.6mm;}
+.fcard span{display:block; font-size:10pt; line-height:1.4;}
+table.ftable{width:100%; border-collapse:collapse; background:#fff; border-radius:2mm; overflow:hidden; font-size:10.5pt;}
+table.ftable th{background:var(--teal); color:#fff; padding:1.6mm 2.4mm; font-size:10pt; text-align:left;}
+table.ftable td{padding:1.8mm 2.4mm; border-top:0.75pt solid var(--line); line-height:1.4;}
+table.ftable td.k{font-weight:700; color:var(--teal-dark); white-space:nowrap;}
+table.fcheck th{text-align:center;} table.fcheck td{height:8.5mm; border-left:0.75pt solid var(--line);}
+table.fcheck td.k{border-left:none;}
+.fcal{display:grid; grid-template-columns:40mm 1fr; align-items:center; gap:2mm; margin-top:5mm;}
+.fcal-name b{display:block; font-size:11pt; color:var(--teal-dark);}
+.fcal-name span{display:block; font-size:9pt; color:var(--ink-soft);}
+.fcal-days{display:grid; gap:.5mm; height:8mm;}
+.fday{border-radius:.8mm; position:relative;}
+.fday i{position:absolute; top:-4mm; left:0; font-style:normal; font-size:8pt; color:var(--ink-soft);}
+.fcal-desc{margin:1mm 0 2mm 42mm; font-size:10pt; line-height:1.4;}
+.fleg{display:flex; flex-wrap:wrap; gap:4mm; font-size:9pt; color:var(--ink-soft); margin-top:1mm;}
+.fleg i{display:inline-block; width:4.5mm; height:3.5mm; border-radius:.8mm; vertical-align:middle; margin-right:1.2mm;}
 .fill span{font-weight:700; color:var(--ink-soft);}
 .fill i{border-bottom:0.75pt solid var(--ink-faint); height:5.5mm; display:block;}
 :root{--teal-dark:#084F4F; --teal:#0B6E6E; --teal-tint:#E3F1EF; --teal-tint-line:#BFE3E0;}</style>
@@ -298,36 +328,36 @@ table.ix td.act{background:#EAF0F4;}
     <div class="section"><div class="sec-title"><div class="num">2</div><h2>経口抗がん薬の服用時点と注意点</h2></div><table class="grid "><colgroup><col style="width:18.2%"><col style="width:36.4%"><col style="width:45.5%"></colgroup><tr><th>薬剤</th><th>服用時点・食事の影響</th><th>主な注意点</th></tr><tr><td>S-1</td><td>1日2回 朝夕食後</td><td>4週服用・2週休薬などの休薬期間、腎機能に応じた用量、他のフッ化ピリミジン系と併用禁忌</td></tr><tr><td>カペシタビン</td><td>1日2回 朝夕食後30分以内</td><td>手足症候群、ワルファリン併用時のINR上昇</td></tr><tr><td>エルロチニブ</td><td>1日1回 空腹時(食事の1時間以上前または食後2時間以降)</td><td>皮疹・下痢、胃酸分泌抑制薬で吸収低下、喫煙で血中濃度低下</td></tr><tr><td>ニロチニブ</td><td>1日2回 空腹時(同上)、約12時間ごと</td><td>QT延長、グレープフルーツ、胃酸分泌抑制薬</td></tr><tr><td>アビラテロン</td><td>1日1回 空腹時(食事の1時間前〜食後2時間は避ける)</td><td>プレドニゾロンの併用、肝機能・低K血症・高血圧</td></tr><tr><td>レゴラフェニブ</td><td>1日1回 食後(高脂肪食の後は避ける)</td><td>手足症候群、投与初期の肝機能・血圧</td></tr><tr><td>タモキシフェン</td><td>1日1回</td><td>CYP2D6阻害薬(パロキセチン等)、血栓症・子宮体がん</td></tr></table></div>
     <div class="section"><div class="sec-title accent"><div class="num">3</div><h2>相互作用・併用注意(他院処方・市販薬・サプリを含む)</h2></div><table class="grid ix"><colgroup><col style="width:9%"><col style="width:17%"><col style="width:28%"><col style="width:21%"><col style="width:25%"></colgroup>
     <tr><th>重要度</th><th>薬剤(機序)</th><th>相手の薬(区分)</th><th>起こること</th><th>薬局での対応</th></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#A8321F">禁忌</span></td>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#A8321F">禁忌</span><div class="basis">添付文書<br>併用禁忌</div></td>
     <td style="background:#fff; color:var(--ink);">S-1<div style="font-size:7.2pt; color:#A8321F; font-weight:700; margin-top:.4mm;">DPD阻害(ギメラシル)</div></td>
     <td><span class="pt" style="background:#5B6B82">処方薬</span><br>他のフッ化ピリミジン系(カペシタビン・5-FU等)</td>
     <td class="eff">5-FU濃度↑ → 重篤な骨髄抑制・下痢</td>
     <td class="act">切り替え時は7日以上空ける</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>警告</div></td>
+    <td style="background:#fff; color:var(--ink);">カペシタビン<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">CYP2C9の抑制</div></td>
+    <td><span class="pt" style="background:#5B6B82">処方薬</span><br>ワルファリン</td>
+    <td class="eff">INR↑ → 出血</td>
+    <td class="act">INR測定の頻度を処方医と確認</td></tr><tr>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>併用注意</div></td>
     <td style="background:#fff; color:var(--ink);">経口分子標的薬(イマチニブ等)<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">CYP3A4阻害・誘導</div></td>
     <td><span class="pt" style="background:#5B6B82">処方薬</span><br>クラリスロマイシン・アゾール系・リファンピシン</td>
     <td class="eff">副作用↑・効果↓</td>
     <td class="act">他院の抗菌薬・抗真菌薬・抗結核薬を確認</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>併用注意</div></td>
     <td style="background:#fff; color:var(--ink);">エルロチニブ・ダサチニブ等<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">胃内pH上昇で吸収低下</div></td>
     <td><span class="pt" style="background:#5B6B82">処方薬</span><span class="pt" style="background:#D9822B">市販薬</span><br>PPI・H2ブロッカー(市販の胃薬も)</td>
     <td class="eff">血中濃度↓ → 効果減弱</td>
     <td class="act">市販の胃薬も確認、服用時間を調整</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>併用注意</div></td>
     <td style="background:#fff; color:var(--ink);">経口分子標的薬<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">CYP3A4阻害・誘導</div></td>
     <td><span class="pt" style="background:#3F8A5C">サプリ・食品</span><br>グレープフルーツ・セイヨウオトギリソウ</td>
     <td class="eff">副作用↑・効果↓</td>
     <td class="act">食品・サプリの摂取を聴取</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>併用注意</div></td>
     <td style="background:#fff; color:var(--ink);">タモキシフェン<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">CYP2D6阻害(活性化↓)</div></td>
-    <td><span class="pt" style="background:#5B6B82">処方薬</span><br>パロキセチン等の強いCYP2D6阻害薬</td>
+    <td><span class="pt" style="background:#5B6B82">処方薬</span><br>パロキセチン等のSSRI</td>
     <td class="eff">効果減弱のおそれ</td>
-    <td class="act">他院の抗うつ薬の処方を確認</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#6B7A8C">確認</span></td>
-    <td style="background:#fff; color:var(--ink);">ICI<div style="font-size:7.2pt; color:#6B7A8C; font-weight:700; margin-top:.4mm;">免疫反応の増強</div></td>
-    <td><span class="pt" style="background:#7A5C99">既往・疾患</span><br>自己免疫疾患・間質性肺疾患の既往</td>
-    <td class="eff">irAE・既往の増悪</td>
-    <td class="act">既往歴と他院での治療状況を確認</td></tr></table></div>
+    <td class="act">他院の抗うつ薬の処方を確認</td></tr></table></div>
     <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導の声かけ例と確認のタイミング</h2></div><div class="talks"><div class="talk"><span class="w">治療開始前</span><div class="s">「がん細胞の増殖のスイッチを止める薬です。毎日決まった時間に飲み続けることが大切です」</div><div class="c"><b>確認:</b>お薬手帳でレジメン・分類、他院処方・市販薬・サプリ</div><div class="a">⚠ 経口薬は粉砕・脱カプセルしない(曝露対策)</div></div><div class="talk"><span class="w">開始〜2週</span><div class="s">「熱や下痢、皮膚の変化など、今までと違う症状があれば、次の受診を待たずに教えてください」</div><div class="c"><b>確認:</b>電話フォローで分類ごとの初期症状(発熱・皮疹・下痢)を確認</div><div class="a">⚠ 発熱・水様便が続く時は至急連絡</div></div><div class="talk"><span class="w">1〜3か月</span><div class="s">「だるさや口の渇き、動悸が続く時も連絡を。免疫の薬は時間がたってから症状が出ることがあります」</div><div class="c"><b>確認:</b>ICIのirAE、家庭血圧・尿蛋白(血管新生阻害薬)</div><div class="a">⚠ 息切れ・空咳・発熱はILDを疑い早めに受診</div></div><div class="talk"><span class="w">長期服用中</span><div class="s">「関節の痛みやほてりは対処法があります。自己判断でやめずに相談してください」</div><div class="c"><b>確認:</b>ホルモン剤・分子標的薬の継続状況と残薬、骨密度検査</div><div class="a">⚠ 自己中断・飲み忘れはトレーシングレポートで共有</div></div></div></div>
     </div>
     <div class="footer">がん薬物療法 研修シリーズ 基礎知識(抗がん剤の分類と作用機序) ― 実践ガイド(調剤薬局向け) ― 各薬剤の添付文書、がん薬物療法の各種ガイドライン、CTCAE v5.0に基づく</div>

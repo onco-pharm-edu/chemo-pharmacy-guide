@@ -242,6 +242,7 @@ table.grid td:last-child{border-right:0.5pt solid var(--line); border-radius:0 1
 .lv{display:inline-block; color:#fff; font-weight:700; font-size:7.8pt; border-radius:1mm; padding:.5mm 1.6mm; white-space:nowrap;}
 .pt{display:inline-block; color:#fff; font-weight:700; font-size:6.8pt; border-radius:999px; padding:.2mm 1.4mm; margin:0 .8mm .6mm 0;}
 table.ix td{font-size:7.7pt;}
+table.ix .basis{font-size:6.2pt; color:var(--ink-faint); line-height:1.2; margin-top:.6mm; font-weight:400;}
 table.ix td.eff{background:#FBEAE4; color:#8C2F1C; font-weight:700;}
 table.ix td.act{background:#EAF0F4;}
 /* 声かけ */
@@ -277,6 +278,35 @@ table.ix td.act{background:#EAF0F4;}
 .pcell .pw{font-size:12pt; font-weight:700; color:var(--teal-dark); margin-bottom:1mm;}
 .pcell p{margin:0 0 1.2mm; font-size:11.5pt; line-height:1.45; padding-left:1em; text-indent:-1em;}
 .fill{display:grid; grid-template-columns:auto 1fr; gap:1.6mm 3mm; font-size:10pt; align-items:end;}
+/* 患者向け 特徴パーツ */
+.flead{font-size:10.5pt; margin:0 0 2.2mm; color:var(--ink-soft); line-height:1.5;}
+.fnote{font-size:9.5pt; margin:2mm 0 0; color:var(--ink-soft); line-height:1.45;}
+.fflow{display:flex; align-items:stretch; gap:1.5mm;}
+.fstep{flex:1; background:#fff; border-radius:2mm; padding:2.6mm 2.8mm; border-top:1.6mm solid var(--teal);}
+.fstep.acc{border-top-color:var(--terracotta);}
+.fstep b{display:block; font-size:11.5pt; color:var(--teal-dark); margin-bottom:1mm; line-height:1.35;}
+.fstep.acc b{color:var(--terracotta);}
+.fstep span{display:block; font-size:10pt; line-height:1.45;}
+.farrow{flex:none; align-self:center; color:var(--teal); font-size:10pt;}
+.fcards{display:grid; gap:2mm;}
+.fcard{background:#fff; border-radius:2mm; padding:2.2mm 2.6mm; border-left:1.4mm solid var(--teal);}
+.fcard b{display:block; font-size:11pt; color:var(--teal-dark); margin-bottom:.6mm;}
+.fcard span{display:block; font-size:10pt; line-height:1.4;}
+table.ftable{width:100%; border-collapse:collapse; background:#fff; border-radius:2mm; overflow:hidden; font-size:10.5pt;}
+table.ftable th{background:var(--teal); color:#fff; padding:1.6mm 2.4mm; font-size:10pt; text-align:left;}
+table.ftable td{padding:1.8mm 2.4mm; border-top:0.75pt solid var(--line); line-height:1.4;}
+table.ftable td.k{font-weight:700; color:var(--teal-dark); white-space:nowrap;}
+table.fcheck th{text-align:center;} table.fcheck td{height:8.5mm; border-left:0.75pt solid var(--line);}
+table.fcheck td.k{border-left:none;}
+.fcal{display:grid; grid-template-columns:40mm 1fr; align-items:center; gap:2mm; margin-top:5mm;}
+.fcal-name b{display:block; font-size:11pt; color:var(--teal-dark);}
+.fcal-name span{display:block; font-size:9pt; color:var(--ink-soft);}
+.fcal-days{display:grid; gap:.5mm; height:8mm;}
+.fday{border-radius:.8mm; position:relative;}
+.fday i{position:absolute; top:-4mm; left:0; font-style:normal; font-size:8pt; color:var(--ink-soft);}
+.fcal-desc{margin:1mm 0 2mm 42mm; font-size:10pt; line-height:1.4;}
+.fleg{display:flex; flex-wrap:wrap; gap:4mm; font-size:9pt; color:var(--ink-soft); margin-top:1mm;}
+.fleg i{display:inline-block; width:4.5mm; height:3.5mm; border-radius:.8mm; vertical-align:middle; margin-right:1.2mm;}
 .fill span{font-weight:700; color:var(--ink-soft);}
 .fill i{border-bottom:0.75pt solid var(--ink-faint); height:5.5mm; display:block;}
 :root{--teal-dark:#8C3D1E; --teal:#B8562E; --teal-tint:#FBE4DE; --teal-tint-line:#E8B49C;}</style>
@@ -298,31 +328,31 @@ table.ix td.act{background:#EAF0F4;}
     <div class="section"><div class="sec-title"><div class="num">2</div><h2>予防と対症療法 ― エビデンスの整理</h2></div><table class="grid "><colgroup><col style="width:20.7%"><col style="width:27.3%"><col style="width:24.0%"><col style="width:28.1%"></colgroup><tr><th>対策</th><th>対象・方法</th><th>位置づけ</th><th>薬剤師の確認ポイント</th></tr><tr><td>減量・休薬・投与法の工夫</td><td>オキサリプラチンの計画的な休薬、ボルテゾミブの皮下投与など</td><td>最も確実な対策</td><td>症状の推移を処方医へ伝える</td></tr><tr><td>デュロキセチン</td><td>痛みを伴うCIPN</td><td>有効性が示され、ガイドラインで推奨</td><td>国内ではCIPNは適応外。悪心・眠気、併用薬によるセロトニン症候群</td></tr><tr><td>プレガバリン・ミロガバリン</td><td>神経障害性疼痛</td><td>CIPNへの有効性は限定的</td><td>眠気・ふらつきによる転倒、腎機能に応じた用量</td></tr><tr><td>冷却・圧迫療法</td><td>タキサン系の投与中に手足を冷却・圧迫</td><td>予防効果の報告あり(施設の方針による)</td><td>冷えの不快感・凍傷</td></tr><tr><td>牛車腎気丸・ビタミンB12</td><td>慣習的に使われることがある</td><td>予防・治療効果は確立していない</td><td>効果を確認し、継続の要否を処方医と相談</td></tr></table></div>
     <div class="section"><div class="sec-title accent"><div class="num">3</div><h2>相互作用・併用注意(他院処方・市販薬・サプリを含む)</h2></div><table class="grid ix"><colgroup><col style="width:9%"><col style="width:17%"><col style="width:28%"><col style="width:21%"><col style="width:25%"></colgroup>
     <tr><th>重要度</th><th>薬剤(機序)</th><th>相手の薬(区分)</th><th>起こること</th><th>薬局での対応</th></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>併用注意</div></td>
     <td style="background:#fff; color:var(--ink);">ビンクリスチン・ボルテゾミブ等<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">CYP3A4阻害</div></td>
     <td><span class="pt" style="background:#5B6B82">処方薬</span><br>アゾール系抗真菌薬・クラリスロマイシン</td>
     <td class="eff">血中濃度↑ → 神経障害↑</td>
     <td class="act">他院の抗真菌薬・抗菌薬を確認</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>併用注意</div></td>
     <td style="background:#fff; color:var(--ink);">デュロキセチン<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">セロトニン作用の重複</div></td>
     <td><span class="pt" style="background:#5B6B82">処方薬</span><br>SSRI・トラマドール・トリプタン系</td>
     <td class="eff">セロトニン症候群</td>
     <td class="act">他院の抗うつ薬・鎮痛薬を確認</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>併用注意</div></td>
+    <td style="background:#fff; color:var(--ink);">デュロキセチン<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">CYP1A2阻害</div></td>
+    <td><span class="pt" style="background:#5B6B82">処方薬</span><br>フルボキサミン・シプロフロキサシン</td>
+    <td class="eff">血中濃度↑ → 悪心・眠気↑</td>
+    <td class="act">他院の抗うつ薬・抗菌薬を確認</td></tr><tr>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>併用注意</div></td>
     <td style="background:#fff; color:var(--ink);">プレガバリン・ミロガバリン<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">中枢抑制の重複</div></td>
     <td><span class="pt" style="background:#5B6B82">処方薬</span><span class="pt" style="background:#2F7F86">生活習慣</span><br>オピオイド・睡眠薬・飲酒</td>
     <td class="eff">眠気・ふらつき → 転倒</td>
     <td class="act">腎機能に応じた用量と転倒リスクを確認</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#6B7A8C">確認</span></td>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#6B7A8C">確認</span><div class="basis">服薬指導上の注意</div></td>
     <td style="background:#fff; color:var(--ink);">オキサリプラチン<div style="font-size:7.2pt; color:#6B7A8C; font-weight:700; margin-top:.4mm;">寒冷刺激で誘発</div></td>
     <td><span class="pt" style="background:#2F7F86">生活習慣</span><br>冷たい飲食物・冷気</td>
     <td class="eff">手足・のどのしびれ</td>
-    <td class="act">投与後数日は常温の飲み物、手袋・マフラーを</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#6B7A8C">確認</span></td>
-    <td style="background:#fff; color:var(--ink);">神経障害を・起こす薬剤全般<div style="font-size:7.2pt; color:#6B7A8C; font-weight:700; margin-top:.4mm;">既存の神経障害</div></td>
-    <td><span class="pt" style="background:#7A5C99">既往・疾患</span><br>糖尿病・アルコール多飲</td>
-    <td class="eff">CIPNが重症化しやすい</td>
-    <td class="act">既往を把握し処方医と共有</td></tr></table></div>
+    <td class="act">投与後数日は常温の飲み物、手袋・マフラーを</td></tr></table></div>
     <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導の声かけ例と確認のタイミング</h2></div><div class="talks"><div class="talk"><span class="w">治療開始前</span><div class="s">「しびれは薬の量が増えるにつれて出やすくなります。ボタンかけや字を書く時の変化を教えてください」</div><div class="c"><b>確認:</b>お薬手帳でレジメン、糖尿病・アルコール多飲など神経障害の既往</div><div class="a">⚠ しびれは我慢せず伝えるよう説明</div></div><div class="talk"><span class="w">投与後〜数日</span><div class="s">「冷たい物に触れたり飲んだりすると、手足やのどがしびれることがあります」(オキサリプラチン)</div><div class="c"><b>確認:</b>急性症状の有無、冷たい飲食や外気への対策</div><div class="a">⚠ 息苦しさに発疹・血圧低下を伴えば過敏症を疑い連絡</div></div><div class="talk"><span class="w">数コース後</span><div class="s">「前回と比べて、しびれで困る動作は増えましたか。箸やボタン、歩く時はいかがですか」</div><div class="c"><b>確認:</b>同じ質問で経時比較、転倒・やけどの有無、鎮痛薬の効果と副作用</div><div class="a">⚠ 生活への支障(Grade2以上)は処方医へ情報提供</div></div><div class="talk"><span class="w">治療終了後</span><div class="s">「治療が終わってしばらくは、しびれが強くなることもあります。続く時は教えてください」</div><div class="c"><b>確認:</b>中止後の悪化、運転・仕事への影響、対症療法の継続の要否</div><div class="a">⚠ 長く残る症状は処方医と継続して共有</div></div></div></div>
     </div>
     <div class="footer">がん薬物療法 研修シリーズ 副作用ガイド(末梢神経症状(CIPN)) ― 実践ガイド(調剤薬局向け) ― がん薬物療法に伴う末梢神経障害診療ガイドライン、CTCAE v5.0に基づく</div>

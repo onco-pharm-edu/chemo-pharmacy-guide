@@ -242,6 +242,7 @@ table.grid td:last-child{border-right:0.5pt solid var(--line); border-radius:0 1
 .lv{display:inline-block; color:#fff; font-weight:700; font-size:7.8pt; border-radius:1mm; padding:.5mm 1.6mm; white-space:nowrap;}
 .pt{display:inline-block; color:#fff; font-weight:700; font-size:6.8pt; border-radius:999px; padding:.2mm 1.4mm; margin:0 .8mm .6mm 0;}
 table.ix td{font-size:7.7pt;}
+table.ix .basis{font-size:6.2pt; color:var(--ink-faint); line-height:1.2; margin-top:.6mm; font-weight:400;}
 table.ix td.eff{background:#FBEAE4; color:#8C2F1C; font-weight:700;}
 table.ix td.act{background:#EAF0F4;}
 /* 声かけ */
@@ -277,6 +278,35 @@ table.ix td.act{background:#EAF0F4;}
 .pcell .pw{font-size:12pt; font-weight:700; color:var(--teal-dark); margin-bottom:1mm;}
 .pcell p{margin:0 0 1.2mm; font-size:11.5pt; line-height:1.45; padding-left:1em; text-indent:-1em;}
 .fill{display:grid; grid-template-columns:auto 1fr; gap:1.6mm 3mm; font-size:10pt; align-items:end;}
+/* 患者向け 特徴パーツ */
+.flead{font-size:10.5pt; margin:0 0 2.2mm; color:var(--ink-soft); line-height:1.5;}
+.fnote{font-size:9.5pt; margin:2mm 0 0; color:var(--ink-soft); line-height:1.45;}
+.fflow{display:flex; align-items:stretch; gap:1.5mm;}
+.fstep{flex:1; background:#fff; border-radius:2mm; padding:2.6mm 2.8mm; border-top:1.6mm solid var(--teal);}
+.fstep.acc{border-top-color:var(--terracotta);}
+.fstep b{display:block; font-size:11.5pt; color:var(--teal-dark); margin-bottom:1mm; line-height:1.35;}
+.fstep.acc b{color:var(--terracotta);}
+.fstep span{display:block; font-size:10pt; line-height:1.45;}
+.farrow{flex:none; align-self:center; color:var(--teal); font-size:10pt;}
+.fcards{display:grid; gap:2mm;}
+.fcard{background:#fff; border-radius:2mm; padding:2.2mm 2.6mm; border-left:1.4mm solid var(--teal);}
+.fcard b{display:block; font-size:11pt; color:var(--teal-dark); margin-bottom:.6mm;}
+.fcard span{display:block; font-size:10pt; line-height:1.4;}
+table.ftable{width:100%; border-collapse:collapse; background:#fff; border-radius:2mm; overflow:hidden; font-size:10.5pt;}
+table.ftable th{background:var(--teal); color:#fff; padding:1.6mm 2.4mm; font-size:10pt; text-align:left;}
+table.ftable td{padding:1.8mm 2.4mm; border-top:0.75pt solid var(--line); line-height:1.4;}
+table.ftable td.k{font-weight:700; color:var(--teal-dark); white-space:nowrap;}
+table.fcheck th{text-align:center;} table.fcheck td{height:8.5mm; border-left:0.75pt solid var(--line);}
+table.fcheck td.k{border-left:none;}
+.fcal{display:grid; grid-template-columns:40mm 1fr; align-items:center; gap:2mm; margin-top:5mm;}
+.fcal-name b{display:block; font-size:11pt; color:var(--teal-dark);}
+.fcal-name span{display:block; font-size:9pt; color:var(--ink-soft);}
+.fcal-days{display:grid; gap:.5mm; height:8mm;}
+.fday{border-radius:.8mm; position:relative;}
+.fday i{position:absolute; top:-4mm; left:0; font-style:normal; font-size:8pt; color:var(--ink-soft);}
+.fcal-desc{margin:1mm 0 2mm 42mm; font-size:10pt; line-height:1.4;}
+.fleg{display:flex; flex-wrap:wrap; gap:4mm; font-size:9pt; color:var(--ink-soft); margin-top:1mm;}
+.fleg i{display:inline-block; width:4.5mm; height:3.5mm; border-radius:.8mm; vertical-align:middle; margin-right:1.2mm;}
 .fill span{font-weight:700; color:var(--ink-soft);}
 .fill i{border-bottom:0.75pt solid var(--ink-faint); height:5.5mm; display:block;}
 :root{--teal-dark:#3E4A5C; --teal:#5B6B82; --teal-tint:#EAEEF3; --teal-tint-line:#C7D0DC;}</style>
@@ -298,36 +328,36 @@ table.ix td.act{background:#EAF0F4;}
     <div class="section"><div class="sec-title"><div class="num">2</div><h2>主なレジメン・経口薬と薬局での確認ポイント</h2></div><table class="grid "><colgroup><col style="width:16.5%"><col style="width:34.7%"><col style="width:9.1%"><col style="width:39.7%"></colgroup><tr><th>レジメン・薬剤</th><th>構成・投与スケジュール</th><th>周期</th><th>薬局での確認ポイント</th></tr><tr><td>AC/EC→タキサン</td><td>ドキソルビシン(エピルビシン)+シクロホスファミド → パクリタキセル毎週 または ドセタキセル</td><td>2〜3週毎</td><td>高度催吐性の制吐薬、脱毛、アントラサイクリンの累積投与量</td></tr><tr><td>タモキシフェン</td><td>20mg 1日1回 連日内服(5〜10年)</td><td>連日</td><td>CYP2D6阻害薬(パロキセチン等)、ほてり、不正性器出血・下肢の腫れ</td></tr><tr><td>アロマターゼ阻害薬</td><td>アナストロゾール/レトロゾール/エキセメスタン 1日1回</td><td>連日</td><td>関節痛・こわばり、骨密度検査・骨粗鬆症治療薬</td></tr><tr><td>パルボシクリブ</td><td>125mg 1日1回 21日服用・7日休薬(内分泌療法と併用)</td><td>4週毎</td><td>好中球減少(服用前の血液検査)、服用日と休薬日、CYP3A阻害薬</td></tr><tr><td>アベマシクリブ</td><td>150mg 1日2回 連日内服(内分泌療法と併用)</td><td>連日</td><td>開始早期の下痢(止瀉薬を携帯)、肝機能、静脈血栓塞栓症</td></tr><tr><td>T-DXd</td><td>点滴(HER2陽性・HER2低発現)</td><td>3週毎</td><td>咳・息切れ・発熱(ILD)、悪心・嘔吐への制吐薬</td></tr></table></div>
     <div class="section"><div class="sec-title accent"><div class="num">3</div><h2>相互作用・併用注意(他院処方・市販薬・サプリを含む)</h2></div><table class="grid ix"><colgroup><col style="width:9%"><col style="width:17%"><col style="width:28%"><col style="width:21%"><col style="width:25%"></colgroup>
     <tr><th>重要度</th><th>薬剤(機序)</th><th>相手の薬(区分)</th><th>起こること</th><th>薬局での対応</th></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>併用注意</div></td>
     <td style="background:#fff; color:var(--ink);">タモキシフェン<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">CYP2D6阻害(活性化↓)</div></td>
-    <td><span class="pt" style="background:#5B6B82">処方薬</span><br>パロキセチン等の・強いCYP2D6阻害薬</td>
+    <td><span class="pt" style="background:#5B6B82">処方薬</span><br>パロキセチン等のSSRI</td>
     <td class="eff">活性代謝物↓ → 効果減弱のおそれ</td>
-    <td class="act">他院の抗うつ薬の処方を確認</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td class="act">他院の抗うつ薬を確認し、代替を処方医と相談</td></tr><tr>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>併用注意</div></td>
+    <td style="background:#fff; color:var(--ink);">タモキシフェン<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">抗凝血作用の増強</div></td>
+    <td><span class="pt" style="background:#5B6B82">処方薬</span><br>ワルファリン</td>
+    <td class="eff">INR↑ → 出血</td>
+    <td class="act">INR測定の予定を確認</td></tr><tr>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>併用注意</div></td>
     <td style="background:#fff; color:var(--ink);">パルボシクリブ・アベマシクリブ<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">CYP3A4阻害</div></td>
     <td><span class="pt" style="background:#5B6B82">処方薬</span><br>クラリスロマイシン・アゾール系抗真菌薬</td>
     <td class="eff">血中濃度↑ → 好中球減少・下痢↑</td>
     <td class="act">他院の抗菌薬・抗真菌薬の処方を確認</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>併用注意</div></td>
     <td style="background:#fff; color:var(--ink);">CDK4/6阻害薬<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">CYP3A4阻害・誘導</div></td>
     <td><span class="pt" style="background:#3F8A5C">サプリ・食品</span><br>グレープフルーツ・セイヨウオトギリソウ</td>
     <td class="eff">副作用↑・効果↓</td>
     <td class="act">食品・サプリの摂取を聴取</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
-    <td style="background:#fff; color:var(--ink);">内分泌療法<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">作用の拮抗</div></td>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>併用注意</div></td>
+    <td style="background:#fff; color:var(--ink);">アロマターゼ阻害薬<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">作用の拮抗</div></td>
     <td><span class="pt" style="background:#5B6B82">処方薬</span><br>エストロゲン製剤(ホルモン補充療法等)</td>
     <td class="eff">内分泌療法の効果減弱</td>
     <td class="act">婦人科など他院の処方を確認</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
-    <td style="background:#fff; color:var(--ink);">トラスツズマブ・アントラサイクリン<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">心毒性の重複</div></td>
-    <td><span class="pt" style="background:#7A5C99">既往・疾患</span><br>心疾患の既往・胸部放射線の治療歴</td>
-    <td class="eff">心機能低下↑</td>
-    <td class="act">息切れ・むくみを聴取し病院へ共有</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#6B7A8C">確認</span></td>
-    <td style="background:#fff; color:var(--ink);">デノスマブ・ビスホスホネート<div style="font-size:7.2pt; color:#6B7A8C; font-weight:700; margin-top:.4mm;">顎骨壊死のリスク</div></td>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#6B7A8C">確認</span><div class="basis">添付文書<br>重要な基本的注意</div></td>
+    <td style="background:#fff; color:var(--ink);">デノスマブ・ゾレドロン酸<div style="font-size:7.2pt; color:#6B7A8C; font-weight:700; margin-top:.4mm;">顎骨壊死のリスク</div></td>
     <td><span class="pt" style="background:#8A6D3B">処置・検査</span><br>抜歯などの歯科治療</td>
     <td class="eff">顎骨壊死</td>
-    <td class="act">歯科受診時に服用を伝えるよう指導</td></tr></table></div>
+    <td class="act">歯科受診時に使用を伝えるよう指導</td></tr></table></div>
     <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導の声かけ例と確認のタイミング</h2></div><div class="talks"><div class="talk"><span class="w">治療開始前</span><div class="s">「この治療は年単位で続きます。飲み忘れを防ぐため、お薬カレンダーや服用時間を一緒に決めましょう」</div><div class="c"><b>確認:</b>お薬手帳でサブタイプ・治療目的、併用薬(CYP2D6・CYP3A関連、市販薬)</div><div class="a">⚠ パロキセチン等はタモキシフェンの効果を弱めるおそれ</div></div><div class="talk"><span class="w">CDK4/6開始期</span><div class="s">「下痢が出たら、お渡しした下痢止めをすぐに飲み、水分を多めにとってください」</div><div class="c"><b>確認:</b>電話フォローで下痢の回数と止瀉薬の使い方を確認</div><div class="a">⚠ 止瀉薬で24時間以内に改善しない時は連絡</div></div><div class="talk"><span class="w">化学療法1〜2週</span><div class="s">「37.5℃以上の熱が出たら、解熱剤で様子を見ずに、すぐ病院へ連絡してください」</div><div class="c"><b>確認:</b>電話フォローでnadir期の発熱・口内炎を確認</div><div class="a">⚠ 発熱・悪寒はFNを疑い夜間休日でも受診</div></div><div class="talk"><span class="w">長期服用中</span><div class="s">「関節のこわばりやほてりは、つらければ対処法があります。我慢せずに教えてください」</div><div class="c"><b>確認:</b>内分泌療法の継続状況・残薬、関節痛・ほてりの程度</div><div class="a">⚠ 息切れ・むくみ・咳が続く時は早めに受診</div></div></div></div>
     </div>
     <div class="footer">がん薬物療法 研修シリーズ 癌種別ガイド(乳がん) ― 実践ガイド(調剤薬局向け) ― 乳癌診療ガイドライン、各薬剤の添付文書、CTCAE v5.0に基づく</div>

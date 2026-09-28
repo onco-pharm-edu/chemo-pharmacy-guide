@@ -242,6 +242,7 @@ table.grid td:last-child{border-right:0.5pt solid var(--line); border-radius:0 1
 .lv{display:inline-block; color:#fff; font-weight:700; font-size:7.8pt; border-radius:1mm; padding:.5mm 1.6mm; white-space:nowrap;}
 .pt{display:inline-block; color:#fff; font-weight:700; font-size:6.8pt; border-radius:999px; padding:.2mm 1.4mm; margin:0 .8mm .6mm 0;}
 table.ix td{font-size:7.7pt;}
+table.ix .basis{font-size:6.2pt; color:var(--ink-faint); line-height:1.2; margin-top:.6mm; font-weight:400;}
 table.ix td.eff{background:#FBEAE4; color:#8C2F1C; font-weight:700;}
 table.ix td.act{background:#EAF0F4;}
 /* 声かけ */
@@ -277,6 +278,35 @@ table.ix td.act{background:#EAF0F4;}
 .pcell .pw{font-size:12pt; font-weight:700; color:var(--teal-dark); margin-bottom:1mm;}
 .pcell p{margin:0 0 1.2mm; font-size:11.5pt; line-height:1.45; padding-left:1em; text-indent:-1em;}
 .fill{display:grid; grid-template-columns:auto 1fr; gap:1.6mm 3mm; font-size:10pt; align-items:end;}
+/* 患者向け 特徴パーツ */
+.flead{font-size:10.5pt; margin:0 0 2.2mm; color:var(--ink-soft); line-height:1.5;}
+.fnote{font-size:9.5pt; margin:2mm 0 0; color:var(--ink-soft); line-height:1.45;}
+.fflow{display:flex; align-items:stretch; gap:1.5mm;}
+.fstep{flex:1; background:#fff; border-radius:2mm; padding:2.6mm 2.8mm; border-top:1.6mm solid var(--teal);}
+.fstep.acc{border-top-color:var(--terracotta);}
+.fstep b{display:block; font-size:11.5pt; color:var(--teal-dark); margin-bottom:1mm; line-height:1.35;}
+.fstep.acc b{color:var(--terracotta);}
+.fstep span{display:block; font-size:10pt; line-height:1.45;}
+.farrow{flex:none; align-self:center; color:var(--teal); font-size:10pt;}
+.fcards{display:grid; gap:2mm;}
+.fcard{background:#fff; border-radius:2mm; padding:2.2mm 2.6mm; border-left:1.4mm solid var(--teal);}
+.fcard b{display:block; font-size:11pt; color:var(--teal-dark); margin-bottom:.6mm;}
+.fcard span{display:block; font-size:10pt; line-height:1.4;}
+table.ftable{width:100%; border-collapse:collapse; background:#fff; border-radius:2mm; overflow:hidden; font-size:10.5pt;}
+table.ftable th{background:var(--teal); color:#fff; padding:1.6mm 2.4mm; font-size:10pt; text-align:left;}
+table.ftable td{padding:1.8mm 2.4mm; border-top:0.75pt solid var(--line); line-height:1.4;}
+table.ftable td.k{font-weight:700; color:var(--teal-dark); white-space:nowrap;}
+table.fcheck th{text-align:center;} table.fcheck td{height:8.5mm; border-left:0.75pt solid var(--line);}
+table.fcheck td.k{border-left:none;}
+.fcal{display:grid; grid-template-columns:40mm 1fr; align-items:center; gap:2mm; margin-top:5mm;}
+.fcal-name b{display:block; font-size:11pt; color:var(--teal-dark);}
+.fcal-name span{display:block; font-size:9pt; color:var(--ink-soft);}
+.fcal-days{display:grid; gap:.5mm; height:8mm;}
+.fday{border-radius:.8mm; position:relative;}
+.fday i{position:absolute; top:-4mm; left:0; font-style:normal; font-size:8pt; color:var(--ink-soft);}
+.fcal-desc{margin:1mm 0 2mm 42mm; font-size:10pt; line-height:1.4;}
+.fleg{display:flex; flex-wrap:wrap; gap:4mm; font-size:9pt; color:var(--ink-soft); margin-top:1mm;}
+.fleg i{display:inline-block; width:4.5mm; height:3.5mm; border-radius:.8mm; vertical-align:middle; margin-right:1.2mm;}
 .fill span{font-weight:700; color:var(--ink-soft);}
 .fill i{border-bottom:0.75pt solid var(--ink-faint); height:5.5mm; display:block;}
 :root{--teal-dark:#084F4F; --teal:#0B6E6E; --teal-tint:#E3F1EF; --teal-tint-line:#BFE3E0;}</style>
@@ -288,8 +318,8 @@ table.ix td.act{background:#EAF0F4;}
     <div class="header"><div class="htext"><h1 style="font-size:20pt;">飲み薬の抗がん剤を安全に使うために</h1><p class="sub">毎日飲むお薬だからこそ知っておきたいこと</p></div></div>
     <div class="fitbox">
     <p class="p-intro">飲み薬の抗がん剤は、ご自宅で毎日続けるお薬です。決められた飲み方を守ることと、副作用に早く気づくことが、治療を長く続けるための大切なポイントです。</p>
-    <div class="pband" style="background:var(--teal-tint);"><div class="ph"><div class="pn" style="background:var(--teal);">1</div><h3 style="color:var(--teal-dark);">時期ごとに気をつけること</h3></div>
-      <div class="pgrid"><div class="pcell"><div class="pw">飲み始め〜2週</div><p>・下痢、ニキビのような発疹、血圧の上昇などが出ることがあります(お薬によって違います)</p></div><div class="pcell"><div class="pw">数週間〜</div><p>・手足の皮膚の赤み・痛み、爪のまわりの腫れ、むくみが出ることがあります</p></div><div class="pcell"><div class="pw">治療中ずっと</div><p>・咳や息切れ(肺の副作用)、だるさ(肝臓の副作用)は、いつ起こるか分かりません</p></div></div></div>
+    <div class="pband" style="background:var(--teal-tint);"><div class="ph"><div class="pn" style="background:var(--teal);">1</div><h3 style="color:var(--teal-dark);">こんな時はどうする?(飲み薬の困りごと)</h3></div>
+      <table class="ftable"><tr><th>こんな時</th><th>どうするか</th></tr><tr><td class="k">飲み忘れに気づいた</td><td>2回分をまとめて飲まないでください。飲むかどうかはお薬ごとに違うため、始める前に薬剤師に確認しておきましょう</td></tr><tr><td class="k">飲んだ直後に吐いた</td><td>追加で飲まず、次の決められた時間から飲みます(指示が違う場合はそれに従います)</td></tr><tr><td class="k">お薬が余った・中止になった</td><td>捨てずに、次の来局時に薬局へお持ちください</td></tr><tr><td class="k">ご家族がお薬を扱う</td><td>直接触れないように、手袋を使うか袋ごと扱いましょう。割ったりカプセルを開けたりしないでください</td></tr><tr><td class="k">旅行・入院・他の病院の受診</td><td>数日分を多めに持ち、お薬手帳も一緒に持って行きましょう</td></tr></table></div>
     <div class="pband alert"><div class="ph"><div class="pn" style="background:var(--terracotta);">2</div><h3 style="color:var(--terracotta);">こんな時はすぐにご連絡ください</h3></div>
       <ul style="columns:2; column-gap:6mm;"><li>咳・息切れ・発熱が続く(肺の副作用の可能性)</li><li>水のような下痢が1日4回以上続く</li><li>手足の痛みや水ぶくれで歩けない・物が持てない</li><li>皮膚や白目が黄色い、強いだるさがある</li><li>家で測った血圧がいつもよりかなり高く、頭痛がある</li><li>胸の痛み・動悸・急なむくみがある</li></ul>
       <p style="font-size:10pt; font-weight:700; color:var(--terracotta); margin:1.5mm 0 0;">→ 次の受診日を待たずに、夜間・休日でも病院へ電話してください</p></div>

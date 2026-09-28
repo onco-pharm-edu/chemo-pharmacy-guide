@@ -242,6 +242,7 @@ table.grid td:last-child{border-right:0.5pt solid var(--line); border-radius:0 1
 .lv{display:inline-block; color:#fff; font-weight:700; font-size:7.8pt; border-radius:1mm; padding:.5mm 1.6mm; white-space:nowrap;}
 .pt{display:inline-block; color:#fff; font-weight:700; font-size:6.8pt; border-radius:999px; padding:.2mm 1.4mm; margin:0 .8mm .6mm 0;}
 table.ix td{font-size:7.7pt;}
+table.ix .basis{font-size:6.2pt; color:var(--ink-faint); line-height:1.2; margin-top:.6mm; font-weight:400;}
 table.ix td.eff{background:#FBEAE4; color:#8C2F1C; font-weight:700;}
 table.ix td.act{background:#EAF0F4;}
 /* 声かけ */
@@ -277,6 +278,35 @@ table.ix td.act{background:#EAF0F4;}
 .pcell .pw{font-size:12pt; font-weight:700; color:var(--teal-dark); margin-bottom:1mm;}
 .pcell p{margin:0 0 1.2mm; font-size:11.5pt; line-height:1.45; padding-left:1em; text-indent:-1em;}
 .fill{display:grid; grid-template-columns:auto 1fr; gap:1.6mm 3mm; font-size:10pt; align-items:end;}
+/* 患者向け 特徴パーツ */
+.flead{font-size:10.5pt; margin:0 0 2.2mm; color:var(--ink-soft); line-height:1.5;}
+.fnote{font-size:9.5pt; margin:2mm 0 0; color:var(--ink-soft); line-height:1.45;}
+.fflow{display:flex; align-items:stretch; gap:1.5mm;}
+.fstep{flex:1; background:#fff; border-radius:2mm; padding:2.6mm 2.8mm; border-top:1.6mm solid var(--teal);}
+.fstep.acc{border-top-color:var(--terracotta);}
+.fstep b{display:block; font-size:11.5pt; color:var(--teal-dark); margin-bottom:1mm; line-height:1.35;}
+.fstep.acc b{color:var(--terracotta);}
+.fstep span{display:block; font-size:10pt; line-height:1.45;}
+.farrow{flex:none; align-self:center; color:var(--teal); font-size:10pt;}
+.fcards{display:grid; gap:2mm;}
+.fcard{background:#fff; border-radius:2mm; padding:2.2mm 2.6mm; border-left:1.4mm solid var(--teal);}
+.fcard b{display:block; font-size:11pt; color:var(--teal-dark); margin-bottom:.6mm;}
+.fcard span{display:block; font-size:10pt; line-height:1.4;}
+table.ftable{width:100%; border-collapse:collapse; background:#fff; border-radius:2mm; overflow:hidden; font-size:10.5pt;}
+table.ftable th{background:var(--teal); color:#fff; padding:1.6mm 2.4mm; font-size:10pt; text-align:left;}
+table.ftable td{padding:1.8mm 2.4mm; border-top:0.75pt solid var(--line); line-height:1.4;}
+table.ftable td.k{font-weight:700; color:var(--teal-dark); white-space:nowrap;}
+table.fcheck th{text-align:center;} table.fcheck td{height:8.5mm; border-left:0.75pt solid var(--line);}
+table.fcheck td.k{border-left:none;}
+.fcal{display:grid; grid-template-columns:40mm 1fr; align-items:center; gap:2mm; margin-top:5mm;}
+.fcal-name b{display:block; font-size:11pt; color:var(--teal-dark);}
+.fcal-name span{display:block; font-size:9pt; color:var(--ink-soft);}
+.fcal-days{display:grid; gap:.5mm; height:8mm;}
+.fday{border-radius:.8mm; position:relative;}
+.fday i{position:absolute; top:-4mm; left:0; font-style:normal; font-size:8pt; color:var(--ink-soft);}
+.fcal-desc{margin:1mm 0 2mm 42mm; font-size:10pt; line-height:1.4;}
+.fleg{display:flex; flex-wrap:wrap; gap:4mm; font-size:9pt; color:var(--ink-soft); margin-top:1mm;}
+.fleg i{display:inline-block; width:4.5mm; height:3.5mm; border-radius:.8mm; vertical-align:middle; margin-right:1.2mm;}
 .fill span{font-weight:700; color:var(--ink-soft);}
 .fill i{border-bottom:0.75pt solid var(--ink-faint); height:5.5mm; display:block;}
 :root{--teal-dark:#8C3D1E; --teal:#B8562E; --teal-tint:#FBE4DE; --teal-tint-line:#E8B49C;}</style>
@@ -288,8 +318,8 @@ table.ix td.act{background:#EAF0F4;}
     <div class="header"><div class="htext"><h1 style="font-size:20pt;">抗がん剤治療と皮膚の症状について</h1><p class="sub">手足の赤み・発疹・爪のトラブルを防ぐために</p></div></div>
     <div class="fitbox">
     <p class="p-intro">抗がん剤の種類によって、手足の赤みや痛み、ニキビのような発疹、爪のまわりの腫れなどが出ることがあります。治療を始めた時からのスキンケアで、症状を軽くすることができます。</p>
-    <div class="pband" style="background:var(--teal-tint);"><div class="ph"><div class="pn" style="background:var(--teal);">1</div><h3 style="color:var(--teal-dark);">時期ごとに気をつけること</h3></div>
-      <div class="pgrid"><div class="pcell"><div class="pw">開始〜2週</div><p>・ニキビのような発疹、手足の赤みや痛みが出ることがあります(お薬によって違います)</p></div><div class="pcell"><div class="pw">1〜2か月</div><p>・皮膚の乾燥・かゆみ、爪のまわりの腫れや痛みが出ることがあります</p></div><div class="pcell"><div class="pw">数か月〜</div><p>・手足の皮膚が硬くなる、ひび割れる、色が黒ずむことがあります</p></div></div></div>
+    <div class="pband" style="background:var(--teal-tint);"><div class="ph"><div class="pn" style="background:var(--teal);">1</div><h3 style="color:var(--teal-dark);">保湿の手順(治療を始めた日から)</h3></div>
+      <div class="fflow"><div class="fstep"><b>① タイミング</b><span>入浴後5分以内と朝の1日2回以上</span></div><div class="farrow">▶</div><div class="fstep"><b>② 量の目安</b><span>人差し指の先から第1関節までの量で、手のひら2枚分の広さ</span></div><div class="farrow">▶</div><div class="fstep"><b>③ 塗り方</b><span>こすらず、手のひらでやさしく押さえるように広げる</span></div><div class="farrow">▶</div><div class="fstep acc"><b>④ 手足を守る</b><span>木綿の手袋・靴下で保護し、きつい靴や熱いお湯を避ける</span></div></div><p class="fnote">ひび割れた所に尿素入りの保湿剤を塗るとしみることがあります。しみる時は薬剤師にご相談ください。</p></div>
     <div class="pband alert"><div class="ph"><div class="pn" style="background:var(--terracotta);">2</div><h3 style="color:var(--terracotta);">こんな時はすぐにご連絡ください</h3></div>
       <ul style="columns:2; column-gap:6mm;"><li>熱を伴う発疹が全身に広がる</li><li>目の充血、唇や口の中のただれ</li><li>水ぶくれができる、皮膚がむける</li><li>手足の痛みで歩けない・物が持てない</li><li>爪のまわりが腫れて膿が出る、痛みが強い</li><li>発疹やかゆみで眠れない</li></ul>
       <p style="font-size:10pt; font-weight:700; color:var(--terracotta); margin:1.5mm 0 0;">→ 次の受診日を待たずに、夜間・休日でも病院へ電話してください</p></div>

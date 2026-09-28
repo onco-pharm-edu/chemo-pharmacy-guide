@@ -242,6 +242,7 @@ table.grid td:last-child{border-right:0.5pt solid var(--line); border-radius:0 1
 .lv{display:inline-block; color:#fff; font-weight:700; font-size:7.8pt; border-radius:1mm; padding:.5mm 1.6mm; white-space:nowrap;}
 .pt{display:inline-block; color:#fff; font-weight:700; font-size:6.8pt; border-radius:999px; padding:.2mm 1.4mm; margin:0 .8mm .6mm 0;}
 table.ix td{font-size:7.7pt;}
+table.ix .basis{font-size:6.2pt; color:var(--ink-faint); line-height:1.2; margin-top:.6mm; font-weight:400;}
 table.ix td.eff{background:#FBEAE4; color:#8C2F1C; font-weight:700;}
 table.ix td.act{background:#EAF0F4;}
 /* 声かけ */
@@ -277,6 +278,35 @@ table.ix td.act{background:#EAF0F4;}
 .pcell .pw{font-size:12pt; font-weight:700; color:var(--teal-dark); margin-bottom:1mm;}
 .pcell p{margin:0 0 1.2mm; font-size:11.5pt; line-height:1.45; padding-left:1em; text-indent:-1em;}
 .fill{display:grid; grid-template-columns:auto 1fr; gap:1.6mm 3mm; font-size:10pt; align-items:end;}
+/* 患者向け 特徴パーツ */
+.flead{font-size:10.5pt; margin:0 0 2.2mm; color:var(--ink-soft); line-height:1.5;}
+.fnote{font-size:9.5pt; margin:2mm 0 0; color:var(--ink-soft); line-height:1.45;}
+.fflow{display:flex; align-items:stretch; gap:1.5mm;}
+.fstep{flex:1; background:#fff; border-radius:2mm; padding:2.6mm 2.8mm; border-top:1.6mm solid var(--teal);}
+.fstep.acc{border-top-color:var(--terracotta);}
+.fstep b{display:block; font-size:11.5pt; color:var(--teal-dark); margin-bottom:1mm; line-height:1.35;}
+.fstep.acc b{color:var(--terracotta);}
+.fstep span{display:block; font-size:10pt; line-height:1.45;}
+.farrow{flex:none; align-self:center; color:var(--teal); font-size:10pt;}
+.fcards{display:grid; gap:2mm;}
+.fcard{background:#fff; border-radius:2mm; padding:2.2mm 2.6mm; border-left:1.4mm solid var(--teal);}
+.fcard b{display:block; font-size:11pt; color:var(--teal-dark); margin-bottom:.6mm;}
+.fcard span{display:block; font-size:10pt; line-height:1.4;}
+table.ftable{width:100%; border-collapse:collapse; background:#fff; border-radius:2mm; overflow:hidden; font-size:10.5pt;}
+table.ftable th{background:var(--teal); color:#fff; padding:1.6mm 2.4mm; font-size:10pt; text-align:left;}
+table.ftable td{padding:1.8mm 2.4mm; border-top:0.75pt solid var(--line); line-height:1.4;}
+table.ftable td.k{font-weight:700; color:var(--teal-dark); white-space:nowrap;}
+table.fcheck th{text-align:center;} table.fcheck td{height:8.5mm; border-left:0.75pt solid var(--line);}
+table.fcheck td.k{border-left:none;}
+.fcal{display:grid; grid-template-columns:40mm 1fr; align-items:center; gap:2mm; margin-top:5mm;}
+.fcal-name b{display:block; font-size:11pt; color:var(--teal-dark);}
+.fcal-name span{display:block; font-size:9pt; color:var(--ink-soft);}
+.fcal-days{display:grid; gap:.5mm; height:8mm;}
+.fday{border-radius:.8mm; position:relative;}
+.fday i{position:absolute; top:-4mm; left:0; font-style:normal; font-size:8pt; color:var(--ink-soft);}
+.fcal-desc{margin:1mm 0 2mm 42mm; font-size:10pt; line-height:1.4;}
+.fleg{display:flex; flex-wrap:wrap; gap:4mm; font-size:9pt; color:var(--ink-soft); margin-top:1mm;}
+.fleg i{display:inline-block; width:4.5mm; height:3.5mm; border-radius:.8mm; vertical-align:middle; margin-right:1.2mm;}
 .fill span{font-weight:700; color:var(--ink-soft);}
 .fill i{border-bottom:0.75pt solid var(--ink-faint); height:5.5mm; display:block;}
 :root{--teal-dark:#8C3D1E; --teal:#B8562E; --teal-tint:#FBE4DE; --teal-tint-line:#E8B49C;}</style>
@@ -298,32 +328,32 @@ table.ix td.act{background:#EAF0F4;}
     <div class="section"><div class="sec-title"><div class="num">2</div><h2>FNのリスク評価とG-CSF・抗菌薬の使い方</h2></div><table class="grid "><colgroup><col style="width:27.3%"><col style="width:34.7%"><col style="width:38.0%"></colgroup><tr><th>状況</th><th>対応の基本</th><th>薬剤師の確認ポイント</th></tr><tr><td>FN発症率20%以上のレジメン</td><td>G-CSFの一次予防を推奨</td><td>ペグフィルグラスチムは化学療法終了の翌日以降に投与(同日は避ける)</td></tr><tr><td>FN発症率10〜20%のレジメン</td><td>リスク因子(65歳以上・全身状態不良・FNの既往等)で判断</td><td>リスク因子を薬歴に記録し、処方医と共有</td></tr><tr><td>前コースでFNを起こした</td><td>二次予防(G-CSF)または減量・延期</td><td>前回の発熱・入院の経緯を薬歴に記録</td></tr><tr><td>FN発症時:低リスク<br>(MASCCスコア21点以上)</td><td>外来で経口抗菌薬(例:レボフロキサシン+アモキシシリン・クラブラン酸)</td><td>手持ちの抗菌薬の服用開始の条件と連絡方法を説明</td></tr><tr><td>FN発症時:高リスク</td><td>入院のうえ広域の静注抗菌薬(例:セフェピム等)</td><td>至急の受診を勧める</td></tr></table></div>
     <div class="section"><div class="sec-title accent"><div class="num">3</div><h2>相互作用・併用注意(他院処方・市販薬・サプリを含む)</h2></div><table class="grid ix"><colgroup><col style="width:9%"><col style="width:17%"><col style="width:28%"><col style="width:21%"><col style="width:25%"></colgroup>
     <tr><th>重要度</th><th>薬剤(機序)</th><th>相手の薬(区分)</th><th>起こること</th><th>薬局での対応</th></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>併用注意</div></td>
     <td style="background:#fff; color:var(--ink);">メトトレキサート<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">葉酸代謝阻害の重複・排泄遅延</div></td>
     <td><span class="pt" style="background:#5B6B82">処方薬</span><br>ST合剤</td>
     <td class="eff">骨髄抑制↑</td>
     <td class="act">他院のST合剤の処方を確認</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>併用注意</div></td>
     <td style="background:#fff; color:var(--ink);">パルボシクリブ等<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">CYP3A4阻害</div></td>
     <td><span class="pt" style="background:#5B6B82">処方薬</span><br>クラリスロマイシン・アゾール系抗真菌薬</td>
     <td class="eff">血中濃度↑ → 好中球減少↑</td>
     <td class="act">他院の抗菌薬・抗真菌薬を確認</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
-    <td style="background:#fff; color:var(--ink);">FTD/TPI<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">吸収の増加</div></td>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>用法・用量</div></td>
+    <td style="background:#fff; color:var(--ink);">FTD/TPI<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">空腹時は吸収が増加</div></td>
     <td><span class="pt" style="background:#2F7F86">生活習慣</span><br>空腹時の服用</td>
     <td class="eff">好中球減少が増強</td>
     <td class="act">朝夕の食後に服用するよう指導</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
-    <td style="background:#fff; color:var(--ink);">ペグフィルグラスチム<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">骨髄前駆細胞の感受性↑</div></td>
-    <td><span class="pt" style="background:#8A6D3B">処置・検査</span><br>化学療法と同日の投与</td>
-    <td class="eff">骨髄抑制が増強するおそれ</td>
-    <td class="act">化学療法の翌日以降の投与か確認</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span></td>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>用法・用量</div></td>
     <td style="background:#fff; color:var(--ink);">レナリドミド<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">腎排泄の低下</div></td>
-    <td><span class="pt" style="background:#7A5C99">既往・疾患</span><br>腎機能低下</td>
+    <td><span class="pt" style="background:#7A5C99">既往・疾患</span><br>腎機能の低下</td>
     <td class="eff">血中濃度↑ → 骨髄抑制↑</td>
     <td class="act">CCrに応じた用量か確認</td></tr><tr>
-    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#6B7A8C">確認</span></td>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>併用注意</div></td>
+    <td style="background:#fff; color:var(--ink);">レボフロキサシン(手持ちの抗菌薬)<div style="font-size:7.2pt; color:#D9822B; font-weight:700; margin-top:.4mm;">キレート形成</div></td>
+    <td><span class="pt" style="background:#5B6B82">処方薬</span><span class="pt" style="background:#D9822B">市販薬</span><br>Mg・Al含有の制酸剤・鉄剤</td>
+    <td class="eff">吸収↓ → 効果減弱</td>
+    <td class="act">服用時間をずらすよう指導</td></tr><tr>
+    <td style="background:#fff; text-align:center;"><span class="lv" style="background:#6B7A8C">確認</span><div class="basis">服薬指導上の注意</div></td>
     <td style="background:#fff; color:var(--ink);">化学療法中の・患者<div style="font-size:7.2pt; color:#6B7A8C; font-weight:700; margin-top:.4mm;">発熱を隠す</div></td>
     <td><span class="pt" style="background:#D9822B">市販薬</span><br>市販の解熱鎮痛薬・かぜ薬</td>
     <td class="eff">FNの発見の遅れ</td>

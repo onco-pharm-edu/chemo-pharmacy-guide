@@ -242,6 +242,7 @@ table.grid td:last-child{border-right:0.5pt solid var(--line); border-radius:0 1
 .lv{display:inline-block; color:#fff; font-weight:700; font-size:7.8pt; border-radius:1mm; padding:.5mm 1.6mm; white-space:nowrap;}
 .pt{display:inline-block; color:#fff; font-weight:700; font-size:6.8pt; border-radius:999px; padding:.2mm 1.4mm; margin:0 .8mm .6mm 0;}
 table.ix td{font-size:7.7pt;}
+table.ix .basis{font-size:6.2pt; color:var(--ink-faint); line-height:1.2; margin-top:.6mm; font-weight:400;}
 table.ix td.eff{background:#FBEAE4; color:#8C2F1C; font-weight:700;}
 table.ix td.act{background:#EAF0F4;}
 /* 声かけ */
@@ -277,6 +278,35 @@ table.ix td.act{background:#EAF0F4;}
 .pcell .pw{font-size:12pt; font-weight:700; color:var(--teal-dark); margin-bottom:1mm;}
 .pcell p{margin:0 0 1.2mm; font-size:11.5pt; line-height:1.45; padding-left:1em; text-indent:-1em;}
 .fill{display:grid; grid-template-columns:auto 1fr; gap:1.6mm 3mm; font-size:10pt; align-items:end;}
+/* 患者向け 特徴パーツ */
+.flead{font-size:10.5pt; margin:0 0 2.2mm; color:var(--ink-soft); line-height:1.5;}
+.fnote{font-size:9.5pt; margin:2mm 0 0; color:var(--ink-soft); line-height:1.45;}
+.fflow{display:flex; align-items:stretch; gap:1.5mm;}
+.fstep{flex:1; background:#fff; border-radius:2mm; padding:2.6mm 2.8mm; border-top:1.6mm solid var(--teal);}
+.fstep.acc{border-top-color:var(--terracotta);}
+.fstep b{display:block; font-size:11.5pt; color:var(--teal-dark); margin-bottom:1mm; line-height:1.35;}
+.fstep.acc b{color:var(--terracotta);}
+.fstep span{display:block; font-size:10pt; line-height:1.45;}
+.farrow{flex:none; align-self:center; color:var(--teal); font-size:10pt;}
+.fcards{display:grid; gap:2mm;}
+.fcard{background:#fff; border-radius:2mm; padding:2.2mm 2.6mm; border-left:1.4mm solid var(--teal);}
+.fcard b{display:block; font-size:11pt; color:var(--teal-dark); margin-bottom:.6mm;}
+.fcard span{display:block; font-size:10pt; line-height:1.4;}
+table.ftable{width:100%; border-collapse:collapse; background:#fff; border-radius:2mm; overflow:hidden; font-size:10.5pt;}
+table.ftable th{background:var(--teal); color:#fff; padding:1.6mm 2.4mm; font-size:10pt; text-align:left;}
+table.ftable td{padding:1.8mm 2.4mm; border-top:0.75pt solid var(--line); line-height:1.4;}
+table.ftable td.k{font-weight:700; color:var(--teal-dark); white-space:nowrap;}
+table.fcheck th{text-align:center;} table.fcheck td{height:8.5mm; border-left:0.75pt solid var(--line);}
+table.fcheck td.k{border-left:none;}
+.fcal{display:grid; grid-template-columns:40mm 1fr; align-items:center; gap:2mm; margin-top:5mm;}
+.fcal-name b{display:block; font-size:11pt; color:var(--teal-dark);}
+.fcal-name span{display:block; font-size:9pt; color:var(--ink-soft);}
+.fcal-days{display:grid; gap:.5mm; height:8mm;}
+.fday{border-radius:.8mm; position:relative;}
+.fday i{position:absolute; top:-4mm; left:0; font-style:normal; font-size:8pt; color:var(--ink-soft);}
+.fcal-desc{margin:1mm 0 2mm 42mm; font-size:10pt; line-height:1.4;}
+.fleg{display:flex; flex-wrap:wrap; gap:4mm; font-size:9pt; color:var(--ink-soft); margin-top:1mm;}
+.fleg i{display:inline-block; width:4.5mm; height:3.5mm; border-radius:.8mm; vertical-align:middle; margin-right:1.2mm;}
 .fill span{font-weight:700; color:var(--ink-soft);}
 .fill i{border-bottom:0.75pt solid var(--ink-faint); height:5.5mm; display:block;}
 :root{--teal-dark:#3E4A5C; --teal:#5B6B82; --teal-tint:#EAEEF3; --teal-tint-line:#C7D0DC;}</style>
@@ -299,7 +329,7 @@ table.ix td.act{background:#EAF0F4;}
     <div class="dgs"><div class="dg"><span class="gl">代謝拮抗薬</span><span class="chip">ゲムシタビン</span><span class="chip oral">S-1</span><span class="chip">5-FU</span></div><div class="dg"><span class="gl">微小管阻害薬</span><span class="chip">nab-パクリタキセル</span></div><div class="dg"><span class="gl">白金製剤・トポI阻害薬</span><span class="chip">オキサリプラチン</span><span class="chip">イリノテカン</span><span class="chip">リポソーマルイリノテカン</span></div></div>
   </div><div class="drow">
     <div class="dh"><b>分子標的薬・ICI</b><span>BRCA・NTRK・MSI-Highを標的</span></div>
-    <div class="dgs"><div class="dg"><span class="gl">PARP阻害薬(gBRCA変異)</span><span class="chip oral">オラパリブ</span></div><div class="dg"><span class="gl">NTRK阻害薬(まれ)</span><span class="chip oral">エヌトレクチニブ</span><span class="chip oral">ラロトレクチニブ</span></div><div class="dg"><span class="gl">抗PD-1抗体(MSI-High)</span><span class="chip">ペムブロリズマブ</span></div></div>
+    <div class="dgs"><div class="dg"><span class="gl">EGFR阻害薬(ゲムシタビン併用)</span><span class="chip oral">エルロチニブ</span></div><div class="dg"><span class="gl">PARP阻害薬(gBRCA変異)</span><span class="chip oral">オラパリブ</span></div><div class="dg"><span class="gl">NTRK阻害薬(まれ)</span><span class="chip oral">エヌトレクチニブ</span><span class="chip oral">ラロトレクチニブ</span></div><div class="dg"><span class="gl">抗PD-1抗体(MSI-High)</span><span class="chip">ペムブロリズマブ</span></div></div>
   </div><div class="drow acc">
     <div class="dh"><b>支持療法(治療の柱)</b><span>治療継続とQOLを支える</span></div>
     <div class="dgs"><div class="dg"><span class="gl">膵酵素補充</span><span class="chip oral">パンクレリパーゼ</span></div><div class="dg"><span class="gl">がん疼痛</span><span class="chip oral">オキシコドン</span><span class="chip oral">フェンタニル貼付剤</span><span class="chip oral">鎮痛補助薬</span></div><div class="dg"><span class="gl">発熱性好中球減少症の予防</span><span class="chip">ペグフィルグラスチム</span></div></div>

@@ -242,6 +242,7 @@ table.grid td:last-child{border-right:0.5pt solid var(--line); border-radius:0 1
 .lv{display:inline-block; color:#fff; font-weight:700; font-size:7.8pt; border-radius:1mm; padding:.5mm 1.6mm; white-space:nowrap;}
 .pt{display:inline-block; color:#fff; font-weight:700; font-size:6.8pt; border-radius:999px; padding:.2mm 1.4mm; margin:0 .8mm .6mm 0;}
 table.ix td{font-size:7.7pt;}
+table.ix .basis{font-size:6.2pt; color:var(--ink-faint); line-height:1.2; margin-top:.6mm; font-weight:400;}
 table.ix td.eff{background:#FBEAE4; color:#8C2F1C; font-weight:700;}
 table.ix td.act{background:#EAF0F4;}
 /* 声かけ */
@@ -277,6 +278,35 @@ table.ix td.act{background:#EAF0F4;}
 .pcell .pw{font-size:12pt; font-weight:700; color:var(--teal-dark); margin-bottom:1mm;}
 .pcell p{margin:0 0 1.2mm; font-size:11.5pt; line-height:1.45; padding-left:1em; text-indent:-1em;}
 .fill{display:grid; grid-template-columns:auto 1fr; gap:1.6mm 3mm; font-size:10pt; align-items:end;}
+/* 患者向け 特徴パーツ */
+.flead{font-size:10.5pt; margin:0 0 2.2mm; color:var(--ink-soft); line-height:1.5;}
+.fnote{font-size:9.5pt; margin:2mm 0 0; color:var(--ink-soft); line-height:1.45;}
+.fflow{display:flex; align-items:stretch; gap:1.5mm;}
+.fstep{flex:1; background:#fff; border-radius:2mm; padding:2.6mm 2.8mm; border-top:1.6mm solid var(--teal);}
+.fstep.acc{border-top-color:var(--terracotta);}
+.fstep b{display:block; font-size:11.5pt; color:var(--teal-dark); margin-bottom:1mm; line-height:1.35;}
+.fstep.acc b{color:var(--terracotta);}
+.fstep span{display:block; font-size:10pt; line-height:1.45;}
+.farrow{flex:none; align-self:center; color:var(--teal); font-size:10pt;}
+.fcards{display:grid; gap:2mm;}
+.fcard{background:#fff; border-radius:2mm; padding:2.2mm 2.6mm; border-left:1.4mm solid var(--teal);}
+.fcard b{display:block; font-size:11pt; color:var(--teal-dark); margin-bottom:.6mm;}
+.fcard span{display:block; font-size:10pt; line-height:1.4;}
+table.ftable{width:100%; border-collapse:collapse; background:#fff; border-radius:2mm; overflow:hidden; font-size:10.5pt;}
+table.ftable th{background:var(--teal); color:#fff; padding:1.6mm 2.4mm; font-size:10pt; text-align:left;}
+table.ftable td{padding:1.8mm 2.4mm; border-top:0.75pt solid var(--line); line-height:1.4;}
+table.ftable td.k{font-weight:700; color:var(--teal-dark); white-space:nowrap;}
+table.fcheck th{text-align:center;} table.fcheck td{height:8.5mm; border-left:0.75pt solid var(--line);}
+table.fcheck td.k{border-left:none;}
+.fcal{display:grid; grid-template-columns:40mm 1fr; align-items:center; gap:2mm; margin-top:5mm;}
+.fcal-name b{display:block; font-size:11pt; color:var(--teal-dark);}
+.fcal-name span{display:block; font-size:9pt; color:var(--ink-soft);}
+.fcal-days{display:grid; gap:.5mm; height:8mm;}
+.fday{border-radius:.8mm; position:relative;}
+.fday i{position:absolute; top:-4mm; left:0; font-style:normal; font-size:8pt; color:var(--ink-soft);}
+.fcal-desc{margin:1mm 0 2mm 42mm; font-size:10pt; line-height:1.4;}
+.fleg{display:flex; flex-wrap:wrap; gap:4mm; font-size:9pt; color:var(--ink-soft); margin-top:1mm;}
+.fleg i{display:inline-block; width:4.5mm; height:3.5mm; border-radius:.8mm; vertical-align:middle; margin-right:1.2mm;}
 .fill span{font-weight:700; color:var(--ink-soft);}
 .fill i{border-bottom:0.75pt solid var(--ink-faint); height:5.5mm; display:block;}
 :root{--teal-dark:#3E4A5C; --teal:#5B6B82; --teal-tint:#EAEEF3; --teal-tint-line:#C7D0DC;}</style>
@@ -308,18 +338,18 @@ table.ix td.act{background:#EAF0F4;}
     <div class="dgs"><div class="dg"><span class="gl">抗PD-1抗体</span><span class="chip">ペムブロリズマブ</span><span class="chip">ニボルマブ</span></div><div class="dg"><span class="gl">抗CTLA-4抗体</span><span class="chip">イピリムマブ</span></div></div>
   </div></div>
   <div class="legend"><span><i class="oral"></i>経口薬(保険薬局で交付されることが多い)</span><span><i></i>注射薬</span></div></div>
-    <div class="section"><div class="sec-title"><div class="num">2</div><h2>治療ラインの位置づけ(切除不能進行・再発)</h2></div><table class="grid "><colgroup><col style="width:21%"><col style="width:31%"><col style="width:26%"><col style="width:22%"></colgroup><tr><th>バイオマーカー・原発部位</th><th>1次治療</th><th>2次治療</th><th>3次治療以降</th></tr><tr><td>RAS野生型・左側</td><td>FOLFOX/FOLFIRI+抗EGFR抗体</td><td>1次と異なる化学療法+抗VEGF薬</td><td>レゴラフェニブ<br>FTD/TPI±ベバシズマブ<br>フルキンチニブ</td></tr><tr><td>RAS変異型・右側</td><td>FOLFOX/CAPOX/FOLFIRI+ベバシズマブ</td><td>FOLFIRI+抗VEGF薬(ベバシズマブ等)</td><td>同上</td></tr><tr><td>BRAF V600E変異</td><td>FOLFOXIRI+ベバシズマブ等</td><td>エンコラフェニブ+セツキシマブ(±ビニメチニブ)</td><td>同上</td></tr><tr><td>MSI-High(dMMR)</td><td>ペムブロリズマブ等</td><td>化学療法+分子標的薬</td><td>同上</td></tr></table><p class="lead" style="margin:1.2mm 0 0;">1次治療で使わなかった薬剤を後のラインで使うのが基本。3次治療以降は経口薬が中心となり、保険薬局の関わりが大きい。</p></div>
+    <div class="section"><div class="sec-title"><div class="num">2</div><h2>治療ラインの位置づけ(切除不能進行・再発)</h2></div><table class="grid "><colgroup><col style="width:17%"><col style="width:33%"><col style="width:26%"><col style="width:24%"></colgroup><tr><th>対象</th><th>1次治療</th><th>2次治療</th><th>3次治療以降</th></tr><tr><td>RAS野生型<br>左側原発</td><td>FOLFOX/FOLFIRI<br>+抗EGFR抗体(セツキシマブ/パニツムマブ)</td><td>1次と異なる化学療法<br>+抗VEGF薬</td><td>レゴラフェニブ、FTD/TPI±ベバシズマブ、フルキンチニブ</td></tr><tr><td>RAS変異型<br>または右側原発</td><td>FOLFOX/CAPOX/FOLFIRI(FOLFOXIRI)<br>+ベバシズマブ</td><td>FOLFIRI+ベバシズマブ/ラムシルマブ/アフリベルセプト</td><td>レゴラフェニブ、FTD/TPI±ベバシズマブ、フルキンチニブ</td></tr><tr><td>BRAF V600E<br>変異陽性</td><td>FOLFOXIRI+ベバシズマブ 等</td><td>エンコラフェニブ+セツキシマブ(±ビニメチニブ)</td><td>レゴラフェニブ、FTD/TPI 等</td></tr><tr><td>MSI-High<br>dMMR</td><td>ペムブロリズマブ 等(免疫チェックポイント阻害薬)</td><td>化学療法+分子標的薬</td><td>レゴラフェニブ、FTD/TPI 等</td></tr></table><p class="lead" style="margin:1.2mm 0 0;">HER2陽性(RAS野生型)では化学療法後にトラスツズマブ+ペルツズマブが選択肢。実際の選択は全身状態・前治療・患者の希望をふまえて個別に判断される。</p></div>
     <div class="section"><div class="sec-title"><div class="num">3</div><h2>副作用の特徴と発現時期</h2></div><p class="lead">作用機序から予測:抗VEGF薬=血圧・蛋白尿・出血、抗EGFR抗体=皮疹・低Mg血症、イリノテカン=下痢・UGT1A1、オキサリプラチン=しびれ</p><div class="onset"><div class="orow ohead"><div class="ol" style="visibility:hidden">-</div><div class="otrack"><span class="tl" style="left:4%">投与日</span><span class="tl" style="left:20%">1週</span><span class="tl" style="left:40%">2週</span><span class="tl" style="left:60%">3週</span><span class="tl" style="left:80%">4週</span><span class="tl" style="left:95%">2か月〜</span></div></div><div class="orow hot"><div class="ol">急性神経症状(オキサリプラチン)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#ECEFF3;"></div><div class="ophase" style="left:20%; width:60%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F2F0EC;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
       <div class="obar out" style="left:0%; width:6.999999999999999%;"><span>投与中〜数日</span></div></div></div><div class="orow"><div class="ol">早発性下痢(イリノテカン)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#ECEFF3;"></div><div class="ophase" style="left:20%; width:60%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F2F0EC;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
       <div class="obar out" style="left:0%; width:2.4%;"><span>投与中〜24時間</span></div></div></div><div class="orow"><div class="ol">遅発性下痢(イリノテカン)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#ECEFF3;"></div><div class="ophase" style="left:20%; width:60%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F2F0EC;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
       <div class="obar" style="left:3%; width:25%;"><span>投与後数日〜</span></div></div></div><div class="orow hot"><div class="ol">好中球減少(nadir)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#ECEFF3;"></div><div class="ophase" style="left:20%; width:60%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F2F0EC;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
       <div class="obar" style="left:20%; width:20%;"><span>7〜14日目</span></div></div></div><div class="orow"><div class="ol">ざ瘡様皮疹(抗EGFR抗体)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#ECEFF3;"></div><div class="ophase" style="left:20%; width:60%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F2F0EC;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
       <div class="obar" style="left:20%; width:60%;"><span>1〜2週で出現、数週でピーク</span></div></div></div><div class="orow"><div class="ol">手足症候群(カペシタビン等)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#ECEFF3;"></div><div class="ophase" style="left:20%; width:60%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F2F0EC;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
-      <div class="obar" style="left:20%; width:80%;"><span>数週〜(レゴラフェニブは1か月以内に多い)</span></div></div></div><div class="orow"><div class="ol">低Mg血症(抗EGFR抗体)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#ECEFF3;"></div><div class="ophase" style="left:20%; width:60%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F2F0EC;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
+      <div class="obar" style="left:20%; width:80%;"><span>レゴラフェニブは1か月以内に多い</span></div></div></div><div class="orow"><div class="ol">低Mg血症(抗EGFR抗体)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#ECEFF3;"></div><div class="ophase" style="left:20%; width:60%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F2F0EC;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
       <div class="obar" style="left:70%; width:30%;"><span>数週〜数か月</span></div></div></div><div class="orow hot"><div class="ol">蓄積性の末梢神経障害</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#ECEFF3;"></div><div class="ophase" style="left:20%; width:60%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F2F0EC;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
       <div class="obar" style="left:80%; width:20%;"><span>累積投与量に依存</span></div></div></div></div>
   <div class="legend"><span><i class="hot"></i>重篤・特に注意</span><span><i class="norm"></i>その他</span></div></div>
-    <div class="section"><div class="take"><b class="t">押さえておきたいポイント</b><ol><li>原発部位とRAS・BRAF・MSI・HER2で1次治療が決まり、未使用の薬剤を後のラインで使う</li><li>UGT1A1多型ではイリノテカンの下痢・好中球減少が重篤化しやすい。結果を薬歴に記録する</li><li>経口薬の服用日管理・携帯型ポンプ抜針後のフォロー・Gradeでの情報共有が薬局の強み</li></ol></div></div>
+    <div class="section"><div class="take"><b class="t">押さえておきたいポイント</b><ol><li>原発部位とRAS・BRAF・MSI・HER2で1次治療が決まり、未使用の薬剤を後のラインで使う</li><li>作用機序から副作用を予測:抗VEGF薬=血管系、抗EGFR抗体=皮膚・Mg、イリノテカン=下痢・UGT1A1</li><li>経口薬の服用日管理・携帯型ポンプ後のフォロー・Gradeでの共有が薬局の強み</li></ol></div></div>
     </div>
     <div class="footer">がん薬物療法 研修シリーズ 癌種別ガイド(大腸癌) ― 要点まとめ ― 大腸癌治療ガイドライン、各薬剤の添付文書、CTCAE v5.0に基づく</div>
   </div><script>(function(){
