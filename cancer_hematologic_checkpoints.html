@@ -309,6 +309,60 @@ table.fcheck td.k{border-left:none;}
 .fleg i{display:inline-block; width:4.5mm; height:3.5mm; border-radius:.8mm; vertical-align:middle; margin-right:1.2mm;}
 .fill span{font-weight:700; color:var(--ink-soft);}
 .fill i{border-bottom:0.75pt solid var(--ink-faint); height:5.5mm; display:block;}
+
+/* Grade階段 */
+.ladder-arrow{font-size:7.4pt; color:var(--ink-soft); font-weight:700; text-align:center; background:#ECEFF3; border-radius:999px; padding:.4mm 0; margin-bottom:1.4mm;}
+.ladder{display:grid; gap:1.6mm; align-items:end;}
+.lcol{display:flex; flex-direction:column; gap:1mm;}
+.lhead{color:#fff; font-weight:700; font-size:9.4pt; text-align:center; border-radius:1.4mm; display:flex; align-items:center; justify-content:center; padding:0 1mm; line-height:1.2;}
+.lcell{background:#fff; border:0.75pt solid var(--line); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.6pt; line-height:1.35;}
+.lcell b{display:block; font-size:6.8pt;}
+.lcell.ph{background:#FDF3EF; border-color:var(--terracotta); font-weight:700;}
+.lcell.ph b{color:var(--terracotta);}
+/* カード一覧 */
+.cards{display:grid; gap:1.8mm;}
+.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:flex; flex-direction:column;}
+.rcard .rh{color:#fff; font-weight:700; font-size:8.6pt; padding:1mm 2mm;}
+.rcard .ri{font-size:7.6pt; line-height:1.35; padding:.8mm 2mm 0;}
+.rcard .ri b{font-size:6.8pt; margin-right:1mm;}
+.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35; margin-top:auto;}
+.rcard .rhi b{display:block; color:var(--terracotta); font-size:6.8pt;}
+/* 服用カード・レジメンカード */
+.drow2{display:grid; grid-template-columns:22% 36% 1fr; gap:1.2mm; margin-bottom:.8mm;}
+.drow2 .dn{border-radius:1.4mm; padding:.8mm 2mm; font-weight:700; font-size:8.4pt; display:flex; flex-direction:column; justify-content:center; line-height:1.25;}
+.drow2 .dn small{font-weight:400; font-size:6.8pt; opacity:.9;}
+.drow2 .ds{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:1mm 1.6mm; font-size:7.8pt; display:flex; align-items:center; gap:1.4mm; line-height:1.3;}
+.drow2 .tb{flex:none; color:#fff; font-weight:700; font-size:7pt; border-radius:999px; padding:.4mm 2mm;}
+.drow2 .cy{flex:none; margin-left:auto; background:var(--teal-tint); color:var(--teal-dark); border:0.75pt solid var(--teal-tint-line); font-weight:700; font-size:7pt; border-radius:999px; padding:.3mm 1.8mm;}
+.drow2 .dp{background:#EAF0F4; border-radius:1.4mm; padding:1mm 1.8mm; font-size:7.6pt; line-height:1.35;}
+.drow2 .dp i{color:var(--terracotta); font-style:normal; font-weight:700;}
+.dleg{display:flex; flex-wrap:wrap; gap:3mm; font-size:7pt; color:var(--ink-soft); margin-top:.6mm;}
+.dleg i{display:inline-block; width:4mm; height:2.6mm; border-radius:999px; vertical-align:middle; margin-right:1mm;}
+/* 治療ライン(色分け) */
+.tl-dot{font-size:7pt; margin-right:.6mm;}
+.tlbadge{display:inline-block; background:#fff; color:var(--terracotta); font-size:6.4pt; font-weight:700; border-radius:999px; padding:0 1.4mm; margin-left:1.4mm;}
+/* 服薬指導タイムライン */
+.tl4{display:grid; grid-template-columns:repeat(4,1fr); gap:1.4mm;}
+.tl4 .col{display:flex; flex-direction:column;}
+.tl4 .chk{flex:1;}
+.tl4 .th{background:var(--teal-dark); color:#fff; font-weight:700; font-size:8.2pt; text-align:center; padding:1.1mm 1mm; clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%,6% 50%);}
+.tl4 .col:first-child .th{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
+.tl4 .bub{position:relative; background:var(--teal-tint); border:0.75pt solid var(--teal-tint-line); border-radius:2mm; padding:1.1mm 1.8mm 1.1mm 4mm; margin-top:1mm; font-size:7.3pt; font-weight:700; color:var(--teal-dark); line-height:1.4;}
+.tl4 .bub::before{content:"“"; position:absolute; left:1mm; top:-1.4mm; font-size:15pt; color:var(--teal); font-family:'Shippori Mincho',serif;}
+.tl4 .chk{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; line-height:1.3;}
+.tl4 .chk b{display:block; color:var(--teal-dark); font-size:6.8pt;}
+.tl4 .al{background:var(--terracotta); color:#fff; border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; font-weight:700; line-height:1.3;}
+.tl4 .al b{display:block; font-size:6.6pt; color:#FBE4DE;}
+/* 3列の連携図 */
+.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; align-items:stretch;}
+.link3 .side .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
+.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; margin-top:.8mm; font-size:7.4pt; line-height:1.3;}
+.link3 .it i{flex:none; width:4.2mm; height:4.2mm; border-radius:50%; color:#fff; font-style:normal; font-weight:700; font-size:7pt; display:flex; align-items:center; justify-content:center;}
+.link3 .mid{border:0.75pt dashed var(--teal-tint-line); background:#F1F4F6; border-radius:1.6mm; padding:1mm 1.4mm; display:flex; flex-direction:column; gap:1mm;}
+.link3 .mid .mh{font-size:7.8pt; font-weight:700; color:var(--teal-dark); text-align:center;}
+.link3 .mid .mc{background:#fff; border:0.9pt solid var(--teal); border-radius:1.4mm; text-align:center; padding:.7mm 1mm; font-size:7.4pt; font-weight:700; line-height:1.25; flex:1; display:flex; flex-direction:column; justify-content:center;}
+.link3 .mid .mc small{font-weight:400; font-size:6.6pt; color:var(--ink-soft);}
+.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt; padding-top:6mm;}
 :root{--teal-dark:#3E4A5C; --teal:#5B6B82; --teal-tint:#EAEEF3; --teal-tint-line:#C7D0DC;}</style>
 </head><body>
 <a class="pdf-dl-btn" href="cancer_hematologic_checkpoints.pdf" download title="PDFをダウンロード">
@@ -324,8 +378,18 @@ table.fcheck td.k{border-left:none;}
     </div>
   </div>
     <div class="fitbox">
-    <div class="section"><div class="sec-title"><div class="num">1</div><h2>実践チェックリスト(保険薬局/病院)</h2></div><div class="roles"><div class="role ph"><div class="rh">保険薬局薬剤師</div><ul class="check"><li>CML・骨髄腫の経口薬の服用時点(空腹時等)と残薬の管理</li><li>抗ウイルス薬・ST合剤・抗血栓薬など予防投与の継続確認</li><li>市販の胃薬・サプリ・グレープフルーツの確認</li><li>電話フォローで発熱・むくみ・息切れ・足の腫れを確認</li><li>症状をGradeで記録し、トレーシングレポートで病院へ</li></ul></div><div class="role hp"><div class="rh">病院薬剤師</div><ul class="check"><li>病型・レジメンの監査、HBV検査と予防投与の計画</li><li>アントラサイクリン累積量・前投薬・腫瘍崩壊症候群対策</li><li>CAR-T・二重特異性抗体のCRS/ICANSへの院内対応</li><li>レナリドミド等の適正管理手順(RevMate)の運用</li><li>お薬手帳へのレジメン情報・投与歴の記載</li></ul></div></div><div class="shareline"><b>病院と共有する情報</b><span>病型・レジメン・投与歴</span><span>検査値</span><span>副作用のGrade</span><span>予防投与の服用状況</span></div></div>
-    <div class="section"><div class="sec-title"><div class="num">2</div><h2>主なレジメン・経口薬と薬局での確認ポイント</h2></div><table class="grid "><colgroup><col style="width:18.2%"><col style="width:34.7%"><col style="width:8.3%"><col style="width:38.8%"></colgroup><tr><th>レジメン・薬剤</th><th>構成・投与スケジュール</th><th>周期</th><th>薬局での確認ポイント</th></tr><tr><td>R-CHOP</td><td>リツキシマブ+シクロホスファミド+ドキソルビシン+ビンクリスチン(1日目)+プレドニゾロン(1〜5日目内服)</td><td>3週毎</td><td>B型肝炎検査、プレドニゾロンの服用日・高血糖、ビンクリスチンの便秘、心毒性</td></tr><tr><td>イマチニブ</td><td>400mg 1日1回 食後 連日内服</td><td>連日</td><td>浮腫・体重増加、筋けいれん、CYP3A4相互作用</td></tr><tr><td>ダサチニブ<br>ニロチニブ</td><td>ダサチニブ 1日1回/ニロチニブ 1日2回(空腹時:食事の1時間以上前または食後2時間以降)</td><td>連日</td><td>胸水(ダサチニブ)、QT延長・高血糖(ニロチニブ)、胃酸分泌抑制薬の併用</td></tr><tr><td>レナリドミド<br>+デキサメタゾン</td><td>レナリドミド 1〜21日目内服+デキサメタゾン週1回(±ダラツムマブ)</td><td>4週毎</td><td>適正管理手順(RevMate)・避妊、血栓予防薬、腎機能で用量調整</td></tr><tr><td>ボルテゾミブ</td><td>皮下注 週1〜2回(レジメンにより異なる)</td><td>3〜5週毎</td><td>末梢神経障害、帯状疱疹予防(アシクロビル等)、起立性低血圧</td></tr></table></div>
+    <div class="section"><div class="sec-title"><div class="num">1</div><h2>実践チェックリスト(保険薬局/病院)</h2></div><div class="link3"><div class="side"><div class="lh" style="background:var(--terracotta)">保険薬局薬剤師</div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">1</i><span>CML・骨髄腫の経口薬の服用時点(空腹時等)と残薬の管理</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">2</i><span>抗ウイルス薬・ST合剤・抗血栓薬など予防投与の継続確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">3</i><span>市販の胃薬・サプリ・グレープフルーツの確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">4</i><span>電話フォローで発熱・むくみ・息切れ・足の腫れを確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">5</i><span>症状をGradeで記録し、トレーシングレポートで病院へ</span></div></div><div class="arr">⇄<br>⇄<br>⇄<br>⇄</div><div class="mid"><div class="mh">病院と共有する情報</div><div class="mc">病型・レジメン・投与歴<small>(お薬手帳)</small></div><div class="mc">検査値<small>(HBV-DNA・好中球数)</small></div><div class="mc">副作用のGrade<small>(トレーシングレポート)</small></div><div class="mc">予防投与の服用状況<small>(電話フォローの結果)</small></div></div><div class="arr">⇄<br>⇄<br>⇄<br>⇄</div><div class="side"><div class="lh" style="background:var(--teal-dark)">病院薬剤師</div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">1</i><span>病型・レジメンの監査、HBV検査と予防投与の計画</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">2</i><span>アントラサイクリン累積量・前投薬・腫瘍崩壊症候群対策</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">3</i><span>CAR-T・二重特異性抗体のCRS/ICANSへの院内対応</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">4</i><span>レナリドミド等の適正管理手順(RevMate)の運用</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">5</i><span>お薬手帳へのレジメン情報・投与歴の記載</span></div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">2</div><h2>主なレジメン・経口薬と薬局での確認ポイント</h2></div><div class="drow2"><div class="dn" style="background:#8A6D3B; color:#fff;">R-CHOP<small>点滴+経口</small></div>
+      <div class="ds"><span>リツキシマブ+シクロホスファミド+ドキソルビシン+ビンクリスチン(1日目)+プレドニゾロン(1〜5日目内服)</span><span class="cy">3週毎</span></div>
+      <div class="dp"><i>✓</i> B型肝炎検査　<i>✓</i> プレドニゾロンの服用日・高血糖　<i>✓</i> ビンクリスチンの便秘　<i>✓</i> 心毒性</div></div><div class="drow2"><div class="dn" style="background:#2F7F86; color:#fff;">イマチニブ<small>経口</small></div>
+      <div class="ds"><span>400mg 1日1回 食後 連日内服</span><span class="cy">連日</span></div>
+      <div class="dp"><i>✓</i> 浮腫・体重増加　<i>✓</i> 筋けいれん　<i>✓</i> CYP3A4相互作用</div></div><div class="drow2"><div class="dn" style="background:#2F7F86; color:#fff;">ダサチニブ<br>ニロチニブ<small>経口</small></div>
+      <div class="ds"><span>ダサチニブ 1日1回/ニロチニブ 1日2回(空腹時:食事の1時間以上前または食後2時間以降)</span><span class="cy">連日</span></div>
+      <div class="dp"><i>✓</i> 胸水(ダサチニブ)　<i>✓</i> QT延長・高血糖(ニロチニブ)　<i>✓</i> 胃酸分泌抑制薬の併用</div></div><div class="drow2"><div class="dn" style="background:#8A6D3B; color:#fff;">レナリドミド<br>+デキサメタゾン<small>点滴+経口</small></div>
+      <div class="ds"><span>レナリドミド 1〜21日目内服+デキサメタゾン週1回(±ダラツムマブ)</span><span class="cy">4週毎</span></div>
+      <div class="dp"><i>✓</i> 適正管理手順(RevMate)・避妊　<i>✓</i> 血栓予防薬　<i>✓</i> 腎機能で用量調整</div></div><div class="drow2"><div class="dn" style="background:#5B6B82; color:#fff;">ボルテゾミブ<small>点滴・注射</small></div>
+      <div class="ds"><span>皮下注 週1〜2回(レジメンにより異なる)</span><span class="cy">3〜5週毎</span></div>
+      <div class="dp"><i>✓</i> 末梢神経障害　<i>✓</i> 帯状疱疹予防(アシクロビル等)　<i>✓</i> 起立性低血圧</div></div><div class="dleg"><span><i style="background:#2F7F86"></i>経口</span><span><i style="background:#5B6B82"></i>点滴・注射</span><span><i style="background:#8A6D3B"></i>点滴+経口</span><span style="color:var(--terracotta); font-weight:700;">経口薬は保険薬局で交付:服用日・休薬日と自宅での副作用を確認</span></div></div>
     <div class="section"><div class="sec-title accent"><div class="num">3</div><h2>相互作用・併用注意(他院処方・市販薬・サプリを含む)</h2></div><table class="grid ix"><colgroup><col style="width:9%"><col style="width:17%"><col style="width:28%"><col style="width:21%"><col style="width:25%"></colgroup>
     <tr><th>重要度</th><th>薬剤(機序)</th><th>相手の薬(区分)</th><th>起こること</th><th>薬局での対応</th></tr><tr>
     <td style="background:#fff; text-align:center;"><span class="lv" style="background:#A8321F">禁忌</span><div class="basis">添付文書<br>併用禁忌</div></td>
@@ -358,7 +422,19 @@ table.fcheck td.k{border-left:none;}
     <td><span class="pt" style="background:#D9822B">市販薬</span><br>市販の解熱鎮痛薬・かぜ薬</td>
     <td class="eff">感染症の発見の遅れ</td>
     <td class="act">服用前に体温を測り、発熱時は連絡</td></tr></table></div>
-    <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導の声かけ例と確認のタイミング</h2></div><div class="talks"><div class="talk"><span class="w">治療開始前</span><div class="s">「B型肝炎の検査結果を確認させてください。治療中や治療後にウイルスが再び増えることがあります」</div><div class="c"><b>確認:</b>お薬手帳で病型・レジメン・HBV検査の結果、併用薬(CYP3A4・胃薬)</div><div class="a">⚠ HBV-DNAの定期測定の予定を確認</div></div><div class="talk"><span class="w">投与当日〜1週</span><div class="s">「点滴中や当日の夜に、寒気・発熱・発疹が出ることがあります。我慢せずすぐに伝えてください」</div><div class="c"><b>確認:</b>前投薬の服用、CAR-T後の連絡先と治療施設の把握</div><div class="a">⚠ CAR-T後は発熱・意識の変化で至急連絡、運転は控える</div></div><div class="talk"><span class="w">投与後1〜2週</span><div class="s">「37.5℃以上の熱が出たら、解熱剤で様子を見ずに、すぐ病院へ連絡してください」</div><div class="c"><b>確認:</b>電話フォローで発熱、帯状疱疹予防薬・ST合剤の服用を確認</div><div class="a">⚠ 発熱・悪寒はFNを疑い夜間休日でも受診</div></div><div class="talk"><span class="w">長期服用中</span><div class="s">「毎日の服用が効果を保つ鍵です。むくみや息苦しさ、足の腫れなど気になる変化はありませんか」</div><div class="c"><b>確認:</b>TKIの服薬継続・残薬、むくみ・息切れ・足の腫れ</div><div class="a">⚠ 片足の腫れ・急な息切れは血栓症を疑い至急受診</div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導の声かけ例と確認のタイミング</h2></div><div class="tl4"><div class="col"><div class="th">① 治療開始前</div>
+    <div class="bub">B型肝炎の検査結果を確認させてください。治療中や治療後にウイルスが再び増えることがあります</div>
+    <div class="chk"><b>✓ 薬局で確認</b>お薬手帳で病型・レジメン・HBV検査の結果、併用薬(CYP3A4・胃薬)</div>
+    <div class="al"><b>⚠ ここに注意</b>HBV-DNAの定期測定の予定を確認</div></div><div class="col"><div class="th">② 投与当日〜1週</div>
+    <div class="bub">点滴中や当日の夜に、寒気・発熱・発疹が出ることがあります。我慢せずすぐに伝えてください</div>
+    <div class="chk"><b>✓ 薬局で確認</b>前投薬の服用、CAR-T後の連絡先と治療施設の把握</div>
+    <div class="al"><b>⚠ ここに注意</b>CAR-T後は発熱・意識の変化で至急連絡、運転は控える</div></div><div class="col"><div class="th">③ 投与後1〜2週</div>
+    <div class="bub">37.5℃以上の熱が出たら、解熱剤で様子を見ずに、すぐ病院へ連絡してください</div>
+    <div class="chk"><b>✓ 薬局で確認</b>電話フォローで発熱、帯状疱疹予防薬・ST合剤の服用を確認</div>
+    <div class="al"><b>⚠ ここに注意</b>発熱・悪寒はFNを疑い夜間休日でも受診</div></div><div class="col"><div class="th">④ 長期服用中</div>
+    <div class="bub">毎日の服用が効果を保つ鍵です。むくみや息苦しさ、足の腫れなど気になる変化はありませんか</div>
+    <div class="chk"><b>✓ 薬局で確認</b>TKIの服薬継続・残薬、むくみ・息切れ・足の腫れ</div>
+    <div class="al"><b>⚠ ここに注意</b>片足の腫れ・急な息切れは血栓症を疑い至急受診</div></div></div></div>
     </div>
     <div class="footer">がん薬物療法 研修シリーズ 癌種別ガイド(血液がん) ― 実践ガイド(調剤薬局向け) ― 造血器腫瘍診療ガイドライン、各薬剤の添付文書、CTCAE v5.0に基づく</div>
   </div><script>(function(){
@@ -368,7 +444,7 @@ table.fcheck td.k{border-left:none;}
       box.style.zoom = 1;
       var avail = ft.getBoundingClientRect().top - box.getBoundingClientRect().top - 12;
       var need = box.getBoundingClientRect().height;
-      if (need > avail) box.style.zoom = Math.max(0.88, avail / need).toFixed(3);
+      if (need > avail) box.style.zoom = Math.max(0.85, avail / need).toFixed(3);
     });
   }
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); else window.addEventListener("load", fit);

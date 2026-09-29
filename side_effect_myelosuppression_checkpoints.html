@@ -309,6 +309,60 @@ table.fcheck td.k{border-left:none;}
 .fleg i{display:inline-block; width:4.5mm; height:3.5mm; border-radius:.8mm; vertical-align:middle; margin-right:1.2mm;}
 .fill span{font-weight:700; color:var(--ink-soft);}
 .fill i{border-bottom:0.75pt solid var(--ink-faint); height:5.5mm; display:block;}
+
+/* Grade階段 */
+.ladder-arrow{font-size:7.4pt; color:var(--ink-soft); font-weight:700; text-align:center; background:#ECEFF3; border-radius:999px; padding:.4mm 0; margin-bottom:1.4mm;}
+.ladder{display:grid; gap:1.6mm; align-items:end;}
+.lcol{display:flex; flex-direction:column; gap:1mm;}
+.lhead{color:#fff; font-weight:700; font-size:9.4pt; text-align:center; border-radius:1.4mm; display:flex; align-items:center; justify-content:center; padding:0 1mm; line-height:1.2;}
+.lcell{background:#fff; border:0.75pt solid var(--line); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.6pt; line-height:1.35;}
+.lcell b{display:block; font-size:6.8pt;}
+.lcell.ph{background:#FDF3EF; border-color:var(--terracotta); font-weight:700;}
+.lcell.ph b{color:var(--terracotta);}
+/* カード一覧 */
+.cards{display:grid; gap:1.8mm;}
+.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:flex; flex-direction:column;}
+.rcard .rh{color:#fff; font-weight:700; font-size:8.6pt; padding:1mm 2mm;}
+.rcard .ri{font-size:7.6pt; line-height:1.35; padding:.8mm 2mm 0;}
+.rcard .ri b{font-size:6.8pt; margin-right:1mm;}
+.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35; margin-top:auto;}
+.rcard .rhi b{display:block; color:var(--terracotta); font-size:6.8pt;}
+/* 服用カード・レジメンカード */
+.drow2{display:grid; grid-template-columns:22% 36% 1fr; gap:1.2mm; margin-bottom:.8mm;}
+.drow2 .dn{border-radius:1.4mm; padding:.8mm 2mm; font-weight:700; font-size:8.4pt; display:flex; flex-direction:column; justify-content:center; line-height:1.25;}
+.drow2 .dn small{font-weight:400; font-size:6.8pt; opacity:.9;}
+.drow2 .ds{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:1mm 1.6mm; font-size:7.8pt; display:flex; align-items:center; gap:1.4mm; line-height:1.3;}
+.drow2 .tb{flex:none; color:#fff; font-weight:700; font-size:7pt; border-radius:999px; padding:.4mm 2mm;}
+.drow2 .cy{flex:none; margin-left:auto; background:var(--teal-tint); color:var(--teal-dark); border:0.75pt solid var(--teal-tint-line); font-weight:700; font-size:7pt; border-radius:999px; padding:.3mm 1.8mm;}
+.drow2 .dp{background:#EAF0F4; border-radius:1.4mm; padding:1mm 1.8mm; font-size:7.6pt; line-height:1.35;}
+.drow2 .dp i{color:var(--terracotta); font-style:normal; font-weight:700;}
+.dleg{display:flex; flex-wrap:wrap; gap:3mm; font-size:7pt; color:var(--ink-soft); margin-top:.6mm;}
+.dleg i{display:inline-block; width:4mm; height:2.6mm; border-radius:999px; vertical-align:middle; margin-right:1mm;}
+/* 治療ライン(色分け) */
+.tl-dot{font-size:7pt; margin-right:.6mm;}
+.tlbadge{display:inline-block; background:#fff; color:var(--terracotta); font-size:6.4pt; font-weight:700; border-radius:999px; padding:0 1.4mm; margin-left:1.4mm;}
+/* 服薬指導タイムライン */
+.tl4{display:grid; grid-template-columns:repeat(4,1fr); gap:1.4mm;}
+.tl4 .col{display:flex; flex-direction:column;}
+.tl4 .chk{flex:1;}
+.tl4 .th{background:var(--teal-dark); color:#fff; font-weight:700; font-size:8.2pt; text-align:center; padding:1.1mm 1mm; clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%,6% 50%);}
+.tl4 .col:first-child .th{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
+.tl4 .bub{position:relative; background:var(--teal-tint); border:0.75pt solid var(--teal-tint-line); border-radius:2mm; padding:1.1mm 1.8mm 1.1mm 4mm; margin-top:1mm; font-size:7.3pt; font-weight:700; color:var(--teal-dark); line-height:1.4;}
+.tl4 .bub::before{content:"“"; position:absolute; left:1mm; top:-1.4mm; font-size:15pt; color:var(--teal); font-family:'Shippori Mincho',serif;}
+.tl4 .chk{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; line-height:1.3;}
+.tl4 .chk b{display:block; color:var(--teal-dark); font-size:6.8pt;}
+.tl4 .al{background:var(--terracotta); color:#fff; border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; font-weight:700; line-height:1.3;}
+.tl4 .al b{display:block; font-size:6.6pt; color:#FBE4DE;}
+/* 3列の連携図 */
+.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; align-items:stretch;}
+.link3 .side .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
+.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; margin-top:.8mm; font-size:7.4pt; line-height:1.3;}
+.link3 .it i{flex:none; width:4.2mm; height:4.2mm; border-radius:50%; color:#fff; font-style:normal; font-weight:700; font-size:7pt; display:flex; align-items:center; justify-content:center;}
+.link3 .mid{border:0.75pt dashed var(--teal-tint-line); background:#F1F4F6; border-radius:1.6mm; padding:1mm 1.4mm; display:flex; flex-direction:column; gap:1mm;}
+.link3 .mid .mh{font-size:7.8pt; font-weight:700; color:var(--teal-dark); text-align:center;}
+.link3 .mid .mc{background:#fff; border:0.9pt solid var(--teal); border-radius:1.4mm; text-align:center; padding:.7mm 1mm; font-size:7.4pt; font-weight:700; line-height:1.25; flex:1; display:flex; flex-direction:column; justify-content:center;}
+.link3 .mid .mc small{font-weight:400; font-size:6.6pt; color:var(--ink-soft);}
+.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt; padding-top:6mm;}
 :root{--teal-dark:#8C3D1E; --teal:#B8562E; --teal-tint:#FBE4DE; --teal-tint-line:#E8B49C;}</style>
 </head><body>
 <a class="pdf-dl-btn" href="side_effect_myelosuppression_checkpoints.pdf" download title="PDFをダウンロード">
@@ -324,8 +378,8 @@ table.fcheck td.k{border-left:none;}
     </div>
   </div>
     <div class="fitbox">
-    <div class="section"><div class="sec-title"><div class="num">1</div><h2>実践チェックリスト(保険薬局/病院)</h2></div><div class="roles"><div class="role ph"><div class="rh">保険薬局薬剤師</div><ul class="check"><li>nadir期に合わせた電話フォロー(発熱・感染徴候)</li><li>手持ちの抗菌薬の服用開始条件と連絡方法の説明</li><li>G-CSF後の骨痛への対応(体温を測ってから鎮痛薬)</li><li>ST合剤・抗ウイルス薬など予防投与の継続確認</li><li>発熱・受診の経緯をトレーシングレポートで病院へ</li></ul></div><div class="role hp"><div class="rh">病院薬剤師</div><ul class="check"><li>レジメンのFNリスク評価とG-CSF一次予防の設定</li><li>投与前の血液検査で投与可否・減量を判断</li><li>FN発症時の抗菌薬選択と院内対応</li><li>手持ちの抗菌薬の処方設計と説明</li><li>お薬手帳へのレジメン情報・投与日の記載</li></ul></div></div><div class="shareline"><b>病院と共有する情報</b><span>レジメン・投与日</span><span>血液検査値</span><span>発熱・感染の有無</span><span>予防投与の服用状況</span></div></div>
-    <div class="section"><div class="sec-title"><div class="num">2</div><h2>FNのリスク評価とG-CSF・抗菌薬の使い方</h2></div><table class="grid "><colgroup><col style="width:27.3%"><col style="width:34.7%"><col style="width:38.0%"></colgroup><tr><th>状況</th><th>対応の基本</th><th>薬剤師の確認ポイント</th></tr><tr><td>FN発症率20%以上のレジメン</td><td>G-CSFの一次予防を推奨</td><td>ペグフィルグラスチムは化学療法終了の翌日以降に投与(同日は避ける)</td></tr><tr><td>FN発症率10〜20%のレジメン</td><td>リスク因子(65歳以上・全身状態不良・FNの既往等)で判断</td><td>リスク因子を薬歴に記録し、処方医と共有</td></tr><tr><td>前コースでFNを起こした</td><td>二次予防(G-CSF)または減量・延期</td><td>前回の発熱・入院の経緯を薬歴に記録</td></tr><tr><td>FN発症時:低リスク<br>(MASCCスコア21点以上)</td><td>外来で経口抗菌薬(例:レボフロキサシン+アモキシシリン・クラブラン酸)</td><td>手持ちの抗菌薬の服用開始の条件と連絡方法を説明</td></tr><tr><td>FN発症時:高リスク</td><td>入院のうえ広域の静注抗菌薬(例:セフェピム等)</td><td>至急の受診を勧める</td></tr></table></div>
+    <div class="section"><div class="sec-title"><div class="num">1</div><h2>実践チェックリスト(保険薬局/病院)</h2></div><div class="link3"><div class="side"><div class="lh" style="background:var(--terracotta)">保険薬局薬剤師</div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">1</i><span>nadir期に合わせた電話フォロー(発熱・感染徴候)</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">2</i><span>手持ちの抗菌薬の服用開始条件と連絡方法の説明</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">3</i><span>G-CSF後の骨痛への対応(体温を測ってから鎮痛薬)</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">4</i><span>ST合剤・抗ウイルス薬など予防投与の継続確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">5</i><span>発熱・受診の経緯をトレーシングレポートで病院へ</span></div></div><div class="arr">⇄<br>⇄<br>⇄<br>⇄</div><div class="mid"><div class="mh">病院と共有する情報</div><div class="mc">レジメン・投与日<small>(お薬手帳)</small></div><div class="mc">血液検査値<small>(好中球数・血小板数)</small></div><div class="mc">発熱・感染の有無<small>(トレーシングレポート)</small></div><div class="mc">予防投与の服用状況<small>(電話フォローの結果)</small></div></div><div class="arr">⇄<br>⇄<br>⇄<br>⇄</div><div class="side"><div class="lh" style="background:var(--teal-dark)">病院薬剤師</div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">1</i><span>レジメンのFNリスク評価とG-CSF一次予防の設定</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">2</i><span>投与前の血液検査で投与可否・減量を判断</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">3</i><span>FN発症時の抗菌薬選択と院内対応</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">4</i><span>手持ちの抗菌薬の処方設計と説明</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">5</i><span>お薬手帳へのレジメン情報・投与日の記載</span></div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">2</div><h2>FNのリスク評価とG-CSF・抗菌薬の使い方</h2></div><div class="cards" style="grid-template-columns:repeat(3,1fr);"><div class="rcard"><div class="rh" style="background:#084F4F">FN発症率20%以上のレジメン</div><div class="ri"><b style="color:#084F4F">対応の基本</b>G-CSFの一次予防を推奨</div><div class="rhi"><b>薬剤師の確認ポイント</b>ペグフィルグラスチムは化学療法終了の翌日以降に投与(同日は避ける)</div></div><div class="rcard"><div class="rh" style="background:#3E5C8A">FN発症率10〜20%のレジメン</div><div class="ri"><b style="color:#3E5C8A">対応の基本</b>リスク因子(65歳以上・全身状態不良・FNの既往等)で判断</div><div class="rhi"><b>薬剤師の確認ポイント</b>リスク因子を薬歴に記録し、処方医と共有</div></div><div class="rcard"><div class="rh" style="background:#2F7F86">前コースでFNを起こした</div><div class="ri"><b style="color:#2F7F86">対応の基本</b>二次予防(G-CSF)または減量・延期</div><div class="rhi"><b>薬剤師の確認ポイント</b>前回の発熱・入院の経緯を薬歴に記録</div></div><div class="rcard"><div class="rh" style="background:#7A5C99">FN発症時:低リスク(MASCCスコア21点以上)</div><div class="ri"><b style="color:#7A5C99">対応の基本</b>外来で経口抗菌薬(例:レボフロキサシン+アモキシシリン・クラブラン酸)</div><div class="rhi"><b>薬剤師の確認ポイント</b>手持ちの抗菌薬の服用開始の条件と連絡方法を説明</div></div><div class="rcard"><div class="rh" style="background:#8A6D3B">FN発症時:高リスク</div><div class="ri"><b style="color:#8A6D3B">対応の基本</b>入院のうえ広域の静注抗菌薬(例:セフェピム等)</div><div class="rhi"><b>薬剤師の確認ポイント</b>至急の受診を勧める</div></div></div></div>
     <div class="section"><div class="sec-title accent"><div class="num">3</div><h2>相互作用・併用注意(他院処方・市販薬・サプリを含む)</h2></div><table class="grid ix"><colgroup><col style="width:9%"><col style="width:17%"><col style="width:28%"><col style="width:21%"><col style="width:25%"></colgroup>
     <tr><th>重要度</th><th>薬剤(機序)</th><th>相手の薬(区分)</th><th>起こること</th><th>薬局での対応</th></tr><tr>
     <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>併用注意</div></td>
@@ -358,7 +412,19 @@ table.fcheck td.k{border-left:none;}
     <td><span class="pt" style="background:#D9822B">市販薬</span><br>市販の解熱鎮痛薬・かぜ薬</td>
     <td class="eff">FNの発見の遅れ</td>
     <td class="act">服用前に体温を測り、発熱時は連絡</td></tr></table></div>
-    <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導の声かけ例と確認のタイミング</h2></div><div class="talks"><div class="talk"><span class="w">治療開始前</span><div class="s">「治療後1〜2週は、体を守る白血球が最も減る時期です。体温を毎日測る習慣をつけましょう」</div><div class="c"><b>確認:</b>お薬手帳でレジメン・投与日、G-CSFの予定、手持ちの抗菌薬の有無</div><div class="a">⚠ 夜間・休日の連絡先を事前に共有</div></div><div class="talk"><span class="w">投与後〜1週</span><div class="s">「生ものを控え、手洗い・うがいを。ペグフィルグラスチムの後は骨や腰が痛むことがあります」</div><div class="c"><b>確認:</b>G-CSF後の骨痛と鎮痛薬の使い方、感染予防の実践</div><div class="a">⚠ 痛み止めを飲む前に体温を測る習慣を</div></div><div class="talk"><span class="w">投与後1〜2週</span><div class="s">「37.5℃以上の熱が出たら、解熱剤で様子を見ずに、すぐ病院へ連絡してください」</div><div class="c"><b>確認:</b>電話フォローで発熱・悪寒・のどの痛み・排尿時痛を確認</div><div class="a">⚠ 発熱・悪寒はFNを疑い夜間休日でも受診</div></div><div class="talk"><span class="w">次回来局時</span><div class="s">「前回の治療のあと、熱や出血、息切れはありませんでしたか」</div><div class="c"><b>確認:</b>検査値の推移、発熱・出血・貧血の症状</div><div class="a">⚠ FNや減量の経緯はトレーシングレポートで共有</div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導の声かけ例と確認のタイミング</h2></div><div class="tl4"><div class="col"><div class="th">① 治療開始前</div>
+    <div class="bub">治療後1〜2週は、体を守る白血球が最も減る時期です。体温を毎日測る習慣をつけましょう</div>
+    <div class="chk"><b>✓ 薬局で確認</b>お薬手帳でレジメン・投与日、G-CSFの予定、手持ちの抗菌薬の有無</div>
+    <div class="al"><b>⚠ ここに注意</b>夜間・休日の連絡先を事前に共有</div></div><div class="col"><div class="th">② 投与後〜1週</div>
+    <div class="bub">生ものを控え、手洗い・うがいを。ペグフィルグラスチムの後は骨や腰が痛むことがあります</div>
+    <div class="chk"><b>✓ 薬局で確認</b>G-CSF後の骨痛と鎮痛薬の使い方、感染予防の実践</div>
+    <div class="al"><b>⚠ ここに注意</b>痛み止めを飲む前に体温を測る習慣を</div></div><div class="col"><div class="th">③ 投与後1〜2週</div>
+    <div class="bub">37.5℃以上の熱が出たら、解熱剤で様子を見ずに、すぐ病院へ連絡してください</div>
+    <div class="chk"><b>✓ 薬局で確認</b>電話フォローで発熱・悪寒・のどの痛み・排尿時痛を確認</div>
+    <div class="al"><b>⚠ ここに注意</b>発熱・悪寒はFNを疑い夜間休日でも受診</div></div><div class="col"><div class="th">④ 次回来局時</div>
+    <div class="bub">前回の治療のあと、熱や出血、息切れはありませんでしたか</div>
+    <div class="chk"><b>✓ 薬局で確認</b>検査値の推移、発熱・出血・貧血の症状</div>
+    <div class="al"><b>⚠ ここに注意</b>FNや減量の経緯はトレーシングレポートで共有</div></div></div></div>
     </div>
     <div class="footer">がん薬物療法 研修シリーズ 副作用ガイド(骨髄抑制・発熱性好中球減少症) ― 実践ガイド(調剤薬局向け) ― 発熱性好中球減少症(FN)診療ガイドライン、CTCAE v5.0に基づく</div>
   </div><script>(function(){
@@ -368,7 +434,7 @@ table.fcheck td.k{border-left:none;}
       box.style.zoom = 1;
       var avail = ft.getBoundingClientRect().top - box.getBoundingClientRect().top - 12;
       var need = box.getBoundingClientRect().height;
-      if (need > avail) box.style.zoom = Math.max(0.88, avail / need).toFixed(3);
+      if (need > avail) box.style.zoom = Math.max(0.85, avail / need).toFixed(3);
     });
   }
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); else window.addEventListener("load", fit);

@@ -309,6 +309,60 @@ table.fcheck td.k{border-left:none;}
 .fleg i{display:inline-block; width:4.5mm; height:3.5mm; border-radius:.8mm; vertical-align:middle; margin-right:1.2mm;}
 .fill span{font-weight:700; color:var(--ink-soft);}
 .fill i{border-bottom:0.75pt solid var(--ink-faint); height:5.5mm; display:block;}
+
+/* Grade階段 */
+.ladder-arrow{font-size:7.4pt; color:var(--ink-soft); font-weight:700; text-align:center; background:#ECEFF3; border-radius:999px; padding:.4mm 0; margin-bottom:1.4mm;}
+.ladder{display:grid; gap:1.6mm; align-items:end;}
+.lcol{display:flex; flex-direction:column; gap:1mm;}
+.lhead{color:#fff; font-weight:700; font-size:9.4pt; text-align:center; border-radius:1.4mm; display:flex; align-items:center; justify-content:center; padding:0 1mm; line-height:1.2;}
+.lcell{background:#fff; border:0.75pt solid var(--line); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.6pt; line-height:1.35;}
+.lcell b{display:block; font-size:6.8pt;}
+.lcell.ph{background:#FDF3EF; border-color:var(--terracotta); font-weight:700;}
+.lcell.ph b{color:var(--terracotta);}
+/* カード一覧 */
+.cards{display:grid; gap:1.8mm;}
+.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:flex; flex-direction:column;}
+.rcard .rh{color:#fff; font-weight:700; font-size:8.6pt; padding:1mm 2mm;}
+.rcard .ri{font-size:7.6pt; line-height:1.35; padding:.8mm 2mm 0;}
+.rcard .ri b{font-size:6.8pt; margin-right:1mm;}
+.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35; margin-top:auto;}
+.rcard .rhi b{display:block; color:var(--terracotta); font-size:6.8pt;}
+/* 服用カード・レジメンカード */
+.drow2{display:grid; grid-template-columns:22% 36% 1fr; gap:1.2mm; margin-bottom:.8mm;}
+.drow2 .dn{border-radius:1.4mm; padding:.8mm 2mm; font-weight:700; font-size:8.4pt; display:flex; flex-direction:column; justify-content:center; line-height:1.25;}
+.drow2 .dn small{font-weight:400; font-size:6.8pt; opacity:.9;}
+.drow2 .ds{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:1mm 1.6mm; font-size:7.8pt; display:flex; align-items:center; gap:1.4mm; line-height:1.3;}
+.drow2 .tb{flex:none; color:#fff; font-weight:700; font-size:7pt; border-radius:999px; padding:.4mm 2mm;}
+.drow2 .cy{flex:none; margin-left:auto; background:var(--teal-tint); color:var(--teal-dark); border:0.75pt solid var(--teal-tint-line); font-weight:700; font-size:7pt; border-radius:999px; padding:.3mm 1.8mm;}
+.drow2 .dp{background:#EAF0F4; border-radius:1.4mm; padding:1mm 1.8mm; font-size:7.6pt; line-height:1.35;}
+.drow2 .dp i{color:var(--terracotta); font-style:normal; font-weight:700;}
+.dleg{display:flex; flex-wrap:wrap; gap:3mm; font-size:7pt; color:var(--ink-soft); margin-top:.6mm;}
+.dleg i{display:inline-block; width:4mm; height:2.6mm; border-radius:999px; vertical-align:middle; margin-right:1mm;}
+/* 治療ライン(色分け) */
+.tl-dot{font-size:7pt; margin-right:.6mm;}
+.tlbadge{display:inline-block; background:#fff; color:var(--terracotta); font-size:6.4pt; font-weight:700; border-radius:999px; padding:0 1.4mm; margin-left:1.4mm;}
+/* 服薬指導タイムライン */
+.tl4{display:grid; grid-template-columns:repeat(4,1fr); gap:1.4mm;}
+.tl4 .col{display:flex; flex-direction:column;}
+.tl4 .chk{flex:1;}
+.tl4 .th{background:var(--teal-dark); color:#fff; font-weight:700; font-size:8.2pt; text-align:center; padding:1.1mm 1mm; clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%,6% 50%);}
+.tl4 .col:first-child .th{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
+.tl4 .bub{position:relative; background:var(--teal-tint); border:0.75pt solid var(--teal-tint-line); border-radius:2mm; padding:1.1mm 1.8mm 1.1mm 4mm; margin-top:1mm; font-size:7.3pt; font-weight:700; color:var(--teal-dark); line-height:1.4;}
+.tl4 .bub::before{content:"“"; position:absolute; left:1mm; top:-1.4mm; font-size:15pt; color:var(--teal); font-family:'Shippori Mincho',serif;}
+.tl4 .chk{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; line-height:1.3;}
+.tl4 .chk b{display:block; color:var(--teal-dark); font-size:6.8pt;}
+.tl4 .al{background:var(--terracotta); color:#fff; border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; font-weight:700; line-height:1.3;}
+.tl4 .al b{display:block; font-size:6.6pt; color:#FBE4DE;}
+/* 3列の連携図 */
+.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; align-items:stretch;}
+.link3 .side .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
+.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; margin-top:.8mm; font-size:7.4pt; line-height:1.3;}
+.link3 .it i{flex:none; width:4.2mm; height:4.2mm; border-radius:50%; color:#fff; font-style:normal; font-weight:700; font-size:7pt; display:flex; align-items:center; justify-content:center;}
+.link3 .mid{border:0.75pt dashed var(--teal-tint-line); background:#F1F4F6; border-radius:1.6mm; padding:1mm 1.4mm; display:flex; flex-direction:column; gap:1mm;}
+.link3 .mid .mh{font-size:7.8pt; font-weight:700; color:var(--teal-dark); text-align:center;}
+.link3 .mid .mc{background:#fff; border:0.9pt solid var(--teal); border-radius:1.4mm; text-align:center; padding:.7mm 1mm; font-size:7.4pt; font-weight:700; line-height:1.25; flex:1; display:flex; flex-direction:column; justify-content:center;}
+.link3 .mid .mc small{font-weight:400; font-size:6.6pt; color:var(--ink-soft);}
+.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt; padding-top:6mm;}
 :root{--teal-dark:#3E4A5C; --teal:#5B6B82; --teal-tint:#EAEEF3; --teal-tint-line:#C7D0DC;}</style>
 </head><body>
 <a class="pdf-dl-btn" href="cancer_colorectal_checkpoints.pdf" download title="PDFをダウンロード">
@@ -324,8 +378,18 @@ table.fcheck td.k{border-left:none;}
     </div>
   </div>
     <div class="fitbox">
-    <div class="section"><div class="sec-title"><div class="num">1</div><h2>実践チェックリスト(保険薬局/病院)</h2></div><div class="roles"><div class="role ph"><div class="rh">保険薬局薬剤師</div><ul class="check"><li>カペシタビン・FTD/TPI・レゴラフェニブの服用日と残薬の管理</li><li>ワルファリン等の併用薬、市販の下痢止め・サプリの確認</li><li>電話フォローで下痢・発熱・ポンプ抜針後の状況を確認</li><li>手足症候群・皮疹のスキンケア指導と外用薬の使い方</li><li>症状をGradeで記録し、トレーシングレポートで病院へ</li></ul></div><div class="role hp"><div class="rh">病院薬剤師</div><ul class="check"><li>RAS/BRAF/MSI・UGT1A1の結果とレジメンの整合性の監査</li><li>オキサリプラチン・イリノテカンの投与量と前投薬の確認</li><li>携帯型ポンプ(5-FU持続静注)の準備と使い方の説明</li><li>周術期の抗VEGF薬の休薬期間の管理</li><li>お薬手帳へのレジメン情報・投与日の記載</li></ul></div></div><div class="shareline"><b>病院と共有する情報</b><span>バイオマーカー・レジメン</span><span>検査値</span><span>下痢・手足症候群のGrade</span><span>服用状況・家庭血圧</span></div></div>
-    <div class="section"><div class="sec-title"><div class="num">2</div><h2>主なレジメンと薬局での確認ポイント</h2></div><table class="grid "><colgroup><col style="width:15.7%"><col style="width:37.2%"><col style="width:9.1%"><col style="width:38.0%"></colgroup><tr><th>レジメン</th><th>構成・投与スケジュール</th><th>周期</th><th>薬局での確認ポイント</th></tr><tr><td>mFOLFOX6</td><td>オキサリプラチン+レボホリナート+5-FU急速静注 → 5-FU 46時間持続静注</td><td>2週毎</td><td>携帯型ポンプの管理・抜針日、寒冷刺激による急性しびれ</td></tr><tr><td>CAPOX</td><td>オキサリプラチン(1日目)+カペシタビン 1日2回 1〜14日目内服</td><td>3週毎</td><td>内服日数と休薬期間、手足症候群、ワルファリン併用時のINR</td></tr><tr><td>FOLFIRI</td><td>イリノテカン+レボホリナート+5-FU急速静注 → 46時間持続静注</td><td>2週毎</td><td>遅発性下痢時の下痢止めの使い方、UGT1A1、脱毛</td></tr><tr><td>FTD/TPI</td><td>トリフルリジン・チピラシル 1日2回 1〜5日目・8〜12日目内服(±ベバシズマブ)</td><td>4週毎</td><td>食後服用(空腹時は吸収が増え好中球減少が増強)、骨髄抑制</td></tr><tr><td>レゴラフェニブ</td><td>1日1回 1〜21日目内服(低用量から漸増する方法も)</td><td>4週毎</td><td>低脂肪食後に服用、手足症候群、投与初期2か月の肝機能・血圧</td></tr></table></div>
+    <div class="section"><div class="sec-title"><div class="num">1</div><h2>実践チェックリスト(保険薬局/病院)</h2></div><div class="link3"><div class="side"><div class="lh" style="background:var(--terracotta)">保険薬局薬剤師</div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">1</i><span>カペシタビン・FTD/TPI・レゴラフェニブの服用日と残薬の管理</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">2</i><span>ワルファリン等の併用薬、市販の下痢止め・サプリの確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">3</i><span>電話フォローで下痢・発熱・ポンプ抜針後の状況を確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">4</i><span>手足症候群・皮疹のスキンケア指導と外用薬の使い方</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">5</i><span>症状をGradeで記録し、トレーシングレポートで病院へ</span></div></div><div class="arr">⇄<br>⇄<br>⇄<br>⇄</div><div class="mid"><div class="mh">病院と共有する情報</div><div class="mc">バイオマーカー・レジメン<small>(お薬手帳)</small></div><div class="mc">検査値<small>(好中球数・Mg・尿蛋白)</small></div><div class="mc">下痢・手足症候群のGrade<small>(トレーシングレポート)</small></div><div class="mc">服用状況・家庭血圧<small>(電話フォローの結果)</small></div></div><div class="arr">⇄<br>⇄<br>⇄<br>⇄</div><div class="side"><div class="lh" style="background:var(--teal-dark)">病院薬剤師</div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">1</i><span>RAS/BRAF/MSI・UGT1A1の結果とレジメンの整合性の監査</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">2</i><span>オキサリプラチン・イリノテカンの投与量と前投薬の確認</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">3</i><span>携帯型ポンプ(5-FU持続静注)の準備と使い方の説明</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">4</i><span>周術期の抗VEGF薬の休薬期間の管理</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">5</i><span>お薬手帳へのレジメン情報・投与日の記載</span></div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">2</div><h2>主なレジメンと薬局での確認ポイント</h2></div><div class="drow2"><div class="dn" style="background:#5B6B82; color:#fff;">mFOLFOX6<small>点滴・注射</small></div>
+      <div class="ds"><span>オキサリプラチン+レボホリナート+5-FU急速静注 → 5-FU 46時間持続静注</span><span class="cy">2週毎</span></div>
+      <div class="dp"><i>✓</i> 携帯型ポンプの管理・抜針日　<i>✓</i> 寒冷刺激による急性しびれ</div></div><div class="drow2"><div class="dn" style="background:#8A6D3B; color:#fff;">CAPOX<small>点滴+経口</small></div>
+      <div class="ds"><span>オキサリプラチン(1日目)+カペシタビン 1日2回 1〜14日目内服</span><span class="cy">3週毎</span></div>
+      <div class="dp"><i>✓</i> 内服日数と休薬期間　<i>✓</i> 手足症候群　<i>✓</i> ワルファリン併用時のINR</div></div><div class="drow2"><div class="dn" style="background:#5B6B82; color:#fff;">FOLFIRI<small>点滴・注射</small></div>
+      <div class="ds"><span>イリノテカン+レボホリナート+5-FU急速静注 → 46時間持続静注</span><span class="cy">2週毎</span></div>
+      <div class="dp"><i>✓</i> 遅発性下痢時の下痢止めの使い方　<i>✓</i> UGT1A1　<i>✓</i> 脱毛</div></div><div class="drow2"><div class="dn" style="background:#8A6D3B; color:#fff;">FTD/TPI<small>点滴+経口</small></div>
+      <div class="ds"><span>トリフルリジン・チピラシル 1日2回 1〜5日目・8〜12日目内服(±ベバシズマブ)</span><span class="cy">4週毎</span></div>
+      <div class="dp"><i>✓</i> 食後服用(空腹時は吸収が増え好中球減少が増強)　<i>✓</i> 骨髄抑制</div></div><div class="drow2"><div class="dn" style="background:#2F7F86; color:#fff;">レゴラフェニブ<small>経口</small></div>
+      <div class="ds"><span>1日1回 1〜21日目内服(低用量から漸増する方法も)</span><span class="cy">4週毎</span></div>
+      <div class="dp"><i>✓</i> 低脂肪食後に服用　<i>✓</i> 手足症候群　<i>✓</i> 投与初期2か月の肝機能・血圧</div></div><div class="dleg"><span><i style="background:#2F7F86"></i>経口</span><span><i style="background:#5B6B82"></i>点滴・注射</span><span><i style="background:#8A6D3B"></i>点滴+経口</span><span style="color:var(--terracotta); font-weight:700;">経口薬は保険薬局で交付:服用日・休薬日と自宅での副作用を確認</span></div></div>
     <div class="section"><div class="sec-title accent"><div class="num">3</div><h2>相互作用・併用注意(他院処方・市販薬・サプリを含む)</h2></div><table class="grid ix"><colgroup><col style="width:9%"><col style="width:17%"><col style="width:28%"><col style="width:21%"><col style="width:25%"></colgroup>
     <tr><th>重要度</th><th>薬剤(機序)</th><th>相手の薬(区分)</th><th>起こること</th><th>薬局での対応</th></tr><tr>
     <td style="background:#fff; text-align:center;"><span class="lv" style="background:#A8321F">禁忌</span><div class="basis">添付文書<br>併用禁忌</div></td>
@@ -358,7 +422,19 @@ table.fcheck td.k{border-left:none;}
     <td><span class="pt" style="background:#D9822B">市販薬</span><br>市販の下痢止め</td>
     <td class="eff">脱水・感染性腸炎の見逃し</td>
     <td class="act">下痢止めの使用量と回数、発熱の有無を確認</td></tr></table></div>
-    <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導の声かけ例と確認のタイミング</h2></div><div class="talks"><div class="talk"><span class="w">治療開始前</span><div class="s">「冷たい物に触れると、指先やのどがピリッとすることがあります。手袋や常温の飲み物で予防しましょう」</div><div class="c"><b>確認:</b>お薬手帳でRAS/BRAF/MSI・UGT1A1、併用薬(ワルファリン・フェニトイン)</div><div class="a">⚠ ワルファリン併用中はINR測定の予定を確認</div></div><div class="talk"><span class="w">投与後〜5日</span><div class="s">「水のような下痢が続く時は、お渡しした下痢止めを指示どおりに。回数が1日4回以上増えたら連絡を」</div><div class="c"><b>確認:</b>電話フォローで下痢の回数・水分量、携帯型ポンプの抜針</div><div class="a">⚠ 水様便が止まらない・発熱を伴う時は至急連絡</div></div><div class="talk"><span class="w">投与後1〜2週</span><div class="s">「37.5℃以上の熱が出たら、解熱剤で様子を見ずに、すぐ病院へ連絡してください」</div><div class="c"><b>確認:</b>電話フォローでnadir期の発熱・口内炎、カペシタビンの服用日数</div><div class="a">⚠ 発熱・悪寒はFNを疑い夜間休日でも受診</div></div><div class="talk"><span class="w">次回来局時</span><div class="s">「手足の赤みや痛み、ボタンが留めにくいなどの変化はありませんか」</div><div class="c"><b>確認:</b>手足症候群・しびれのGrade、家庭血圧・尿蛋白、皮疹</div><div class="a">⚠ Grade2以上はトレーシングレポートで共有</div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導の声かけ例と確認のタイミング</h2></div><div class="tl4"><div class="col"><div class="th">① 治療開始前</div>
+    <div class="bub">冷たい物に触れると、指先やのどがピリッとすることがあります。手袋や常温の飲み物で予防しましょう</div>
+    <div class="chk"><b>✓ 薬局で確認</b>お薬手帳でRAS/BRAF/MSI・UGT1A1、併用薬(ワルファリン・フェニトイン)</div>
+    <div class="al"><b>⚠ ここに注意</b>ワルファリン併用中はINR測定の予定を確認</div></div><div class="col"><div class="th">② 投与後〜5日</div>
+    <div class="bub">水のような下痢が続く時は、お渡しした下痢止めを指示どおりに。回数が1日4回以上増えたら連絡を</div>
+    <div class="chk"><b>✓ 薬局で確認</b>電話フォローで下痢の回数・水分量、携帯型ポンプの抜針</div>
+    <div class="al"><b>⚠ ここに注意</b>水様便が止まらない・発熱を伴う時は至急連絡</div></div><div class="col"><div class="th">③ 投与後1〜2週</div>
+    <div class="bub">37.5℃以上の熱が出たら、解熱剤で様子を見ずに、すぐ病院へ連絡してください</div>
+    <div class="chk"><b>✓ 薬局で確認</b>電話フォローでnadir期の発熱・口内炎、カペシタビンの服用日数</div>
+    <div class="al"><b>⚠ ここに注意</b>発熱・悪寒はFNを疑い夜間休日でも受診</div></div><div class="col"><div class="th">④ 次回来局時</div>
+    <div class="bub">手足の赤みや痛み、ボタンが留めにくいなどの変化はありませんか</div>
+    <div class="chk"><b>✓ 薬局で確認</b>手足症候群・しびれのGrade、家庭血圧・尿蛋白、皮疹</div>
+    <div class="al"><b>⚠ ここに注意</b>Grade2以上はトレーシングレポートで共有</div></div></div></div>
     </div>
     <div class="footer">がん薬物療法 研修シリーズ 癌種別ガイド(大腸癌) ― 実践ガイド(調剤薬局向け) ― 大腸癌治療ガイドライン、各薬剤の添付文書、CTCAE v5.0に基づく</div>
   </div><script>(function(){
@@ -368,7 +444,7 @@ table.fcheck td.k{border-left:none;}
       box.style.zoom = 1;
       var avail = ft.getBoundingClientRect().top - box.getBoundingClientRect().top - 12;
       var need = box.getBoundingClientRect().height;
-      if (need > avail) box.style.zoom = Math.max(0.88, avail / need).toFixed(3);
+      if (need > avail) box.style.zoom = Math.max(0.85, avail / need).toFixed(3);
     });
   }
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); else window.addEventListener("load", fit);

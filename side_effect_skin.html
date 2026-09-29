@@ -309,6 +309,60 @@ table.fcheck td.k{border-left:none;}
 .fleg i{display:inline-block; width:4.5mm; height:3.5mm; border-radius:.8mm; vertical-align:middle; margin-right:1.2mm;}
 .fill span{font-weight:700; color:var(--ink-soft);}
 .fill i{border-bottom:0.75pt solid var(--ink-faint); height:5.5mm; display:block;}
+
+/* Grade階段 */
+.ladder-arrow{font-size:7.4pt; color:var(--ink-soft); font-weight:700; text-align:center; background:#ECEFF3; border-radius:999px; padding:.4mm 0; margin-bottom:1.4mm;}
+.ladder{display:grid; gap:1.6mm; align-items:end;}
+.lcol{display:flex; flex-direction:column; gap:1mm;}
+.lhead{color:#fff; font-weight:700; font-size:9.4pt; text-align:center; border-radius:1.4mm; display:flex; align-items:center; justify-content:center; padding:0 1mm; line-height:1.2;}
+.lcell{background:#fff; border:0.75pt solid var(--line); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.6pt; line-height:1.35;}
+.lcell b{display:block; font-size:6.8pt;}
+.lcell.ph{background:#FDF3EF; border-color:var(--terracotta); font-weight:700;}
+.lcell.ph b{color:var(--terracotta);}
+/* カード一覧 */
+.cards{display:grid; gap:1.8mm;}
+.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:flex; flex-direction:column;}
+.rcard .rh{color:#fff; font-weight:700; font-size:8.6pt; padding:1mm 2mm;}
+.rcard .ri{font-size:7.6pt; line-height:1.35; padding:.8mm 2mm 0;}
+.rcard .ri b{font-size:6.8pt; margin-right:1mm;}
+.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35; margin-top:auto;}
+.rcard .rhi b{display:block; color:var(--terracotta); font-size:6.8pt;}
+/* 服用カード・レジメンカード */
+.drow2{display:grid; grid-template-columns:22% 36% 1fr; gap:1.2mm; margin-bottom:.8mm;}
+.drow2 .dn{border-radius:1.4mm; padding:.8mm 2mm; font-weight:700; font-size:8.4pt; display:flex; flex-direction:column; justify-content:center; line-height:1.25;}
+.drow2 .dn small{font-weight:400; font-size:6.8pt; opacity:.9;}
+.drow2 .ds{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:1mm 1.6mm; font-size:7.8pt; display:flex; align-items:center; gap:1.4mm; line-height:1.3;}
+.drow2 .tb{flex:none; color:#fff; font-weight:700; font-size:7pt; border-radius:999px; padding:.4mm 2mm;}
+.drow2 .cy{flex:none; margin-left:auto; background:var(--teal-tint); color:var(--teal-dark); border:0.75pt solid var(--teal-tint-line); font-weight:700; font-size:7pt; border-radius:999px; padding:.3mm 1.8mm;}
+.drow2 .dp{background:#EAF0F4; border-radius:1.4mm; padding:1mm 1.8mm; font-size:7.6pt; line-height:1.35;}
+.drow2 .dp i{color:var(--terracotta); font-style:normal; font-weight:700;}
+.dleg{display:flex; flex-wrap:wrap; gap:3mm; font-size:7pt; color:var(--ink-soft); margin-top:.6mm;}
+.dleg i{display:inline-block; width:4mm; height:2.6mm; border-radius:999px; vertical-align:middle; margin-right:1mm;}
+/* 治療ライン(色分け) */
+.tl-dot{font-size:7pt; margin-right:.6mm;}
+.tlbadge{display:inline-block; background:#fff; color:var(--terracotta); font-size:6.4pt; font-weight:700; border-radius:999px; padding:0 1.4mm; margin-left:1.4mm;}
+/* 服薬指導タイムライン */
+.tl4{display:grid; grid-template-columns:repeat(4,1fr); gap:1.4mm;}
+.tl4 .col{display:flex; flex-direction:column;}
+.tl4 .chk{flex:1;}
+.tl4 .th{background:var(--teal-dark); color:#fff; font-weight:700; font-size:8.2pt; text-align:center; padding:1.1mm 1mm; clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%,6% 50%);}
+.tl4 .col:first-child .th{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
+.tl4 .bub{position:relative; background:var(--teal-tint); border:0.75pt solid var(--teal-tint-line); border-radius:2mm; padding:1.1mm 1.8mm 1.1mm 4mm; margin-top:1mm; font-size:7.3pt; font-weight:700; color:var(--teal-dark); line-height:1.4;}
+.tl4 .bub::before{content:"“"; position:absolute; left:1mm; top:-1.4mm; font-size:15pt; color:var(--teal); font-family:'Shippori Mincho',serif;}
+.tl4 .chk{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; line-height:1.3;}
+.tl4 .chk b{display:block; color:var(--teal-dark); font-size:6.8pt;}
+.tl4 .al{background:var(--terracotta); color:#fff; border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; font-weight:700; line-height:1.3;}
+.tl4 .al b{display:block; font-size:6.6pt; color:#FBE4DE;}
+/* 3列の連携図 */
+.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; align-items:stretch;}
+.link3 .side .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
+.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; margin-top:.8mm; font-size:7.4pt; line-height:1.3;}
+.link3 .it i{flex:none; width:4.2mm; height:4.2mm; border-radius:50%; color:#fff; font-style:normal; font-weight:700; font-size:7pt; display:flex; align-items:center; justify-content:center;}
+.link3 .mid{border:0.75pt dashed var(--teal-tint-line); background:#F1F4F6; border-radius:1.6mm; padding:1mm 1.4mm; display:flex; flex-direction:column; gap:1mm;}
+.link3 .mid .mh{font-size:7.8pt; font-weight:700; color:var(--teal-dark); text-align:center;}
+.link3 .mid .mc{background:#fff; border:0.9pt solid var(--teal); border-radius:1.4mm; text-align:center; padding:.7mm 1mm; font-size:7.4pt; font-weight:700; line-height:1.25; flex:1; display:flex; flex-direction:column; justify-content:center;}
+.link3 .mid .mc small{font-weight:400; font-size:6.6pt; color:var(--ink-soft);}
+.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt; padding-top:6mm;}
 :root{--teal-dark:#8C3D1E; --teal:#B8562E; --teal-tint:#FBE4DE; --teal-tint-line:#E8B49C;}</style>
 </head><body>
 <a class="pdf-dl-btn" href="side_effect_skin.pdf" download title="PDFをダウンロード">
@@ -338,7 +392,7 @@ table.fcheck td.k{border-left:none;}
     <div class="dgs"><div class="dg"><span class="gl">保湿剤</span><span class="chip">ヘパリン類似物質</span><span class="chip">尿素製剤</span><span class="chip">白色ワセリン</span></div><div class="dg"><span class="gl">外用ステロイド</span><span class="chip">部位・重症度で強さを選択</span></div><div class="dg"><span class="gl">皮疹の予防内服</span><span class="chip oral">ミノサイクリン</span><span class="chip oral">ドキシサイクリン</span></div></div>
   </div></div>
   <div class="legend"><span><i class="oral"></i>経口薬(保険薬局で交付されることが多い)</span><span><i></i>注射薬</span></div></div>
-    <div class="section"><div class="sec-title"><div class="num">2</div><h2>重症度(CTCAE Grade)と保険薬局での対応</h2></div><table class="grid "><colgroup><col style="width:11.6%"><col style="width:29.8%"><col style="width:28.9%"><col style="width:29.8%"></colgroup><tr><th>Grade</th><th>手足症候群</th><th>ざ瘡様皮疹</th><th>保険薬局での対応</th></tr><tr><td>Grade1</td><td>痛みのない発赤・腫れ・角化</td><td>体表面積の10%未満の丘疹・膿疱</td><td>予防のスキンケアと外用薬の使用を継続</td></tr><tr><td>Grade2</td><td>痛みを伴う変化、身の回り以外の生活に支障</td><td>10〜30%、または生活や気持ちへの影響あり</td><td>外用ステロイドの強さ・使い方を確認し、処方医へ情報提供</td></tr><tr><td>Grade3</td><td>強い痛み、身の回りの生活に支障</td><td>30%超で身の回りの生活に支障、感染を伴う</td><td>休薬の判断が必要。至急処方医へ連絡</td></tr></table><p class="lead" style="margin:1.2mm 0 0;">手足症候群のGrade2以上は、経口薬の休薬が必要になることが多い。自己判断の中止・継続を防ぐため、連絡先を事前に共有</p></div>
+    <div class="section"><div class="sec-title"><div class="num">2</div><h2>重症度(CTCAE Grade)と保険薬局での対応</h2></div><div class="ladder-arrow">軽い ―― 重症度 ――▶ 重い</div><div class="ladder" style="grid-template-columns:repeat(3,1fr);"><div class="lcol"><div class="lhead" style="background:#6B9E8F; min-height:8mm; padding:.6mm 1mm;">Grade1</div><div class="lcell"><b style="color:#6B9E8F">手足症候群</b>痛みのない発赤・腫れ・角化</div><div class="lcell"><b style="color:#6B9E8F">ざ瘡様皮疹</b>体表面積の10%未満の丘疹・膿疱</div><div class="lcell ph"><b style="color:">保険薬局での対応</b>予防のスキンケアと外用薬の使用を継続</div></div><div class="lcol"><div class="lhead" style="background:#D4A43A; min-height:10mm; padding:.6mm 1mm;">Grade2</div><div class="lcell"><b style="color:#D4A43A">手足症候群</b>痛みを伴う変化、身の回り以外の生活に支障</div><div class="lcell"><b style="color:#D4A43A">ざ瘡様皮疹</b>10〜30%、または生活や気持ちへの影響あり</div><div class="lcell ph"><b style="color:">保険薬局での対応</b>外用ステロイドの強さ・使い方を確認し、処方医へ情報提供</div></div><div class="lcol"><div class="lhead" style="background:#D9822B; min-height:12mm; padding:.6mm 1mm;">Grade3</div><div class="lcell"><b style="color:#D9822B">手足症候群</b>強い痛み、身の回りの生活に支障</div><div class="lcell"><b style="color:#D9822B">ざ瘡様皮疹</b>30%超で身の回りの生活に支障、感染を伴う</div><div class="lcell ph"><b style="color:">保険薬局での対応</b>休薬の判断が必要。至急処方医へ連絡</div></div></div><p class="lead" style="margin:1.2mm 0 0;">手足症候群のGrade2以上は、経口薬の休薬が必要になることが多い。自己判断の中止・継続を防ぐため、連絡先を事前に共有</p></div>
     <div class="section"><div class="sec-title"><div class="num">3</div><h2>副作用の特徴と発現時期</h2></div><div class="onset"><div class="orow ohead"><div class="ol" style="visibility:hidden">-</div><div class="otrack"><span class="tl" style="left:4%">開始日</span><span class="tl" style="left:20%">1週</span><span class="tl" style="left:40%">2週</span><span class="tl" style="left:60%">1か月</span><span class="tl" style="left:80%">2か月</span><span class="tl" style="left:95%">3か月〜</span></div></div><div class="orow hot"><div class="ol">手足症候群(マルチキナーゼ阻害薬)</div><div class="otrack"><div class="ophase" style="left:0%; width:40%; background:#ECEFF3;"></div><div class="ophase" style="left:40%; width:40%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F3F1EE;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
       <div class="obar" style="left:16%; width:44.00000000000001%;"><span>開始後2〜4週以内</span></div></div></div><div class="orow"><div class="ol">ざ瘡様皮疹(EGFR阻害薬)</div><div class="otrack"><div class="ophase" style="left:0%; width:40%; background:#ECEFF3;"></div><div class="ophase" style="left:40%; width:40%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F3F1EE;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
       <div class="obar" style="left:20%; width:40%;"><span>1〜4週でピーク</span></div></div></div><div class="orow"><div class="ol">ICIの皮疹・かゆみ</div><div class="otrack"><div class="ophase" style="left:0%; width:40%; background:#ECEFF3;"></div><div class="ophase" style="left:40%; width:40%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F3F1EE;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
@@ -359,7 +413,7 @@ table.fcheck td.k{border-left:none;}
       box.style.zoom = 1;
       var avail = ft.getBoundingClientRect().top - box.getBoundingClientRect().top - 12;
       var need = box.getBoundingClientRect().height;
-      if (need > avail) box.style.zoom = Math.max(0.88, avail / need).toFixed(3);
+      if (need > avail) box.style.zoom = Math.max(0.85, avail / need).toFixed(3);
     });
   }
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); else window.addEventListener("load", fit);

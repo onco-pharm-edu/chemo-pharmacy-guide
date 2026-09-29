@@ -309,6 +309,60 @@ table.fcheck td.k{border-left:none;}
 .fleg i{display:inline-block; width:4.5mm; height:3.5mm; border-radius:.8mm; vertical-align:middle; margin-right:1.2mm;}
 .fill span{font-weight:700; color:var(--ink-soft);}
 .fill i{border-bottom:0.75pt solid var(--ink-faint); height:5.5mm; display:block;}
+
+/* Grade階段 */
+.ladder-arrow{font-size:7.4pt; color:var(--ink-soft); font-weight:700; text-align:center; background:#ECEFF3; border-radius:999px; padding:.4mm 0; margin-bottom:1.4mm;}
+.ladder{display:grid; gap:1.6mm; align-items:end;}
+.lcol{display:flex; flex-direction:column; gap:1mm;}
+.lhead{color:#fff; font-weight:700; font-size:9.4pt; text-align:center; border-radius:1.4mm; display:flex; align-items:center; justify-content:center; padding:0 1mm; line-height:1.2;}
+.lcell{background:#fff; border:0.75pt solid var(--line); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.6pt; line-height:1.35;}
+.lcell b{display:block; font-size:6.8pt;}
+.lcell.ph{background:#FDF3EF; border-color:var(--terracotta); font-weight:700;}
+.lcell.ph b{color:var(--terracotta);}
+/* カード一覧 */
+.cards{display:grid; gap:1.8mm;}
+.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:flex; flex-direction:column;}
+.rcard .rh{color:#fff; font-weight:700; font-size:8.6pt; padding:1mm 2mm;}
+.rcard .ri{font-size:7.6pt; line-height:1.35; padding:.8mm 2mm 0;}
+.rcard .ri b{font-size:6.8pt; margin-right:1mm;}
+.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35; margin-top:auto;}
+.rcard .rhi b{display:block; color:var(--terracotta); font-size:6.8pt;}
+/* 服用カード・レジメンカード */
+.drow2{display:grid; grid-template-columns:22% 36% 1fr; gap:1.2mm; margin-bottom:.8mm;}
+.drow2 .dn{border-radius:1.4mm; padding:.8mm 2mm; font-weight:700; font-size:8.4pt; display:flex; flex-direction:column; justify-content:center; line-height:1.25;}
+.drow2 .dn small{font-weight:400; font-size:6.8pt; opacity:.9;}
+.drow2 .ds{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:1mm 1.6mm; font-size:7.8pt; display:flex; align-items:center; gap:1.4mm; line-height:1.3;}
+.drow2 .tb{flex:none; color:#fff; font-weight:700; font-size:7pt; border-radius:999px; padding:.4mm 2mm;}
+.drow2 .cy{flex:none; margin-left:auto; background:var(--teal-tint); color:var(--teal-dark); border:0.75pt solid var(--teal-tint-line); font-weight:700; font-size:7pt; border-radius:999px; padding:.3mm 1.8mm;}
+.drow2 .dp{background:#EAF0F4; border-radius:1.4mm; padding:1mm 1.8mm; font-size:7.6pt; line-height:1.35;}
+.drow2 .dp i{color:var(--terracotta); font-style:normal; font-weight:700;}
+.dleg{display:flex; flex-wrap:wrap; gap:3mm; font-size:7pt; color:var(--ink-soft); margin-top:.6mm;}
+.dleg i{display:inline-block; width:4mm; height:2.6mm; border-radius:999px; vertical-align:middle; margin-right:1mm;}
+/* 治療ライン(色分け) */
+.tl-dot{font-size:7pt; margin-right:.6mm;}
+.tlbadge{display:inline-block; background:#fff; color:var(--terracotta); font-size:6.4pt; font-weight:700; border-radius:999px; padding:0 1.4mm; margin-left:1.4mm;}
+/* 服薬指導タイムライン */
+.tl4{display:grid; grid-template-columns:repeat(4,1fr); gap:1.4mm;}
+.tl4 .col{display:flex; flex-direction:column;}
+.tl4 .chk{flex:1;}
+.tl4 .th{background:var(--teal-dark); color:#fff; font-weight:700; font-size:8.2pt; text-align:center; padding:1.1mm 1mm; clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%,6% 50%);}
+.tl4 .col:first-child .th{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
+.tl4 .bub{position:relative; background:var(--teal-tint); border:0.75pt solid var(--teal-tint-line); border-radius:2mm; padding:1.1mm 1.8mm 1.1mm 4mm; margin-top:1mm; font-size:7.3pt; font-weight:700; color:var(--teal-dark); line-height:1.4;}
+.tl4 .bub::before{content:"“"; position:absolute; left:1mm; top:-1.4mm; font-size:15pt; color:var(--teal); font-family:'Shippori Mincho',serif;}
+.tl4 .chk{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; line-height:1.3;}
+.tl4 .chk b{display:block; color:var(--teal-dark); font-size:6.8pt;}
+.tl4 .al{background:var(--terracotta); color:#fff; border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; font-weight:700; line-height:1.3;}
+.tl4 .al b{display:block; font-size:6.6pt; color:#FBE4DE;}
+/* 3列の連携図 */
+.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; align-items:stretch;}
+.link3 .side .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
+.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; margin-top:.8mm; font-size:7.4pt; line-height:1.3;}
+.link3 .it i{flex:none; width:4.2mm; height:4.2mm; border-radius:50%; color:#fff; font-style:normal; font-weight:700; font-size:7pt; display:flex; align-items:center; justify-content:center;}
+.link3 .mid{border:0.75pt dashed var(--teal-tint-line); background:#F1F4F6; border-radius:1.6mm; padding:1mm 1.4mm; display:flex; flex-direction:column; gap:1mm;}
+.link3 .mid .mh{font-size:7.8pt; font-weight:700; color:var(--teal-dark); text-align:center;}
+.link3 .mid .mc{background:#fff; border:0.9pt solid var(--teal); border-radius:1.4mm; text-align:center; padding:.7mm 1mm; font-size:7.4pt; font-weight:700; line-height:1.25; flex:1; display:flex; flex-direction:column; justify-content:center;}
+.link3 .mid .mc small{font-weight:400; font-size:6.6pt; color:var(--ink-soft);}
+.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt; padding-top:6mm;}
 :root{--teal-dark:#3E4A5C; --teal:#5B6B82; --teal-tint:#EAEEF3; --teal-tint-line:#C7D0DC;}</style>
 </head><body>
 <a class="pdf-dl-btn" href="cancer_pancreatic.pdf" download title="PDFをダウンロード">
@@ -335,7 +389,7 @@ table.fcheck td.k{border-left:none;}
     <div class="dgs"><div class="dg"><span class="gl">膵酵素補充</span><span class="chip oral">パンクレリパーゼ</span></div><div class="dg"><span class="gl">がん疼痛</span><span class="chip oral">オキシコドン</span><span class="chip oral">フェンタニル貼付剤</span><span class="chip oral">鎮痛補助薬</span></div><div class="dg"><span class="gl">発熱性好中球減少症の予防</span><span class="chip">ペグフィルグラスチム</span></div></div>
   </div></div>
   <div class="legend"><span><i class="oral"></i>経口薬(保険薬局で交付されることが多い)</span><span><i></i>注射薬</span></div></div>
-    <div class="section"><div class="sec-title"><div class="num">2</div><h2>治療ラインの位置づけ(切除不能・遠隔転移)</h2></div><table class="grid "><colgroup><col style="width:17%"><col style="width:33%"><col style="width:26%"><col style="width:24%"></colgroup><tr><th>対象</th><th>1次治療</th><th>2次治療</th><th>3次治療以降</th></tr><tr><td>全身状態良好<br>PS 0〜1</td><td>modified FOLFIRINOX、またはゲムシタビン+nab-PTX</td><td>FOLFIRINOX後:ゲムシタビン+nab-PTX/Gem系後:リポソーマルイリノテカン+5-FU/LV、S-1</td><td>全身状態に応じて選択・緩和ケア中心</td></tr><tr><td>高齢・全身状態<br>不良</td><td>ゲムシタビン単剤、S-1単剤</td><td>未使用の薬剤(S-1等)</td><td>緩和ケア中心</td></tr><tr><td>gBRCA変異陽性</td><td>プラチナを含む治療(FOLFIRINOX等)</td><td>(維持療法)16週以上増悪がなければオラパリブ</td><td>未使用の化学療法 等</td></tr><tr><td>MSI-High・NTRK<br>融合遺伝子(まれ)</td><td>標準化学療法</td><td>ペムブロリズマブ/エヌトレクチニブ・ラロトレクチニブ</td><td>—</td></tr></table><p class="lead" style="margin:1.2mm 0 0;">切除例の術後補助化学療法はS-1(6か月)が標準。切除可能境界例では術前化学療法も行われる。</p></div>
+    <div class="section"><div class="sec-title"><div class="num">2</div><h2>治療ラインの位置づけ(切除不能・遠隔転移)</h2></div><table class="grid"><colgroup><col style="width:17%"><col style="width:33%"><col style="width:26%"><col style="width:24%"></colgroup><tr><th>対象</th><th>1次治療</th><th>2次治療<span class="tlbadge">薬局の出番</span></th><th>3次治療以降</th></tr><tr><td>全身状態良好<br>PS 0〜1</td><td><span class="tl-dot" style="color:#8E99A3">●</span>modified FOLFIRINOX、またはゲムシタビン+nab-PTX</td><td><span class="tl-dot" style="color:#8E99A3">●</span>FOLFIRINOX後:ゲムシタビン+nab-PTX/Gem系後:リポソーマルイリノテカン+5-FU/LV<br><span class="tl-dot" style="color:#2F7F86">●</span><b>S-1</b></td><td><span class="tl-dot" style="color:#8E99A3">●</span>全身状態に応じて選択・緩和ケア中心</td></tr><tr><td>高齢・全身状態<br>不良</td><td><span class="tl-dot" style="color:#8E99A3">●</span>ゲムシタビン単剤<br><span class="tl-dot" style="color:#2F7F86">●</span><b>S-1単剤</b></td><td><span class="tl-dot" style="color:#2F7F86">●</span><b>未使用の薬剤(S-1等)</b></td><td><span class="tl-dot" style="color:#8E99A3">●</span>緩和ケア中心</td></tr><tr><td>gBRCA変異陽性</td><td><span class="tl-dot" style="color:#8E99A3">●</span>プラチナを含む治療(FOLFIRINOX等)</td><td><span class="tl-dot" style="color:#2F7F86">●</span><b>(維持療法)16週以上増悪がなければオラパリブ</b></td><td><span class="tl-dot" style="color:#8E99A3">●</span>未使用の化学療法 等</td></tr><tr><td>MSI-High・NTRK<br>融合遺伝子(まれ)</td><td><span class="tl-dot" style="color:#8E99A3">●</span>標準化学療法</td><td><span class="tl-dot" style="color:#C1543A">●</span>ペムブロリズマブ/エヌトレクチニブ・ラロトレクチニブ</td><td style="color:var(--ink-faint)">—</td></tr></table><div class="dleg"><span><b style="color:#8E99A3">●</b> 細胞障害性抗がん薬中心</span><span><b style="color:#3E5C8A">●</b> 分子標的薬(注射)を含む</span><span><b style="color:#2F7F86">●</b> 経口薬を含む</span><span><b style="color:#C1543A">●</b> 免疫チェックポイント阻害薬</span></div><p class="lead" style="margin:1.2mm 0 0;">切除例の術後補助化学療法はS-1(6か月)が標準。切除可能境界例では術前化学療法も行われる。</p></div>
     <div class="section"><div class="sec-title"><div class="num">3</div><h2>副作用の特徴と発現時期</h2></div><div class="onset"><div class="orow ohead"><div class="ol" style="visibility:hidden">-</div><div class="otrack"><span class="tl" style="left:4%">投与日</span><span class="tl" style="left:20%">1週</span><span class="tl" style="left:40%">2週</span><span class="tl" style="left:60%">3週</span><span class="tl" style="left:80%">1か月</span><span class="tl" style="left:95%">3か月〜</span></div></div><div class="orow"><div class="ol">早発性下痢・発汗(イリノテカン)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#ECEFF3;"></div><div class="ophase" style="left:20%; width:60%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F2F0EC;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
       <div class="obar out" style="left:0%; width:2.4%;"><span>投与中〜24時間</span></div></div></div><div class="orow"><div class="ol">発熱・倦怠感(ゲムシタビン)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#ECEFF3;"></div><div class="ophase" style="left:20%; width:60%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F2F0EC;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
       <div class="obar out" style="left:0%; width:6%;"><span>当日〜翌日</span></div></div></div><div class="orow"><div class="ol">悪心・嘔吐</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#ECEFF3;"></div><div class="ophase" style="left:20%; width:60%; background:#FBEAE4;"></div><div class="ophase" style="left:80%; width:20%; background:#F2F0EC;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>

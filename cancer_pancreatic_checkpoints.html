@@ -309,6 +309,60 @@ table.fcheck td.k{border-left:none;}
 .fleg i{display:inline-block; width:4.5mm; height:3.5mm; border-radius:.8mm; vertical-align:middle; margin-right:1.2mm;}
 .fill span{font-weight:700; color:var(--ink-soft);}
 .fill i{border-bottom:0.75pt solid var(--ink-faint); height:5.5mm; display:block;}
+
+/* Grade階段 */
+.ladder-arrow{font-size:7.4pt; color:var(--ink-soft); font-weight:700; text-align:center; background:#ECEFF3; border-radius:999px; padding:.4mm 0; margin-bottom:1.4mm;}
+.ladder{display:grid; gap:1.6mm; align-items:end;}
+.lcol{display:flex; flex-direction:column; gap:1mm;}
+.lhead{color:#fff; font-weight:700; font-size:9.4pt; text-align:center; border-radius:1.4mm; display:flex; align-items:center; justify-content:center; padding:0 1mm; line-height:1.2;}
+.lcell{background:#fff; border:0.75pt solid var(--line); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.6pt; line-height:1.35;}
+.lcell b{display:block; font-size:6.8pt;}
+.lcell.ph{background:#FDF3EF; border-color:var(--terracotta); font-weight:700;}
+.lcell.ph b{color:var(--terracotta);}
+/* カード一覧 */
+.cards{display:grid; gap:1.8mm;}
+.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:flex; flex-direction:column;}
+.rcard .rh{color:#fff; font-weight:700; font-size:8.6pt; padding:1mm 2mm;}
+.rcard .ri{font-size:7.6pt; line-height:1.35; padding:.8mm 2mm 0;}
+.rcard .ri b{font-size:6.8pt; margin-right:1mm;}
+.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35; margin-top:auto;}
+.rcard .rhi b{display:block; color:var(--terracotta); font-size:6.8pt;}
+/* 服用カード・レジメンカード */
+.drow2{display:grid; grid-template-columns:22% 36% 1fr; gap:1.2mm; margin-bottom:.8mm;}
+.drow2 .dn{border-radius:1.4mm; padding:.8mm 2mm; font-weight:700; font-size:8.4pt; display:flex; flex-direction:column; justify-content:center; line-height:1.25;}
+.drow2 .dn small{font-weight:400; font-size:6.8pt; opacity:.9;}
+.drow2 .ds{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:1mm 1.6mm; font-size:7.8pt; display:flex; align-items:center; gap:1.4mm; line-height:1.3;}
+.drow2 .tb{flex:none; color:#fff; font-weight:700; font-size:7pt; border-radius:999px; padding:.4mm 2mm;}
+.drow2 .cy{flex:none; margin-left:auto; background:var(--teal-tint); color:var(--teal-dark); border:0.75pt solid var(--teal-tint-line); font-weight:700; font-size:7pt; border-radius:999px; padding:.3mm 1.8mm;}
+.drow2 .dp{background:#EAF0F4; border-radius:1.4mm; padding:1mm 1.8mm; font-size:7.6pt; line-height:1.35;}
+.drow2 .dp i{color:var(--terracotta); font-style:normal; font-weight:700;}
+.dleg{display:flex; flex-wrap:wrap; gap:3mm; font-size:7pt; color:var(--ink-soft); margin-top:.6mm;}
+.dleg i{display:inline-block; width:4mm; height:2.6mm; border-radius:999px; vertical-align:middle; margin-right:1mm;}
+/* 治療ライン(色分け) */
+.tl-dot{font-size:7pt; margin-right:.6mm;}
+.tlbadge{display:inline-block; background:#fff; color:var(--terracotta); font-size:6.4pt; font-weight:700; border-radius:999px; padding:0 1.4mm; margin-left:1.4mm;}
+/* 服薬指導タイムライン */
+.tl4{display:grid; grid-template-columns:repeat(4,1fr); gap:1.4mm;}
+.tl4 .col{display:flex; flex-direction:column;}
+.tl4 .chk{flex:1;}
+.tl4 .th{background:var(--teal-dark); color:#fff; font-weight:700; font-size:8.2pt; text-align:center; padding:1.1mm 1mm; clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%,6% 50%);}
+.tl4 .col:first-child .th{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
+.tl4 .bub{position:relative; background:var(--teal-tint); border:0.75pt solid var(--teal-tint-line); border-radius:2mm; padding:1.1mm 1.8mm 1.1mm 4mm; margin-top:1mm; font-size:7.3pt; font-weight:700; color:var(--teal-dark); line-height:1.4;}
+.tl4 .bub::before{content:"“"; position:absolute; left:1mm; top:-1.4mm; font-size:15pt; color:var(--teal); font-family:'Shippori Mincho',serif;}
+.tl4 .chk{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; line-height:1.3;}
+.tl4 .chk b{display:block; color:var(--teal-dark); font-size:6.8pt;}
+.tl4 .al{background:var(--terracotta); color:#fff; border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; font-weight:700; line-height:1.3;}
+.tl4 .al b{display:block; font-size:6.6pt; color:#FBE4DE;}
+/* 3列の連携図 */
+.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; align-items:stretch;}
+.link3 .side .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
+.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; margin-top:.8mm; font-size:7.4pt; line-height:1.3;}
+.link3 .it i{flex:none; width:4.2mm; height:4.2mm; border-radius:50%; color:#fff; font-style:normal; font-weight:700; font-size:7pt; display:flex; align-items:center; justify-content:center;}
+.link3 .mid{border:0.75pt dashed var(--teal-tint-line); background:#F1F4F6; border-radius:1.6mm; padding:1mm 1.4mm; display:flex; flex-direction:column; gap:1mm;}
+.link3 .mid .mh{font-size:7.8pt; font-weight:700; color:var(--teal-dark); text-align:center;}
+.link3 .mid .mc{background:#fff; border:0.9pt solid var(--teal); border-radius:1.4mm; text-align:center; padding:.7mm 1mm; font-size:7.4pt; font-weight:700; line-height:1.25; flex:1; display:flex; flex-direction:column; justify-content:center;}
+.link3 .mid .mc small{font-weight:400; font-size:6.6pt; color:var(--ink-soft);}
+.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt; padding-top:6mm;}
 :root{--teal-dark:#3E4A5C; --teal:#5B6B82; --teal-tint:#EAEEF3; --teal-tint-line:#C7D0DC;}</style>
 </head><body>
 <a class="pdf-dl-btn" href="cancer_pancreatic_checkpoints.pdf" download title="PDFをダウンロード">
@@ -324,8 +378,20 @@ table.fcheck td.k{border-left:none;}
     </div>
   </div>
     <div class="fitbox">
-    <div class="section"><div class="sec-title"><div class="num">1</div><h2>実践チェックリスト(保険薬局/病院)</h2></div><div class="roles"><div class="role ph"><div class="rh">保険薬局薬剤師</div><ul class="check"><li>膵酵素製剤の服用タイミング・量と脂肪便・体重の確認</li><li>オピオイドのレスキュー回数・便秘・眠気の確認</li><li>電話フォローで発熱・寒気・黄疸・下痢を確認</li><li>他院の睡眠薬・市販薬を含めた併用薬の確認</li><li>疼痛・症状をトレーシングレポートで病院へ共有</li></ul></div><div class="role hp"><div class="rh">病院薬剤師</div><ul class="check"><li>全身状態・gBRCA・UGT1A1とレジメンの整合性の監査</li><li>FOLFIRINOXの減量(modified)とG-CSF予防の設定</li><li>疼痛・胆管炎など症状悪化時の院内連携(緩和ケア・消化器)</li><li>携帯型ポンプの準備と外来化学療法室での説明</li><li>お薬手帳へのレジメン情報・投与日の記載</li></ul></div></div><div class="shareline"><b>病院と共有する情報</b><span>レジメン・胆道ステント</span><span>検査値</span><span>疼痛の強さ・レスキュー</span><span>食事量・体重・黄疸</span></div></div>
-    <div class="section"><div class="sec-title"><div class="num">2</div><h2>主なレジメン・経口薬と薬局での確認ポイント</h2></div><table class="grid "><colgroup><col style="width:18.2%"><col style="width:35.5%"><col style="width:7.4%"><col style="width:38.8%"></colgroup><tr><th>レジメン・薬剤</th><th>構成・投与スケジュール</th><th>周期</th><th>薬局での確認ポイント</th></tr><tr><td>modified FOLFIRINOX</td><td>オキサリプラチン+イリノテカン+レボホリナート→5-FU 46時間持続静注(急速静注は省略)</td><td>2週毎</td><td>携帯型ポンプ、G-CSF予防、UGT1A1、下痢・しびれ</td></tr><tr><td>GEM+nab-PTX</td><td>ゲムシタビン+ナブパクリタキセル 1・8・15日目</td><td>4週毎</td><td>骨髄抑制、末梢神経障害、脱毛、発熱</td></tr><tr><td>ゲムシタビン単剤</td><td>1・8・15日目</td><td>4週毎</td><td>投与当日〜翌日の発熱・倦怠感、骨髄抑制、間質性肺炎</td></tr><tr><td>S-1単剤</td><td>4週服用・2週休薬(術後補助は6か月)</td><td>6週毎</td><td>腎機能に応じた用量、下痢・口内炎、他のフッ化ピリミジン系は併用禁忌</td></tr><tr><td>nal-IRI+5-FU/LV</td><td>イリノテカン リポソーム製剤+レボホリナート+5-FU 46時間</td><td>2週毎</td><td>遅発性下痢、好中球減少、UGT1A1</td></tr><tr><td>オラパリブ</td><td>300mg 1日2回 連日内服(維持療法)</td><td>連日</td><td>貧血(定期的な血液検査)、悪心、CYP3A阻害薬・誘導薬</td></tr></table></div>
+    <div class="section"><div class="sec-title"><div class="num">1</div><h2>実践チェックリスト(保険薬局/病院)</h2></div><div class="link3"><div class="side"><div class="lh" style="background:var(--terracotta)">保険薬局薬剤師</div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">1</i><span>膵酵素製剤の服用タイミング・量と脂肪便・体重の確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">2</i><span>オピオイドのレスキュー回数・便秘・眠気の確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">3</i><span>電話フォローで発熱・寒気・黄疸・下痢を確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">4</i><span>他院の睡眠薬・市販薬を含めた併用薬の確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">5</i><span>疼痛・症状をトレーシングレポートで病院へ共有</span></div></div><div class="arr">⇄<br>⇄<br>⇄<br>⇄</div><div class="mid"><div class="mh">病院と共有する情報</div><div class="mc">レジメン・胆道ステント<small>(お薬手帳)</small></div><div class="mc">検査値<small>(好中球数・肝胆道系)</small></div><div class="mc">疼痛の強さ・レスキュー<small>(トレーシングレポート)</small></div><div class="mc">食事量・体重・黄疸<small>(電話フォローの結果)</small></div></div><div class="arr">⇄<br>⇄<br>⇄<br>⇄</div><div class="side"><div class="lh" style="background:var(--teal-dark)">病院薬剤師</div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">1</i><span>全身状態・gBRCA・UGT1A1とレジメンの整合性の監査</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">2</i><span>FOLFIRINOXの減量(modified)とG-CSF予防の設定</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">3</i><span>疼痛・胆管炎など症状悪化時の院内連携(緩和ケア・消化器)</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">4</i><span>携帯型ポンプの準備と外来化学療法室での説明</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">5</i><span>お薬手帳へのレジメン情報・投与日の記載</span></div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">2</div><h2>主なレジメン・経口薬と薬局での確認ポイント</h2></div><div class="drow2"><div class="dn" style="background:#5B6B82; color:#fff;">modified FOLFIRINOX<small>点滴・注射</small></div>
+      <div class="ds"><span>オキサリプラチン+イリノテカン+レボホリナート→5-FU 46時間持続静注(急速静注は省略)</span><span class="cy">2週毎</span></div>
+      <div class="dp"><i>✓</i> 携帯型ポンプ　<i>✓</i> G-CSF予防　<i>✓</i> UGT1A1　<i>✓</i> 下痢・しびれ</div></div><div class="drow2"><div class="dn" style="background:#5B6B82; color:#fff;">GEM+nab-PTX<small>点滴・注射</small></div>
+      <div class="ds"><span>ゲムシタビン+ナブパクリタキセル 1・8・15日目</span><span class="cy">4週毎</span></div>
+      <div class="dp"><i>✓</i> 骨髄抑制　<i>✓</i> 末梢神経障害　<i>✓</i> 脱毛　<i>✓</i> 発熱</div></div><div class="drow2"><div class="dn" style="background:#5B6B82; color:#fff;">ゲムシタビン単剤<small>点滴・注射</small></div>
+      <div class="ds"><span>1・8・15日目</span><span class="cy">4週毎</span></div>
+      <div class="dp"><i>✓</i> 投与当日〜翌日の発熱・倦怠感　<i>✓</i> 骨髄抑制　<i>✓</i> 間質性肺炎</div></div><div class="drow2"><div class="dn" style="background:#2F7F86; color:#fff;">S-1単剤<small>経口</small></div>
+      <div class="ds"><span>4週服用・2週休薬(術後補助は6か月)</span><span class="cy">6週毎</span></div>
+      <div class="dp"><i>✓</i> 腎機能に応じた用量　<i>✓</i> 下痢・口内炎　<i>✓</i> 他のフッ化ピリミジン系は併用禁忌</div></div><div class="drow2"><div class="dn" style="background:#5B6B82; color:#fff;">nal-IRI+5-FU/LV<small>点滴・注射</small></div>
+      <div class="ds"><span>イリノテカン リポソーム製剤+レボホリナート+5-FU 46時間</span><span class="cy">2週毎</span></div>
+      <div class="dp"><i>✓</i> 遅発性下痢　<i>✓</i> 好中球減少　<i>✓</i> UGT1A1</div></div><div class="drow2"><div class="dn" style="background:#2F7F86; color:#fff;">オラパリブ<small>経口</small></div>
+      <div class="ds"><span>300mg 1日2回 連日内服(維持療法)</span><span class="cy">連日</span></div>
+      <div class="dp"><i>✓</i> 貧血(定期的な血液検査)　<i>✓</i> 悪心　<i>✓</i> CYP3A阻害薬・誘導薬</div></div><div class="dleg"><span><i style="background:#2F7F86"></i>経口</span><span><i style="background:#5B6B82"></i>点滴・注射</span><span><i style="background:#8A6D3B"></i>点滴+経口</span><span style="color:var(--terracotta); font-weight:700;">経口薬は保険薬局で交付:服用日・休薬日と自宅での副作用を確認</span></div></div>
     <div class="section"><div class="sec-title accent"><div class="num">3</div><h2>相互作用・併用注意(他院処方・市販薬・サプリを含む)</h2></div><table class="grid ix"><colgroup><col style="width:9%"><col style="width:17%"><col style="width:28%"><col style="width:21%"><col style="width:25%"></colgroup>
     <tr><th>重要度</th><th>薬剤(機序)</th><th>相手の薬(区分)</th><th>起こること</th><th>薬局での対応</th></tr><tr>
     <td style="background:#fff; text-align:center;"><span class="lv" style="background:#A8321F">禁忌</span><div class="basis">添付文書<br>併用禁忌</div></td>
@@ -358,7 +424,19 @@ table.fcheck td.k{border-left:none;}
     <td><span class="pt" style="background:#D9822B">市販薬</span><br>下剤の自己中断・市販の刺激性下剤</td>
     <td class="eff">便秘の遷延・腸閉塞</td>
     <td class="act">下剤の処方と市販薬の使用状況を確認</td></tr></table></div>
-    <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導の声かけ例と確認のタイミング</h2></div><div class="talks"><div class="talk"><span class="w">治療開始前</span><div class="s">「消化酵素のお薬は食事のすぐ後に飲むと、脂っぽい便や体重減少を防ぎやすくなります」</div><div class="c"><b>確認:</b>お薬手帳で全身状態・gBRCA・UGT1A1、胆道ステントの有無</div><div class="a">⚠ 皮膚や白目が黄色い(黄疸)時は至急連絡</div></div><div class="talk"><span class="w">投与後〜5日</span><div class="s">「下痢止めや吐き気止めは指示どおりに。ゲムシタビン後の発熱は一時的なことが多いですが、続く時は連絡を」</div><div class="c"><b>確認:</b>電話フォローで下痢・水分量、携帯型ポンプの抜針、G-CSFの予定</div><div class="a">⚠ 水様便が止まらない・水分がとれない時は至急連絡</div></div><div class="talk"><span class="w">投与後1〜2週</span><div class="s">「37.5℃以上の熱が出たら、解熱剤で様子を見ずに、すぐ病院へ連絡してください」</div><div class="c"><b>確認:</b>電話フォローでnadir期の発熱・寒気、食事量</div><div class="a">⚠ 発熱+寒気は胆管炎・FNを疑い至急受診</div></div><div class="talk"><span class="w">次回来局時</span><div class="s">「痛み止めは効いていますか。便秘や眠気、手足のしびれで困っていることはありませんか」</div><div class="c"><b>確認:</b>疼痛の強さ・レスキュー回数、便秘、体重、しびれ</div><div class="a">⚠ 痛みの急な増強・便が出ない状態が続く時は連絡</div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導の声かけ例と確認のタイミング</h2></div><div class="tl4"><div class="col"><div class="th">① 治療開始前</div>
+    <div class="bub">消化酵素のお薬は食事のすぐ後に飲むと、脂っぽい便や体重減少を防ぎやすくなります</div>
+    <div class="chk"><b>✓ 薬局で確認</b>お薬手帳で全身状態・gBRCA・UGT1A1、胆道ステントの有無</div>
+    <div class="al"><b>⚠ ここに注意</b>皮膚や白目が黄色い(黄疸)時は至急連絡</div></div><div class="col"><div class="th">② 投与後〜5日</div>
+    <div class="bub">下痢止めや吐き気止めは指示どおりに。ゲムシタビン後の発熱は一時的なことが多いですが、続く時は連絡を</div>
+    <div class="chk"><b>✓ 薬局で確認</b>電話フォローで下痢・水分量、携帯型ポンプの抜針、G-CSFの予定</div>
+    <div class="al"><b>⚠ ここに注意</b>水様便が止まらない・水分がとれない時は至急連絡</div></div><div class="col"><div class="th">③ 投与後1〜2週</div>
+    <div class="bub">37.5℃以上の熱が出たら、解熱剤で様子を見ずに、すぐ病院へ連絡してください</div>
+    <div class="chk"><b>✓ 薬局で確認</b>電話フォローでnadir期の発熱・寒気、食事量</div>
+    <div class="al"><b>⚠ ここに注意</b>発熱+寒気は胆管炎・FNを疑い至急受診</div></div><div class="col"><div class="th">④ 次回来局時</div>
+    <div class="bub">痛み止めは効いていますか。便秘や眠気、手足のしびれで困っていることはありませんか</div>
+    <div class="chk"><b>✓ 薬局で確認</b>疼痛の強さ・レスキュー回数、便秘、体重、しびれ</div>
+    <div class="al"><b>⚠ ここに注意</b>痛みの急な増強・便が出ない状態が続く時は連絡</div></div></div></div>
     </div>
     <div class="footer">がん薬物療法 研修シリーズ 癌種別ガイド(膵臓癌) ― 実践ガイド(調剤薬局向け) ― 膵癌診療ガイドライン、各薬剤の添付文書、CTCAE v5.0に基づく</div>
   </div><script>(function(){
