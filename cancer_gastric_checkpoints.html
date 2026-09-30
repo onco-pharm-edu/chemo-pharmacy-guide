@@ -312,8 +312,8 @@ table.fcheck td.k{border-left:none;}
 
 /* Grade階段 */
 .ladder-arrow{font-size:7.4pt; color:var(--ink-soft); font-weight:700; text-align:center; background:#ECEFF3; border-radius:999px; padding:.4mm 0; margin-bottom:1.4mm;}
-.ladder{display:grid; gap:1.6mm; align-items:end;}
-.lcol{display:flex; flex-direction:column; gap:1mm;}
+.ladder{display:grid; gap:1mm 1.6mm;}
+.ladder .lhead{align-self:end;}
 .lhead{color:#fff; font-weight:700; font-size:9.4pt; text-align:center; border-radius:1.4mm; display:flex; align-items:center; justify-content:center; padding:0 1mm; line-height:1.2;}
 .lcell{background:#fff; border:0.75pt solid var(--line); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.6pt; line-height:1.35;}
 .lcell b{display:block; font-size:6.8pt;}
@@ -321,11 +321,11 @@ table.fcheck td.k{border-left:none;}
 .lcell.ph b{color:var(--terracotta);}
 /* カード一覧 */
 .cards{display:grid; gap:1.8mm;}
-.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:flex; flex-direction:column;}
+.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:grid; grid-template-rows:subgrid; row-gap:0;}
 .rcard .rh{color:#fff; font-weight:700; font-size:8.6pt; padding:1mm 2mm;}
 .rcard .ri{font-size:7.6pt; line-height:1.35; padding:.8mm 2mm 0;}
 .rcard .ri b{font-size:6.8pt; margin-right:1mm;}
-.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35; margin-top:auto;}
+.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35;}
 .rcard .rhi b{display:block; color:var(--terracotta); font-size:6.8pt;}
 /* 服用カード・レジメンカード */
 .drow2{display:grid; grid-template-columns:22% 36% 1fr; gap:1.2mm; margin-bottom:.8mm;}
@@ -342,11 +342,9 @@ table.fcheck td.k{border-left:none;}
 .tl-dot{font-size:7pt; margin-right:.6mm;}
 .tlbadge{display:inline-block; background:#fff; color:var(--terracotta); font-size:6.4pt; font-weight:700; border-radius:999px; padding:0 1.4mm; margin-left:1.4mm;}
 /* 服薬指導タイムライン */
-.tl4{display:grid; grid-template-columns:repeat(4,1fr); gap:1.4mm;}
-.tl4 .col{display:flex; flex-direction:column;}
-.tl4 .chk{flex:1;}
+.tl4{display:grid; grid-template-columns:repeat(4,1fr); column-gap:1.4mm;}
 .tl4 .th{background:var(--teal-dark); color:#fff; font-weight:700; font-size:8.2pt; text-align:center; padding:1.1mm 1mm; clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%,6% 50%);}
-.tl4 .col:first-child .th{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
+.tl4 .th.first{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
 .tl4 .bub{position:relative; background:var(--teal-tint); border:0.75pt solid var(--teal-tint-line); border-radius:2mm; padding:1.1mm 1.8mm 1.1mm 4mm; margin-top:1mm; font-size:7.3pt; font-weight:700; color:var(--teal-dark); line-height:1.4;}
 .tl4 .bub::before{content:"“"; position:absolute; left:1mm; top:-1.4mm; font-size:15pt; color:var(--teal); font-family:'Shippori Mincho',serif;}
 .tl4 .chk{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; line-height:1.3;}
@@ -354,15 +352,15 @@ table.fcheck td.k{border-left:none;}
 .tl4 .al{background:var(--terracotta); color:#fff; border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; font-weight:700; line-height:1.3;}
 .tl4 .al b{display:block; font-size:6.6pt; color:#FBE4DE;}
 /* 3列の連携図 */
-.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; align-items:stretch;}
-.link3 .side .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
-.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; margin-top:.8mm; font-size:7.4pt; line-height:1.3;}
+.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; row-gap:.8mm;}
+.link3 .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
+.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; font-size:7.4pt; line-height:1.3;}
 .link3 .it i{flex:none; width:4.2mm; height:4.2mm; border-radius:50%; color:#fff; font-style:normal; font-weight:700; font-size:7pt; display:flex; align-items:center; justify-content:center;}
 .link3 .mid{border:0.75pt dashed var(--teal-tint-line); background:#F1F4F6; border-radius:1.6mm; padding:1mm 1.4mm; display:flex; flex-direction:column; gap:1mm;}
 .link3 .mid .mh{font-size:7.8pt; font-weight:700; color:var(--teal-dark); text-align:center;}
 .link3 .mid .mc{background:#fff; border:0.9pt solid var(--teal); border-radius:1.4mm; text-align:center; padding:.7mm 1mm; font-size:7.4pt; font-weight:700; line-height:1.25; flex:1; display:flex; flex-direction:column; justify-content:center;}
 .link3 .mid .mc small{font-weight:400; font-size:6.6pt; color:var(--ink-soft);}
-.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt; padding-top:6mm;}
+.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt;}
 :root{--teal-dark:#3E4A5C; --teal:#5B6B82; --teal-tint:#EAEEF3; --teal-tint-line:#C7D0DC;}</style>
 </head><body>
 <a class="pdf-dl-btn" href="cancer_gastric_checkpoints.pdf" download title="PDFをダウンロード">
@@ -378,7 +376,7 @@ table.fcheck td.k{border-left:none;}
     </div>
   </div>
     <div class="fitbox">
-    <div class="section"><div class="sec-title"><div class="num">1</div><h2>実践チェックリスト(保険薬局/病院)</h2></div><div class="link3"><div class="side"><div class="lh" style="background:var(--terracotta)">保険薬局薬剤師</div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">1</i><span>S-1・カペシタビンの服用日・休薬日と残薬の管理</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">2</i><span>腎機能とS-1の用量、フッ化ピリミジン系の重複確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">3</i><span>電話フォローで悪心・下痢・発熱・食事量を確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">4</i><span>胃切除後の食事・体重の変化を聴取し栄養指導へつなぐ</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">5</i><span>症状をGradeで記録し、トレーシングレポートで病院へ</span></div></div><div class="arr">⇄<br>⇄<br>⇄<br>⇄</div><div class="mid"><div class="mh">病院と共有する情報</div><div class="mc">バイオマーカー・レジメン<small>(お薬手帳)</small></div><div class="mc">検査値<small>(腎機能・好中球数)</small></div><div class="mc">悪心・下痢のGrade<small>(トレーシングレポート)</small></div><div class="mc">食事量・体重<small>(電話フォローの結果)</small></div></div><div class="arr">⇄<br>⇄<br>⇄<br>⇄</div><div class="side"><div class="lh" style="background:var(--teal-dark)">病院薬剤師</div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">1</i><span>HER2・CLDN18.2・PD-L1の結果とレジメンの整合性の監査</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">2</i><span>シスプラチンの補液・Mg補充、制吐薬の設定</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">3</i><span>ゾルベツキシマブ初回の投与速度・制吐薬強化の管理</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">4</i><span>T-DXd・ニボルマブのILD・irAE発症時の院内連携</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">5</i><span>お薬手帳へのレジメン情報・投与日の記載</span></div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">1</div><h2>胃癌の薬薬連携 ― S-1・胃切除後・新しい標的薬</h2></div><div class="link3"><div class="lh" style="grid-column:1; grid-row:1; background:var(--teal-dark)">病院薬剤師</div><div class="it" style="grid-column:1; grid-row:2; background:var(--teal-tint)"><i style="background:var(--teal-dark)">1</i><span>HER2・CLDN18.2・PD-L1の結果とレジメンの整合性の監査</span></div><div class="it" style="grid-column:1; grid-row:3; background:var(--teal-tint)"><i style="background:var(--teal-dark)">2</i><span>シスプラチンの補液・Mg補充、制吐薬の設定</span></div><div class="it" style="grid-column:1; grid-row:4; background:var(--teal-tint)"><i style="background:var(--teal-dark)">3</i><span>ゾルベツキシマブ初回の投与速度・制吐薬強化の管理</span></div><div class="it" style="grid-column:1; grid-row:5; background:var(--teal-tint)"><i style="background:var(--teal-dark)">4</i><span>T-DXd・ニボルマブのILD・irAE発症時の院内連携</span></div><div class="it" style="grid-column:1; grid-row:6; background:var(--teal-tint)"><i style="background:var(--teal-dark)">5</i><span>胃切除の術式と術後の栄養状態を薬局へ伝達</span></div><div class="arr" style="grid-column:2; grid-row:2 / 7"><span>⇄</span><span>⇄</span><span>⇄</span><span>⇄</span></div><div class="mid" style="grid-column:3; grid-row:1 / 7"><div class="mh">病院と共有する情報</div><div class="mc">HER2・CLDN18.2・PD-L1<small>(治療の選択)</small></div><div class="mc">腎機能<small>(S-1の用量)</small></div><div class="mc">食事量・体重<small>(胃切除後)</small></div><div class="mc">流涙・しびれ<small>(S-1・オキサリプラチン)</small></div></div><div class="arr" style="grid-column:4; grid-row:2 / 7"><span>⇄</span><span>⇄</span><span>⇄</span><span>⇄</span></div><div class="lh" style="grid-column:5; grid-row:1; background:var(--terracotta)">保険薬局薬剤師</div><div class="it" style="grid-column:5; grid-row:2; background:#FDF3EF"><i style="background:var(--terracotta)">1</i><span>S-1・カペシタビンの服用日・休薬日と残薬の管理</span></div><div class="it" style="grid-column:5; grid-row:3; background:#FDF3EF"><i style="background:var(--terracotta)">2</i><span>腎機能とS-1の用量、フッ化ピリミジン系の重複確認</span></div><div class="it" style="grid-column:5; grid-row:4; background:#FDF3EF"><i style="background:var(--terracotta)">3</i><span>電話フォローで悪心・下痢・発熱・食事量を確認</span></div><div class="it" style="grid-column:5; grid-row:5; background:#FDF3EF"><i style="background:var(--terracotta)">4</i><span>胃切除後の食事・体重の変化を聴取し栄養指導へつなぐ</span></div><div class="it" style="grid-column:5; grid-row:6; background:#FDF3EF"><i style="background:var(--terracotta)">5</i><span>S-1の流涙・色素沈着、オキサリプラチンのしびれを聴取</span></div></div></div>
     <div class="section"><div class="sec-title"><div class="num">2</div><h2>主なレジメンと薬局での確認ポイント</h2></div><div class="drow2"><div class="dn" style="background:#8A6D3B; color:#fff;">SOX / CAPOX<small>点滴+経口</small></div>
       <div class="ds"><span>オキサリプラチン(1日目)+S-1またはカペシタビン 1〜14日目内服</span><span class="cy">3週毎</span></div>
       <div class="dp"><i>✓</i> 内服日数と休薬　<i>✓</i> 寒冷刺激による急性しびれ　<i>✓</i> 手足症候群(カペシタビン)</div></div><div class="drow2"><div class="dn" style="background:#8A6D3B; color:#fff;">S-1+シスプラチン<small>点滴+経口</small></div>
@@ -419,19 +417,7 @@ table.fcheck td.k{border-left:none;}
     <td><span class="pt" style="background:#D9822B">市販薬</span><br>市販の胃腸薬・下痢止め</td>
     <td class="eff">下痢・脱水の見逃し</td>
     <td class="act">市販薬の使用を聴取し、まず連絡するよう指導</td></tr></table></div>
-    <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導の声かけ例と確認のタイミング</h2></div><div class="tl4"><div class="col"><div class="th">① 治療開始前</div>
-    <div class="bub">S-1は2週飲んで1週休むなど、決まった日程で飲みます。休薬日もカレンダーで一緒に確認しましょう</div>
-    <div class="chk"><b>✓ 薬局で確認</b>お薬手帳でHER2・CLDN18.2・PD-L1、腎機能(S-1の用量)、胃切除歴</div>
-    <div class="al"><b>⚠ ここに注意</b>他のフッ化ピリミジン系・ワルファリンとの併用を確認</div></div><div class="col"><div class="th">② 投与当日〜5日</div>
-    <div class="bub">吐き気止めは、吐き気がなくても決められた時間に飲んでください。水分は少しずつこまめに</div>
-    <div class="chk"><b>✓ 薬局で確認</b>電話フォローで悪心・水分量・尿量(シスプラチン後)を確認</div>
-    <div class="al"><b>⚠ ここに注意</b>水分がとれない・尿が少ない時は至急連絡</div></div><div class="col"><div class="th">③ 投与後1〜2週</div>
-    <div class="bub">37.5℃以上の熱や、1日4回以上の下痢が続く時は、すぐ病院へ連絡してください</div>
-    <div class="chk"><b>✓ 薬局で確認</b>電話フォローでnadir期の発熱、S-1の下痢・口内炎を確認</div>
-    <div class="al"><b>⚠ ここに注意</b>発熱+悪寒、止まらない下痢は至急受診</div></div><div class="col"><div class="th">④ 次回来局時</div>
-    <div class="bub">涙が出やすい、手足がしびれる、咳や息切れが続くなどの変化はありませんか</div>
-    <div class="chk"><b>✓ 薬局で確認</b>流涙・色素沈着、しびれのGrade、体重、咳・息切れ</div>
-    <div class="al"><b>⚠ ここに注意</b>咳・息切れ・発熱はILDを疑い早めに受診</div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導タイムライン ― 胃癌の治療に合わせて</h2></div><div class="tl4"><div class="th first">① 治療開始前</div><div class="th">② 投与当日〜5日</div><div class="th">③ 術後補助療法(S-1 1年)</div><div class="th">④ 次回来局時</div><div class="bub">S-1は2週飲んで1週休むなど、決まった日程で飲みます。休薬日もカレンダーで一緒に確認しましょう</div><div class="bub">吐き気止めは、吐き気がなくても決められた時間に飲んでください。水分は少しずつこまめに</div><div class="bub">術後のS-1は1年間続けることで再発を防ぎます。食事がとれない時は我慢せず相談してください</div><div class="bub">涙が出やすい、手足がしびれる、咳や息切れが続くなどの変化はありませんか</div><div class="chk"><b>✓ 薬局で確認</b>お薬手帳でHER2・CLDN18.2・PD-L1、腎機能(S-1の用量)、胃切除歴</div><div class="chk"><b>✓ 薬局で確認</b>電話フォローで悪心・水分量・尿量(シスプラチン後)を確認</div><div class="chk"><b>✓ 薬局で確認</b>食事量・体重、S-1の服用日と残薬</div><div class="chk"><b>✓ 薬局で確認</b>流涙・色素沈着、しびれのGrade、体重、咳・息切れ</div><div class="al"><b>⚠ ここに注意</b>他のフッ化ピリミジン系・ワルファリンとの併用を確認</div><div class="al"><b>⚠ ここに注意</b>水分がとれない・尿が少ない時は至急連絡</div><div class="al"><b>⚠ ここに注意</b>食事がとれず脱水傾向の時は継続を処方医と相談</div><div class="al"><b>⚠ ここに注意</b>咳・息切れ・発熱はILDを疑い早めに受診</div></div></div>
     </div>
     <div class="footer">がん薬物療法 研修シリーズ 癌種別ガイド(胃癌) ― 実践ガイド(調剤薬局向け) ― 胃癌治療ガイドライン、各薬剤の添付文書、CTCAE v5.0に基づく</div>
   </div><script>(function(){
@@ -441,7 +427,7 @@ table.fcheck td.k{border-left:none;}
       box.style.zoom = 1;
       var avail = ft.getBoundingClientRect().top - box.getBoundingClientRect().top - 12;
       var need = box.getBoundingClientRect().height;
-      if (need > avail) box.style.zoom = Math.max(0.88, avail / need).toFixed(3);
+      if (need > avail) box.style.zoom = Math.max(0.85, avail / need).toFixed(3);
     });
   }
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); else window.addEventListener("load", fit);

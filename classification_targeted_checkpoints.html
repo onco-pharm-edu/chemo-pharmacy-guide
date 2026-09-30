@@ -312,8 +312,8 @@ table.fcheck td.k{border-left:none;}
 
 /* Grade階段 */
 .ladder-arrow{font-size:7.4pt; color:var(--ink-soft); font-weight:700; text-align:center; background:#ECEFF3; border-radius:999px; padding:.4mm 0; margin-bottom:1.4mm;}
-.ladder{display:grid; gap:1.6mm; align-items:end;}
-.lcol{display:flex; flex-direction:column; gap:1mm;}
+.ladder{display:grid; gap:1mm 1.6mm;}
+.ladder .lhead{align-self:end;}
 .lhead{color:#fff; font-weight:700; font-size:9.4pt; text-align:center; border-radius:1.4mm; display:flex; align-items:center; justify-content:center; padding:0 1mm; line-height:1.2;}
 .lcell{background:#fff; border:0.75pt solid var(--line); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.6pt; line-height:1.35;}
 .lcell b{display:block; font-size:6.8pt;}
@@ -321,11 +321,11 @@ table.fcheck td.k{border-left:none;}
 .lcell.ph b{color:var(--terracotta);}
 /* カード一覧 */
 .cards{display:grid; gap:1.8mm;}
-.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:flex; flex-direction:column;}
+.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:grid; grid-template-rows:subgrid; row-gap:0;}
 .rcard .rh{color:#fff; font-weight:700; font-size:8.6pt; padding:1mm 2mm;}
 .rcard .ri{font-size:7.6pt; line-height:1.35; padding:.8mm 2mm 0;}
 .rcard .ri b{font-size:6.8pt; margin-right:1mm;}
-.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35; margin-top:auto;}
+.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35;}
 .rcard .rhi b{display:block; color:var(--terracotta); font-size:6.8pt;}
 /* 服用カード・レジメンカード */
 .drow2{display:grid; grid-template-columns:22% 36% 1fr; gap:1.2mm; margin-bottom:.8mm;}
@@ -342,11 +342,9 @@ table.fcheck td.k{border-left:none;}
 .tl-dot{font-size:7pt; margin-right:.6mm;}
 .tlbadge{display:inline-block; background:#fff; color:var(--terracotta); font-size:6.4pt; font-weight:700; border-radius:999px; padding:0 1.4mm; margin-left:1.4mm;}
 /* 服薬指導タイムライン */
-.tl4{display:grid; grid-template-columns:repeat(4,1fr); gap:1.4mm;}
-.tl4 .col{display:flex; flex-direction:column;}
-.tl4 .chk{flex:1;}
+.tl4{display:grid; grid-template-columns:repeat(4,1fr); column-gap:1.4mm;}
 .tl4 .th{background:var(--teal-dark); color:#fff; font-weight:700; font-size:8.2pt; text-align:center; padding:1.1mm 1mm; clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%,6% 50%);}
-.tl4 .col:first-child .th{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
+.tl4 .th.first{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
 .tl4 .bub{position:relative; background:var(--teal-tint); border:0.75pt solid var(--teal-tint-line); border-radius:2mm; padding:1.1mm 1.8mm 1.1mm 4mm; margin-top:1mm; font-size:7.3pt; font-weight:700; color:var(--teal-dark); line-height:1.4;}
 .tl4 .bub::before{content:"“"; position:absolute; left:1mm; top:-1.4mm; font-size:15pt; color:var(--teal); font-family:'Shippori Mincho',serif;}
 .tl4 .chk{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; line-height:1.3;}
@@ -354,15 +352,15 @@ table.fcheck td.k{border-left:none;}
 .tl4 .al{background:var(--terracotta); color:#fff; border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; font-weight:700; line-height:1.3;}
 .tl4 .al b{display:block; font-size:6.6pt; color:#FBE4DE;}
 /* 3列の連携図 */
-.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; align-items:stretch;}
-.link3 .side .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
-.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; margin-top:.8mm; font-size:7.4pt; line-height:1.3;}
+.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; row-gap:.8mm;}
+.link3 .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
+.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; font-size:7.4pt; line-height:1.3;}
 .link3 .it i{flex:none; width:4.2mm; height:4.2mm; border-radius:50%; color:#fff; font-style:normal; font-weight:700; font-size:7pt; display:flex; align-items:center; justify-content:center;}
 .link3 .mid{border:0.75pt dashed var(--teal-tint-line); background:#F1F4F6; border-radius:1.6mm; padding:1mm 1.4mm; display:flex; flex-direction:column; gap:1mm;}
 .link3 .mid .mh{font-size:7.8pt; font-weight:700; color:var(--teal-dark); text-align:center;}
 .link3 .mid .mc{background:#fff; border:0.9pt solid var(--teal); border-radius:1.4mm; text-align:center; padding:.7mm 1mm; font-size:7.4pt; font-weight:700; line-height:1.25; flex:1; display:flex; flex-direction:column; justify-content:center;}
 .link3 .mid .mc small{font-weight:400; font-size:6.6pt; color:var(--ink-soft);}
-.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt; padding-top:6mm;}
+.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt;}
 :root{--teal-dark:#084F4F; --teal:#0B6E6E; --teal-tint:#E3F1EF; --teal-tint-line:#BFE3E0;}</style>
 </head><body>
 <a class="pdf-dl-btn" href="classification_targeted_checkpoints.pdf" download title="PDFをダウンロード">
@@ -378,7 +376,7 @@ table.fcheck td.k{border-left:none;}
     </div>
   </div>
     <div class="fitbox">
-    <div class="section"><div class="sec-title"><div class="num">1</div><h2>実践チェックリスト(保険薬局/病院)</h2></div><div class="link3"><div class="side"><div class="lh" style="background:var(--terracotta)">保険薬局薬剤師</div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">1</i><span>経口TKIの服用時点・残薬・自己調整の確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">2</i><span>CYP3A4・胃酸分泌抑制薬・食品を含む相互作用の確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">3</i><span>電話フォローで皮疹・下痢・血圧・咳を確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">4</i><span>皮膚障害のスキンケア指導と外用薬の使い方</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">5</i><span>症状をGradeで記録し、トレーシングレポートで病院へ</span></div></div><div class="arr">⇄<br>⇄<br>⇄<br>⇄</div><div class="mid"><div class="mh">病院と共有する情報</div><div class="mc">標的・治療薬<small>(お薬手帳)</small></div><div class="mc">検査値<small>(肝機能・尿蛋白・心機能)</small></div><div class="mc">皮疹・下痢のGrade<small>(トレーシングレポート)</small></div><div class="mc">血圧・服用状況<small>(家庭血圧・電話フォロー)</small></div></div><div class="arr">⇄<br>⇄<br>⇄<br>⇄</div><div class="side"><div class="lh" style="background:var(--teal-dark)">病院薬剤師</div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">1</i><span>バイオマーカー検査の結果とレジメンの整合性の監査</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">2</i><span>抗体薬・ADCの投与管理(インフュージョンリアクション対策)</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">3</i><span>心エコー・画像検査など定期検査の計画</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">4</i><span>ILD等の重篤な副作用発生時の院内連携</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">5</i><span>お薬手帳へのレジメン情報・投与日の記載</span></div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">1</div><h2>分子標的薬の薬薬連携 ― 経口TKI・抗体薬・ADC</h2></div><div class="link3"><div class="lh" style="grid-column:1; grid-row:1; background:var(--teal-dark)">病院薬剤師</div><div class="it" style="grid-column:1; grid-row:2; background:var(--teal-tint)"><i style="background:var(--teal-dark)">1</i><span>バイオマーカー検査の結果とレジメンの整合性を監査</span></div><div class="it" style="grid-column:1; grid-row:3; background:var(--teal-tint)"><i style="background:var(--teal-dark)">2</i><span>抗体薬・ADCの投与管理(インフュージョンリアクション対策)</span></div><div class="it" style="grid-column:1; grid-row:4; background:var(--teal-tint)"><i style="background:var(--teal-dark)">3</i><span>心エコー・画像検査など定期検査の計画</span></div><div class="it" style="grid-column:1; grid-row:5; background:var(--teal-tint)"><i style="background:var(--teal-dark)">4</i><span>ILD等の重篤な副作用発生時の院内連携</span></div><div class="it" style="grid-column:1; grid-row:6; background:var(--teal-tint)"><i style="background:var(--teal-dark)">5</i><span>減量段階(用量レベル)と休薬基準を薬局へ伝達</span></div><div class="arr" style="grid-column:2; grid-row:2 / 7"><span>⇄</span><span>⇄</span><span>⇄</span><span>⇄</span></div><div class="mid" style="grid-column:3; grid-row:1 / 7"><div class="mh">病院と共有する情報</div><div class="mc">減量段階<small>(用量レベル・錠数)</small></div><div class="mc">家庭血圧・尿蛋白<small>(血管新生阻害薬)</small></div><div class="mc">皮疹・下痢の程度<small>(EGFR阻害薬)</small></div><div class="mc">咳・息切れの有無<small>(ILDの早期発見)</small></div></div><div class="arr" style="grid-column:4; grid-row:2 / 7"><span>⇄</span><span>⇄</span><span>⇄</span><span>⇄</span></div><div class="lh" style="grid-column:5; grid-row:1; background:var(--terracotta)">保険薬局薬剤師</div><div class="it" style="grid-column:5; grid-row:2; background:#FDF3EF"><i style="background:var(--terracotta)">1</i><span>経口TKIの服用時点・残薬・自己調整の確認</span></div><div class="it" style="grid-column:5; grid-row:3; background:#FDF3EF"><i style="background:var(--terracotta)">2</i><span>CYP3A4・胃酸分泌抑制薬・グレープフルーツ等の相互作用確認</span></div><div class="it" style="grid-column:5; grid-row:4; background:#FDF3EF"><i style="background:var(--terracotta)">3</i><span>血管新生阻害薬は家庭血圧の記録を来局ごとに確認</span></div><div class="it" style="grid-column:5; grid-row:5; background:#FDF3EF"><i style="background:var(--terracotta)">4</i><span>皮膚障害のスキンケア指導と外用薬の使い方</span></div><div class="it" style="grid-column:5; grid-row:6; background:#FDF3EF"><i style="background:var(--terracotta)">5</i><span>減量後の用量・錠数を処方箋と照合(規格違いの防止)</span></div></div></div>
     <div class="section"><div class="sec-title"><div class="num">2</div><h2>経口分子標的薬の服用時点と相互作用の要点</h2></div><div class="drow2"><div class="dn" style="background:var(--teal-tint); color:var(--teal-dark); border-left:1.6mm solid #C1543A;">エルロチニブ</div>
       <div class="ds"><span class="tb" style="background:#C1543A">空腹時</span><span>空腹時(食事の1時間以上前または食後2時間以降)</span></div>
       <div class="dp"><i>✓</i> 胃酸分泌抑制薬で吸収↓　<i>✓</i> 喫煙で濃度↓　<i>✓</i> CYP3A4</div></div><div class="drow2"><div class="dn" style="background:var(--teal-tint); color:var(--teal-dark); border-left:1.6mm solid #C1543A;">ニロチニブ</div>
@@ -426,19 +424,7 @@ table.fcheck td.k{border-left:none;}
     <td><span class="pt" style="background:#8A6D3B">処置・検査</span><br>手術・抜歯の予定</td>
     <td class="eff">創傷治癒遅延・出血</td>
     <td class="act">予定を病院と共有し休薬期間を確認</td></tr></table></div>
-    <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導の声かけ例と確認のタイミング</h2></div><div class="tl4"><div class="col"><div class="th">① 治療開始前</div>
-    <div class="bub">この薬は毎日同じ時間に飲み続けることが大切です。食事との関係もあるので、飲むタイミングを一緒に決めましょう</div>
-    <div class="chk"><b>✓ 薬局で確認</b>服用時点(空腹時・食後)、胃薬・CYP3A関連の併用薬、サプリ</div>
-    <div class="al"><b>⚠ ここに注意</b>グレープフルーツ・セイヨウオトギリソウは避ける</div></div><div class="col"><div class="th">② 開始〜2週</div>
-    <div class="bub">顔や胸の発疹、下痢が出始める時期です。保湿と下痢止めを早めに使いましょう</div>
-    <div class="chk"><b>✓ 薬局で確認</b>電話フォローで皮疹・下痢のGrade、家庭血圧を確認</div>
-    <div class="al"><b>⚠ ここに注意</b>水様便が1日4回以上増える時は連絡</div></div><div class="col"><div class="th">③ 1〜3か月</div>
-    <div class="bub">息切れや空咳が続く時は、次の受診を待たずに連絡してください</div>
-    <div class="chk"><b>✓ 薬局で確認</b>咳・息切れ、血圧手帳、手足の症状</div>
-    <div class="al"><b>⚠ ここに注意</b>息切れ・空咳・発熱はILDを疑い至急受診</div></div><div class="col"><div class="th">④ 長期服用中</div>
-    <div class="bub">副作用がつらい時に自己判断で減らさず、まず相談してください。量を調整する方法があります</div>
-    <div class="chk"><b>✓ 薬局で確認</b>残薬・自己調整の有無、肝機能・心機能検査の予定</div>
-    <div class="al"><b>⚠ ここに注意</b>自己中断・減量はトレーシングレポートで共有</div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導タイムライン(声かけ例)</h2></div><div class="tl4"><div class="th first">① 治療開始前</div><div class="th">② 開始〜2週</div><div class="th">③ 1〜3か月</div><div class="th">④ 長期服用中</div><div class="bub">この薬は毎日同じ時間に飲み続けることが大切です。食事との関係もあるので、飲むタイミングを一緒に決めましょう</div><div class="bub">顔や胸の発疹、下痢が出始める時期です。保湿と下痢止めを早めに使いましょう</div><div class="bub">息切れや空咳が続く時は、次の受診を待たずに連絡してください</div><div class="bub">副作用がつらい時に自己判断で減らさず、まず相談してください。量を調整する方法があります</div><div class="chk"><b>✓ 薬局で確認</b>服用時点(空腹時・食後)、胃薬・CYP3A関連の併用薬、サプリ</div><div class="chk"><b>✓ 薬局で確認</b>電話フォローで皮疹・下痢のGrade、家庭血圧を確認</div><div class="chk"><b>✓ 薬局で確認</b>咳・息切れ、血圧手帳、手足の症状</div><div class="chk"><b>✓ 薬局で確認</b>残薬・自己調整の有無、肝機能・心機能検査の予定</div><div class="al"><b>⚠ ここに注意</b>グレープフルーツ・セイヨウオトギリソウは避ける</div><div class="al"><b>⚠ ここに注意</b>水様便が1日4回以上増える時は連絡</div><div class="al"><b>⚠ ここに注意</b>息切れ・空咳・発熱はILDを疑い至急受診</div><div class="al"><b>⚠ ここに注意</b>自己中断・減量はトレーシングレポートで共有</div></div></div>
     </div>
     <div class="footer">がん薬物療法 研修シリーズ 基礎知識(分子標的治療薬) ― 実践ガイド(調剤薬局向け) ― 各薬剤の添付文書、がん薬物療法の各種ガイドライン、CTCAE v5.0に基づく</div>
   </div><script>(function(){

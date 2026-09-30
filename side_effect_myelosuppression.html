@@ -312,8 +312,8 @@ table.fcheck td.k{border-left:none;}
 
 /* Grade階段 */
 .ladder-arrow{font-size:7.4pt; color:var(--ink-soft); font-weight:700; text-align:center; background:#ECEFF3; border-radius:999px; padding:.4mm 0; margin-bottom:1.4mm;}
-.ladder{display:grid; gap:1.6mm; align-items:end;}
-.lcol{display:flex; flex-direction:column; gap:1mm;}
+.ladder{display:grid; gap:1mm 1.6mm;}
+.ladder .lhead{align-self:end;}
 .lhead{color:#fff; font-weight:700; font-size:9.4pt; text-align:center; border-radius:1.4mm; display:flex; align-items:center; justify-content:center; padding:0 1mm; line-height:1.2;}
 .lcell{background:#fff; border:0.75pt solid var(--line); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.6pt; line-height:1.35;}
 .lcell b{display:block; font-size:6.8pt;}
@@ -321,11 +321,11 @@ table.fcheck td.k{border-left:none;}
 .lcell.ph b{color:var(--terracotta);}
 /* カード一覧 */
 .cards{display:grid; gap:1.8mm;}
-.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:flex; flex-direction:column;}
+.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:grid; grid-template-rows:subgrid; row-gap:0;}
 .rcard .rh{color:#fff; font-weight:700; font-size:8.6pt; padding:1mm 2mm;}
 .rcard .ri{font-size:7.6pt; line-height:1.35; padding:.8mm 2mm 0;}
 .rcard .ri b{font-size:6.8pt; margin-right:1mm;}
-.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35; margin-top:auto;}
+.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35;}
 .rcard .rhi b{display:block; color:var(--terracotta); font-size:6.8pt;}
 /* 服用カード・レジメンカード */
 .drow2{display:grid; grid-template-columns:22% 36% 1fr; gap:1.2mm; margin-bottom:.8mm;}
@@ -342,11 +342,9 @@ table.fcheck td.k{border-left:none;}
 .tl-dot{font-size:7pt; margin-right:.6mm;}
 .tlbadge{display:inline-block; background:#fff; color:var(--terracotta); font-size:6.4pt; font-weight:700; border-radius:999px; padding:0 1.4mm; margin-left:1.4mm;}
 /* 服薬指導タイムライン */
-.tl4{display:grid; grid-template-columns:repeat(4,1fr); gap:1.4mm;}
-.tl4 .col{display:flex; flex-direction:column;}
-.tl4 .chk{flex:1;}
+.tl4{display:grid; grid-template-columns:repeat(4,1fr); column-gap:1.4mm;}
 .tl4 .th{background:var(--teal-dark); color:#fff; font-weight:700; font-size:8.2pt; text-align:center; padding:1.1mm 1mm; clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%,6% 50%);}
-.tl4 .col:first-child .th{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
+.tl4 .th.first{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
 .tl4 .bub{position:relative; background:var(--teal-tint); border:0.75pt solid var(--teal-tint-line); border-radius:2mm; padding:1.1mm 1.8mm 1.1mm 4mm; margin-top:1mm; font-size:7.3pt; font-weight:700; color:var(--teal-dark); line-height:1.4;}
 .tl4 .bub::before{content:"“"; position:absolute; left:1mm; top:-1.4mm; font-size:15pt; color:var(--teal); font-family:'Shippori Mincho',serif;}
 .tl4 .chk{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; line-height:1.3;}
@@ -354,15 +352,15 @@ table.fcheck td.k{border-left:none;}
 .tl4 .al{background:var(--terracotta); color:#fff; border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; font-weight:700; line-height:1.3;}
 .tl4 .al b{display:block; font-size:6.6pt; color:#FBE4DE;}
 /* 3列の連携図 */
-.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; align-items:stretch;}
-.link3 .side .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
-.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; margin-top:.8mm; font-size:7.4pt; line-height:1.3;}
+.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; row-gap:.8mm;}
+.link3 .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
+.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; font-size:7.4pt; line-height:1.3;}
 .link3 .it i{flex:none; width:4.2mm; height:4.2mm; border-radius:50%; color:#fff; font-style:normal; font-weight:700; font-size:7pt; display:flex; align-items:center; justify-content:center;}
 .link3 .mid{border:0.75pt dashed var(--teal-tint-line); background:#F1F4F6; border-radius:1.6mm; padding:1mm 1.4mm; display:flex; flex-direction:column; gap:1mm;}
 .link3 .mid .mh{font-size:7.8pt; font-weight:700; color:var(--teal-dark); text-align:center;}
 .link3 .mid .mc{background:#fff; border:0.9pt solid var(--teal); border-radius:1.4mm; text-align:center; padding:.7mm 1mm; font-size:7.4pt; font-weight:700; line-height:1.25; flex:1; display:flex; flex-direction:column; justify-content:center;}
 .link3 .mid .mc small{font-weight:400; font-size:6.6pt; color:var(--ink-soft);}
-.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt; padding-top:6mm;}
+.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt;}
 :root{--teal-dark:#8C3D1E; --teal:#B8562E; --teal-tint:#FBE4DE; --teal-tint-line:#E8B49C;}</style>
 </head><body>
 <a class="pdf-dl-btn" href="side_effect_myelosuppression.pdf" download title="PDFをダウンロード">
@@ -392,7 +390,7 @@ table.fcheck td.k{border-left:none;}
     <div class="dgs"><div class="dg"><span class="gl">G-CSF製剤</span><span class="chip">フィルグラスチム</span><span class="chip">ペグフィルグラスチム</span></div><div class="dg"><span class="gl">外来FNの経口抗菌薬</span><span class="chip oral">レボフロキサシン</span><span class="chip oral">アモキシシリン・クラブラン酸</span></div><div class="dg"><span class="gl">感染予防</span><span class="chip oral">ST合剤</span><span class="chip oral">アシクロビル</span></div></div>
   </div></div>
   <div class="legend"><span><i class="oral"></i>経口薬(保険薬局で交付されることが多い)</span><span><i></i>注射薬</span></div></div>
-    <div class="section"><div class="sec-title"><div class="num">2</div><h2>重症度(CTCAE Grade)と保険薬局での対応</h2></div><div class="ladder-arrow">軽い ―― 重症度 ――▶ 重い</div><div class="ladder" style="grid-template-columns:repeat(4,1fr);"><div class="lcol"><div class="lhead" style="background:#6B9E8F; min-height:8mm; padding:.6mm 1mm;">Grade1</div><div class="lcell"><b style="color:#6B9E8F">好中球数(/μL)</b>基準値下限未満〜1,500</div><div class="lcell"><b style="color:#6B9E8F">血小板数(/μL)</b>基準値下限未満〜75,000</div><div class="lcell ph"><b style="color:">保険薬局での対応</b>感染予防・体温測定の習慣を確認</div></div><div class="lcol"><div class="lhead" style="background:#D4A43A; min-height:10mm; padding:.6mm 1mm;">Grade2</div><div class="lcell"><b style="color:#D4A43A">好中球数(/μL)</b>1,500未満〜1,000</div><div class="lcell"><b style="color:#D4A43A">血小板数(/μL)</b>75,000未満〜50,000</div><div class="lcell ph"><b style="color:">保険薬局での対応</b>発熱時の連絡方法を再確認</div></div><div class="lcol"><div class="lhead" style="background:#D9822B; min-height:12mm; padding:.6mm 1mm;">Grade3</div><div class="lcell"><b style="color:#D9822B">好中球数(/μL)</b>1,000未満〜500</div><div class="lcell"><b style="color:#D9822B">血小板数(/μL)</b>50,000未満〜25,000</div><div class="lcell ph"><b style="color:">保険薬局での対応</b>発熱・出血症状があれば至急連絡するよう指導</div></div><div class="lcol"><div class="lhead" style="background:#A8321F; min-height:14mm; padding:.6mm 1mm;">Grade4</div><div class="lcell"><b style="color:#A8321F">好中球数(/μL)</b>500未満</div><div class="lcell"><b style="color:#A8321F">血小板数(/μL)</b>25,000未満</div><div class="lcell ph"><b style="color:">保険薬局での対応</b>発熱は即受診(FN)、出血に厳重注意</div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">2</div><h2>重症度(CTCAE Grade)と保険薬局での対応</h2></div><div class="ladder-arrow">軽い ―― 重症度 ――▶ 重い</div><div class="ladder" style="grid-template-columns:repeat(4,1fr);"><div class="lhead" style="background:#6B9E8F; min-height:8mm; padding:.6mm 1mm;">Grade1</div><div class="lhead" style="background:#D4A43A; min-height:10mm; padding:.6mm 1mm;">Grade2</div><div class="lhead" style="background:#D9822B; min-height:12mm; padding:.6mm 1mm;">Grade3</div><div class="lhead" style="background:#A8321F; min-height:14mm; padding:.6mm 1mm;">Grade4</div><div class="lcell"><b style="color:#6B9E8F">好中球数(/μL)</b>基準値下限未満〜1,500</div><div class="lcell"><b style="color:#D4A43A">好中球数(/μL)</b>1,500未満〜1,000</div><div class="lcell"><b style="color:#D9822B">好中球数(/μL)</b>1,000未満〜500</div><div class="lcell"><b style="color:#A8321F">好中球数(/μL)</b>500未満</div><div class="lcell"><b style="color:#6B9E8F">血小板数(/μL)</b>基準値下限未満〜75,000</div><div class="lcell"><b style="color:#D4A43A">血小板数(/μL)</b>75,000未満〜50,000</div><div class="lcell"><b style="color:#D9822B">血小板数(/μL)</b>50,000未満〜25,000</div><div class="lcell"><b style="color:#A8321F">血小板数(/μL)</b>25,000未満</div><div class="lcell ph"><b style="color:">保険薬局での対応</b>感染予防・体温測定の習慣を確認</div><div class="lcell ph"><b style="color:">保険薬局での対応</b>発熱時の連絡方法を再確認</div><div class="lcell ph"><b style="color:">保険薬局での対応</b>発熱・出血症状があれば至急連絡するよう指導</div><div class="lcell ph"><b style="color:">保険薬局での対応</b>発熱は即受診(FN)、出血に厳重注意</div></div></div>
     <div class="section"><div class="sec-title"><div class="num">3</div><h2>副作用の特徴と発現時期</h2></div><div class="onset"><div class="orow ohead"><div class="ol" style="visibility:hidden">-</div><div class="otrack"><span class="tl" style="left:4%">投与日</span><span class="tl" style="left:20%">1週</span><span class="tl" style="left:40%">2週</span><span class="tl" style="left:60%">3週</span><span class="tl" style="left:80%">1か月</span><span class="tl" style="left:95%">3か月〜</span></div></div><div class="orow"><div class="ol">G-CSF後の骨痛・腰痛</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#ECEFF3;"></div><div class="ophase" style="left:20%; width:40%; background:#FBEAE4;"></div><div class="ophase" style="left:60%; width:40%; background:#F3F1EE;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
       <div class="obar" style="left:4%; width:16%;"><span>投与後数日</span></div></div></div><div class="orow hot"><div class="ol">好中球減少(一般的な化学療法)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#ECEFF3;"></div><div class="ophase" style="left:20%; width:40%; background:#FBEAE4;"></div><div class="ophase" style="left:60%; width:40%; background:#F3F1EE;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
       <div class="obar" style="left:20%; width:20%;"><span>7〜14日目</span></div></div></div><div class="orow hot"><div class="ol">FNのリスクが最も高い時期</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#ECEFF3;"></div><div class="ophase" style="left:20%; width:40%; background:#FBEAE4;"></div><div class="ophase" style="left:60%; width:40%; background:#F3F1EE;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>

@@ -312,8 +312,8 @@ table.fcheck td.k{border-left:none;}
 
 /* Grade階段 */
 .ladder-arrow{font-size:7.4pt; color:var(--ink-soft); font-weight:700; text-align:center; background:#ECEFF3; border-radius:999px; padding:.4mm 0; margin-bottom:1.4mm;}
-.ladder{display:grid; gap:1.6mm; align-items:end;}
-.lcol{display:flex; flex-direction:column; gap:1mm;}
+.ladder{display:grid; gap:1mm 1.6mm;}
+.ladder .lhead{align-self:end;}
 .lhead{color:#fff; font-weight:700; font-size:9.4pt; text-align:center; border-radius:1.4mm; display:flex; align-items:center; justify-content:center; padding:0 1mm; line-height:1.2;}
 .lcell{background:#fff; border:0.75pt solid var(--line); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.6pt; line-height:1.35;}
 .lcell b{display:block; font-size:6.8pt;}
@@ -321,11 +321,11 @@ table.fcheck td.k{border-left:none;}
 .lcell.ph b{color:var(--terracotta);}
 /* カード一覧 */
 .cards{display:grid; gap:1.8mm;}
-.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:flex; flex-direction:column;}
+.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:grid; grid-template-rows:subgrid; row-gap:0;}
 .rcard .rh{color:#fff; font-weight:700; font-size:8.6pt; padding:1mm 2mm;}
 .rcard .ri{font-size:7.6pt; line-height:1.35; padding:.8mm 2mm 0;}
 .rcard .ri b{font-size:6.8pt; margin-right:1mm;}
-.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35; margin-top:auto;}
+.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35;}
 .rcard .rhi b{display:block; color:var(--terracotta); font-size:6.8pt;}
 /* 服用カード・レジメンカード */
 .drow2{display:grid; grid-template-columns:22% 36% 1fr; gap:1.2mm; margin-bottom:.8mm;}
@@ -342,11 +342,9 @@ table.fcheck td.k{border-left:none;}
 .tl-dot{font-size:7pt; margin-right:.6mm;}
 .tlbadge{display:inline-block; background:#fff; color:var(--terracotta); font-size:6.4pt; font-weight:700; border-radius:999px; padding:0 1.4mm; margin-left:1.4mm;}
 /* 服薬指導タイムライン */
-.tl4{display:grid; grid-template-columns:repeat(4,1fr); gap:1.4mm;}
-.tl4 .col{display:flex; flex-direction:column;}
-.tl4 .chk{flex:1;}
+.tl4{display:grid; grid-template-columns:repeat(4,1fr); column-gap:1.4mm;}
 .tl4 .th{background:var(--teal-dark); color:#fff; font-weight:700; font-size:8.2pt; text-align:center; padding:1.1mm 1mm; clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%,6% 50%);}
-.tl4 .col:first-child .th{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
+.tl4 .th.first{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
 .tl4 .bub{position:relative; background:var(--teal-tint); border:0.75pt solid var(--teal-tint-line); border-radius:2mm; padding:1.1mm 1.8mm 1.1mm 4mm; margin-top:1mm; font-size:7.3pt; font-weight:700; color:var(--teal-dark); line-height:1.4;}
 .tl4 .bub::before{content:"“"; position:absolute; left:1mm; top:-1.4mm; font-size:15pt; color:var(--teal); font-family:'Shippori Mincho',serif;}
 .tl4 .chk{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; line-height:1.3;}
@@ -354,15 +352,15 @@ table.fcheck td.k{border-left:none;}
 .tl4 .al{background:var(--terracotta); color:#fff; border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; font-weight:700; line-height:1.3;}
 .tl4 .al b{display:block; font-size:6.6pt; color:#FBE4DE;}
 /* 3列の連携図 */
-.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; align-items:stretch;}
-.link3 .side .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
-.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; margin-top:.8mm; font-size:7.4pt; line-height:1.3;}
+.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; row-gap:.8mm;}
+.link3 .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
+.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; font-size:7.4pt; line-height:1.3;}
 .link3 .it i{flex:none; width:4.2mm; height:4.2mm; border-radius:50%; color:#fff; font-style:normal; font-weight:700; font-size:7pt; display:flex; align-items:center; justify-content:center;}
 .link3 .mid{border:0.75pt dashed var(--teal-tint-line); background:#F1F4F6; border-radius:1.6mm; padding:1mm 1.4mm; display:flex; flex-direction:column; gap:1mm;}
 .link3 .mid .mh{font-size:7.8pt; font-weight:700; color:var(--teal-dark); text-align:center;}
 .link3 .mid .mc{background:#fff; border:0.9pt solid var(--teal); border-radius:1.4mm; text-align:center; padding:.7mm 1mm; font-size:7.4pt; font-weight:700; line-height:1.25; flex:1; display:flex; flex-direction:column; justify-content:center;}
 .link3 .mid .mc small{font-weight:400; font-size:6.6pt; color:var(--ink-soft);}
-.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt; padding-top:6mm;}
+.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt;}
 :root{--teal-dark:#084F4F; --teal:#0B6E6E; --teal-tint:#E3F1EF; --teal-tint-line:#BFE3E0;}</style>
 </head><body>
 <a class="pdf-dl-btn" href="classification_hormone_checkpoints.pdf" download title="PDFをダウンロード">
@@ -378,7 +376,7 @@ table.fcheck td.k{border-left:none;}
     </div>
   </div>
     <div class="fitbox">
-    <div class="section"><div class="sec-title"><div class="num">1</div><h2>実践チェックリスト(保険薬局/病院)</h2></div><div class="link3"><div class="side"><div class="lh" style="background:var(--terracotta)">保険薬局薬剤師</div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">1</i><span>年単位の服薬継続の支援(残薬・自己中断の確認)</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">2</i><span>ほてり・関節痛など継続の妨げになる症状の聴取と対処</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">3</i><span>アビラテロンの空腹時服用・プレドニゾロン併用の確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">4</i><span>他院の抗うつ薬・抗凝固薬・スタチン等の相互作用確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">5</i><span>骨の健康(カルシウム・歯科受診)の指導と情報提供</span></div></div><div class="arr">⇄<br>⇄<br>⇄<br>⇄</div><div class="mid"><div class="mh">病院と共有する情報</div><div class="mc">治療目的・予定期間<small>(お薬手帳)</small></div><div class="mc">骨密度・検査値<small>(カリウム・肝機能)</small></div><div class="mc">副作用と服薬状況<small>(トレーシングレポート)</small></div><div class="mc">自己中断の有無と理由<small>(来局時の聴取)</small></div></div><div class="arr">⇄<br>⇄<br>⇄<br>⇄</div><div class="side"><div class="lh" style="background:var(--teal-dark)">病院薬剤師</div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">1</i><span>閉経状況・受容体・治療期間とレジメンの整合性の確認</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">2</i><span>LH-RH製剤など注射の投与スケジュール管理</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">3</i><span>骨密度検査・骨を守る薬の導入の提案</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">4</i><span>アビラテロン開始時の肝機能・カリウムの確認</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">5</i><span>お薬手帳への治療目的・予定期間の記載</span></div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">1</div><h2>ホルモン療法の薬薬連携 ― 年単位の服薬継続を支える</h2></div><div class="link3"><div class="lh" style="grid-column:1; grid-row:1; background:var(--teal-dark)">病院薬剤師</div><div class="it" style="grid-column:1; grid-row:2; background:var(--teal-tint)"><i style="background:var(--teal-dark)">1</i><span>閉経状況・受容体・治療期間とレジメンの整合性の確認</span></div><div class="it" style="grid-column:1; grid-row:3; background:var(--teal-tint)"><i style="background:var(--teal-dark)">2</i><span>LH-RH製剤など注射の投与スケジュール管理</span></div><div class="it" style="grid-column:1; grid-row:4; background:var(--teal-tint)"><i style="background:var(--teal-dark)">3</i><span>骨密度検査・骨を守る薬の導入の提案</span></div><div class="it" style="grid-column:1; grid-row:5; background:var(--teal-tint)"><i style="background:var(--teal-dark)">4</i><span>アビラテロン開始時の肝機能・カリウムの確認</span></div><div class="it" style="grid-column:1; grid-row:6; background:var(--teal-tint)"><i style="background:var(--teal-dark)">5</i><span>お薬手帳への治療目的・予定期間の記載</span></div><div class="arr" style="grid-column:2; grid-row:2 / 7"><span>⇄</span><span>⇄</span><span>⇄</span><span>⇄</span></div><div class="mid" style="grid-column:3; grid-row:1 / 7"><div class="mh">病院と共有する情報</div><div class="mc">治療目的・予定期間<small>(5年・10年など)</small></div><div class="mc">骨密度・骨の薬<small>(AI・ADT)</small></div><div class="mc">自己中断の理由<small>(関節痛・ほてり)</small></div><div class="mc">カリウム・肝機能<small>(アビラテロン)</small></div></div><div class="arr" style="grid-column:4; grid-row:2 / 7"><span>⇄</span><span>⇄</span><span>⇄</span><span>⇄</span></div><div class="lh" style="grid-column:5; grid-row:1; background:var(--terracotta)">保険薬局薬剤師</div><div class="it" style="grid-column:5; grid-row:2; background:#FDF3EF"><i style="background:var(--terracotta)">1</i><span>年単位の服薬継続の支援(残薬・自己中断の確認)</span></div><div class="it" style="grid-column:5; grid-row:3; background:#FDF3EF"><i style="background:var(--terracotta)">2</i><span>ほてり・関節痛など継続の妨げになる症状の聴取と対処</span></div><div class="it" style="grid-column:5; grid-row:4; background:#FDF3EF"><i style="background:var(--terracotta)">3</i><span>アビラテロンの空腹時服用・プレドニゾロン併用の確認</span></div><div class="it" style="grid-column:5; grid-row:5; background:#FDF3EF"><i style="background:var(--terracotta)">4</i><span>他院の抗うつ薬・抗凝固薬・スタチン等の相互作用確認</span></div><div class="it" style="grid-column:5; grid-row:6; background:#FDF3EF"><i style="background:var(--terracotta)">5</i><span>骨の健康(カルシウム・歯科受診)の指導と情報提供</span></div></div></div>
     <div class="section"><div class="sec-title"><div class="num">2</div><h2>主な薬剤の服用方法と薬局での確認ポイント</h2></div><div class="drow2"><div class="dn" style="background:var(--teal-tint); color:var(--teal-dark); border-left:1.6mm solid #8E99A3;">タモキシフェン</div>
       <div class="ds"><span class="tb" style="background:#8E99A3">指示どおり</span><span>1日1回、5〜10年</span></div>
       <div class="dp"><i>✓</i> ほてり　<i>✓</i> 静脈血栓塞栓症　<i>✓</i> 子宮内膜の変化　<i>✓</i> 不正性器出血・片足の腫れ</div></div><div class="drow2"><div class="dn" style="background:var(--teal-tint); color:var(--teal-dark); border-left:1.6mm solid #8E99A3;">アロマターゼ阻害薬</div>
@@ -424,19 +422,7 @@ table.fcheck td.k{border-left:none;}
     <td><span class="pt" style="background:#5B6B82">処方薬</span><br>エストロゲン製剤(ホルモン補充療法等)</td>
     <td class="eff">治療効果の減弱</td>
     <td class="act">婦人科など他院の処方を確認</td></tr></table></div>
-    <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導の声かけ例と確認のタイミング</h2></div><div class="tl4"><div class="col"><div class="th">① 治療開始時</div>
-    <div class="bub">この治療は年単位で続けることで再発を防ぎます。飲み忘れを防ぐ工夫を一緒に考えましょう</div>
-    <div class="chk"><b>✓ 薬局で確認</b>治療目的・予定期間、閉経状況、他院の抗うつ薬・抗凝固薬</div>
-    <div class="al"><b>⚠ ここに注意</b>アビラテロンは空腹時の服用を具体的に説明</div></div><div class="col"><div class="th">② 1〜3か月</div>
-    <div class="bub">ほてりや関節の痛みはありませんか。続けにくいと感じたら教えてください</div>
-    <div class="chk"><b>✓ 薬局で確認</b>副作用と対処法、注射の予定、血圧・カリウム(アビラテロン)</div>
-    <div class="al"><b>⚠ ここに注意</b>片足の腫れ・急な息切れは血栓症を疑い至急受診</div></div><div class="col"><div class="th">③ 半年〜1年</div>
-    <div class="bub">骨密度の検査は受けましたか。カルシウムやビタミンDをとり、体を動かしましょう</div>
-    <div class="chk"><b>✓ 薬局で確認</b>骨密度検査・骨粗鬆症治療薬、歯科受診(骨の薬を使う場合)</div>
-    <div class="al"><b>⚠ ここに注意</b>転倒・骨折のリスクを評価</div></div><div class="col"><div class="th">④ 年単位</div>
-    <div class="bub">ここまで続けられていますね。気になる症状は変わりありませんか</div>
-    <div class="chk"><b>✓ 薬局で確認</b>残薬と服薬継続、不正性器出血(タモキシフェン)</div>
-    <div class="al"><b>⚠ ここに注意</b>自己中断があれば理由を聞き処方医と共有</div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導タイムライン(声かけ例)</h2></div><div class="tl4"><div class="th first">① 治療開始時</div><div class="th">② 1〜3か月</div><div class="th">③ 半年〜1年</div><div class="th">④ 年単位</div><div class="bub">この治療は年単位で続けることで再発を防ぎます。飲み忘れを防ぐ工夫を一緒に考えましょう</div><div class="bub">ほてりや関節の痛みはありませんか。続けにくいと感じたら教えてください</div><div class="bub">骨密度の検査は受けましたか。カルシウムやビタミンDをとり、体を動かしましょう</div><div class="bub">ここまで続けられていますね。気になる症状は変わりありませんか</div><div class="chk"><b>✓ 薬局で確認</b>治療目的・予定期間、閉経状況、他院の抗うつ薬・抗凝固薬</div><div class="chk"><b>✓ 薬局で確認</b>副作用と対処法、注射の予定、血圧・カリウム(アビラテロン)</div><div class="chk"><b>✓ 薬局で確認</b>骨密度検査・骨粗鬆症治療薬、歯科受診(骨の薬を使う場合)</div><div class="chk"><b>✓ 薬局で確認</b>残薬と服薬継続、不正性器出血(タモキシフェン)</div><div class="al"><b>⚠ ここに注意</b>アビラテロンは空腹時の服用を具体的に説明</div><div class="al"><b>⚠ ここに注意</b>片足の腫れ・急な息切れは血栓症を疑い至急受診</div><div class="al"><b>⚠ ここに注意</b>転倒・骨折のリスクを評価</div><div class="al"><b>⚠ ここに注意</b>自己中断があれば理由を聞き処方医と共有</div></div></div>
     </div>
     <div class="footer">がん薬物療法 研修シリーズ 基礎知識(ホルモン療法(内分泌療法)) ― 実践ガイド(調剤薬局向け) ― 乳癌診療ガイドライン、前立腺癌診療ガイドライン、各薬剤の添付文書、CTCAE v5.0に基づく</div>
   </div><script>(function(){
@@ -446,7 +432,7 @@ table.fcheck td.k{border-left:none;}
       box.style.zoom = 1;
       var avail = ft.getBoundingClientRect().top - box.getBoundingClientRect().top - 12;
       var need = box.getBoundingClientRect().height;
-      if (need > avail) box.style.zoom = Math.max(0.88, avail / need).toFixed(3);
+      if (need > avail) box.style.zoom = Math.max(0.85, avail / need).toFixed(3);
     });
   }
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); else window.addEventListener("load", fit);

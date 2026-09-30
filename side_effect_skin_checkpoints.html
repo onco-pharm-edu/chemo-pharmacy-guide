@@ -312,8 +312,8 @@ table.fcheck td.k{border-left:none;}
 
 /* Grade階段 */
 .ladder-arrow{font-size:7.4pt; color:var(--ink-soft); font-weight:700; text-align:center; background:#ECEFF3; border-radius:999px; padding:.4mm 0; margin-bottom:1.4mm;}
-.ladder{display:grid; gap:1.6mm; align-items:end;}
-.lcol{display:flex; flex-direction:column; gap:1mm;}
+.ladder{display:grid; gap:1mm 1.6mm;}
+.ladder .lhead{align-self:end;}
 .lhead{color:#fff; font-weight:700; font-size:9.4pt; text-align:center; border-radius:1.4mm; display:flex; align-items:center; justify-content:center; padding:0 1mm; line-height:1.2;}
 .lcell{background:#fff; border:0.75pt solid var(--line); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.6pt; line-height:1.35;}
 .lcell b{display:block; font-size:6.8pt;}
@@ -321,11 +321,11 @@ table.fcheck td.k{border-left:none;}
 .lcell.ph b{color:var(--terracotta);}
 /* カード一覧 */
 .cards{display:grid; gap:1.8mm;}
-.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:flex; flex-direction:column;}
+.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:grid; grid-template-rows:subgrid; row-gap:0;}
 .rcard .rh{color:#fff; font-weight:700; font-size:8.6pt; padding:1mm 2mm;}
 .rcard .ri{font-size:7.6pt; line-height:1.35; padding:.8mm 2mm 0;}
 .rcard .ri b{font-size:6.8pt; margin-right:1mm;}
-.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35; margin-top:auto;}
+.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35;}
 .rcard .rhi b{display:block; color:var(--terracotta); font-size:6.8pt;}
 /* 服用カード・レジメンカード */
 .drow2{display:grid; grid-template-columns:22% 36% 1fr; gap:1.2mm; margin-bottom:.8mm;}
@@ -342,11 +342,9 @@ table.fcheck td.k{border-left:none;}
 .tl-dot{font-size:7pt; margin-right:.6mm;}
 .tlbadge{display:inline-block; background:#fff; color:var(--terracotta); font-size:6.4pt; font-weight:700; border-radius:999px; padding:0 1.4mm; margin-left:1.4mm;}
 /* 服薬指導タイムライン */
-.tl4{display:grid; grid-template-columns:repeat(4,1fr); gap:1.4mm;}
-.tl4 .col{display:flex; flex-direction:column;}
-.tl4 .chk{flex:1;}
+.tl4{display:grid; grid-template-columns:repeat(4,1fr); column-gap:1.4mm;}
 .tl4 .th{background:var(--teal-dark); color:#fff; font-weight:700; font-size:8.2pt; text-align:center; padding:1.1mm 1mm; clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%,6% 50%);}
-.tl4 .col:first-child .th{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
+.tl4 .th.first{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
 .tl4 .bub{position:relative; background:var(--teal-tint); border:0.75pt solid var(--teal-tint-line); border-radius:2mm; padding:1.1mm 1.8mm 1.1mm 4mm; margin-top:1mm; font-size:7.3pt; font-weight:700; color:var(--teal-dark); line-height:1.4;}
 .tl4 .bub::before{content:"“"; position:absolute; left:1mm; top:-1.4mm; font-size:15pt; color:var(--teal); font-family:'Shippori Mincho',serif;}
 .tl4 .chk{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; line-height:1.3;}
@@ -354,15 +352,15 @@ table.fcheck td.k{border-left:none;}
 .tl4 .al{background:var(--terracotta); color:#fff; border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; font-weight:700; line-height:1.3;}
 .tl4 .al b{display:block; font-size:6.6pt; color:#FBE4DE;}
 /* 3列の連携図 */
-.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; align-items:stretch;}
-.link3 .side .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
-.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; margin-top:.8mm; font-size:7.4pt; line-height:1.3;}
+.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; row-gap:.8mm;}
+.link3 .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
+.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; font-size:7.4pt; line-height:1.3;}
 .link3 .it i{flex:none; width:4.2mm; height:4.2mm; border-radius:50%; color:#fff; font-style:normal; font-weight:700; font-size:7pt; display:flex; align-items:center; justify-content:center;}
 .link3 .mid{border:0.75pt dashed var(--teal-tint-line); background:#F1F4F6; border-radius:1.6mm; padding:1mm 1.4mm; display:flex; flex-direction:column; gap:1mm;}
 .link3 .mid .mh{font-size:7.8pt; font-weight:700; color:var(--teal-dark); text-align:center;}
 .link3 .mid .mc{background:#fff; border:0.9pt solid var(--teal); border-radius:1.4mm; text-align:center; padding:.7mm 1mm; font-size:7.4pt; font-weight:700; line-height:1.25; flex:1; display:flex; flex-direction:column; justify-content:center;}
 .link3 .mid .mc small{font-weight:400; font-size:6.6pt; color:var(--ink-soft);}
-.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt; padding-top:6mm;}
+.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt;}
 :root{--teal-dark:#8C3D1E; --teal:#B8562E; --teal-tint:#FBE4DE; --teal-tint-line:#E8B49C;}</style>
 </head><body>
 <a class="pdf-dl-btn" href="side_effect_skin_checkpoints.pdf" download title="PDFをダウンロード">
@@ -378,8 +376,8 @@ table.fcheck td.k{border-left:none;}
     </div>
   </div>
     <div class="fitbox">
-    <div class="section"><div class="sec-title"><div class="num">1</div><h2>実践チェックリスト(保険薬局/病院)</h2></div><div class="link3"><div class="side"><div class="lh" style="background:var(--terracotta)">保険薬局薬剤師</div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">1</i><span>保湿剤の量・回数・塗り方を実演で説明</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">2</i><span>外用ステロイドの部位別の使い分けを確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">3</i><span>保湿剤・外用薬の残量から使用状況を把握</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">4</i><span>胃薬・サプリなど他院処方・市販薬の相互作用確認</span></div><div class="it" style="background:#FDF3EF"><i style="background:var(--terracotta)">5</i><span>悪化や生活への支障をトレーシングレポートで病院へ</span></div></div><div class="arr">⇄<br>⇄<br>⇄<br>⇄</div><div class="mid"><div class="mh">病院と共有する情報</div><div class="mc">レジメン・開始日<small>(お薬手帳)</small></div><div class="mc">皮膚症状のGrade・経過<small>(トレーシングレポート)</small></div><div class="mc">外用薬の使用状況<small>(残量・塗り方)</small></div><div class="mc">予防内服の服用状況<small>(電話フォローの結果)</small></div></div><div class="arr">⇄<br>⇄<br>⇄<br>⇄</div><div class="side"><div class="lh" style="background:var(--teal-dark)">病院薬剤師</div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">1</i><span>予防内服・保湿剤・外用薬の処方セットの提案</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">2</i><span>Grade評価と休薬・減量・皮膚科紹介の判断支援</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">3</i><span>抗EGFR抗体投与時の皮膚症状・Mg値の確認</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">4</i><span>重症薬疹・ICIの皮膚障害への院内対応</span></div><div class="it" style="background:var(--teal-tint)"><i style="background:var(--teal-dark)">5</i><span>お薬手帳へのレジメン・開始日の記載</span></div></div></div></div>
-    <div class="section"><div class="sec-title"><div class="num">2</div><h2>予防と治療 ― 皮膚障害の型で使い分ける</h2></div><div class="cards" style="grid-template-columns:repeat(3,1fr);"><div class="rcard"><div class="rh" style="background:#084F4F">ざ瘡様皮疹(EGFR阻害薬)</div><div class="ri"><b style="color:#084F4F">予防(治療開始時から)</b>保湿・日焼け止め、テトラサイクリン系の予防内服</div><div class="ri"><b style="color:#084F4F">症状が出た時</b>部位に応じた強さの外用ステロイド</div><div class="rhi"><b>薬剤師の確認ポイント</b>予防内服の服用状況、ミノサイクリンのめまい・色素沈着</div></div><div class="rcard"><div class="rh" style="background:#3E5C8A">爪囲炎</div><div class="ri"><b style="color:#3E5C8A">予防(治療開始時から)</b>深爪を避け、爪の周りへの刺激を減らす</div><div class="ri"><b style="color:#3E5C8A">症状が出た時</b>外用ステロイド、テーピング、皮膚科での処置</div><div class="rhi"><b>薬剤師の確認ポイント</b>痛み・歩行への影響、皮膚科受診の要否</div></div><div class="rcard"><div class="rh" style="background:#2F7F86">手足症候群</div><div class="ri"><b style="color:#2F7F86">予防(治療開始時から)</b>保湿剤、圧迫・摩擦・熱を避ける、厚い角質の事前ケア</div><div class="ri"><b style="color:#2F7F86">症状が出た時</b>強めの外用ステロイド、休薬・減量</div><div class="rhi"><b>薬剤師の確認ポイント</b>保湿の回数(1日2回以上)、靴・家事の工夫</div></div><div class="rcard"><div class="rh" style="background:#7A5C99">皮膚乾燥・亀裂</div><div class="ri"><b style="color:#7A5C99">予防(治療開始時から)</b>入浴後すぐの保湿</div><div class="ri"><b style="color:#7A5C99">症状が出た時</b>亀裂にはワセリン等で保護</div><div class="rhi"><b>薬剤師の確認ポイント</b>亀裂・びらんに尿素製剤は刺激になるため見直し</div></div><div class="rcard"><div class="rh" style="background:#8A6D3B">ICIの皮疹・かゆみ</div><div class="ri"><b style="color:#8A6D3B">予防(治療開始時から)</b>保湿</div><div class="ri"><b style="color:#8A6D3B">症状が出た時</b>外用ステロイド・抗ヒスタミン薬</div><div class="rhi"><b>薬剤師の確認ポイント</b>粘膜症状・水疱は重症薬疹を疑い即受診</div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">1</div><h2>皮膚障害の薬薬連携 ― 予防のスキンケアから</h2></div><div class="link3"><div class="lh" style="grid-column:1; grid-row:1; background:var(--teal-dark)">病院薬剤師</div><div class="it" style="grid-column:1; grid-row:2; background:var(--teal-tint)"><i style="background:var(--teal-dark)">1</i><span>予防内服・保湿剤・外用薬の処方セットの提案</span></div><div class="it" style="grid-column:1; grid-row:3; background:var(--teal-tint)"><i style="background:var(--teal-dark)">2</i><span>皮膚症状の評価と休薬・減量の判断支援</span></div><div class="it" style="grid-column:1; grid-row:4; background:var(--teal-tint)"><i style="background:var(--teal-dark)">3</i><span>抗EGFR抗体投与時の皮膚症状・Mg値の確認</span></div><div class="it" style="grid-column:1; grid-row:5; background:var(--teal-tint)"><i style="background:var(--teal-dark)">4</i><span>重症薬疹・ICIの皮膚障害への院内対応</span></div><div class="it" style="grid-column:1; grid-row:6; background:var(--teal-tint)"><i style="background:var(--teal-dark)">5</i><span>皮膚科への紹介と外用ステロイドのランク調整</span></div><div class="arr" style="grid-column:2; grid-row:2 / 7"><span>⇄</span><span>⇄</span><span>⇄</span><span>⇄</span></div><div class="mid" style="grid-column:3; grid-row:1 / 7"><div class="mh">病院と共有する情報</div><div class="mc">予防の処方セット<small>(保湿剤・予防内服)</small></div><div class="mc">皮膚症状の程度<small>(部位ごと)</small></div><div class="mc">外用薬の使用量<small>(残量・塗り方)</small></div><div class="mc">Mg値<small>(抗EGFR抗体)</small></div></div><div class="arr" style="grid-column:4; grid-row:2 / 7"><span>⇄</span><span>⇄</span><span>⇄</span><span>⇄</span></div><div class="lh" style="grid-column:5; grid-row:1; background:var(--terracotta)">保険薬局薬剤師</div><div class="it" style="grid-column:5; grid-row:2; background:#FDF3EF"><i style="background:var(--terracotta)">1</i><span>保湿剤の量・回数・塗り方を実演で説明</span></div><div class="it" style="grid-column:5; grid-row:3; background:#FDF3EF"><i style="background:var(--terracotta)">2</i><span>外用ステロイドの部位別の使い分けを確認</span></div><div class="it" style="grid-column:5; grid-row:4; background:#FDF3EF"><i style="background:var(--terracotta)">3</i><span>保湿剤・外用薬の残量から使用状況を把握</span></div><div class="it" style="grid-column:5; grid-row:5; background:#FDF3EF"><i style="background:var(--terracotta)">4</i><span>足の裏の痛み・歩行への支障を聴取(手足症候群)</span></div><div class="it" style="grid-column:5; grid-row:6; background:#FDF3EF"><i style="background:var(--terracotta)">5</i><span>胃薬・サプリなど他院処方・市販薬の相互作用確認</span></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">2</div><h2>予防と治療 ― 皮膚障害の型で使い分ける</h2></div><div class="cards" style="grid-template-columns:repeat(3,1fr);"><div class="rcard" style="grid-row:span 4"><div class="rh" style="background:#084F4F">ざ瘡様皮疹(EGFR阻害薬)</div><div class="ri"><b style="color:#084F4F">予防(治療開始時から)</b>保湿・日焼け止め、テトラサイクリン系の予防内服</div><div class="ri"><b style="color:#084F4F">症状が出た時</b>部位に応じた強さの外用ステロイド</div><div class="rhi"><b>薬剤師の確認ポイント</b>予防内服の服用状況、ミノサイクリンのめまい・色素沈着</div></div><div class="rcard" style="grid-row:span 4"><div class="rh" style="background:#3E5C8A">爪囲炎</div><div class="ri"><b style="color:#3E5C8A">予防(治療開始時から)</b>深爪を避け、爪の周りへの刺激を減らす</div><div class="ri"><b style="color:#3E5C8A">症状が出た時</b>外用ステロイド、テーピング、皮膚科での処置</div><div class="rhi"><b>薬剤師の確認ポイント</b>痛み・歩行への影響、皮膚科受診の要否</div></div><div class="rcard" style="grid-row:span 4"><div class="rh" style="background:#2F7F86">手足症候群</div><div class="ri"><b style="color:#2F7F86">予防(治療開始時から)</b>保湿剤、圧迫・摩擦・熱を避ける、厚い角質の事前ケア</div><div class="ri"><b style="color:#2F7F86">症状が出た時</b>強めの外用ステロイド、休薬・減量</div><div class="rhi"><b>薬剤師の確認ポイント</b>保湿の回数(1日2回以上)、靴・家事の工夫</div></div><div class="rcard" style="grid-row:span 4"><div class="rh" style="background:#7A5C99">皮膚乾燥・亀裂</div><div class="ri"><b style="color:#7A5C99">予防(治療開始時から)</b>入浴後すぐの保湿</div><div class="ri"><b style="color:#7A5C99">症状が出た時</b>亀裂にはワセリン等で保護</div><div class="rhi"><b>薬剤師の確認ポイント</b>亀裂・びらんに尿素製剤は刺激になるため見直し</div></div><div class="rcard" style="grid-row:span 4"><div class="rh" style="background:#8A6D3B">ICIの皮疹・かゆみ</div><div class="ri"><b style="color:#8A6D3B">予防(治療開始時から)</b>保湿</div><div class="ri"><b style="color:#8A6D3B">症状が出た時</b>外用ステロイド・抗ヒスタミン薬</div><div class="rhi"><b>薬剤師の確認ポイント</b>粘膜症状・水疱は重症薬疹を疑い即受診</div></div></div></div>
     <div class="section"><div class="sec-title accent"><div class="num">3</div><h2>相互作用・併用注意(他院処方・市販薬・サプリを含む)</h2></div><table class="grid ix"><colgroup><col style="width:9%"><col style="width:17%"><col style="width:28%"><col style="width:21%"><col style="width:25%"></colgroup>
     <tr><th>重要度</th><th>薬剤(機序)</th><th>相手の薬(区分)</th><th>起こること</th><th>薬局での対応</th></tr><tr>
     <td style="background:#fff; text-align:center;"><span class="lv" style="background:#D9822B">注意</span><div class="basis">添付文書<br>併用注意</div></td>
@@ -407,19 +405,7 @@ table.fcheck td.k{border-left:none;}
     <td><span class="pt" style="background:#3F8A5C">サプリ・食品</span><br>セイヨウオトギリソウ</td>
     <td class="eff">血中濃度↓ → 効果減弱</td>
     <td class="act">サプリメントの使用を確認</td></tr></table></div>
-    <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導の声かけ例と確認のタイミング</h2></div><div class="tl4"><div class="col"><div class="th">① 治療開始前</div>
-    <div class="bub">皮膚の症状は、予防のスキンケアを早く始めるほど軽くすみます。今日から保湿を習慣にしましょう</div>
-    <div class="chk"><b>✓ 薬局で確認</b>お薬手帳でレジメン、予防内服・保湿剤・外用薬の処方と量</div>
-    <div class="al"><b>⚠ ここに注意</b>保湿剤の量と回数を実演で説明</div></div><div class="col"><div class="th">② 開始〜2週</div>
-    <div class="bub">顔や胸にニキビのような発疹が出ても、自己判断で薬をやめず、塗り薬を使ってください</div>
-    <div class="chk"><b>✓ 薬局で確認</b>皮疹・手足の発赤の有無、外用ステロイドの部位別の使い分け</div>
-    <div class="al"><b>⚠ ここに注意</b>足の裏の痛みで歩きにくい時は連絡</div></div><div class="col"><div class="th">③ 1〜2か月</div>
-    <div class="bub">爪の周りの腫れや痛み、手足のひび割れはありませんか</div>
-    <div class="chk"><b>✓ 薬局で確認</b>爪囲炎・乾燥・亀裂、保湿剤・外用薬の残量から使用状況を把握</div>
-    <div class="al"><b>⚠ ここに注意</b>亀裂への尿素製剤は刺激になるため見直し</div></div><div class="col"><div class="th">④ 随時</div>
-    <div class="bub">熱を伴う発疹や、目の充血・口のただれがあれば、すぐに連絡してください</div>
-    <div class="chk"><b>✓ 薬局で確認</b>新たに始めた薬(他院処方・市販薬)の有無</div>
-    <div class="al"><b>⚠ ここに注意</b>粘膜症状・水疱は重症薬疹を疑い即受診</div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">4</div><h2>服薬指導タイムライン(声かけ例)</h2></div><div class="tl4"><div class="th first">① 治療開始前</div><div class="th">② 開始〜2週</div><div class="th">③ 1〜2か月</div><div class="th">④ 随時</div><div class="bub">皮膚の症状は、予防のスキンケアを早く始めるほど軽くすみます。今日から保湿を習慣にしましょう</div><div class="bub">顔や胸にニキビのような発疹が出ても、自己判断で薬をやめず、塗り薬を使ってください</div><div class="bub">爪の周りの腫れや痛み、手足のひび割れはありませんか</div><div class="bub">熱を伴う発疹や、目の充血・口のただれがあれば、すぐに連絡してください</div><div class="chk"><b>✓ 薬局で確認</b>お薬手帳でレジメン、予防内服・保湿剤・外用薬の処方と量</div><div class="chk"><b>✓ 薬局で確認</b>皮疹・手足の発赤の有無、外用ステロイドの部位別の使い分け</div><div class="chk"><b>✓ 薬局で確認</b>爪囲炎・乾燥・亀裂、保湿剤・外用薬の残量から使用状況を把握</div><div class="chk"><b>✓ 薬局で確認</b>新たに始めた薬(他院処方・市販薬)の有無</div><div class="al"><b>⚠ ここに注意</b>保湿剤の量と回数を実演で説明</div><div class="al"><b>⚠ ここに注意</b>足の裏の痛みで歩きにくい時は連絡</div><div class="al"><b>⚠ ここに注意</b>亀裂への尿素製剤は刺激になるため見直し</div><div class="al"><b>⚠ ここに注意</b>粘膜症状・水疱は重症薬疹を疑い即受診</div></div></div>
     </div>
     <div class="footer">がん薬物療法 研修シリーズ 副作用ガイド(皮膚障害) ― 実践ガイド(調剤薬局向け) ― 各薬剤の添付文書、CTCAE v5.0に基づく</div>
   </div><script>(function(){

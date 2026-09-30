@@ -312,8 +312,8 @@ table.fcheck td.k{border-left:none;}
 
 /* Grade階段 */
 .ladder-arrow{font-size:7.4pt; color:var(--ink-soft); font-weight:700; text-align:center; background:#ECEFF3; border-radius:999px; padding:.4mm 0; margin-bottom:1.4mm;}
-.ladder{display:grid; gap:1.6mm; align-items:end;}
-.lcol{display:flex; flex-direction:column; gap:1mm;}
+.ladder{display:grid; gap:1mm 1.6mm;}
+.ladder .lhead{align-self:end;}
 .lhead{color:#fff; font-weight:700; font-size:9.4pt; text-align:center; border-radius:1.4mm; display:flex; align-items:center; justify-content:center; padding:0 1mm; line-height:1.2;}
 .lcell{background:#fff; border:0.75pt solid var(--line); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.6pt; line-height:1.35;}
 .lcell b{display:block; font-size:6.8pt;}
@@ -321,11 +321,11 @@ table.fcheck td.k{border-left:none;}
 .lcell.ph b{color:var(--terracotta);}
 /* カード一覧 */
 .cards{display:grid; gap:1.8mm;}
-.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:flex; flex-direction:column;}
+.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:grid; grid-template-rows:subgrid; row-gap:0;}
 .rcard .rh{color:#fff; font-weight:700; font-size:8.6pt; padding:1mm 2mm;}
 .rcard .ri{font-size:7.6pt; line-height:1.35; padding:.8mm 2mm 0;}
 .rcard .ri b{font-size:6.8pt; margin-right:1mm;}
-.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35; margin-top:auto;}
+.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35;}
 .rcard .rhi b{display:block; color:var(--terracotta); font-size:6.8pt;}
 /* 服用カード・レジメンカード */
 .drow2{display:grid; grid-template-columns:22% 36% 1fr; gap:1.2mm; margin-bottom:.8mm;}
@@ -342,11 +342,9 @@ table.fcheck td.k{border-left:none;}
 .tl-dot{font-size:7pt; margin-right:.6mm;}
 .tlbadge{display:inline-block; background:#fff; color:var(--terracotta); font-size:6.4pt; font-weight:700; border-radius:999px; padding:0 1.4mm; margin-left:1.4mm;}
 /* 服薬指導タイムライン */
-.tl4{display:grid; grid-template-columns:repeat(4,1fr); gap:1.4mm;}
-.tl4 .col{display:flex; flex-direction:column;}
-.tl4 .chk{flex:1;}
+.tl4{display:grid; grid-template-columns:repeat(4,1fr); column-gap:1.4mm;}
 .tl4 .th{background:var(--teal-dark); color:#fff; font-weight:700; font-size:8.2pt; text-align:center; padding:1.1mm 1mm; clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%,6% 50%);}
-.tl4 .col:first-child .th{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
+.tl4 .th.first{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
 .tl4 .bub{position:relative; background:var(--teal-tint); border:0.75pt solid var(--teal-tint-line); border-radius:2mm; padding:1.1mm 1.8mm 1.1mm 4mm; margin-top:1mm; font-size:7.3pt; font-weight:700; color:var(--teal-dark); line-height:1.4;}
 .tl4 .bub::before{content:"“"; position:absolute; left:1mm; top:-1.4mm; font-size:15pt; color:var(--teal); font-family:'Shippori Mincho',serif;}
 .tl4 .chk{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; line-height:1.3;}
@@ -354,15 +352,15 @@ table.fcheck td.k{border-left:none;}
 .tl4 .al{background:var(--terracotta); color:#fff; border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; font-weight:700; line-height:1.3;}
 .tl4 .al b{display:block; font-size:6.6pt; color:#FBE4DE;}
 /* 3列の連携図 */
-.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; align-items:stretch;}
-.link3 .side .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
-.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; margin-top:.8mm; font-size:7.4pt; line-height:1.3;}
+.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; row-gap:.8mm;}
+.link3 .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
+.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; font-size:7.4pt; line-height:1.3;}
 .link3 .it i{flex:none; width:4.2mm; height:4.2mm; border-radius:50%; color:#fff; font-style:normal; font-weight:700; font-size:7pt; display:flex; align-items:center; justify-content:center;}
 .link3 .mid{border:0.75pt dashed var(--teal-tint-line); background:#F1F4F6; border-radius:1.6mm; padding:1mm 1.4mm; display:flex; flex-direction:column; gap:1mm;}
 .link3 .mid .mh{font-size:7.8pt; font-weight:700; color:var(--teal-dark); text-align:center;}
 .link3 .mid .mc{background:#fff; border:0.9pt solid var(--teal); border-radius:1.4mm; text-align:center; padding:.7mm 1mm; font-size:7.4pt; font-weight:700; line-height:1.25; flex:1; display:flex; flex-direction:column; justify-content:center;}
 .link3 .mid .mc small{font-weight:400; font-size:6.6pt; color:var(--ink-soft);}
-.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt; padding-top:6mm;}
+.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt;}
 :root{--teal-dark:#084F4F; --teal:#0B6E6E; --teal-tint:#E3F1EF; --teal-tint-line:#BFE3E0;}</style>
 </head><body>
 <a class="pdf-dl-btn" href="classification_basics.pdf" download title="PDFをダウンロード">
@@ -392,7 +390,7 @@ table.fcheck td.k{border-left:none;}
     <div class="dgs"><div class="dg"><span class="gl">乳がん</span><span class="chip oral">タモキシフェン</span><span class="chip oral">アナストロゾール</span><span class="chip oral">レトロゾール</span><span class="chip">フルベストラント</span></div><div class="dg"><span class="gl">前立腺がん</span><span class="chip oral">エンザルタミド</span><span class="chip oral">アビラテロン</span><span class="chip">リュープロレリン</span></div></div>
   </div></div>
   <div class="legend"><span><i class="oral"></i>経口薬(保険薬局で交付されることが多い)</span><span><i></i>注射薬</span></div></div>
-    <div class="section"><div class="sec-title"><div class="num">2</div><h2>分類ごとの特徴と薬局での関わり</h2></div><div class="cards" style="grid-template-columns:repeat(4,1fr);"><div class="rcard"><div class="rh" style="background:#084F4F">細胞障害性抗がん薬</div><div class="ri"><b style="color:#084F4F">標的</b>分裂の速い細胞(非選択的)</div><div class="ri"><b style="color:#084F4F">主な副作用</b>骨髄抑制・悪心嘔吐・脱毛・口内炎</div><div class="ri"><b style="color:#084F4F">起こる時期</b>投与後の決まった時期(nadir等)</div><div class="rhi"><b>保険薬局での主な関わり</b>経口薬の服用日管理、nadir期の電話フォロー</div></div><div class="rcard"><div class="rh" style="background:#3E5C8A">分子標的薬</div><div class="ri"><b style="color:#3E5C8A">標的</b>がんに特徴的な分子</div><div class="ri"><b style="color:#3E5C8A">主な副作用</b>標的に応じた特有の副作用(皮疹・高血圧・下痢・ILD等)</div><div class="ri"><b style="color:#3E5C8A">起こる時期</b>服用開始から継続的に</div><div class="rhi"><b>保険薬局での主な関わり</b>相互作用・服用時点の確認、スキンケア指導</div></div><div class="rcard"><div class="rh" style="background:#2F7F86">免疫チェックポイント阻害薬</div><div class="ri"><b style="color:#2F7F86">標的</b>免疫のブレーキ(PD-1等)</div><div class="ri"><b style="color:#2F7F86">主な副作用</b>irAE(皮膚・消化管・内分泌・肺など全身)</div><div class="ri"><b style="color:#2F7F86">起こる時期</b>数週〜数か月、終了後も</div><div class="rhi"><b>保険薬局での主な関わり</b>投与歴の把握、体調変化の聴取と受診勧奨</div></div><div class="rcard"><div class="rh" style="background:#7A5C99">ホルモン療法</div><div class="ri"><b style="color:#7A5C99">標的</b>ホルモン受容体・産生</div><div class="ri"><b style="color:#7A5C99">主な副作用</b>ほてり・関節痛・骨密度低下・血栓症</div><div class="ri"><b style="color:#7A5C99">起こる時期</b>年単位の長期服用</div><div class="rhi"><b>保険薬局での主な関わり</b>アドヒアランス支援、骨・血栓の確認</div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">2</div><h2>分類ごとの特徴と薬局での関わり</h2></div><div class="cards" style="grid-template-columns:repeat(4,1fr);"><div class="rcard" style="grid-row:span 5"><div class="rh" style="background:#084F4F">細胞障害性抗がん薬</div><div class="ri"><b style="color:#084F4F">標的</b>分裂の速い細胞(非選択的)</div><div class="ri"><b style="color:#084F4F">主な副作用</b>骨髄抑制・悪心嘔吐・脱毛・口内炎</div><div class="ri"><b style="color:#084F4F">起こる時期</b>投与後の決まった時期(nadir等)</div><div class="rhi"><b>保険薬局での主な関わり</b>経口薬の服用日管理、nadir期の電話フォロー</div></div><div class="rcard" style="grid-row:span 5"><div class="rh" style="background:#3E5C8A">分子標的薬</div><div class="ri"><b style="color:#3E5C8A">標的</b>がんに特徴的な分子</div><div class="ri"><b style="color:#3E5C8A">主な副作用</b>標的に応じた特有の副作用(皮疹・高血圧・下痢・ILD等)</div><div class="ri"><b style="color:#3E5C8A">起こる時期</b>服用開始から継続的に</div><div class="rhi"><b>保険薬局での主な関わり</b>相互作用・服用時点の確認、スキンケア指導</div></div><div class="rcard" style="grid-row:span 5"><div class="rh" style="background:#2F7F86">免疫チェックポイント阻害薬</div><div class="ri"><b style="color:#2F7F86">標的</b>免疫のブレーキ(PD-1等)</div><div class="ri"><b style="color:#2F7F86">主な副作用</b>irAE(皮膚・消化管・内分泌・肺など全身)</div><div class="ri"><b style="color:#2F7F86">起こる時期</b>数週〜数か月、終了後も</div><div class="rhi"><b>保険薬局での主な関わり</b>投与歴の把握、体調変化の聴取と受診勧奨</div></div><div class="rcard" style="grid-row:span 5"><div class="rh" style="background:#7A5C99">ホルモン療法</div><div class="ri"><b style="color:#7A5C99">標的</b>ホルモン受容体・産生</div><div class="ri"><b style="color:#7A5C99">主な副作用</b>ほてり・関節痛・骨密度低下・血栓症</div><div class="ri"><b style="color:#7A5C99">起こる時期</b>年単位の長期服用</div><div class="rhi"><b>保険薬局での主な関わり</b>アドヒアランス支援、骨・血栓の確認</div></div></div></div>
     <div class="section"><div class="sec-title"><div class="num">3</div><h2>副作用の特徴と発現時期</h2></div><div class="onset"><div class="orow ohead"><div class="ol" style="visibility:hidden">-</div><div class="otrack"><span class="tl" style="left:4%">投与日</span><span class="tl" style="left:20%">1週</span><span class="tl" style="left:40%">2週</span><span class="tl" style="left:60%">1か月</span><span class="tl" style="left:80%">3か月</span><span class="tl" style="left:95%">1年〜</span></div></div><div class="orow"><div class="ol">過敏症(抗体薬・タキサン)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#E6F2F0;"></div><div class="ophase" style="left:20%; width:40%; background:#FBEAE4;"></div><div class="ophase" style="left:60%; width:40%; background:#ECEFF3;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
       <div class="obar out" style="left:0%; width:3%;"><span>投与中〜24時間</span></div></div></div><div class="orow"><div class="ol">悪心・嘔吐(細胞障害性)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#E6F2F0;"></div><div class="ophase" style="left:20%; width:40%; background:#FBEAE4;"></div><div class="ophase" style="left:60%; width:40%; background:#ECEFF3;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
       <div class="obar" style="left:0%; width:13.999999999999998%;"><span>〜5日</span></div></div></div><div class="orow hot"><div class="ol">好中球減少(細胞障害性)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#E6F2F0;"></div><div class="ophase" style="left:20%; width:40%; background:#FBEAE4;"></div><div class="ophase" style="left:60%; width:40%; background:#ECEFF3;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
