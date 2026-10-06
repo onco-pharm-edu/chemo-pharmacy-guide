@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>皮膚障害 動画</title>
+<style>
+:root{
+  --paper:#F5F7F6; --surface:#FFFFFF;
+  --ink:#17262B; --ink-soft:#4B5D61; --ink-faint:#8A9A9C;
+  --teal-dark:#084F4F; --teal:#0B6E6E; --teal-tint:#E3F1EF; --teal-line:#BFE3E0;
+  --line:#DCE3E1;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0D1917; --surface:#153230; --ink:#EAF3F1; --ink-soft:#A9C4C0; --ink-faint:#6F908B;
+    --teal-dark:#BFEAE4; --teal:#4FC3B8; --teal-tint:#1B3E3A; --teal-line:#2E5951; --line:#274541;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0D1917; --surface:#153230; --ink:#EAF3F1; --ink-soft:#A9C4C0; --ink-faint:#6F908B;
+  --teal-dark:#BFEAE4; --teal:#4FC3B8; --teal-tint:#1B3E3A; --teal-line:#2E5951; --line:#274541;
+}
+*{box-sizing:border-box;}
+body{margin:0; background:var(--paper); color:var(--ink); font-family:'Zen Kaku Gothic New','Hiragino Sans',sans-serif;}
+.wrap{max-width:900px; margin:0 auto; padding:24px 16px 60px;}
+a.back{color:var(--teal-dark); text-decoration:none; font-weight:700; font-size:13.5px; display:inline-flex; align-items:center; gap:4px;}
+.head{margin:22px 0 16px;}
+.tag{font-family:'Shippori Mincho',serif; font-weight:700; color:var(--teal-dark); background:var(--teal-tint); display:inline-block; padding:4px 12px; border-radius:6px; font-size:13px; margin:0 0 10px;}
+h1{font-family:'Shippori Mincho',serif; font-size:24px; font-weight:700; margin:0 0 6px; color:var(--ink);}
+.sub{font-size:14px; color:var(--ink-soft); margin:0;}
+.player-wrap{width:100%; margin:18px 0; border-radius:10px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.18); background:#000;}
+video{display:block; width:100%; height:auto; max-height:80vh;}
+.docs{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px;}
+.docs span{font-size:13px; color:var(--ink-soft); width:100%;}
+.docs a{color:var(--teal-dark); background:var(--surface); border:1px solid var(--teal-line); border-radius:999px; padding:7px 14px; font-size:13.5px; font-weight:700; text-decoration:none;}
+.docs a:hover{background:var(--teal-tint);}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← 一覧に戻る</a>
+  <div class="head">
+    <div class="tag">副作用ガイド 04</div>
+    <h1>皮膚障害</h1>
+    <p class="sub">手足症候群・ざ瘡様皮疹・爪囲炎</p>
+  </div>
+  <div class="player-wrap">
+    <video controls playsinline preload="metadata" poster="side_effect_skin_poster.jpg">
+      <source src="side_effect_skin.mp4" type="video/mp4">
+      お使いのブラウザは動画の再生に対応していません。
+    </video>
+  </div>
+  <div class="docs">
+    <span>この回の資料(A4・印刷対応)</span>
+    <a href="side_effect_skin.html">要点まとめ →</a>
+    <a href="side_effect_skin_checkpoints.html">調剤薬局向け →</a>
+    <a href="patient_skin.html">患者向け資料 →</a>
+  </div>
+</div>
+</body>
+</html>
