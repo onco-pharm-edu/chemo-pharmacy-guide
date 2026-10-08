@@ -102,6 +102,12 @@ section{margin:0 0 48px;}
 .tab-btn.active[data-tab="basics"]{background:var(--navy-dark); border-color:var(--navy-dark);}
 .tab-btn.active[data-tab="sideeffects"]{background:var(--rust-dark); border-color:var(--rust-dark);}
 .tab-btn.active[data-tab="cardio"]{background:var(--navy-dark); border-color:var(--navy-dark);}
+.tab-btn[data-tab="forms"] .tab-dot{background:#0B6E6E;}
+.tab-btn.active[data-tab="forms"]{background:#084F4F; border-color:#084F4F;}
+.forms-steps{margin-top:22px; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px 20px;}
+.forms-steps h3{margin:0 0 8px; font-size:16px;}
+.forms-steps ol{margin:0 0 10px; padding-left:1.4em; line-height:1.8;}
+.forms-steps p{margin:0; font-size:13.5px; color:#8C3D1E; font-weight:700;}
 .tab-btn.active[data-tab="cancer"]{background:var(--slate-dark); border-color:var(--slate-dark);}
 .tab-panel{display:none;}
 .tab-panel.active{display:block;}
@@ -272,6 +278,16 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
       </div>
     </div>
 
+    <div class="hero-content" data-tab="forms">
+      <h1>保険薬局から病院への<br>情報提供書(ひな形)</h1>
+      <p>CTCAE v5.0のGradeで副作用を評価し、服薬状況や薬剤師の提案とあわせて処方医へ伝えるための、トレーシングレポートのひな形です。細胞障害性抗がん薬・分子標的治療薬・免疫チェックポイント阻害薬の3種類を用意しています。</p>
+      <div class="stat-row">
+        <span class="stat-chip"><b>3種類</b>のひな形</span>
+        <span class="stat-chip">CTCAE <b>v5.0</b>に基づく評価</span>
+        <span class="stat-chip"><b>Word・PDF</b>(A4・1枚)</span>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -282,6 +298,7 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
     <button type="button" class="tab-btn" data-tab="sideeffects"><span class="tab-dot"></span>副作用別</button>
     <button type="button" class="tab-btn" data-tab="cardio"><span class="tab-dot"></span>心血管</button>
     <button type="button" class="tab-btn" data-tab="cancer"><span class="tab-dot"></span>癌種別</button>
+    <button type="button" class="tab-btn" data-tab="forms"><span class="tab-dot"></span>情報提供書</button>
   </div>
 
   <div class="tab-panel active" data-tab="basics">
@@ -928,6 +945,7 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
   </div>
 
   <!--forms-->
+  <div class="tab-panel accent-teal" data-tab="forms">
   <section class="forms-section">
     <div class="section-head">
       <h2>保険薬局から病院への情報提供書(ひな形)</h2>
@@ -968,7 +986,17 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
       </div>
     </div>
     </div>
+    <div class="forms-steps">
+      <h3>使い方</h3>
+      <ol>
+        <li>来局時や電話フォローで副作用を聞き取り、表のGrade 1〜3の目安に当てはめてチェックします。</li>
+        <li>服薬状況・支持療法薬の使用状況と、薬剤師としての所見・提案を記入します。</li>
+        <li>患者さんの同意を得て、処方医療機関へFAXなど各施設の方法で送ります。</li>
+      </ol>
+      <p>Grade 3以上の症状や、発熱・息苦しさなど緊急性の高い症状は、本書を使わず病院へ直接電話してください。様式は施設の運用に合わせて自由に変更してお使いいただけます。</p>
+    </div>
   </section>
+  </div>
   <!--/forms-->
 
   <footer></footer>
