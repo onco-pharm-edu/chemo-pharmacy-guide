@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>服用カレンダー作成</title>
+<style>
+:root{
+  --paper:#F4F7FB; --surface:#FFFFFF; --surface-2:#EAF0F8;
+  --ink:#152238; --ink-soft:#4A5A72; --ink-faint:#8593A8;
+  --navy:#1F3A68; --navy-dark:#14284A; --line:#D7E1EC;
+  --on:#E3F1EF; --on-line:#0B6E6E; --on-ink:#084F4F; --off:#F1F2F4; --visit:#B8562E;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0A1526; --surface:#122236; --surface-2:#172B44; --ink:#E8EEF7; --ink-soft:#A9B8CE; --ink-faint:#6E819C;
+    --navy:#8FB0E6; --navy-dark:#BFD2F2; --line:#22344C; --on:#173A37; --on-line:#4FC3B8; --on-ink:#BFEAE4; --off:#1A2638; --visit:#E59A7A;
+  }
+}
+*{box-sizing:border-box;}
+body{margin:0; background:var(--paper); color:var(--ink); font-family:'Zen Kaku Gothic New','Hiragino Sans',sans-serif; line-height:1.6;}
+.wrap{max-width:960px; margin:0 auto; padding:24px 16px 60px;}
+a.back{color:var(--navy); text-decoration:none; font-weight:700; font-size:13.5px;}
+h1{font-family:'Shippori Mincho',serif; font-size:26px; margin:18px 0 6px;}
+.lead{color:var(--ink-soft); font-size:14px; margin:0 0 16px;}
+.form{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:12px 16px;}
+.form .full{grid-column:1 / -1;}
+.form label{display:block; font-size:13px; font-weight:700; color:var(--ink-soft); margin-bottom:4px;}
+.form input, .form select{width:100%; font-size:15px; padding:9px 10px; border:1.5px solid var(--line); border-radius:8px; background:var(--paper); color:var(--ink); font-family:inherit;}
+.form .hint{font-size:12px; color:var(--ink-faint); margin-top:3px;}
+.custom{display:none; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px;}
+.custom.show{display:grid;}
+.btns{display:flex; flex-wrap:wrap; gap:8px;}
+button{font-family:inherit; font-size:15px; font-weight:700; border-radius:999px; padding:10px 20px; cursor:pointer; border:1.5px solid var(--navy); background:var(--navy); color:#fff;}
+button.sub{background:transparent; color:var(--navy);}
+.warn{font-size:13px; color:var(--visit); font-weight:700; margin:12px 0 0;}
+
+/* カレンダー(印刷物) */
+.sheet{background:#fff; color:#152238; border-radius:12px; padding:18px; margin-top:20px; border:1px solid var(--line);}
+.sheet h2{font-family:'Shippori Mincho',serif; font-size:21px; margin:0;}
+.meta{display:flex; flex-wrap:wrap; gap:4px 18px; font-size:13.5px; margin:6px 0 10px;}
+.meta b{color:#084F4F;}
+.legend{display:flex; flex-wrap:wrap; gap:14px; font-size:12.5px; margin:0 0 8px;}
+.legend i{display:inline-block; width:14px; height:14px; border-radius:3px; vertical-align:-2px; margin-right:4px; border:1.5px solid #0B6E6E; background:#E3F1EF;}
+.legend i.off{border-color:#C9CFD6; background:#F1F2F4;}
+.legend i.visit{border-color:#B8562E; background:#fff;}
+.month{margin:12px 0 4px; break-inside:avoid;}
+.month h3{font-size:16px; margin:0 0 4px;}
+.grid{display:grid; grid-template-columns:repeat(7, minmax(0,1fr)); border-left:1px solid #D7E1EC; border-top:1px solid #D7E1EC;}
+.grid .dow{font-size:12px; font-weight:700; text-align:center; background:#EAF0F8; padding:3px 0; border-right:1px solid #D7E1EC; border-bottom:1px solid #D7E1EC;}
+.grid .dow.sun{color:#B23A22;} .grid .dow.sat{color:#2A5BA8;}
+.day{min-height:74px; padding:3px 4px; border-right:1px solid #D7E1EC; border-bottom:1px solid #D7E1EC; font-size:11.5px; position:relative;}
+.day .n{font-weight:700; font-size:13px;}
+.day.blank{background:#FAFBFC;}
+.day.on{background:#E3F1EF;}
+.day.off{background:#F1F2F4;}
+.day .st{font-weight:700; color:#084F4F; font-size:11px;}
+.day.off .st{color:#7A8594;}
+.day .ck{display:block; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.day.visit{box-shadow:inset 0 0 0 2.5px #B8562E;}
+.day .vt{display:block; color:#B8562E; font-weight:700; font-size:11px;}
+.patient-note{border:1.5px solid #B8562E; border-radius:8px; padding:8px 12px; margin-top:12px; font-size:13px;}
+.patient-note b{color:#B8562E;}
+.patient-note ul{margin:4px 0 0; padding-left:1.3em;}
+.contact{display:grid; grid-template-columns:1fr 1fr; gap:6px 16px; font-size:13px; margin-top:8px;}
+.contact div{border-bottom:1px solid #9AA5B4; padding:6px 0 2px;}
+.disc{font-size:11px; color:#6B7686; margin-top:8px;}
+@media (max-width:640px){
+  .form{grid-template-columns:1fr;}
+  .custom{grid-template-columns:1fr 1fr;}
+  .day{min-height:58px; font-size:10px; padding:2px;}
+  .day .ck{font-size:9.5px;}
+}
+@media print{
+  @page{size:A4 portrait; margin:10mm;}
+  body{background:#fff;}
+  .wrap{max-width:none; padding:0;}
+  .no-print{display:none !important;}
+  .sheet{border:none; padding:0; margin:0;}
+  .month{page-break-inside:avoid;}
+  .day{min-height:22mm;}
+  *{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+</head>
+<body>
+<div class="wrap">
+  <div class="no-print">
+    <a class="back" href="index.html">← 一覧に戻る</a>
+    <h1>経口抗がん薬の服用カレンダー作成</h1>
+    <p class="lead">レジメンと開始日を選ぶと、服用日と休薬日が入ったカレンダーを作成します。そのまま印刷して患者さんにお渡しできます。入力内容はこの画面の中だけで使われ、保存や送信はされません。</p>
+    <div class="form">
+      <div class="full">
+        <label for="reg">レジメン・薬剤</label>
+        <select id="reg"></select>
+        <div class="hint" id="regHint"></div>
+      </div>
+      <div class="full custom" id="custom">
+        <div><label for="cOn">服用日数</label><input id="cOn" type="number" min="1" max="60" value="14"></div>
+        <div><label for="cOff">休薬日数</label><input id="cOff" type="number" min="0" max="60" value="7"></div>
+        <div><label for="cName">薬剤名(表示用)</label><input id="cName" type="text" placeholder="例:○○錠"></div>
+      </div>
+      <div><label for="start">服用開始日</label><input id="start" type="date"></div>
+      <div><label for="cycles">コース数</label><select id="cycles"><option>1</option><option selected>2</option><option>3</option></select></div>
+      <div class="full"><label for="times">服用時点(「、」で区切ると複数のチェック欄になります)</label><input id="times" type="text"><div class="hint">例:朝食後、夕食後/1日1回(就寝前)。処方箋の用法に合わせて変更してください。</div></div>
+      <div><label for="visit">次回の受診日(任意)</label><input id="visit" type="date"></div>
+      <div><label for="pname">お名前(任意・印刷用)</label><input id="pname" type="text" placeholder="空欄のままでも印刷できます"></div>
+      <div class="full btns"><button type="button" id="make">カレンダーを作成</button><button type="button" class="sub" id="print">印刷する</button></div>
+    </div>
+    <p class="warn">※ 服用日・休薬日・用法は、必ず処方箋と医師の指示に合わせて確認してください。休薬や減量でスケジュールが変わった時は作り直してください。</p>
+  </div>
+  <div class="sheet" id="sheet" hidden></div>
+</div>
+<script>
+// pattern: 1コース内で服用する日(1始まり)、len: 1コースの日数
+const REG = [
+  { id: "s1_42", name: "S-1(4週服用・2週休薬)", drug: "S-1", len: 42, on: [[1, 28]], times: "朝食後、夕食後", hint: "1コース6週間:28日間服用して14日間休薬" },
+  { id: "s1_21", name: "S-1(2週服用・1週休薬)", drug: "S-1", len: 21, on: [[1, 14]], times: "朝食後、夕食後", hint: "1コース3週間:14日間服用して7日間休薬(SOX療法・術後補助療法の一部など)" },
+  { id: "cape_21", name: "カペシタビン(2週服用・1週休薬)", drug: "カペシタビン", len: 21, on: [[1, 14]], times: "朝食後、夕食後", hint: "1コース3週間:14日間服用して7日間休薬(CAPOX療法など)。食後30分以内に服用" },
+  { id: "cape_28", name: "カペシタビン(3週服用・1週休薬)", drug: "カペシタビン", len: 28, on: [[1, 21]], times: "朝食後、夕食後", hint: "1コース4週間:21日間服用して7日間休薬" },
+  { id: "ftd", name: "FTD/TPI(トリフルリジン・チピラシル)", drug: "トリフルリジン・チピラシル", len: 28, on: [[1, 5], [8, 12]], times: "朝食後、夕食後", hint: "1コース4週間:5日間服用・2日間休薬を2回繰り返し、その後14日間休薬" },
+  { id: "palbo", name: "パルボシクリブ(3週服用・1週休薬)", drug: "パルボシクリブ", len: 28, on: [[1, 21]], times: "1日1回(毎日同じ時間)", hint: "1コース4週間:21日間服用して7日間休薬(内分泌療法薬は休薬中も継続)" },
+  { id: "rego", name: "レゴラフェニブ(3週服用・1週休薬)", drug: "レゴラフェニブ", len: 28, on: [[1, 21]], times: "1日1回 食後", hint: "1コース4週間:21日間服用して7日間休薬。脂肪の多い食事の後は避ける" },
+  { id: "lena", name: "レナリドミド(3週服用・1週休薬)", drug: "レナリドミド", len: 28, on: [[1, 21]], times: "1日1回", hint: "1コース4週間:21日間服用して7日間休薬(多発性骨髄腫のRd療法など)。デキサメタゾンの服用日は別途確認" },
+  { id: "suni", name: "スニチニブ(4週服用・2週休薬)", drug: "スニチニブ", len: 42, on: [[1, 28]], times: "1日1回", hint: "1コース6週間:28日間服用して14日間休薬" },
+  { id: "capi", name: "カピバセルチブ(4日服用・3日休薬)", drug: "カピバセルチブ", len: 7, on: [[1, 4]], times: "朝、夕(1日2回)", hint: "毎週:4日間服用して3日間休薬(フルベストラントと併用)", weeks: true },
+  { id: "custom", name: "自由設定(服用日数・休薬日数を入力)", drug: "", len: 0, on: [], times: "朝食後、夕食後", hint: "服用日数と休薬日数を入力してください" }
+];
+const $ = (id) => document.getElementById(id);
+const pad = (n) => String(n).padStart(2, "0");
+const ymd = (d) => d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+const jp = (d) => (d.getMonth() + 1) + "月" + d.getDate() + "日";
+const DOW = ["日", "月", "火", "水", "木", "金", "土"];
+const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+
+$("reg").innerHTML = REG.map((r) => '<option value="' + r.id + '">' + r.name + '</option>').join("");
+$("start").value = ymd(new Date());
+function onReg() {
+  const r = REG.find((x) => x.id === $("reg").value);
+  $("regHint").textContent = r.hint;
+  $("times").value = r.times;
+  $("custom").classList.toggle("show", r.id === "custom");
+  $("cycles").innerHTML = (r.weeks ? [4, 8, 12] : [1, 2, 3]).map((n, i) => '<option value="' + n + '"' + (i === 1 ? " selected" : "") + '>' + n + (r.weeks ? "週間" : "コース") + '</option>').join("");
+}
+$("reg").addEventListener("change", onReg);
+onReg();
+
+function make() {
+  let r = REG.find((x) => x.id === $("reg").value);
+  if (r.id === "custom") {
+    const on = Math.max(1, +$("cOn").value || 1), off = Math.max(0, +$("cOff").value || 0);
+    r = Object.assign({}, r, { drug: $("cName").value.trim() || "お薬", len: on + off, on: [[1, on]], hint: on + "日間服用して" + off + "日間休薬" });
+  }
+  const startStr = $("start").value;
+  if (!startStr) { alert("服用開始日を入力してください"); return; }
+  const start = new Date(startStr + "T00:00:00");
+  const n = +$("cycles").value;
+  const totalDays = r.weeks ? n * 7 : n * r.len;
+  const times = $("times").value.split(/[、,,]/).map((s) => s.trim()).filter(Boolean);
+  const visitStr = $("visit").value;
+  // 日付ごとの状態
+  const status = new Map();
+  for (let i = 0; i < totalDays; i++) {
+    const d = new Date(start); d.setDate(start.getDate() + i);
+    const dayInCycle = (i % r.len) + 1, cycle = Math.floor(i / r.len) + 1;
+    const on = r.on.some(([a, b]) => dayInCycle >= a && dayInCycle <= b);
+    status.set(ymd(d), { on, cycle, dayInCycle });
+  }
+  const end = new Date(start); end.setDate(start.getDate() + totalDays - 1);
+  // 月ごとのカレンダー
+  let months = "";
+  const m0 = new Date(start.getFullYear(), start.getMonth(), 1);
+  const mEnd = new Date(end.getFullYear(), end.getMonth(), 1);
+  for (let m = new Date(m0); m <= mEnd; m.setMonth(m.getMonth() + 1)) {
+    const y = m.getFullYear(), mo = m.getMonth();
+    const first = new Date(y, mo, 1).getDay(), days = new Date(y, mo + 1, 0).getDate();
+    let cells = DOW.map((w, i) => '<div class="dow' + (i === 0 ? " sun" : i === 6 ? " sat" : "") + '">' + w + '</div>').join("");
+    for (let i = 0; i < first; i++) cells += '<div class="day blank"></div>';
+    for (let d = 1; d <= days; d++) {
+      const key = y + "-" + pad(mo + 1) + "-" + pad(d);
+      const s = status.get(key);
+      const visit = key === visitStr;
+      let cls = "day", inner = '<span class="n">' + d + '</span>';
+      if (s) {
+        cls += s.on ? " on" : " off";
+        if (!r.weeks && s.dayInCycle === 1) inner += ' <span class="st">' + s.cycle + 'コース目</span>';
+        inner += s.on ? times.map((t) => '<span class="ck">□ ' + esc(t) + '</span>').join("") : '<span class="ck st">お休み</span>';
+      } else cls += " blank";
+      if (visit) { cls += " visit"; inner += '<span class="vt">受診日</span>'; }
+      cells += '<div class="' + cls + '">' + inner + '</div>';
+    }
+    months += '<div class="month"><h3>' + y + '年' + (mo + 1) + '月</h3><div class="grid">' + cells + '</div></div>';
+  }
+  const name = $("pname").value.trim();
+  $("sheet").innerHTML =
+    '<h2>' + esc(r.drug) + ' の服用カレンダー</h2>' +
+    '<div class="meta">' + (name ? '<span><b>お名前</b> ' + esc(name) + ' 様</span>' : '') +
+    '<span><b>期間</b> ' + start.getFullYear() + '年' + jp(start) + '〜' + jp(end) + '</span>' +
+    '<span><b>飲み方</b> ' + esc(r.hint) + '</span>' +
+    '<span><b>服用時点</b> ' + esc(times.join("・")) + '</span>' +
+    (visitStr ? '<span><b>次回の受診日</b> ' + jp(new Date(visitStr + "T00:00:00")) + '</span>' : '') + '</div>' +
+    '<div class="legend"><span><i></i>飲む日(飲んだら□に✓)</span><span><i class="off"></i>お休みの日(飲みません)</span>' + (visitStr ? '<span><i class="visit"></i>受診日</span>' : '') + '</div>' +
+    months +
+    '<div class="patient-note"><b>お薬を飲む時の約束</b><ul>' +
+    '<li>飲み忘れた時は、次の回に2回分をまとめて飲まないでください。</li>' +
+    '<li>お休みの日も体調の変化に気をつけ、熱(37.5℃以上)・下痢・口内炎・手足の痛みなどがあれば連絡してください。</li>' +
+    '<li>残ったお薬は捨てずに、次の受診・来局時にお持ちください。</li></ul>' +
+    '<div class="contact"><div>病院の連絡先:</div><div>かかりつけ薬局:</div></div></div>' +
+    '<p class="disc">このカレンダーは処方内容をもとに作成した目安です。飲み方が変わった時は、医師・薬剤師の指示に従ってください。 ― がん薬物療法 研修シリーズ</p>';
+  $("sheet").hidden = false;
+  $("sheet").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+$("make").addEventListener("click", make);
+$("print").addEventListener("click", () => { if ($("sheet").hidden) make(); window.print(); });
+</script>
+</body>
+</html>

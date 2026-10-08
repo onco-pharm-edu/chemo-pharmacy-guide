@@ -104,6 +104,9 @@ section{margin:0 0 48px;}
 .tab-btn.active[data-tab="cardio"]{background:var(--navy-dark); border-color:var(--navy-dark);}
 .tab-btn[data-tab="forms"] .tab-dot{background:#0B6E6E;}
 .tab-btn.active[data-tab="forms"]{background:#084F4F; border-color:#084F4F;}
+.forms-section{margin-top:36px;}
+.site-footer{text-align:center; font-size:13px; color:var(--ink-faint); padding:28px 0 8px; border-top:1px solid var(--line); margin-top:40px;}
+.site-footer a{color:var(--ink-soft); font-weight:700;}
 .forms-steps{margin-top:22px; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px 20px;}
 .forms-steps h3{margin:0 0 8px; font-size:16px;}
 .forms-steps ol{margin:0 0 10px; padding-left:1.4em; line-height:1.8;}
@@ -279,12 +282,12 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
     </div>
 
     <div class="hero-content" data-tab="forms">
-      <h1>保険薬局から病院への<br>情報提供書(ひな形)</h1>
-      <p>CTCAE v5.0のGradeで副作用を評価し、服薬状況や薬剤師の提案とあわせて処方医へ伝えるための、トレーシングレポートのひな形です。細胞障害性抗がん薬・分子標的治療薬・免疫チェックポイント阻害薬の3種類を用意しています。</p>
+      <h1>がん薬物療法研修シリーズ<br>薬局ツール</h1>
+      <p>処方箋の受付や服薬指導、病院への情報提供でそのまま使えるツールをまとめています。薬剤名から関係する資料を探す索引、休薬期間のある経口抗がん薬の服用カレンダー作成、CTCAEに基づく情報提供書のひな形を用意しています。</p>
       <div class="stat-row">
-        <span class="stat-chip"><b>3種類</b>のひな形</span>
-        <span class="stat-chip">CTCAE <b>v5.0</b>に基づく評価</span>
-        <span class="stat-chip"><b>Word・PDF</b>(A4・1枚)</span>
+        <span class="stat-chip"><b>薬剤名</b>索引</span>
+        <span class="stat-chip">服用<b>カレンダー</b>作成</span>
+        <span class="stat-chip">情報提供書<b>3種類</b></span>
       </div>
     </div>
 
@@ -298,7 +301,7 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
     <button type="button" class="tab-btn" data-tab="sideeffects"><span class="tab-dot"></span>副作用別</button>
     <button type="button" class="tab-btn" data-tab="cardio"><span class="tab-dot"></span>心血管</button>
     <button type="button" class="tab-btn" data-tab="cancer"><span class="tab-dot"></span>癌種別</button>
-    <button type="button" class="tab-btn" data-tab="forms"><span class="tab-dot"></span>情報提供書</button>
+    <button type="button" class="tab-btn" data-tab="forms"><span class="tab-dot"></span>薬局ツール</button>
   </div>
 
   <div class="tab-panel active" data-tab="basics">
@@ -946,6 +949,30 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
 
   <!--forms-->
   <div class="tab-panel accent-teal" data-tab="forms">
+  <section>
+    <div class="section-head">
+      <h2>薬局ツール</h2>
+      <p>処方箋の受付や服薬指導の場面で、そのまま使えるツールです。</p>
+    </div>
+    <div class="patient-list">
+    <div class="patient-card">
+      <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg></span>
+      <div>
+        <h3>薬剤名索引</h3>
+        <p>薬剤名の一部を入力すると、その薬が出てくる回(基礎知識・副作用・癌種別)の要点まとめ・調剤薬局向け資料・動画へ移動できます。経口薬や相互作用表に載っている薬だけに絞り込むこともできます。</p>
+      </div>
+      <a class="patient-link" href="drug_index.html">索引を開く<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="patient-card">
+      <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M8 14.5l2 2 4-4"/></svg></span>
+      <div>
+        <h3>経口抗がん薬の服用カレンダー作成</h3>
+        <p>S-1・カペシタビン・FTD/TPI・パルボシクリブなど休薬期間のある経口薬について、開始日を入れるだけで服用日・休薬日入りのカレンダーを作り、A4で印刷できます。入力内容は保存・送信されません。</p>
+      </div>
+      <a class="patient-link" href="calendar.html">カレンダーを作る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    </div>
+  </section>
   <section class="forms-section">
     <div class="section-head">
       <h2>保険薬局から病院への情報提供書(ひな形)</h2>
@@ -987,7 +1014,7 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
     </div>
     </div>
     <div class="forms-steps">
-      <h3>使い方</h3>
+      <h3>情報提供書の使い方</h3>
       <ol>
         <li>来局時や電話フォローで副作用を聞き取り、表のGrade 1〜3の目安に当てはめてチェックします。</li>
         <li>服薬状況・支持療法薬の使用状況と、薬剤師としての所見・提案を記入します。</li>
@@ -999,7 +1026,7 @@ footer{border-top:1px solid var(--line); padding-top:22px; font-size:12px; color
   </div>
   <!--/forms-->
 
-  <footer></footer>
+  <footer class="site-footer"><a href="about.html">このサイトについて(免責事項・出典)</a> ― 最終更新日:2026年10月8日</footer>
 
 </div>
 
