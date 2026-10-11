@@ -101,7 +101,7 @@ function card(d, q) {
   const shown = d.refs.slice(0, 4), rest = d.refs.slice(4);
   return '<div class="term c-' + d.cat + '"><div class="thead"><span class="tname">' + hl(d.term) + '</span><span class="full">' + hl(d.full) + '</span><span class="cat">' + CAT[d.cat] + '</span></div>' +
     '<p class="def">' + hl(d.def) + '</p>' +
-    (d.refs.length ? '<div class="refs"><span class="lbl">使われている回:</span>' + shown.map(refHtml).join("") +
+    (d.refs.length ? '<div class="refs">' + shown.map(refHtml).join("") +
       (rest.length ? '<details class="more"><summary>ほか' + rest.length + '件 ▾</summary><div class="refs">' + rest.map(refHtml).join("") + '</div></details>' : '') + '</div>' : '') +
     '</div>';
 }
