@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<title>作用機序のまとめ(後編):要点まとめ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#F5F7F6; --surface:#FFFFFF; --surface-2:#EEF3F2;
+  --ink:#17262B; --ink-soft:#4B5D61; --ink-faint:#8A9A9C;
+  --teal-dark:#084F4F; --teal:#0B6E6E; --teal-tint:#E3F1EF; --teal-tint-line:#BFE3E0;
+  --terracotta:#C1543A; --terracotta-tint:#F5E3DD; --terracotta-mid:#E9B99E;
+  --rose:#B5567A; --rose-tint:#F6E4EC; --rose-line:#E9B9CC;
+  --line:#DCE3E1;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:#7d8b8a; font-family:'Zen Kaku Gothic New','Hiragino Sans',sans-serif;
+  color:var(--ink); -webkit-font-smoothing:antialiased;
+}
+.page{
+  width:210mm; min-height:297mm; margin:6mm auto; background:var(--paper);
+  box-shadow:0 4px 24px rgba(0,0,0,0.25); position:relative; overflow:hidden;
+  padding:0 14mm 14mm; page-break-after:always;
+}
+@media print{
+  body{background:#fff;}
+  .page{width:auto;min-height:auto;margin:0;box-shadow:none;padding:0 0 8mm;}
+  @page{size:A4;margin:12mm;}
+}
+.header{
+  background:var(--teal-dark); margin:0 -14mm 7mm; padding:10mm 14mm 8mm;
+  color:#fff; display:flex; align-items:center; gap:5.5mm;
+}
+.header .badge{
+  flex:none; width:14.5mm; height:14.5mm; border-radius:3mm; background:var(--terracotta);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Shippori Mincho',serif; font-weight:700; font-size:17.5pt; color:#fff;
+}
+.header .htext{flex:1;}
+.header .tag{
+  font-size:9pt; font-weight:700; letter-spacing:.06em; color:var(--teal-tint-line);
+  text-transform:uppercase; margin:0 0 1.75mm;
+}
+.header h1{
+  font-family:'Shippori Mincho',serif; font-size:21pt; font-weight:700; margin:0 0 1.25mm; color:#fff;
+}
+.header .sub{font-size:11.5pt; color:#F0BBA6; font-weight:700; margin:0;}
+
+.section{margin:0 0 6mm;}
+.sec-title{
+  display:flex; align-items:center; gap:2.75mm; margin:0 0 3mm;
+}
+.sec-title .num{
+  flex:none; width:7mm; height:7mm; border-radius:1.75mm; background:var(--teal-tint);
+  color:var(--teal-dark); font-family:'Shippori Mincho',serif; font-weight:700; font-size:11pt;
+  display:flex; align-items:center; justify-content:center;
+}
+.sec-title.accent .num{background:var(--terracotta-tint); color:var(--terracotta);}
+.sec-title h2{font-size:13.5pt; font-weight:700; margin:0; color:var(--ink);}
+
+ul.check{list-style:none; margin:0; padding:0;}
+ul.check li{
+  position:relative; padding-left:6mm; margin-bottom:2.5mm; font-size:10.3pt; line-height:1.48;
+}
+ul.check li::before{
+  content:""; position:absolute; left:0; top:1.4mm; width:3.4mm; height:3.4mm;
+  border:1.6pt solid var(--teal); border-radius:0.9mm;
+}
+ul.check.accent li::before{border-color:var(--terracotta);}
+
+.icon-row{display:flex; gap:3.5mm; flex-wrap:wrap;}
+.icon-item{
+  display:flex; align-items:flex-start; gap:3mm; background:var(--surface);
+  border:0.75pt solid var(--line); border-radius:2mm; padding:3mm 3.5mm;
+  flex:1 1 42mm; min-width:42mm;
+}
+.icon-item .ic{flex:none; width:9mm; height:9mm; color:var(--teal);}
+.icon-item.accent .ic{color:var(--terracotta);}
+.icon-item p{margin:0; font-size:9.7pt; line-height:1.4; color:var(--ink);}
+
+table.risktable{width:100%; border-collapse:collapse; font-size:9.9pt;}
+table.risktable td{padding:2.75mm 3.5mm; border-bottom:2.5mm solid var(--paper); vertical-align:middle;}
+table.risktable td.lbl{
+  width:24mm; text-align:center; font-weight:700; border-radius:1.75mm 0 0 1.75mm; color:#fff;
+}
+table.risktable td.desc{background:var(--surface); border:0.75pt solid var(--line); border-left:none; border-radius:0 1.75mm 1.75mm 0; color:var(--ink);}
+
+.callout{
+  background:var(--terracotta-tint); border-radius:2mm; padding:3.75mm 4.5mm; font-size:10.3pt;
+  font-weight:700; color:var(--terracotta); line-height:1.42;
+}
+.callout.dark{background:var(--teal-dark); color:#fff;}
+.callout.hero{padding:6mm 6.5mm;}
+
+.gauge{width:100%; margin:2.5mm 0 1.25mm;}
+.gauge-seg{height:9.5mm; display:flex; border-radius:1.75mm; overflow:hidden;}
+.gauge-seg > div{flex:1; display:flex; align-items:center; justify-content:center; font-size:9.2pt; font-weight:700; color:#fff;}
+.gauge-labels{display:flex; margin-top:1.25mm;}
+.gauge-labels > div{flex:1; font-size:8.2pt; color:var(--ink-faint); text-align:center;}
+
+.timeline{position:relative; margin:4.5mm 0 2.5mm; padding:0 2.5mm;}
+.timeline .line{position:absolute; left:9mm; right:9mm; top:5.75mm; height:1.25pt; background:var(--line);}
+.timeline .nodes{display:flex; justify-content:space-between; position:relative;}
+.timeline .node{flex:1; text-align:center; position:relative;}
+.timeline .dot{width:4.75mm; height:4.75mm; border-radius:50%; background:var(--teal); margin:0 auto 2.5mm; border:1.75pt solid #fff; box-shadow:0 0 0 1.15pt var(--teal);}
+.timeline .node.now .dot{background:var(--terracotta); box-shadow:0 0 0 1.15pt var(--terracotta);}
+.timeline .node .lbl{font-size:9.7pt; font-weight:700; color:var(--ink);}
+.timeline .node .desc{font-size:8.3pt; color:var(--ink-soft); margin-top:1mm; line-height:1.32;}
+
+.footer{
+  position:absolute; left:14mm; right:14mm; bottom:8.5mm; border-top:0.75pt solid var(--line);
+  padding-top:2.25mm; font-size:7.8pt; color:var(--ink-faint);
+}
+
+.card{
+  background:var(--surface); border-radius:2.5mm; padding:4mm 4.5mm;
+  box-shadow:0 1.5pt 5pt rgba(23,38,43,0.07); border:0.75pt solid var(--line);
+}
+
+.fillbadge{
+  display:inline-flex; align-items:center; gap:1.5mm; font-size:8pt; font-weight:700;
+  padding:1mm 2.6mm; border-radius:999px; margin-left:2.5mm; white-space:nowrap;
+}
+.fillbadge::before{content:""; width:2mm; height:2mm; border-radius:50%; background:currentColor; display:inline-block;}
+.fillbadge.staff{background:var(--teal-tint); color:var(--teal-dark);}
+.fillbadge.patient{background:var(--rose-tint); color:var(--rose);}
+.fillkey{display:flex; gap:5mm; font-size:8.6pt; color:var(--ink-soft); margin:0 0 5mm;}
+.fillkey span{display:inline-flex; align-items:center; gap:1.8mm;}
+.fillkey .dot{width:2.6mm; height:2.6mm; border-radius:50%; display:inline-block;}
+
+table.profiletable{width:100%; border-collapse:collapse; font-size:10.5pt; margin:2mm 0;}
+table.profiletable td{border-bottom:0.75pt solid var(--line); padding:3.2mm 2mm;}
+table.profiletable td.plabel{width:32mm; color:var(--ink-soft); font-weight:700; white-space:nowrap;}
+table.profiletable td.pfill{border-bottom:0.75pt solid var(--ink-faint);}
+table.profiletable.rose td.pfill{border-bottom:0.75pt solid var(--rose-line);}
+
+table.recordtable{width:100%; border-collapse:collapse; font-size:9.3pt; margin:2mm 0;}
+table.recordtable th{background:var(--teal-tint); color:var(--teal-dark); font-weight:700; padding:2.2mm 2mm; border:0.75pt solid var(--line);}
+table.recordtable td{border:0.75pt solid var(--line); height:8mm; padding:1.5mm 2mm;}
+table.recordtable.rose th{background:var(--rose-tint); color:var(--rose);}
+
+.yn-row{display:flex; align-items:center; gap:4mm; padding:2.2mm 0; border-bottom:0.5pt solid var(--line); font-size:10.3pt;}
+.yn-label{flex:1; color:var(--ink);}
+.yn-note{display:block; font-size:8.3pt; color:var(--ink-faint); font-weight:400;}
+.yn-box{display:flex; align-items:center; gap:1.3mm; flex:none; color:var(--ink-soft); font-size:9.5pt;}
+.yn-check{width:3.4mm; height:3.4mm; border:1.5pt solid var(--ink-faint); border-radius:0.7mm; display:inline-block;}
+
+.flow{display:flex; gap:3.5mm; align-items:stretch;}
+.flow-step{
+  flex:1; color:#fff; border-radius:2.5mm; padding:4mm 4mm; position:relative;
+  box-shadow:0 1.5pt 5pt rgba(23,38,43,0.12);
+}
+.flow-step .fnum{
+  display:inline-flex; align-items:center; justify-content:center; width:6mm; height:6mm;
+  border-radius:50%; background:rgba(255,255,255,.22); font-family:'Shippori Mincho',serif;
+  font-weight:700; font-size:9.5pt; margin-bottom:2mm;
+}
+.flow-step h4{margin:0 0 1.5mm; font-size:11.3pt; font-weight:700; color:#fff;}
+.flow-step p{margin:0; font-size:9pt; color:rgba(255,255,255,.92); line-height:1.42;}
+.flow-arrow{
+  flex:none; width:4mm; align-self:center; display:flex; align-items:center; justify-content:center;
+  color:var(--ink-faint);
+}
+.flow-arrow svg{width:4mm; height:4mm;}
+
+.pdf-dl-btn{
+  position:fixed; top:14px; right:14px; z-index:50;
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--teal-dark); color:#fff; font-family:'Zen Kaku Gothic New',sans-serif; font-weight:700; font-size:12.5px;
+  text-decoration:none; border-radius:999px; padding:9px 16px 9px 14px; box-shadow:0 4px 14px rgba(0,0,0,.2);
+}
+.pdf-dl-btn svg{width:15px; height:15px;}
+.pdf-dl-btn:hover{background:var(--teal);}
+@media print{ .pdf-dl-btn{display:none;} }
+
+.page{padding:0 12mm 16mm; min-height:297mm;}
+@media print{ @page{size:A4; margin:0;} .page{width:210mm; height:297mm; min-height:0; margin:0; padding:0 12mm 16mm; overflow:hidden;} }
+.header{margin:0 -12mm 4mm; padding:6mm 12mm 5mm;}
+.header .badge{width:12mm; height:12mm; font-size:15pt;}
+.header h1{font-size:18pt; margin:0 0 .6mm;}
+.header .tag{margin:0 0 1mm; font-size:8.3pt;}
+.header .sub{font-size:10pt;}
+.footer{left:12mm; right:12mm; bottom:6mm; font-size:7.2pt;}
+.section{margin:0 0 3.2mm;}
+.sec-title{margin:0 0 1.6mm; gap:2.2mm;}
+.sec-title h2{font-size:11pt;}
+.sec-title .num{width:5.6mm; height:5.6mm; font-size:9pt;}
+.lead{font-size:8.2pt; color:var(--ink-soft); margin:-.4mm 0 1.4mm; line-height:1.4;}
+/* 分類マップ(行形式) */
+.dmap{display:flex; flex-direction:column; gap:1.2mm;}
+.drow{display:grid; grid-template-columns:36mm 1fr; background:var(--surface); border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden;}
+.drow .dh{background:var(--teal-dark); color:#fff; padding:1.2mm 2mm; display:flex; flex-direction:column; justify-content:center;}
+.drow.acc .dh{background:var(--terracotta);}
+.drow .dh b{font-size:8.6pt; line-height:1.25;}
+.drow .dh span{font-size:6.8pt; opacity:.9; margin-top:.3mm; line-height:1.25;}
+.drow .dgs{display:flex; flex-wrap:wrap; align-items:center; gap:1mm 3.2mm; padding:1.2mm 2.2mm;}
+.dg{display:flex; align-items:center; gap:1mm; flex-wrap:wrap;}
+.dg .gl{font-size:7.6pt; font-weight:700; color:var(--teal-dark);}
+.drow.acc .dg .gl{color:var(--terracotta);}
+.chip{font-size:7.6pt; border:0.75pt solid var(--line); border-radius:999px; padding:.15mm 1.7mm; background:#fff; white-space:nowrap;}
+.chip.oral{background:var(--teal-tint); border-color:var(--teal); color:var(--teal-dark); font-weight:700;}
+.legend{display:flex; gap:5mm; font-size:7.2pt; color:var(--ink-soft); margin-top:1mm; align-items:center;}
+.legend i{display:inline-block; width:6mm; height:3mm; border-radius:999px; vertical-align:middle; margin-right:1.2mm; border:0.75pt solid var(--line); background:#fff;}
+.legend i.oral{background:var(--teal-tint); border-color:var(--teal);}
+.legend i.hot{background:var(--terracotta); border:none;}
+.legend i.norm{background:var(--teal); border:none;}
+/* 汎用テーブル */
+table.grid{width:100%; border-collapse:separate; border-spacing:0 .7mm; font-size:7.9pt;}
+table.grid th{background:var(--teal-dark); color:#fff; font-weight:700; padding:1mm 1.8mm; text-align:left; font-size:7.8pt;}
+table.grid th:first-child{border-radius:1.5mm 0 0 1.5mm;} table.grid th:last-child{border-radius:0 1.5mm 1.5mm 0;}
+table.grid td{background:var(--surface); padding:.9mm 1.8mm; vertical-align:middle; line-height:1.3; border-top:0.5pt solid var(--line); border-bottom:0.5pt solid var(--line);}
+table.grid td:first-child{border-left:0.5pt solid var(--line); border-radius:1.5mm 0 0 1.5mm; font-weight:700; color:var(--teal-dark); background:var(--teal-tint);}
+table.grid td:last-child{border-right:0.5pt solid var(--line); border-radius:0 1.5mm 1.5mm 0;}
+/* 発現時期マップ */
+.onset{background:var(--surface); border:0.75pt solid var(--line); border-radius:2mm; padding:1.4mm 2.2mm 1.2mm;}
+.orow{display:grid; grid-template-columns:50mm 1fr; align-items:center; min-height:5.2mm;}
+.orow .ol{font-size:7.7pt; font-weight:700; color:var(--ink);}
+.orow .ol::before{content:"●"; font-size:6pt; margin-right:1.2mm; color:var(--teal);}
+.orow.hot .ol::before{color:var(--terracotta);}
+.otrack{position:relative; height:5.2mm; border-left:0.5pt dashed var(--line);}
+.otrack .tick{position:absolute; top:0; bottom:0; border-left:0.5pt dashed var(--line);}
+.obar{position:absolute; top:.7mm; height:3.8mm; border-radius:999px; background:var(--teal); color:#fff; font-size:7.2pt; font-weight:700; display:flex; align-items:center; justify-content:center; white-space:nowrap; overflow:visible;}
+.orow.hot .obar{background:var(--terracotta);}
+.obar.out{justify-content:flex-start;}
+.obar.out span{position:absolute; left:calc(100% + 1.2mm); color:var(--ink-soft);}
+.orow.hot .obar.out span{color:var(--terracotta);}
+.ohead .otrack{height:5mm; border:none; background:var(--teal-dark); border-radius:1mm;}
+.ohead .otrack .tl{position:absolute; top:.6mm; font-size:7.6pt; font-weight:700; color:#fff; transform:translateX(-50%); white-space:nowrap;}
+.ophase{position:absolute; top:0; bottom:0;}
+/* 役割チェックリスト */
+.roles{display:grid; grid-template-columns:1fr 1fr; gap:3mm;}
+.role{background:var(--surface); border:0.75pt solid var(--line); border-radius:2mm; overflow:hidden;}
+.role .rh{padding:1.1mm 3mm; color:#fff; font-weight:700; font-size:9pt; text-align:center;}
+.role ul.check{padding:1.6mm 2.4mm .2mm;}
+.role ul.check li{font-size:7.9pt; margin-bottom:1.1mm; line-height:1.35; padding-left:4.4mm;}
+.role ul.check li::before{width:2.6mm; height:2.6mm; top:.7mm; border-width:1.2pt;}
+.role.ph .rh{background:var(--terracotta);} .role.ph ul.check li::before{border-color:var(--terracotta);}
+.role.hp .rh{background:var(--teal-dark);}
+/* 相互作用 */
+.lv{display:inline-block; color:#fff; font-weight:700; font-size:7.8pt; border-radius:1mm; padding:.5mm 1.6mm; white-space:nowrap;}
+.pt{display:inline-block; color:#fff; font-weight:700; font-size:6.8pt; border-radius:999px; padding:.2mm 1.4mm; margin:0 .8mm .6mm 0;}
+table.ix td{font-size:7.7pt;}
+table.ix .basis{font-size:6.2pt; color:var(--ink-faint); line-height:1.2; margin-top:.6mm; font-weight:400;}
+table.ix td.eff{background:#FBEAE4; color:#8C2F1C; font-weight:700;}
+table.ix td.act{background:#EAF0F4;}
+/* 声かけ */
+.talks{display:grid; grid-template-columns:repeat(4,1fr); gap:2mm;}
+.talk{background:var(--surface); border:0.75pt solid var(--line); border-radius:2mm; padding:1.4mm 1.8mm; display:flex; flex-direction:column; gap:.8mm;}
+.talk .w{font-size:7.6pt; font-weight:700; color:#fff; background:var(--teal-dark); border-radius:999px; padding:.5mm 2mm; align-self:flex-start;}
+.talk .s{font-size:7.2pt; line-height:1.35; background:var(--teal-tint); border-radius:1.5mm; padding:1.4mm 1.8mm;}
+.talk .c{font-size:7pt; line-height:1.32; color:var(--ink-soft);}
+.talk .c b{color:var(--ink);}
+.talk .a{font-size:7pt; line-height:1.3; color:var(--terracotta); font-weight:700; margin-top:auto;}
+.shareline{display:flex; flex-wrap:wrap; align-items:center; gap:1mm 1.6mm; margin-top:1.6mm; font-size:7.4pt;}
+.shareline b{color:#fff; background:var(--teal-dark); border-radius:999px; padding:.3mm 2mm;}
+.shareline span{background:var(--surface); border:0.75pt solid var(--teal-tint-line); border-radius:999px; padding:.2mm 1.8mm;}
+.share{display:grid; grid-template-columns:repeat(4,1fr); gap:2mm;}
+.share div{background:var(--surface); border:0.75pt solid var(--teal-tint-line); border-radius:1.5mm; font-size:7.4pt; text-align:center; padding:1mm; line-height:1.3;}
+.take{background:var(--teal-dark); color:#fff; border-radius:2mm; padding:2mm 3.5mm;}
+.take ol{margin:0; padding-left:5mm; font-size:8.4pt; line-height:1.45;}
+.take b.t{display:block; font-size:9pt; margin-bottom:.6mm; color:#F0BBA6;}
+/* 患者向け */
+.p-intro{font-size:11.5pt; color:var(--ink-soft); line-height:1.65; margin:1mm 0 5mm;}
+.pband{border-radius:3mm; padding:4mm 5mm; margin:0 0 4.5mm;}
+.pband .ph{display:flex; align-items:center; gap:3mm; margin:0 0 3mm;}
+.pband .pn{flex:none; width:9mm; height:9mm; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-family:'Shippori Mincho',serif; font-weight:700; font-size:11.5pt;}
+.pband h3{font-size:15pt; font-weight:700; margin:0;}
+.pband ul{list-style:none; margin:0; padding:0;}
+.pband li{position:relative; padding-left:5mm; margin-bottom:2mm; font-size:12pt; line-height:1.5;}
+.pband li::before{content:"●"; position:absolute; left:0; top:.45em; font-size:5.5pt; color:var(--ink-faint);}
+.pband.alert{background:#FBEAE4; border:1.2pt solid var(--terracotta);}
+.pband.alert li{font-weight:700;}
+.pband.alert li::before{color:var(--terracotta);}
+.pgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:2.5mm;}
+.pcell{background:#fff; border-radius:2mm; padding:3mm 3.2mm;}
+.pcell .pw{font-size:12pt; font-weight:700; color:var(--teal-dark); margin-bottom:1mm;}
+.pcell p{margin:0 0 1.2mm; font-size:11.5pt; line-height:1.45; padding-left:1em; text-indent:-1em;}
+.fill{display:grid; grid-template-columns:auto 1fr; gap:1.6mm 3mm; font-size:10pt; align-items:end;}
+/* 患者向け 特徴パーツ */
+.flead{font-size:10.5pt; margin:0 0 2.2mm; color:var(--ink-soft); line-height:1.5;}
+.fnote{font-size:9.5pt; margin:2mm 0 0; color:var(--ink-soft); line-height:1.45;}
+.fflow{display:flex; align-items:stretch; gap:1.5mm;}
+.fstep{flex:1; background:#fff; border-radius:2mm; padding:2.6mm 2.8mm; border-top:1.6mm solid var(--teal);}
+.fstep.acc{border-top-color:var(--terracotta);}
+.fstep b{display:block; font-size:11.5pt; color:var(--teal-dark); margin-bottom:1mm; line-height:1.35;}
+.fstep.acc b{color:var(--terracotta);}
+.fstep span{display:block; font-size:10pt; line-height:1.45;}
+.farrow{flex:none; align-self:center; color:var(--teal); font-size:10pt;}
+.fcards{display:grid; gap:2mm;}
+.fcard{background:#fff; border-radius:2mm; padding:2.2mm 2.6mm; border-left:1.4mm solid var(--teal);}
+.fcard b{display:block; font-size:11pt; color:var(--teal-dark); margin-bottom:.6mm;}
+.fcard span{display:block; font-size:10pt; line-height:1.4;}
+table.ftable{width:100%; border-collapse:collapse; background:#fff; border-radius:2mm; overflow:hidden; font-size:10.5pt;}
+table.ftable th{background:var(--teal); color:#fff; padding:1.6mm 2.4mm; font-size:10pt; text-align:left;}
+table.ftable td{padding:1.8mm 2.4mm; border-top:0.75pt solid var(--line); line-height:1.4;}
+table.ftable td.k{font-weight:700; color:var(--teal-dark); white-space:nowrap;}
+table.fcheck th{text-align:center;} table.fcheck td{height:8.5mm; border-left:0.75pt solid var(--line);}
+table.fcheck td.k{border-left:none;}
+.fcal{display:grid; grid-template-columns:40mm 1fr; align-items:center; gap:2mm; margin-top:5mm;}
+.fcal-name b{display:block; font-size:11pt; color:var(--teal-dark);}
+.fcal-name span{display:block; font-size:9pt; color:var(--ink-soft);}
+.fcal-days{display:grid; gap:.5mm; height:8mm;}
+.fday{border-radius:.8mm; position:relative;}
+.fday i{position:absolute; top:-4mm; left:0; font-style:normal; font-size:8pt; color:var(--ink-soft);}
+.fcal-desc{margin:1mm 0 2mm 42mm; font-size:10pt; line-height:1.4;}
+.fleg{display:flex; flex-wrap:wrap; gap:4mm; font-size:9pt; color:var(--ink-soft); margin-top:1mm;}
+.fleg i{display:inline-block; width:4.5mm; height:3.5mm; border-radius:.8mm; vertical-align:middle; margin-right:1.2mm;}
+.fill span{font-weight:700; color:var(--ink-soft);}
+.fill i{border-bottom:0.75pt solid var(--ink-faint); height:5.5mm; display:block;}
+
+/* Grade階段 */
+.ladder-arrow{font-size:7.4pt; color:var(--ink-soft); font-weight:700; text-align:center; background:#ECEFF3; border-radius:999px; padding:.4mm 0; margin-bottom:1.4mm;}
+.ladder{display:grid; gap:1mm 1.6mm;}
+.ladder .lhead{align-self:end;}
+.lhead{color:#fff; font-weight:700; font-size:9.4pt; text-align:center; border-radius:1.4mm; display:flex; align-items:center; justify-content:center; padding:0 1mm; line-height:1.2;}
+.lcell{background:#fff; border:0.75pt solid var(--line); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.6pt; line-height:1.35;}
+.lcell b{display:block; font-size:6.8pt;}
+.lcell.ph{background:#FDF3EF; border-color:var(--terracotta); font-weight:700;}
+.lcell.ph b{color:var(--terracotta);}
+/* カード一覧 */
+.cards{display:grid; gap:1.8mm;}
+.rcard{background:#fff; border:0.75pt solid var(--line); border-radius:1.6mm; overflow:hidden; display:grid; grid-template-rows:subgrid; row-gap:0;}
+.rcard .rh{color:#fff; font-weight:700; font-size:8.6pt; padding:1mm 2mm;}
+.rcard .ri{font-size:7.6pt; line-height:1.35; padding:.8mm 2mm 0;}
+.rcard .ri b{font-size:6.8pt; margin-right:1mm;}
+.rcard .rhi{margin:1.2mm 1.4mm 1.4mm; background:#FDF3EF; border:0.75pt solid var(--terracotta); border-radius:1.2mm; padding:1mm 1.6mm; font-size:7.8pt; font-weight:700; line-height:1.35;}
+.rcard .rhi b{display:block; color:var(--terracotta); font-size:6.8pt;}
+/* 服用カード・レジメンカード */
+.drow2{display:grid; grid-template-columns:22% 36% 1fr; gap:1.2mm; margin-bottom:.8mm;}
+.drow2 .dn{border-radius:1.4mm; padding:.8mm 2mm; font-weight:700; font-size:8.4pt; display:flex; flex-direction:column; justify-content:center; line-height:1.25;}
+.drow2 .dn small{font-weight:400; font-size:6.8pt; opacity:.9;}
+.drow2 .ds{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:1mm 1.6mm; font-size:7.8pt; display:flex; align-items:center; gap:1.4mm; line-height:1.3;}
+.drow2 .tb{flex:none; color:#fff; font-weight:700; font-size:7pt; border-radius:999px; padding:.4mm 2mm;}
+.drow2 .cy{flex:none; margin-left:auto; background:var(--teal-tint); color:var(--teal-dark); border:0.75pt solid var(--teal-tint-line); font-weight:700; font-size:7pt; border-radius:999px; padding:.3mm 1.8mm;}
+.drow2 .dp{background:#EAF0F4; border-radius:1.4mm; padding:1mm 1.8mm; font-size:7.6pt; line-height:1.35;}
+.drow2 .dp i{color:var(--terracotta); font-style:normal; font-weight:700;}
+.dleg{display:flex; flex-wrap:wrap; gap:3mm; font-size:7pt; color:var(--ink-soft); margin-top:.6mm;}
+.dleg i{display:inline-block; width:4mm; height:2.6mm; border-radius:999px; vertical-align:middle; margin-right:1mm;}
+/* 治療ライン(色分け) */
+.tl-dot{font-size:7pt; margin-right:.6mm;}
+.tlbadge{display:inline-block; background:#fff; color:var(--terracotta); font-size:6.4pt; font-weight:700; border-radius:999px; padding:0 1.4mm; margin-left:1.4mm;}
+/* 服薬指導タイムライン */
+.tl4{display:grid; grid-template-columns:repeat(4,1fr); column-gap:1.4mm;}
+.tl4 .th{background:var(--teal-dark); color:#fff; font-weight:700; font-size:8.2pt; text-align:center; padding:1.1mm 1mm; clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%,6% 50%);}
+.tl4 .th.first{clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%);}
+.tl4 .bub{position:relative; background:var(--teal-tint); border:0.75pt solid var(--teal-tint-line); border-radius:2mm; padding:1.1mm 1.8mm 1.1mm 4mm; margin-top:1mm; font-size:7.3pt; font-weight:700; color:var(--teal-dark); line-height:1.4;}
+.tl4 .bub::before{content:"“"; position:absolute; left:1mm; top:-1.4mm; font-size:15pt; color:var(--teal); font-family:'Shippori Mincho',serif;}
+.tl4 .chk{background:#fff; border:0.75pt solid var(--line); border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; line-height:1.3;}
+.tl4 .chk b{display:block; color:var(--teal-dark); font-size:6.8pt;}
+.tl4 .al{background:var(--terracotta); color:#fff; border-radius:1.4mm; padding:.8mm 1.6mm; margin-top:.8mm; font-size:7pt; font-weight:700; line-height:1.3;}
+.tl4 .al b{display:block; font-size:6.6pt; color:#FBE4DE;}
+/* 3列の連携図 */
+.link3{display:grid; grid-template-columns:1fr 6mm 30% 6mm 1fr; row-gap:.8mm;}
+.link3 .lh{color:#fff; font-weight:700; font-size:9pt; text-align:center; border-radius:1.4mm; padding:1.1mm;}
+.link3 .it{display:flex; align-items:center; gap:1.6mm; border-radius:1.2mm; padding:.6mm 1.6mm; font-size:7.4pt; line-height:1.3;}
+.link3 .it i{flex:none; width:4.2mm; height:4.2mm; border-radius:50%; color:#fff; font-style:normal; font-weight:700; font-size:7pt; display:flex; align-items:center; justify-content:center;}
+.link3 .mid{border:0.75pt dashed var(--teal-tint-line); background:#F1F4F6; border-radius:1.6mm; padding:1mm 1.4mm; display:flex; flex-direction:column; gap:1mm;}
+.link3 .mid .mh{font-size:7.8pt; font-weight:700; color:var(--teal-dark); text-align:center;}
+.link3 .mid .mc{background:#fff; border:0.9pt solid var(--teal); border-radius:1.4mm; text-align:center; padding:.7mm 1mm; font-size:7.4pt; font-weight:700; line-height:1.25; flex:1; display:flex; flex-direction:column; justify-content:center;}
+.link3 .mid .mc small{font-weight:400; font-size:6.6pt; color:var(--ink-soft);}
+.link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt;}
+
+table.mech{width:100%; border-collapse:separate; border-spacing:0 0.45mm; font-size:6.95pt;}
+table.mech th{background:var(--teal-dark); color:#fff; font-size:7.6pt; padding:1mm 1.6mm; text-align:left;}
+table.mech th:first-child{border-radius:1.4mm 0 0 1.4mm;} table.mech th:last-child{border-radius:0 1.4mm 1.4mm 0;}
+table.mech tr.grp td{background:transparent; color:var(--teal-dark); font-weight:700; font-size:7.8pt; padding:.7mm 0 0; border:none;}
+table.mech td{background:#fff; border-top:0.5pt solid var(--line); border-bottom:0.5pt solid var(--line); padding:.45mm 1.3mm; vertical-align:middle; line-height:1.27;}
+table.mech td.cls{color:#fff; font-weight:700; border:none; border-radius:1.4mm 0 0 1.4mm; text-align:center; font-size:7.4pt; line-height:1.2;}
+table.mech td.cls small{display:block; font-weight:400; font-size:6.3pt; opacity:.9; margin-top:.3mm;}
+table.mech .dt{font-size:6.9pt;} table.mech .dt b{color:var(--teal-dark);}
+table.mech td.site{background:var(--teal-tint); color:var(--teal-dark); font-weight:700; text-align:center;}
+table.mech td.dr{border-right:0.5pt solid var(--line); border-radius:0 1.4mm 1.4mm 0;}
+table.mech b.kw{font-weight:700;}
+table.mech .nt{display:block; color:var(--terracotta); font-weight:700; font-size:7pt; margin-top:.3mm;}
+table.mech .dc{display:inline-block; border:0.6pt solid #B9C4C2; border-radius:999px; padding:0 1.4mm; margin:.3mm .4mm .3mm 0; font-size:6.9pt;}
+table.mech .dc.oral{background:var(--teal-tint); border-color:var(--teal); color:var(--teal-dark); font-weight:700;}
+.mleg{display:flex; flex-wrap:wrap; gap:3mm; font-size:7pt; color:var(--ink-soft); margin:.6mm 0 0;}
+.mleg .dc{display:inline-block; border:0.6pt solid #B9C4C2; border-radius:999px; padding:0 1.4mm; font-size:6.9pt;}
+.mleg .dc.oral{background:var(--teal-tint); border-color:var(--teal); color:var(--teal-dark); font-weight:700;}
+:root{--teal-dark:#084F4F; --teal:#0B6E6E; --teal-tint:#E3F1EF; --teal-tint-line:#BFE3E0;}</style>
+</head><body>
+<a class="pdf-dl-btn" href="classification_mechanism2.pdf" download title="PDFをダウンロード">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-4-4l4 4 4-4"/><path d="M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
+    PDFをダウンロード
+  </a><div class="page">
+    <div class="header">
+    <div class="badge">⑥</div>
+    <div class="htext">
+      <p class="tag">がん薬物療法 研修シリーズ ― 基礎知識 ― 要点まとめ</p>
+      <h1>作用機序のまとめ(後編)</h1>
+      <p class="sub">分子標的薬・免疫チェックポイント阻害薬</p>
+    </div>
+  </div>
+    <div class="fitbox">
+    <div class="section"><div class="sec-title"><div class="num">1</div><h2>薬剤の分類マップ</h2></div><div class="dmap"><div class="drow">
+    <div class="dh"><b>チロシンキナーゼ阻害薬</b><span>受容体・細胞内キナーゼ</span></div>
+    <div class="dgs"><div class="dg"><span class="gl">EGFR・ALK・HER2</span><span class="chip oral">オシメルチニブ</span><span class="chip oral">アレクチニブ</span><span class="chip oral">ラパチニブ</span></div><div class="dg"><span class="gl">BCR-ABL・BTK</span><span class="chip oral">イマチニブ</span><span class="chip oral">ダサチニブ</span><span class="chip oral">イブルチニブ</span></div><div class="dg"><span class="gl">VEGFRなど</span><span class="chip oral">レンバチニブ</span><span class="chip oral">レゴラフェニブ</span></div></div>
+  </div><div class="drow">
+    <div class="dh"><b>その他の小分子薬</b><span>細胞周期・DNA修復など</span></div>
+    <div class="dgs"><div class="dg"><span class="gl">細胞周期・DNA修復</span><span class="chip oral">パルボシクリブ</span><span class="chip oral">アベマシクリブ</span><span class="chip oral">オラパリブ</span></div><div class="dg"><span class="gl">その他</span><span class="chip oral">エベロリムス</span><span class="chip oral">ベネトクラクス</span><span class="chip oral">レナリドミド</span></div></div>
+  </div><div class="drow">
+    <div class="dh"><b>抗体薬・ADC</b><span>細胞表面の抗原</span></div>
+    <div class="dgs"><div class="dg"><span class="gl">抗体薬</span><span class="chip">トラスツズマブ</span><span class="chip">セツキシマブ</span><span class="chip">ベバシズマブ</span><span class="chip">リツキシマブ</span></div><div class="dg"><span class="gl">ADC・二重特異性抗体</span><span class="chip">T-DXd</span><span class="chip">T-DM1</span><span class="chip">エプコリタマブ</span></div></div>
+  </div><div class="drow acc">
+    <div class="dh"><b>免疫チェックポイント阻害薬</b><span>PD-1/PD-L1・CTLA-4</span></div>
+    <div class="dgs"><div class="dg"><span class="gl">抗PD-1/PD-L1抗体</span><span class="chip">ニボルマブ</span><span class="chip">ペムブロリズマブ</span><span class="chip">アテゾリズマブ</span></div><div class="dg"><span class="gl">抗CTLA-4抗体</span><span class="chip">イピリムマブ</span><span class="chip">トレメリムマブ</span></div></div>
+  </div></div>
+  <div class="legend"><span><i class="oral"></i>経口薬(保険薬局で交付されることが多い)</span><span><i></i>注射薬</span></div></div>
+    <div class="section"><div class="sec-title"><div class="num">2</div><h2>作用機序から副作用を予測する</h2></div><div class="cards" style="grid-template-columns:repeat(3,1fr);"><div class="rcard" style="grid-row:span 4"><div class="rh" style="background:#084F4F">EGFRの阻害</div><div class="ri"><b style="color:#084F4F">起こりやすい副作用</b>ざ瘡様皮疹・爪囲炎・下痢</div><div class="ri"><b style="color:#084F4F">なぜ起こるか</b>皮膚や腸の細胞もEGFRを使う</div><div class="rhi"><b>薬局で確認すること</b>保湿・外用薬、排便回数</div></div><div class="rcard" style="grid-row:span 4"><div class="rh" style="background:#3E5C8A">VEGF経路の阻害</div><div class="ri"><b style="color:#3E5C8A">起こりやすい副作用</b>高血圧・蛋白尿・出血</div><div class="ri"><b style="color:#3E5C8A">なぜ起こるか</b>正常な血管や腎臓もVEGFを使う</div><div class="rhi"><b>薬局で確認すること</b>家庭血圧、処方箋の尿蛋白</div></div><div class="rcard" style="grid-row:span 4"><div class="rh" style="background:#2F7F86">CDK4/6の阻害</div><div class="ri"><b style="color:#2F7F86">起こりやすい副作用</b>好中球減少・下痢</div><div class="ri"><b style="color:#2F7F86">なぜ起こるか</b>骨髄の細胞も細胞周期を回している</div><div class="rhi"><b>薬局で確認すること</b>服用日と休薬日、発熱・下痢</div></div><div class="rcard" style="grid-row:span 4"><div class="rh" style="background:#7A5C99">HER2の阻害</div><div class="ri"><b style="color:#7A5C99">起こりやすい副作用</b>心機能低下</div><div class="ri"><b style="color:#7A5C99">なぜ起こるか</b>心筋もHER2で守られている</div><div class="rhi"><b>薬局で確認すること</b>息切れ・むくみ、心エコーの予定</div></div><div class="rcard" style="grid-row:span 4"><div class="rh" style="background:#8A6D3B">ADC(デルクステカン系など)</div><div class="ri"><b style="color:#8A6D3B">起こりやすい副作用</b>間質性肺疾患・悪心</div><div class="ri"><b style="color:#8A6D3B">なぜ起こるか</b>搭載した抗がん薬の作用</div><div class="rhi"><b>薬局で確認すること</b>咳・息切れ・発熱</div></div><div class="rcard" style="grid-row:span 4"><div class="rh" style="background:#C1543A">免疫のブレーキ解除(ICI)</div><div class="ri"><b style="color:#C1543A">起こりやすい副作用</b>irAE(全身の臓器)</div><div class="ri"><b style="color:#C1543A">なぜ起こるか</b>正常な組織にも免疫反応が起こる</div><div class="rhi"><b>薬局で確認すること</b>だるさ・下痢・口渇など、終了後も</div></div></div></div>
+    <div class="section"><div class="sec-title"><div class="num">3</div><h2>副作用の特徴と発現時期</h2></div><div class="onset"><div class="orow ohead"><div class="ol" style="visibility:hidden">-</div><div class="otrack"><span class="tl" style="left:4%">投与日</span><span class="tl" style="left:20%">1週</span><span class="tl" style="left:40%">2週</span><span class="tl" style="left:60%">1か月</span><span class="tl" style="left:80%">3か月</span><span class="tl" style="left:95%">1年〜</span></div></div><div class="orow"><div class="ol">インフュージョンリアクション(抗体薬)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#E6F2F0;"></div><div class="ophase" style="left:20%; width:40%; background:#FBEAE4;"></div><div class="ophase" style="left:60%; width:40%; background:#ECEFF3;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
+      <div class="obar out" style="left:0%; width:4%;"><span>投与中〜24時間</span></div></div></div><div class="orow"><div class="ol">高血圧(VEGF経路阻害薬)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#E6F2F0;"></div><div class="ophase" style="left:20%; width:40%; background:#FBEAE4;"></div><div class="ophase" style="left:60%; width:40%; background:#ECEFF3;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
+      <div class="obar" style="left:6%; width:44.00000000000001%;"><span>数日〜数週</span></div></div></div><div class="orow"><div class="ol">皮疹・下痢(EGFR阻害薬)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#E6F2F0;"></div><div class="ophase" style="left:20%; width:40%; background:#FBEAE4;"></div><div class="ophase" style="left:60%; width:40%; background:#ECEFF3;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
+      <div class="obar" style="left:10%; width:50%;"><span>1〜2週から</span></div></div></div><div class="orow"><div class="ol">好中球減少(CDK4/6阻害薬)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#E6F2F0;"></div><div class="ophase" style="left:20%; width:40%; background:#FBEAE4;"></div><div class="ophase" style="left:60%; width:40%; background:#ECEFF3;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
+      <div class="obar" style="left:30%; width:30%;"><span>服用2〜4週頃</span></div></div></div><div class="orow hot"><div class="ol">間質性肺疾患(EGFR阻害薬・ADC)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#E6F2F0;"></div><div class="ophase" style="left:20%; width:40%; background:#FBEAE4;"></div><div class="ophase" style="left:60%; width:40%; background:#ECEFF3;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
+      <div class="obar" style="left:20%; width:80%;"><span>数週〜数か月、時期を問わず</span></div></div></div><div class="orow hot"><div class="ol">irAE(ICI)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#E6F2F0;"></div><div class="ophase" style="left:20%; width:40%; background:#FBEAE4;"></div><div class="ophase" style="left:60%; width:40%; background:#ECEFF3;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
+      <div class="obar" style="left:40%; width:60%;"><span>数週〜数か月、終了後も</span></div></div></div><div class="orow"><div class="ol">心機能低下(抗HER2療法)</div><div class="otrack"><div class="ophase" style="left:0%; width:20%; background:#E6F2F0;"></div><div class="ophase" style="left:20%; width:40%; background:#FBEAE4;"></div><div class="ophase" style="left:60%; width:40%; background:#ECEFF3;"></div><div class="tick" style="left:20%"></div><div class="tick" style="left:40%"></div><div class="tick" style="left:60%"></div><div class="tick" style="left:80%"></div>
+      <div class="obar" style="left:60%; width:40%;"><span>治療期間を通じて</span></div></div></div></div>
+  <div class="legend"><span><i class="hot"></i>重篤・特に注意</span><span><i class="norm"></i>その他</span></div></div>
+    <div class="section"><div class="take"><b class="t">押さえておきたいポイント</b><ol><li>分子標的薬は、細胞の中のスイッチを止める小分子薬と、細胞の外の目印に結合する抗体薬に分けて整理する</li><li>正常な組織の同じ分子が止まることで副作用が起こる。標的から副作用と時期を予測して聞き取る</li><li>免疫チェックポイント阻害薬は免疫のブレーキを外す薬。irAEは治療終了後も起こる</li></ol></div></div>
+    </div>
+    <div class="footer">がん薬物療法 研修シリーズ 基礎知識(作用機序のまとめ(後編)) ― 要点まとめ ― 各薬剤の添付文書・インタビューフォーム、がん薬物療法の各種ガイドラインに基づく</div>
+  </div><script>(function(){
+  function fit(){
+    document.querySelectorAll(".page").forEach(function(pg){
+      var box = pg.querySelector(".fitbox"), ft = pg.querySelector(".footer"); if(!box||!ft) return;
+      box.style.zoom = 1;
+      var avail = ft.getBoundingClientRect().top - box.getBoundingClientRect().top - 12;
+      var need = box.getBoundingClientRect().height;
+      if (need > avail) box.style.zoom = Math.max(0.8, avail / need).toFixed(3);
+    });
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); else window.addEventListener("load", fit);
+  window.addEventListener("beforeprint", fit);
+})();</script>
+</body></html>
