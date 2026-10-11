@@ -361,6 +361,24 @@ table.fcheck td.k{border-left:none;}
 .link3 .mid .mc{background:#fff; border:0.9pt solid var(--teal); border-radius:1.4mm; text-align:center; padding:.7mm 1mm; font-size:7.4pt; font-weight:700; line-height:1.25; flex:1; display:flex; flex-direction:column; justify-content:center;}
 .link3 .mid .mc small{font-weight:400; font-size:6.6pt; color:var(--ink-soft);}
 .link3 .arr{display:flex; flex-direction:column; justify-content:space-around; align-items:center; color:var(--teal); font-size:9pt;}
+
+table.mech{width:100%; border-collapse:separate; border-spacing:0 0.45mm; font-size:6.95pt;}
+table.mech th{background:var(--teal-dark); color:#fff; font-size:7.6pt; padding:1mm 1.6mm; text-align:left;}
+table.mech th:first-child{border-radius:1.4mm 0 0 1.4mm;} table.mech th:last-child{border-radius:0 1.4mm 1.4mm 0;}
+table.mech tr.grp td{background:transparent; color:var(--teal-dark); font-weight:700; font-size:7.8pt; padding:.7mm 0 0; border:none;}
+table.mech td{background:#fff; border-top:0.5pt solid var(--line); border-bottom:0.5pt solid var(--line); padding:.45mm 1.3mm; vertical-align:middle; line-height:1.27;}
+table.mech td.cls{color:#fff; font-weight:700; border:none; border-radius:1.4mm 0 0 1.4mm; text-align:center; font-size:7.4pt; line-height:1.2;}
+table.mech td.cls small{display:block; font-weight:400; font-size:6.3pt; opacity:.9; margin-top:.3mm;}
+table.mech .dt{font-size:6.9pt;} table.mech .dt b{color:var(--teal-dark);}
+table.mech td.site{background:var(--teal-tint); color:var(--teal-dark); font-weight:700; text-align:center;}
+table.mech td.dr{border-right:0.5pt solid var(--line); border-radius:0 1.4mm 1.4mm 0;}
+table.mech b.kw{font-weight:700;}
+table.mech .nt{display:block; color:var(--terracotta); font-weight:700; font-size:7pt; margin-top:.3mm;}
+table.mech .dc{display:inline-block; border:0.6pt solid #B9C4C2; border-radius:999px; padding:0 1.4mm; margin:.3mm .4mm .3mm 0; font-size:6.9pt;}
+table.mech .dc.oral{background:var(--teal-tint); border-color:var(--teal); color:var(--teal-dark); font-weight:700;}
+.mleg{display:flex; flex-wrap:wrap; gap:3mm; font-size:7pt; color:var(--ink-soft); margin:.6mm 0 0;}
+.mleg .dc{display:inline-block; border:0.6pt solid #B9C4C2; border-radius:999px; padding:0 1.4mm; font-size:6.9pt;}
+.mleg .dc.oral{background:var(--teal-tint); border-color:var(--teal); color:var(--teal-dark); font-weight:700;}
 :root{--teal-dark:#084F4F; --teal:#0B6E6E; --teal-tint:#E3F1EF; --teal-tint-line:#BFE3E0;}</style>
 </head><body>
 <a class="pdf-dl-btn" href="classification_hormone.pdf" download title="PDFをダウンロード">
@@ -378,7 +396,7 @@ table.fcheck td.k{border-left:none;}
     <div class="fitbox">
     <div class="section"><div class="sec-title"><div class="num">1</div><h2>薬剤の分類マップ</h2></div><div class="dmap"><div class="drow">
     <div class="dh"><b>乳がん(エストロゲン)</b><span>受容体を遮断・エストロゲンを減らす</span></div>
-    <div class="dgs"><div class="dg"><span class="gl">SERM(抗エストロゲン薬)</span><span class="chip oral">タモキシフェン</span><span class="chip oral">トレミフェン</span></div><div class="dg"><span class="gl">SERD</span><span class="chip">フルベストラント</span><span class="chip oral">イムルネストラント</span><span class="chip oral">カミゼストラント</span></div><div class="dg"><span class="gl">アロマターゼ阻害薬</span><span class="chip oral">アナストロゾール</span><span class="chip oral">レトロゾール</span><span class="chip oral">エキセメスタン</span></div></div>
+    <div class="dgs"><div class="dg"><span class="gl">SERM(抗エストロゲン薬)</span><span class="chip oral">タモキシフェン</span><span class="chip oral">トレミフェン</span></div><div class="dg"><span class="gl">SERD</span><span class="chip">フルベストラント</span><span class="chip oral">イムルネストラント</span></div><div class="dg"><span class="gl">アロマターゼ阻害薬</span><span class="chip oral">アナストロゾール</span><span class="chip oral">レトロゾール</span><span class="chip oral">エキセメスタン</span></div></div>
   </div><div class="drow">
     <div class="dh"><b>性腺機能の抑制</b><span>卵巣・精巣のホルモン産生を止める</span></div>
     <div class="dgs"><div class="dg"><span class="gl">LH-RHアゴニスト</span><span class="chip">リュープロレリン</span><span class="chip">ゴセレリン</span></div><div class="dg"><span class="gl">GnRHアンタゴニスト(前立腺)</span><span class="chip">デガレリクス</span></div></div>
@@ -411,7 +429,7 @@ table.fcheck td.k{border-left:none;}
       box.style.zoom = 1;
       var avail = ft.getBoundingClientRect().top - box.getBoundingClientRect().top - 12;
       var need = box.getBoundingClientRect().height;
-      if (need > avail) box.style.zoom = Math.max(0.85, avail / need).toFixed(3);
+      if (need > avail) box.style.zoom = Math.max(0.8, avail / need).toFixed(3);
     });
   }
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); else window.addEventListener("load", fit);
